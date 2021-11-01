@@ -1,0 +1,99 @@
+.Registro {
+    text-align: center;
+}
+
+.Background {
+    margin-top: -200px;
+    background-color: white;
+    min-height: 100.5vh;
+    width: 1700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+
+#Tabla{
+    color: black;
+    align-items: center;
+    margin-left: 250px;
+    font-size:x-large;
+    text-align: center;
+    text-align: justify;
+}
+
+#td{
+    align-content: center;
+}
+
+#Tabla td{
+    align-items: center;
+    text-align: center;
+}
+
+#bt{
+    width: 120px;
+    height: 50px;
+    margin-top: 30px;
+    margin-left: 300px;
+}
+
+#bt2{
+    width: auto;
+    height: 50px;
+    margin-top: 30px;
+    margin-left: 80px;    
+}
+
+#bt3{
+    width: 120px;
+    height: 50px;
+    margin-top: 30px;
+    margin-left: 30px;    
+}
+
+#Tabla input{
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    
+}
+
+#head{
+    color: black;
+    text-align: center;
+    margin-bottom: 80px;
+    margin-left: 200px;
+}
+
+.nav{
+    color: black;
+}
+
+#Tabla th{
+    width: 200px;
+    text-align: center;
+}  
+
+.Background p{
+    color:#000;
+    text-align: center;
+}
+
+#Tabla select{
+    width: auto;
+    height: 40px;
+    font-size: x-large;
+}
+
+
+#Tabla textarea{
+    margin-top: 3px;
+    width: 170px;
+    height: 50px;
+    font-size: medium;
+    text-align: center;
+    resize: none;
+}

@@ -1,0 +1,181 @@
+.side-menu{
+  position: fixed;
+  background: #000;
+  width: 300px;
+  height: 100%;
+  padding: 30px 20px;
+  transition: width 0.4s ease-out;
+  
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
+
+
+.side-menu .top-section .toggle-btn{
+  color: white;
+  size: 60px;
+  font-size: 45px;
+  position: absolute;
+  top: 2%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.side-menu .lista {
+  color: white;
+  font-size: 35px;
+  position: absolute;
+  top: 13%;
+  padding-left: 8px;
+ /* border-left: tomato 0.2em solid ; */
+}
+
+.side-menu .lista .alta{
+  font-size: 20px;
+  padding-left: 60px;
+  margin-top: -40px;
+  transition: none ;
+}
+
+.side-menu .lista .baja{
+  font-size: 20px;
+  padding-left: 30px;
+  margin-top: 10px;
+  transition: none ;
+}
+
+.side-menu .lista .a {
+  margin-top: 50px;
+
+}
+
+.side-menu .lista .a .alta-op{
+  font-size: 20px;
+  padding-left: 60px;
+  margin-top: -40px;
+  transition: none ;
+}
+
+.side-menu .lista .baja-op{
+  font-size: 20px;
+  padding-left: 30px;
+  margin-top: 10px;
+  transition: none ;
+}
+
+.side-menu .lista .reasignacionn{
+  font-size: 20px;
+  padding-left: 60px;
+  margin-top: 10px;
+  transition: none ;
+  position: relative;
+}
+
+.side-menu .lista .calendario{
+  margin-top: 50px;
+}
+
+.side-menu .lista .calendario .registro{
+  font-size: 20px;
+  padding-left: 60px;
+  margin-top: -40px;
+  transition: none ;
+}
+
+.side-menu .menu-section{
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  top: 5%;
+  display: block;
+}
+
+.side-menu .menu-section .Icon{
+  margin-left: 0px;
+  margin-top: -20px;
+}
+
+.side-menu .menu-section .men{
+color: whitesmoke;
+}
+
+.side-menu .menu-section .dash{
+  color: white;
+  position: absolute;
+  font-size: 200px;
+  
+}
+
+.divider{
+  width: 100%;
+  height: 2px;
+  border-radius: 1px;
+  background:grey;
+}
+
+
+/* I N A C T I V E  */
+
+
+.side-menu.inactive{
+  width: 90px;
+}
+
+.side-menu.inactive .top-section .toggle-btn{
+
+right: -55px;
+}
+
+.side-menu.inactive .menu-section{
+ transform: scale(0.5) translate(-35%, -5%);
+}
+
+.side-menu.inactive .lista {
+  position: absolute;
+}
+
+.side-menu.inactive .lista .alta{ 
+  transform: scale(0);
+}
+
+.side-menu.inactive .lista .baja{
+  transform: scale(0);
+}
+
+.side-menu.inactive .lista .alta-op{
+  transform: scale(0);
+  
+}
+
+.side-menu.inactive .lista .a{
+  margin-top: -30px;
+
+}
+
+.side-menu.inactive .lista .baja-op{
+  transform: scale(0);
+}
+
+.side-menu.inactive .lista .calendario{
+  margin-top: -30px;
+}
+
+.side-menu.inactive .lista .calendario .registro{
+  transform: scale(0); 
+  
+}
+
+.side-menu.inactive .menu-section .Icon{
+  margin-left: 30px;
+}
+
+.side-menu.inactive .menu-section .men{
+  margin-left: 17px;
+}
+
+.side-menu.inactive .lista .reasignacionn{
+  transform: scale(0);
+}

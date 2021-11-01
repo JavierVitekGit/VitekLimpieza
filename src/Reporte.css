@@ -1,0 +1,37 @@
+.App {
+    text-align: center;
+  }
+  
+  .Reporte {
+    margin-top: -500px;
+    background-color: #282c34;
+    min-height: 151.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+
+  #th{
+      margin-top: 500px;
+  }
+
+  .Reporte textarea{
+      width: 500px;
+      min-height: calc(1.5em + 0.75rem + 2px);
+      text-align: center;
+  }
+
+  #Sig{
+    margin-left: 30px;
+  }
+
+  .Reporte input {
+    width: 250px;
+  }

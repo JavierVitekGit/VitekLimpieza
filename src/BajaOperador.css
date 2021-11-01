@@ -1,0 +1,62 @@
+.App {
+    text-align: center;
+  }
+  
+  .Baja {
+    margin-top: -190px;
+    background-color: #282c34;
+    min-height: 100.6vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  .Body{
+    margin-top: 60px;
+    text-align: center;
+    color: white;
+  }
+  
+  .Baja label{
+    margin-top: 30px;    
+  }
+  
+  .dth{  
+  margin-top: 600px;
+  }
+  
+  .h{
+    margin-bottom: 40px;
+  }
+
+
+
+  .Descanso{
+    margin-left: 0px;
+  }
+
+  #hora{
+      size: 100px;
+      min-width: 150px;
+  }
+
+  .Body select{
+    text-align: center;
+    min-width: 320px;
+  }
+
+  .Body input{
+ 
+    text-align: center;
+  }
+
+  .btn-group > .btn{
+    margin-top: -40px;
+  }

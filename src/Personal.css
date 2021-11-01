@@ -1,0 +1,59 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  margin-top: -540px;
+  background-color: #282c34;
+  min-height: 136.7vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.Datos{
+  margin-top: 20px;
+  text-align: center;
+  color: white;
+}
+
+.Datos label{
+  margin-top: 30px;
+  text-align: center;
+}
+
+.dt{  
+margin-top: 400px;
+}
+
+.h{
+  margin-bottom: 40px;
+}
+
+#btn2{
+  margin-left: 30px;
+}
+
+.Datos {
+  text-align: center;
+  align-items: center;
+}
+
+#slc {
+  min-width: 300px;
+}
+
+.Datos input{
+  text-align: center;
+}
+
+.Datos select{
+  text-align: center;
+}

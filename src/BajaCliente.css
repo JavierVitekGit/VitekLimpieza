@@ -1,0 +1,70 @@
+.App {
+    text-align: center;
+  }
+  
+  .Baja-Client {
+    margin-top: -200px;
+    background-color: #282c34;
+    min-height: 101.7vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  .Body{
+    margin-top: 60px;
+    text-align: center;
+    color: white;
+  }
+  
+  .Baja label{
+    margin-top: 30px;    
+  }
+  
+  .dth{  
+  margin-top: 600px;
+  }
+  
+  .h{
+    margin-bottom: 40px;
+  }
+
+ .Baja-Client .btn-group{
+   margin-top: -40px;
+ }
+
+  .Descanso{
+    margin-left: 0px;
+  }
+
+  #hora{
+      size: 100px;
+      min-width: 150px;
+  }
+
+  .Body select{
+    text-align: center;
+    min-width: 320px;
+  }
+
+  .Body input{
+ 
+    text-align: center;
+  }
+
+  .modal-container{
+    text-align: center;
+    align-items: center;
+  }
+
+  .modal-c{
+    text-align: center;
+    align-items: center;
+  }
