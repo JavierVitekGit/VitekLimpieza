@@ -43,8 +43,8 @@ jobs:
         npm install
         npm install react-router-dom
         npm install bootstrap
-        npm install @wojtekmaj/react-timerange-picker
         npm install react-infinite-calendar
+        npm install @wojtekmaj/react-daterange-picker
         npm run build --if-present
         npm run test --if-present
         
