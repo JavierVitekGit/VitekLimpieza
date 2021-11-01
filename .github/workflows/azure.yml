@@ -45,6 +45,7 @@ jobs:
         npm install bootstrap
         npm install react-infinite-calendar
         npm install @wojtekmaj/react-daterange-picker
+        npm install react-bootstrap bootstrap@5.1.3
         npm run build --if-present
         npm run test --if-present
         
