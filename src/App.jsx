@@ -98,7 +98,7 @@ function App(props) {
             <div>
               <ul>
                 <li>
-                    <Link to="/Alta del Cliente"></Link>
+                    <Link to="/"></Link>
                 </li>
                 <li>
                     <Link to="/Baja del Cliente"></Link>
@@ -126,7 +126,7 @@ function App(props) {
            
 
             <Switch>
-                <Route path="/Alta del Cliente" render={() => <Cliente/>}></Route>
+                <Route path="/" render={() => <Cliente/>}></Route>
                 <Route path="/Baja del Cliente" render={() => <BajaCliente/>} ></Route>
                 <Route path='/Alta del Operador' render={() => <Personal/>}></Route>
                 <Route path='/Baja del Operador' render={() => <BajaOperador/>}></Route>
