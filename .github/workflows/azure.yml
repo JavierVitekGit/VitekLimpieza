@@ -42,7 +42,6 @@ jobs:
         # deploy to Azure Web App.
         npm install
         npm install react-router-dom
-        npm install bootstrap
         npm install react-infinite-calendar
         npm install @wojtekmaj/react-daterange-picker
         npm install react-bootstrap bootstrap@5.1.3
