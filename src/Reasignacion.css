@@ -3,34 +3,75 @@
   }
   
   .reasignacion {
-    margin-top: -200px;
-    background-color: #282c34;
-    min-height: 101.6vh;
+    margin-top: -300px;
+    background-color: rgb(212,212,212);
+    min-height: 102vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: white;
+    color: black;
+    font-style: oblique;
   }
   
- .reasignacion .h{
-     margin-top: -250px;
- }
-
- .reasignacion .container{
-     text-align: center;
-     margin-top: 80px;
- }
-
- .reasignacion label{
-     margin-top: 30px;
- }
-
-
  .reasignacion select{
-    text-align: center;
-    min-width: 320px;
+  min-width: 320px;
+    border-width: 3px;
+    text-align: center  ;
+    border-radius: 5px;
+    border-color: #ced4da;
   }
 
+ #number{
+   width: 320px;
+   align-items: center;
+
+   margin-top: 20px;
+   margin-left: 488px;
+ }
+
+
+.reasignacion input{
+  text-align: center;
+}
  
+.container{
+  margin-top: 15px;
+
+  text-align: center;
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+  height: 750px;
+  width:1900px;
+}
+
+.roH{
+  margin-top: -23px;
+  background-color: black;
+  height: 165px;
+  width: 1800px;
+  margin-left: 78px;
+  color: white;
+  text-align: center;
+}
+
+#roHT{
+  margin-top: 50px;
+}
+
+#rfcL{
+  margin-top: 70px;
+}
+
+#ri{
+  margin-right: 15px;
+}
+
+.divR{
+  width: 100%;
+  height: 3px;
+  border-radius: 1px;
+  background:grey;
+}

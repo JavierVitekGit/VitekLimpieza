@@ -1,0 +1,133 @@
+.turn{
+    margin-top: -512px;
+   background-color: rgb(212,212,212);
+   min-height: 123.9vh;
+   color: black;
+   display: flex;
+   flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: calc(10px + 2vmin);
+}
+
+.header-turn{
+  background-color: black;
+  height: 190px;
+  width: 1800px;
+  margin-top: 160px;
+  margin-left: 78px;
+  color: white;
+}
+
+
+
+#añadir{
+    text-align: center;
+    margin-top: 70px;
+    
+}
+
+
+.container-turn{
+  margin-top: 15px;
+  margin-left: 90px;
+  text-align: center;
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+  height: 750px;
+  width: 1688px;
+}
+
+.turn label{
+    margin-top: 30px;
+}
+
+.turn select{
+  min-width: 320px;
+  border-width: 3px;
+  text-align: center  ;
+  border-radius: 5px;
+  border-color: #ced4da;
+    
+}
+
+.turn input{
+  width: 300px;
+  font-size: 20px;
+  text-align: center;
+
+}
+
+#slcas{
+    font-size: smaller;
+}
+
+.dias{
+margin-right: 1200px;
+margin-top: -30px;
+}
+
+.dias input[type=checkbox]{
+transform: scale(1.2);
+width: 20px;
+height: 20px;
+}
+
+.martt{
+  
+  margin-left: 330px;
+  margin-top: -100px;
+}
+
+.mierct{
+  margin-left: 530px;
+  margin-top: -100px;
+}
+
+.mierct input{
+  margin-left: 70px;
+}
+
+
+
+.juevt{
+  margin-left: 800px;
+  margin-top: -100px;
+}
+
+#juevtcheck{
+  margin-left: -45px;
+}
+
+.viert{
+  margin-left: 970px;
+  margin-top: -100px;
+}
+
+#viertcheck{
+  margin-left: -50px;
+}
+
+.sabt{
+  margin-left: 1150px;
+  margin-top: -100px;
+}
+
+#sabtcheck{
+  margin-left: -50px;
+}
+
+.domt{
+  margin-left: 1350px;
+  margin-top: -100px;
+}
+
+#domtcheck{
+  margin-left: -50px;
+}
+
+.horarioSec{
+  margin-top: -60px;
+}

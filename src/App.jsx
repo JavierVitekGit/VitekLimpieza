@@ -1,24 +1,43 @@
-import {React} from "react"
-import {BrowserRouter,Switch,Route,Link,Redirect,Router} from "react-router-dom";
+import {React,useRef,useEffect} from "react"
+import {BrowserRouter,Switch,Route,Link,Redirect} from "react-router-dom";
 import './Firebase'
 import 'bootstrap/dist/css/bootstrap.css';
 import './Sidebar.css'
 import SideBar from "./Sidebar";
 import './Cliente.css'
 import Cliente from './Cliente.jsx'
-import Personal from './Personal'
+import Personal from './Personal.jsx'
 import Reporte from './Reporte'
 import Calendario from './Calendario'
 import Asistencia from './Asistencia'
 import BajaCliente from "./Bajas del Cliente";
-import {Provider} from 'react-redux'
-import store from "./Store/Store";
 import BajaOperador from "./Baja Operador";
 import Reasignacion from "./Reasignacion";
+import Turno from "./Turno";
+import Numero from "./Numero";
+import Login from "./login"
+import Inasistencia from "./Inasistencias";
+import './App.css'
+
+
+function useOutsideAlerter(ref) {
+    useEffect(()=> {
+        function handleClickOutside(event){
+            if(ref.current && !ref.current.contains(event.target)){
+
+            }
+        }
+    })
+}
 
 
 
-
+//  document.addEventListener("mousedown", handleClickOutside);
+//         return () => {
+//             // Unbind the event listener on clean up
+//             document.removeEventListener("mousedown", handleClickOutside);
+//         };
+//      [ref];
 
 
 
@@ -28,7 +47,7 @@ function App(props) {
   
     return(
 
-        //comentario para despliegue :)
+        
 
         // <div className="App">
         //     <BrowserRouter>
@@ -84,18 +103,20 @@ function App(props) {
 
         <BrowserRouter>
 
-        {/* <Redirect
-        from="/"
-        to="/Alta del Cliente">
-        </Redirect> */}
+        <Redirect
+        from exact="/"
+        to="/login">
+        </Redirect>
+
         
         
+            
             <div>
             <SideBar></SideBar>
             
             </div>
-
-            <div>
+            
+            <div className="appTest">
               <ul>
                 <li>
                     <Link to="/Alta del Cliente"></Link>
@@ -118,7 +139,23 @@ function App(props) {
                <li>
                    <Link to="/Reasignación"></Link>
                </li>
+
+               <li>
+                   <Link to="/Añadir Turno"></Link>
+               </li>
               
+               <li>
+                   <Link to="/Cambio de Numero"></Link>
+               </li>
+
+               <li>
+                   <Link to="/login"></Link>
+               </li>
+
+               <li>
+                   <Link to="/Inasistencia"></Link>
+               </li>
+
               </ul> 
                 
             </div>
@@ -133,6 +170,10 @@ function App(props) {
                 <Route path='/Reporte' render={() => <Reporte/>}></Route>
                 <Route path='/Calendario' render={() => <Calendario/>}></Route>
                 <Route path='/Reasignacion' render={()=><Reasignacion/>}></Route>
+                <Route path='/Añadir Turno' render={()=><Turno/>}></Route>
+                <Route path='/Cambio de Numero' render={()=><Numero/>}></Route>
+                <Route path='/login' render={()=> <Login></Login>}></Route>
+                <Route path="/Inasistencia" render={()=> <Inasistencia></Inasistencia>}></Route>
                 {/* <Route path='/Registro de Inasistencia' render={() => <Asistencia/>}></Route> */}
                
                 

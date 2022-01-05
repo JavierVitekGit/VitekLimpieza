@@ -17,11 +17,70 @@ const Reasignacion = (reasignacion) => {
     const forceUpdate = useCallback(() => updateState({}), []);  
 
 
+    const [shift,setShift] = useState([])
+
+    const [filt,setFilt] = useState([])
+
+    var clean = [];
+    let newClean = clean.filter(w => w.length ==13)
+    
+    // const arrayc =  filt.filter((element) => {
+    //   return element.length = 13;
+    // });
+
+
+    let arrayVegetales = ["Zanahoria", "Calabaza", "Cebolla", "Tomate", "Ajo"];
+let newArrayVegetales = arrayVegetales.filter(vegetal => vegetal.length >= 6);
+console.log(newArrayVegetales);
+
+    console.log(filt)
+
+    // const arrayC = filt.filter(w => w.length <= 13 );
+     
+    // console.log(arrayC)
+
+
 
     const [tel,setTel] = useState();
     const [cliente,setCliente] = useState ('')
+    const [nombre,setNombre] = useState('')
     const [datos,setDatos] = useState([])
 
+    const [horario,setHorario] = useState('')
+
+
+    const unicos = [];
+
+    shift.forEach((item)=>{
+      if (!unicos.includes(item.cli)){
+        unicos.push(item.cli)
+      }
+    });
+
+    console.log(unicos.sort())
+
+
+    const handlerNombres = function (e) {
+      const opcion = e.target.value
+      setTel(e.target.value)
+      console.log("### "+ tel)
+      console.log("$$$" + opcion)
+
+      
+
+       datos.forEach (v=>{
+         if (v.id == opcion) {
+           console.log(v.id,opcion)
+           setNombre(v.nm)
+         }
+       })
+
+    }
+
+
+
+
+    const [cl,setCl] = useState ([])
 
 
     const[modal,setModal] =useState(false)
@@ -39,7 +98,7 @@ const Reasignacion = (reasignacion) => {
   
     const Close = () => setMod(false)
 
-
+    
 
     function comprobar(event){
         event.preventDefault()
@@ -49,7 +108,7 @@ const Reasignacion = (reasignacion) => {
             handleShow(event);
         } else{
             Show(event);
-            writeReasignacionData(event);
+            
         }
 
     }
@@ -60,10 +119,12 @@ const Reasignacion = (reasignacion) => {
     function writeReasignacionData(event) {
         event.preventDefault()
 
-        update(ref(db,'Reasignaciones/' + tel),{
-            operador:tel,
-            cliente:cliente
+        update(ref(db,'Operador/' + tel),{
+            Cliente:cliente,
+            Horario:horario
         })
+
+        Close();
     }
 
 
@@ -79,27 +140,68 @@ const Reasignacion = (reasignacion) => {
         appId: "1:180537252076:web:278e4849024501aaa52dc9",
       };
 
+      
 
       useLayoutEffect(()=>{
-        datos.push({tel:"Seleccionar Teléfono",cl:"Seleccione el Cliente"})
+        datos.push({tel:"Seleccionar Teléfono"  })
 
         const dbRef = ref(getDatabase());
         get(child(dbRef,'Operador')).then((snapshot) => {
           if(snapshot.exists()){
             snapshot.forEach((childSnapshot)=>{
               var telefono= childSnapshot.child("ID").val()
-
+              var nombre = childSnapshot.child("Nombre").val()
               var cliente = childSnapshot.child("Cliente").val()
               var id = childSnapshot.key;
               
-             datos.push({tel:telefono,cl:cliente}) 
-              console.log(datos)
-              console.log(id)
               
+              
+
+              clean.push({id:id})
+              
+
+             datos.push({tel:telefono,cl:cliente,nm:nombre,id:id}) 
+              
+             
             })
             
           }
         })
+
+
+        get(child(dbRef,'ClienteUbicacion')).then((snapshot)=>{
+          if(snapshot.exists()){
+            snapshot.forEach((childSnapshot)=>{
+              var clientes = childSnapshot.key;
+
+              cl.push({clientes:clientes})
+
+            })
+
+          }
+        })
+
+        
+        get(child(dbRef,'shift/')).then((snapshot)=>{
+          if(snapshot.exists()){
+            snapshot.forEach((childSnapshot)=>{
+              var hora = childSnapshot.child("horaInicio").val()
+              var cliente  = childSnapshot.child("cliente").val()
+
+              shift.push({hora:hora,cli:cliente})
+              
+              
+
+            })
+
+            
+
+          }
+        })
+
+
+
+
       },[])
       const db = getDatabase();
 
@@ -110,34 +212,71 @@ return(
 
     <div className="reasignacion">
 
-        <h1 className="h">Reasignación del Operador</h1>
+      <div className="roH">
 
+        <h1 id="roHT" >
+        <i id="ri" class="bi bi-arrow-down-up"></i>
+          Reasignación del Operador
+          </h1>
+
+        </div>
+
+        <div className="divR"></div>
 
     <div className="container">
 
 
-        <label class="form-outline-label">Teléfono del Operador</label>
+        <label id="rfcL" class="form-outline-label">RFC del Operador</label>
 
         <br />
 
-        <select onClick={forceUpdate} value={tel} onChange={v=> setTel(v.target.value)}>
-        {datos.map((item)=><option value={item.id}>{item.tel}</option>)}    
+        <select onClick={forceUpdate} value={tel} onChange={v=> setTel(v.target.value),handlerNombres}>
+        {datos.map((item)=> <option value={item.id}>{item.id}</option>)}    
         </select>
+          <br/>
+        <input type="text"class="form-control" id="number" value={nombre} />
 
         <br />
-        <br />
+       
 
 
         <label class="form-outline-label">Cliente a reasignar</label>
         <br></br>
         <select onClick={forceUpdate} value={cliente} onChange={v=>{setCliente(v.target.value)}}>
-            {datos.map((item)=><option>{item.cl}</option>)}
+            {/* {datos.map((item)=><option>{item.cl}</option>)} */}
+            {/* <option>{unicos}</option> */}
+            {unicos.map((item,i)=> <option>{item}</option>)}
+
+        </select>
+
+        <br/>
+        <br/>
+
+        <label class="form-outline-label" >Nuevo horario</label>
+        <br/>
+        <select onClick={forceUpdate} id="select" onChange={v=>{setHorario(v.target.value)}}>
+
+          {/* {shift.map((item)=><option>{item.hora}</option>)} */}
+          
+          <option >07:00 </option>
+          <option >08:00 </option>
+          <option >09:00 </option>
+          <option >10:00 </option>
+          <option >11:00 </option>
+          <option >12:00 </option>
+          <option >13:00 </option>
+          <option >14:00 </option>
         </select>
 
             <br></br>
             <br></br>
 
+
         <input class="btn btn-success" type="submit" value="Completar Reasignación" onClick={comprobar}></input>
+
+
+        
+
 
     </div>
 
@@ -177,7 +316,7 @@ return(
   <Button variant="danger" onClick={handleClose}>
 
 
-X
+Ok
 
 
   </Button>
@@ -212,7 +351,7 @@ X
 <Modal.Header>
 
 
-<Modal.Title>La reasignacion ha sido realizada de forma exitosa</Modal.Title>
+<Modal.Title>¿Está Seguro?</Modal.Title>
 
 
 </Modal.Header>
@@ -221,7 +360,7 @@ X
 <Modal.Body>
 
 
-<p>Los datos han sido guardados correctamente</p>
+<p>¿Está seguro que desea continuar con la baja del operador "{nombre}"?</p>
 
 
 </Modal.Body>
@@ -229,11 +368,15 @@ X
 
 <Modal.Footer>
 
+<Button variant="success" onClick={writeReasignacionData}>
+Si
+  </Button>
+
 
   <Button variant="danger" onClick={Close}>
 
 
-Ok
+No
 
 
   </Button>

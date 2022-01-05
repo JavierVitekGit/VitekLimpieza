@@ -1,0 +1,54 @@
+.Prueba{
+text-align: center;
+color: black;
+}
+
+#btnRegistroIn{
+
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    margin-left: 550px;
+    margin-top: 40px;
+}
+
+#tablaRegistro{
+    color: black;
+    align-items: center;
+    margin-top: 110px;
+    margin-left: 400px;
+    font-size:x-large;
+    text-align: center;
+    text-align: justify;
+    overflow: scroll;
+    width: 1200px;
+}
+
+#tablaRegistro input{
+
+    height: 40px;
+    align-items: center;
+    align-content: center;
+}
+
+#tablaRegistro td {
+    text-align: center;
+}
+
+#tablaRegistro th{
+    text-align: center;
+}
+
+.inasistenciaHeader{
+    background-color: #000;
+    height: 165px;
+    margin-top: -280px;
+    text-align: center;
+    color: white;
+}
+
+.inasistenciaTitle h1{
+    font-size: xx-large;
+    margin-top: 100px;
+    margin-left: 40px;
+}

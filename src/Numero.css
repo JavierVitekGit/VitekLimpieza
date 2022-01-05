@@ -1,0 +1,67 @@
+.Numero{
+    margin-top: -295px;
+    background-color: rgb(212,212,212);
+    min-height: 101.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: black;
+    text-align: center;
+    font-style: oblique;
+}
+
+.NHeader{
+    margin-top: -25px;
+    background-color: black;
+    height: 165px;
+    width: 1800px;
+    margin-left: 78px;
+    color: white;
+}
+
+.NBody{
+    margin-top: 15px;
+    margin-left: 90px;
+    text-align: center;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+    height: 750px;
+    width: 1688px;
+}
+
+.Numero label{
+    margin-top: 50px;
+}
+
+.Numero select{
+    min-width: 320px;
+    border-width: 3px;
+    text-align: center  ;
+    border-radius: 5px;
+    border-color: #ced4da;
+}
+
+.Numero input{
+    border-width: 3px;
+    width: 300px;
+    text-align: center;
+    margin-left: 695px;
+}
+
+#cnH{
+    margin-top: 50px;
+    text-align: center;
+}
+
+#cnB{
+    margin-top: 30px;
+    margin-right: 700px;
+    width: 200px;
+}
+
+#cnI{
+    margin-right: 15px;
+}

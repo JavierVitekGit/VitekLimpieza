@@ -12,11 +12,17 @@ import Button from 'react-bootstrap/Button'
 const BajaOperador = (baja) => {
 
 
-
+  
 
     const [, updateState] = useState();
     const forceUpdate = useCallback(() => updateState({}), []);  
 
+    var today = new Date();
+    var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
+    var minInp = lastWeek.toISOString().split('T')[0]
+
+    var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
+    var maxInp = nextWeek.toISOString().split('T')[0]
 
     const [datos,setDatos] = useState ([])
     const [tel,setTel] = useState ('')
@@ -25,6 +31,10 @@ const BajaOperador = (baja) => {
     const [fechaB,setFechaB] = useState ('')
     const [cliente,setCliente] = useState ('')
 
+
+    const [bajaOp,setBajaOp] = useState('')
+
+    
 
     const handlerNombres = function (e) {
         const opcion = e.target.value
@@ -35,7 +45,7 @@ const BajaOperador = (baja) => {
         
   
          datos.forEach (v=>{
-           if (v.tel == opcion) {
+           if (v.key == opcion) {
              console.log(v.tel,opcion)
              setNombre(v.name) 
              setFechaI(v.fi)
@@ -51,22 +61,25 @@ const BajaOperador = (baja) => {
         event.preventDefault()
 
         update(ref(db,'Operador/' + tel),{
-          Estatus:0
+          Estatus:0,
+          Fecha_Baja:bajaOp
         })
+
+        close();
       }
 
-    let config = {
-        apiKey: "AIzaSyDnedHTB9yMEPhZTQDzI08rA7yDXAJq84I",
-        authDomain: "vitek-c65e5.firebaseapp.com",
-        databaseURL: "https:vitek-c65e5-default-rtdb.firebaseio.com",
-        projectId: "vitek-c65e5",
-        storageBucket: "vitek-c65e5.appspot.com",
-        messagingSenderId: "1:180537252076:web:278e4849024501aaa52dc9",
-        appId: "1:180537252076:web:278e4849024501aaa52dc9",
+      const firebaseConfig = {
+        apiKey: "AIzaSyBmZRACI4lPavlz-2N0NyIvTIW9j2DOJhY",
+        authDomain: "androidbrinsk.firebaseapp.com",
+        databaseURL: "https://androidbrinsk-default-rtdb.firebaseio.com",
+        projectId: "androidbrinsk",
+        storageBucket: "androidbrinsk.appspot.com",
+        messagingSenderId: "1038423598895",
+        appId: "1:1038423598895:web:ddfe2d9c575506d192a3da"
       };
       
       
-     
+      console.log(firebaseConfig)
 
 
       useLayoutEffect(()=>{
@@ -80,13 +93,11 @@ const BajaOperador = (baja) => {
               var telefono= childSnapshot.child("ID").val()
               var nombre = childSnapshot.child("Nombre").val()
               var fechaIngreso = childSnapshot.child("Fecha_Ingreso").val()
-              var fechaBaja = childSnapshot.child("Fecha_Baja").val()
               var cliente = childSnapshot.child("Cliente").val()
               var id = childSnapshot.key;
               
-             datos.push({tel:telefono,name:nombre,fi:fechaIngreso,fb:fechaBaja,cl:cliente}) 
-              console.log(datos)
-              console.log(id)
+             datos.push({tel:telefono,name:nombre,fi:fechaIngreso,key:id,cl:cliente}) 
+              
               
             })
             
@@ -113,10 +124,10 @@ const BajaOperador = (baja) => {
 
     function comprobar (event) {
       event.preventDefault()
-    
+      
 
 
-    if (tel == "" ) {
+    if (tel == "" || bajaOp == "" ) {
       handleShow(event);
       
     } else{
@@ -130,23 +141,27 @@ const BajaOperador = (baja) => {
 
 
 
-
-
 return(
 
 
 
 <div className="Baja">
 
-    <h1>Baja del Operador</h1>
+  <div className="boH">
+
+    <h1 className="bajaOH">
+    <i id="cellBO" class="bi bi-telephone-x"></i>
+      Baja del Operador
+    
+    </h1>
+
+    </div>
+<div className="Bodyy">
 
 
-<div className="Body">
 
 
-
-
-<label class="form-outline-label" for="form1">Teléfono del Operador</label>
+<label id="rfcT" class="form-outline-label" for="form1">RFC del Operador</label>
 
 <br></br>
 
@@ -155,7 +170,7 @@ return(
 
 
 <select  onClick={forceUpdate} value={tel} onChange={handlerNombres} > 
-{datos.map((item) => <option value={item.id}>{item.tel}</option> )}
+{datos.map((item) => <option value={item.id}>{item.key}</option> )}
 </select> 
 
 <br></br>
@@ -168,16 +183,28 @@ return(
 <input type="text"  class="form-control" value={nombre} ></input>
 
 
-
+<div className="fechaIngresoOp">
 
 
 <label class="form-outline-label" for="form1">Fecha de Ingreso</label>
   <br/>
 <input type="text"  class="form-control" value={fechaI} ></input>
 
+</div>
 
-<label class="form-outline-label" for="form1">Fecha de Baja</label>
-<input type="text"  class="form-control" value={fechaB} ></input>
+<div className="fechaBajaOp">
+
+<label class="form-outline-label" id="fbO" for="form1">Fecha de Baja</label>
+<br/>
+<input type="Date" id="inputdis" class="form-control" value={bajaOp} onChange={v=>setBajaOp(v.target.value)} min={minInp} max={maxInp} />
+
+</div>
+
+
+
+
+
+
 
 <label class="form-outline-label" for="form1">Cliente</label>
 <input type="text" class="form-control" value={cliente} />
@@ -185,7 +212,7 @@ return(
 <br></br>
 
 
-</div>
+
 
 
 <br></br>
@@ -193,12 +220,12 @@ return(
 
         <div class="btn-group">
 
-        <input class="btn btn-danger" type="submit" value="Dar de Baja" onClick={comprobar} ></input>
+        <input id="bajaOP" class="btn btn-danger" type="submit" value="Dar de Baja" onClick={comprobar} ></input>
         
 
         </div>
 
-
+        </div>
 
 
 
@@ -277,7 +304,7 @@ X
 <Modal.Body>
 
 
-<p>¿Está seguro que desea continuar con la baja del operador?</p>
+<p>¿Está seguro que desea continuar con la baja del operador "{nombre}"?</p>
 
 
 </Modal.Body>
@@ -287,7 +314,7 @@ X
 
 <Button variant="success" onClick={writeBajaData}>
 Si
-  </Button>
+  </Button> 
 
 
   <Button variant="danger" onClick={close}>

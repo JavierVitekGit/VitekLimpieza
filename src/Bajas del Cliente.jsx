@@ -1,6 +1,6 @@
 import {React,useState,Component, useEffect, useLayoutEffect,useCallback} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
-import {get, getDatabase,ref,child,update} from "firebase/database";
+import {get, getDatabase,ref,child,update,set} from "firebase/database";
 import { initializeApp } from "@firebase/app";
 import "./BajaCliente.css"
 import Modal from 'react-bootstrap/Modal'
@@ -20,14 +20,24 @@ const BajaCliente = (baja) => {
     const [Horario,onChange4] = useState ('')
     const [Fecha,onChange5] = useState ('')
     const [id,onChange6] = useState ('')
+
+
+    const [bajaCl,setBajaCl] = useState('')
     
-    
+    var today = new Date()
+      var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
+      var minInp = lastWeek.toISOString().split('T')[0]
+
+      var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
+      var maxInp = nextWeek.toISOString().split('T')[0]
+      
     const handlerNombres = function (e) {
       const opcion = e.target.value
       onChange2(e.target.value)
       console.log("### "+ value1)
       console.log("$$$" + opcion)
 
+      
       
 
 
@@ -47,38 +57,45 @@ const BajaCliente = (baja) => {
     function writeClienteData(event) {
       event.preventDefault()
 
-      update(ref(db,'Clientes/' + id),{
+      update(ref(db,'ClienteUbicacion/' + id),{
         Estatus:0
       })
+        close();
+    }
+    
 
+    function writeOperadorData(event){
+      event.preventDefault()
+
+      update(ref(db,'Operador/' ),{
+        
+      })
     }
 
 
+    const firebaseConfig = {
+      apiKey: "AIzaSyBmZRACI4lPavlz-2N0NyIvTIW9j2DOJhY",
+      authDomain: "androidbrinsk.firebaseapp.com",
+      databaseURL: "https://androidbrinsk-default-rtdb.firebaseio.com",
+      projectId: "androidbrinsk",
+      storageBucket: "androidbrinsk.appspot.com",
+      messagingSenderId: "1038423598895",
+      appId: "1:1038423598895:web:ddfe2d9c575506d192a3da"
+    };
 
-    
 
-    let config = {
-        apiKey: "AIzaSyDnedHTB9yMEPhZTQDzI08rA7yDXAJq84I",
-        authDomain: "vitek-c65e5.firebaseapp.com",
-        databaseURL: "https://vitek-c65e5-default-rtdb.firebaseio.com",
-        projectId: "vitek-c65e5",
-        storageBucket: "vitek-c65e5.appspot.com",
-        messagingSenderId: "1:180537252076:web:278e4849024501aaa52dc9",
-        appId: "1:180537252076:web:278e4849024501aaa52dc9",
-      };
-
-      const app = initializeApp(config);
+      const app = initializeApp(firebaseConfig);
 
 
 
     
 useLayoutEffect(()=>{
 
-  lista.push({name:"Seleccionar Cliente",dom:"",date:"",hr:"",id:""}) 
+  lista.push({name:"Seleccionar Cliente",dom:"",date:"",hr:"",id:"Seleccionar Cliente"}) 
 
 
   const dbRef = ref(getDatabase());
-  get(child(dbRef,'Clientes')).then((snapshot) => {
+  get(child(dbRef,'ClienteUbicacion')).then((snapshot) => {
     if(snapshot.exists()){
       snapshot.forEach((childSnapshot)=>{
         var nombreC = childSnapshot.child("Nombre").val()
@@ -88,8 +105,7 @@ useLayoutEffect(()=>{
 	      var id = childSnapshot.key;
         
        lista.push({name:nombreC,dom:domicilio,date:fecha,hr:hora,id:id}) 
-        console.log(lista)
-        console.log(id)
+        
         
       })
       
@@ -121,7 +137,7 @@ useLayoutEffect(()=>{
     
 
 
-    if (value1 == "" ) {
+    if (value1 == "" ||bajaCl == ""  ) {
       handleShow(event);
       
     } else{
@@ -137,60 +153,86 @@ useLayoutEffect(()=>{
 
 return( 
 
+     
   
     <div className="Baja-Client">
-        <h1>Baja del Cliente</h1>
+
+<div className="bajaH">
+
+<h1 className="bch">
+<i id="peopleBI" class="bi bi-person-x"></i>
+  Baja del Cliente
+</h1>
+
+</div>
+
+<div className="dive"></div>
 
         <div className="Body">
 
+        <div className="containerB">
 
 
-
+        <div className="oneB">
 
         <label class="form-outline-label" for="form1">Nombre del Cliente</label>
 
         <br></br>
 
         
-        <select  onClick={forceUpdate}  value={value1} onChange={ handlerNombres } > 
-        {lista.map((item,i) =>  <option value={item.id}>{item.name}</option> )}
+        <select id="selB" onClick={forceUpdate}  value={value1} onChange={ handlerNombres } className="test" > 
+        {lista.map((item,i) =>  <option value={item.id} id="list">{item.id}</option> )}
         </select> 
 
         <br></br>
+        <br/>
 
 
 
-
-        <label class="form-outline-label" for="form1">Domicilio</label>
-          <br/>
-        <input type="text"  class="form-control" value={Dom} ></input>
-      
-
-
-
-
-        <label class="form-outline-label" for="form1">Dias a Laborar</label>
-          <br/>
-        <input type="text"  class="form-control" value={Fecha} ></input>
-        
-
-        <label class="form-outline-label" for="form1">Horario</label>
-        <input type="text"  class="form-control" value={Horario} ></input>
-        <br></br>
-
-
-
-
+        <label class="form-outline-label" id="fbO" for="form1">Fecha de Baja</label>
+        <br/>
+        <input type="Date" id="fechaBInp" class="form-control" value={bajaCl} onChange={v=>setBajaCl(v.target.value)} min={minInp} max={maxInp} />
         </div>
 
-            <br></br>
-            <br></br>
-
-        <div class="btn-group">
-
-        <input class="btn btn-danger" type="submit" value="Dar de Baja" onClick={comprobar} ></input>
+        <br/>
+          {/* <label class="form-outline-label" for="form1">Domicilio</label>
+            <br/>
+          <input type="text"  class="form-control" value={Dom} ></input>
         
 
+
+
+
+          <label class="form-outline-label" for="form1">Dias a Laborar</label>
+            <br/>
+          <input type="text"  class="form-control" value={Fecha} ></input>
+          
+
+          <label class="form-outline-label" for="form1">Horario</label>
+          <input type="text"  class="form-control" value={Horario} ></input>
+          <br></br> */}
+
+
+
+
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+
+        
+
+            <br></br>
+            <br></br>
+
+        <div class="btn-groupp">
+
+        <input class="btn btn-danger" type="submit" value="Dar de Baja" onClick={comprobar} ></input>
+        </div>
+
+        </div>
         </div>
 
         <Modal className="modal-container" 
@@ -217,7 +259,7 @@ return(
 <Modal.Body>
 
 
-<p>No se ha seleccionado ningun cliente</p>
+<p>Faltan completar algunos campos</p>
 
 
 </Modal.Body>
@@ -229,7 +271,7 @@ return(
   <Button variant="danger" onClick={handleClose}>
 
 
-X
+Ok
 
 
   </Button>
@@ -267,7 +309,7 @@ X
 <Modal.Body>
 
 
-<p>¿Está seguro que desea continuar con la baja del cliente? </p>
+<p>¿Está seguro que desea continuar con la baja del cliente "{value1}"? </p>
 
 
 </Modal.Body>

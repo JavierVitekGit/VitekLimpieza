@@ -22,6 +22,7 @@ a{
   top: 2%;
   right: 0;
   transform: translateY(-50%);
+  margin-top: 10px;
 }
 
 .side-menu .lista {
@@ -31,6 +32,7 @@ a{
   top: 13%;
   padding-left: 8px;
  /* border-left: tomato 0.2em solid ; */
+ margin-top: 60px;
 }
 
 .side-menu .lista .alta{
@@ -45,6 +47,13 @@ a{
   padding-left: 30px;
   margin-top: 10px;
   transition: none ;
+}
+
+.side-menu .lista .turno{
+  font-size: 20px;
+  padding-left: 30px;
+  margin-top: 10px;
+  transition: none;
 }
 
 .side-menu .lista .a {
@@ -74,11 +83,27 @@ a{
   position: relative;
 }
 
+
+.cambio{
+  font-size: 20px;
+  padding-left: 60px;
+  margin-top: 10px;
+  transition: none ;
+  position: relative;
+}
+
 .side-menu .lista .calendario{
   margin-top: 50px;
 }
 
 .side-menu .lista .calendario .registro{
+  font-size: 20px;
+  padding-left: 60px;
+  margin-top: -40px;
+  transition: none ;
+}
+
+.side-menu .Inasistencias .registroIn{
   font-size: 20px;
   padding-left: 60px;
   margin-top: -40px;
@@ -109,6 +134,41 @@ color: whitesmoke;
   
 }
 
+
+.side-menu .Cliente{
+  color:white;
+  font-size: 20px;
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+}
+
+.side-menu .Operador{
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  display: block;
+  margin-top: 190px;
+}
+
+.side-menu .Registros{
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  display: block;
+  margin-top: 250px;
+}
+
+
+.side-menu .lista .section2{
+  margin-top: 110px;
+}
+
+.side-menu .lista .section3{
+  margin-top: 120px;
+}
+
+
 .divider{
   width: 100%;
   height: 2px;
@@ -116,6 +176,26 @@ color: whitesmoke;
   background:grey;
 }
 
+.divider2{
+  width: 100%;
+  height: 2px;
+  border-radius: 1px;
+  background: grey;
+}
+
+.divider3{
+  width: 100%;
+  height: 2px;
+  border-radius: 1px;
+  background: grey;
+}
+
+.divider4{
+  width: 100%;
+  height: 2px;
+  border-radius: 1px;
+  background: grey;
+}
 
 /* I N A C T I V E  */
 
@@ -125,7 +205,7 @@ color: whitesmoke;
 }
 
 .side-menu.inactive .top-section .toggle-btn{
-
+color: white;
 right: -55px;
 }
 
@@ -168,6 +248,10 @@ right: -55px;
   
 }
 
+.side-menu.inactive .lista .Inasistencias .registroIn{
+  transform: scale(0);
+}
+
 .side-menu.inactive .menu-section .Icon{
   margin-left: 30px;
 }
@@ -177,5 +261,37 @@ right: -55px;
 }
 
 .side-menu.inactive .lista .reasignacionn{
+  transform: scale(0);
+}
+
+.side-menu.inactive .lista .turno{
+  transform: scale(0);
+}
+
+.side-menu.inactive .Cliente{
+  transform: scale(0);
+}
+
+.side-menu.inactive .Operador{
+  transform: scale(0);
+}
+
+.side-menu.inactive .Registros{
+  transform: scale(0);
+}
+
+.side-menu.inactive .divider2{
+  transform: scale(0);
+}
+
+.side-menu.inactive .divider3{
+  transform: scale(0);
+}
+
+.side-menu.inactive .divider4{
+  transform: scale(0);
+}
+
+.side-menu.inactive .cambio{
   transform: scale(0);
 }

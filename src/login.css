@@ -1,0 +1,67 @@
+.bodyLogin{
+      margin-top: -637px;
+  background-color: rgb(212,212,212);
+  min-height: 136.7vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+  font-style: oblique;
+  position: absolute;
+  width: 1877px;
+}
+
+.modal-login{
+    text-align: center;
+}
+
+.bodyLogin input{
+    text-align: center;
+}
+
+#LogHeader{
+    margin-top: 150px;
+}
+
+.inicioS{
+    background-color: black;
+    color: white;
+    height: 150px;
+    width: 1880px;
+    margin-top: 316px;
+    text-align: center;
+    font-style: oblique;
+    font-size: 2.5 rem;
+}
+
+#InS{
+    margin-top: 45px;
+    
+}
+
+#inIcon{
+    margin-right: 30px;
+}
+
+.containerLogin{
+    margin-top: 30px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 1800px;
+    height: 750px;
+}
+
+.containerLogin input{
+    width: 250px;
+    position: relative;
+    margin-left: 770px;
+}
+
+#ingresar{
+    width: 150px;
+    margin-left: 820px;
+}

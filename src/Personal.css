@@ -3,45 +3,50 @@
 }
 
 .App-header {
-  margin-top: -540px;
-  background-color: #282c34;
+  margin-top: -636px;
+  background-color: rgb(212,212,212);
   min-height: 136.7vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
+  font-style: oblique;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-.Datos{
+.Datoss{
   margin-top: 20px;
-  text-align: center;
-  color: white;
+  
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+  height: 750px;
+  width: 1688px;
+  margin-left: 90px;
 }
 
-.Datos label{
+.Datoss label{
   margin-top: 30px;
   text-align: center;
 }
 
 .dt{  
-margin-top: 400px;
+margin-top: 180px;
+text-align: center;
 }
 
-.h{
-  margin-bottom: 40px;
-}
+
 
 #btn2{
   margin-left: 30px;
 }
 
-.Datos {
+.Datoss {
   text-align: center;
   align-items: center;
 }
@@ -50,10 +55,69 @@ margin-top: 400px;
   min-width: 300px;
 }
 
-.Datos input{
+.Datoss input{
+  transform: scale(1.1);
+  border-width: 3px;
+  width: 300px;
   text-align: center;
 }
 
-.Datos select{
-  text-align: center;
+.Datoss select{
+  min-width: 320px;
+  border-width: 3px;
+  text-align: center  ;
+  border-radius: 5px;
+  border-color: #ced4da;
 }
+
+.oneAP{
+  margin-top: 50px;
+}
+
+.oneAP input{
+  margin-left: 400px;
+}
+
+.oneAP label{
+  margin-right: 600px;
+}
+
+.secondAP{
+  margin-left: 500px;
+  margin-top: 75px;
+}
+
+.secondAP input{
+  margin-left: 450px;
+  margin-top: -350px;
+}
+
+/* .Datos input:focus:invalid{
+  background-image: linear-gradient(red,red);
+}
+
+.Datos input:focus:valid{
+  background-image: linear-gradient(green,green);
+} */
+#dej{
+  position: absolute;
+  margin-top: -45px;
+  margin-left: -95px;
+}
+.altaCH{
+  margin-top: 190px;
+  background-color: black;
+  height: 300px;
+  width: 1800px;
+  margin-left: 78px;
+  color: white;
+}
+
+#celI{
+margin-right: 30px;
+}
+
+#guardarP{
+  margin-top: 50px  ;
+}
+

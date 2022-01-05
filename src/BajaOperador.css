@@ -3,34 +3,37 @@
   }
   
   .Baja {
-    margin-top: -190px;
-    background-color: #282c34;
-    min-height: 100.6vh;
+    margin-top: -284px;
+    background-color: rgb(212,212,212);
+    min-height: 100.4vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: white;
+    color: black;
+    font-style: oblique;
   }
   
   .App-link {
     color: #61dafb;
   }
   
-  .Body{
-    margin-top: 60px;
+  .Bodyy{
+    margin-top: 15px;
+    margin-left: 90px;
     text-align: center;
-    color: white;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+    height: 750px;
+    width: 1688px;
   }
   
   .Baja label{
     margin-top: 30px;    
   }
-  
-  .dth{  
-  margin-top: 600px;
-  }
+
   
   .h{
     margin-bottom: 40px;
@@ -47,16 +50,65 @@
       min-width: 150px;
   }
 
-  .Body select{
+  .Bodyy select{
     text-align: center;
     min-width: 320px;
   }
 
-  .Body input{
- 
+  .Bodyy input{
+    border-width: 3px;
+    width: 300px;
     text-align: center;
+   margin-left: 690px;
   }
 
   .btn-group > .btn{
     margin-top: -40px;
+    margin-right: 690px;
+    width: 200px;
   }
+
+  .bajaOH{
+    margin-top: 65px;
+    text-align: center;
+  }
+
+  .boH{
+    background-color: black;
+    height: 180px;
+    width: 1800px;
+    margin-top: -50px;
+    margin-left: 78px;
+    color: white;
+    align-content: center;
+    justify-content: center;
+  }
+
+#rfcT{
+  margin-top: 50px;
+}
+
+#cellBO{
+margin-right: 30px;
+}
+
+.fechaIngresoOp{
+  margin-right: 400px;
+}
+
+.fechaIngresoOp input{
+  margin-left: 500px;
+}
+
+.fechaBajaOp{
+  margin-left: 470px;
+  margin-top: -115px;
+}
+
+.fechaBajaOp input{
+  margin-left: 440px;
+}
+
+#fbO{
+  margin-left: -30px;
+}

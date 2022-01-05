@@ -4,21 +4,20 @@ import {getDatabase} from "firebase/database";
 
 
 
-
-let config = {
-  apiKey: "AIzaSyDnedHTB9yMEPhZTQDzI08rA7yDXAJq84I",
-  authDomain: "vitek-c65e5.firebaseapp.com",
-  databaseURL: "https://vitek-c65e5-default-rtdb.firebaseio.com",
-  projectId: "vitek-c65e5",
-  storageBucket: "vitek-c65e5.appspot.com",
-  messagingSenderId: "1:180537252076:web:278e4849024501aaa52dc9",
-  appId: "1:180537252076:web:278e4849024501aaa52dc9",
+const firebaseConfig = {
+  apiKey: "AIzaSyBmZRACI4lPavlz-2N0NyIvTIW9j2DOJhY",
+  authDomain: "androidbrinsk.firebaseapp.com",
+  databaseURL: "https://androidbrinsk-default-rtdb.firebaseio.com",
+  projectId: "androidbrinsk",
+  storageBucket: "androidbrinsk.appspot.com",
+  messagingSenderId: "1038423598895",
+  appId: "1:1038423598895:web:ddfe2d9c575506d192a3da"
 };
 
 
 
 
- export const app = initializeApp(config);
+ export const app = initializeApp(firebaseConfig);
 
  export const database = getDatabase();
 

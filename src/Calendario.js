@@ -26,23 +26,23 @@ const Calendario = (calendario) => {
 
   const [mostrar,setMostrar] = useState([])
 
-  console.log(mostrar)
-
   const [infinite,setInfinite] = useState(new Date())
 
+  // var infiniteF = infinite.getDate
 
+  // console.log(infiniteF)
   
   
     var today = new Date();
     var hora = today.getHours() 
 
-    console.log(hora)
+    console.log(today)
 
     var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
     formatRelative(subDays(new Date(), 3), new Date(), { locale: es })
 
 
-    var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
+    var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 15);
     formatRelative(subDays(new Date(), 3), new Date(), { locale: es })
   
     const cal = () => {
@@ -53,14 +53,13 @@ const Calendario = (calendario) => {
 
 
     
+    console.log(infinite.toISOString())
 
-
-    
+    console.log("ISO STRING",infinite.toISOString().substr(0,10))
 
 
     
 // C A M B I A R   D E   V I S T A
-
 
 
 
@@ -81,7 +80,7 @@ const Calendario = (calendario) => {
 //    R E G I S T R O    D E    A S I S T E N C I A
 
 
-
+  
 
 
 
@@ -99,27 +98,38 @@ const Calendario = (calendario) => {
   
     const [tabla,onChange] = useState([ ])
 
+    const alfabeticamente = [];
 
+
+
+// A L F A B E T I C A M E N T E 
+
+
+    tabla.forEach((item)=>{
+      if (!alfabeticamente.includes(item.cliente)){
+        alfabeticamente.push(item.cliente)
+      }
+    })
   
+    
   
+    console.log(tabla.sort())
+
+
     const [domicilio,setDomicilio] = useState('')
     const [nombre,setNombre] = useState('')
     const [turno,setTurno] = useState('')
     const [asis,setAsis] = useState('')
     const [just,setJust] = useState('')
 
+    const [val,setVal] = useState('')
     
     
-    console.log(just)
-    console.log(nombre)
-    console.log(domicilio)
-    console.log(turno)
-  
     const [map2,setOperador] = useState([ ])
   
   
-    const [drop1,setDrop] = useState('')
-    const [drop2,setDrop2] = useState('')
+    const [hr,setHr] = useState([])
+    const [cliu,setCliu] = useState([])
 
   
   
@@ -127,6 +137,7 @@ const Calendario = (calendario) => {
   
   
     const db = getDatabase();
+
   
  
     
@@ -152,25 +163,41 @@ const Calendario = (calendario) => {
     // Prueba
 
     function writeAsistenciaData(event) {
-      event.preventDefault()  
+      event.preventDefault()
       
-      update(ref(db,'Asistencia/' + infinite),{
-        Datos : tabla
+      var aux = [];
+      tabla.forEach(iter => {
+        if (iter.asis == 'Asistencia') {
+          aux.push(iter);
+        }
+      });
+
+
+    
+      
+      // guarda alv
+      update(ref(db,'Justificaciones/' + infinite.toISOString().substr(0,10)),{
+        Datos : aux
       })    
   
-  
-  
+    };
+
+ 
+
+    function writePersonalData(event){
+      event.preventDefault()
+
+      update(ref(db,'ClienteUbicacion/'),{
+
+      })
     };
     
     
-  
+ 
   
     useEffect(()=> {
   
-      map2.forEach(v=>{
-        setN(v.nameOp)
-      })
-  
+      
   
       tabla.forEach(v=>{
         setDomicilio (v.dom)
@@ -178,25 +205,33 @@ const Calendario = (calendario) => {
         setTurno(v.turn)
         setAsis(v.asis)
         setJust(v.justi)
+        setN(v.nameOp)
+        setHr(v.sh)
+        setCliu(v.clienteU)
+        setVal(v.val)
       })
+
+      
+
+
      
   
   
-    let config = {
-      apiKey: "AIzaSyDnedHTB9yMEPhZTQDzI08rA7yDXAJq84I",
-      authDomain: "vitek-c65e5.firebaseapp.com",
-      databaseURL: "https://vitek-c65e5-default-rtdb.firebaseio.com",
-      projectId: "vitek-c65e5",
-      storageBucket: "vitek-c65e5.appspot.com",
-      messagingSenderId: "1:180537252076:web:278e4849024501aaa52dc9",
-      appId: "1:180537252076:web:278e4849024501aaa52dc9",
-    };
+      const firebaseConfig = {
+        apiKey: "AIzaSyBmZRACI4lPavlz-2N0NyIvTIW9j2DOJhY",
+        authDomain: "androidbrinsk.firebaseapp.com",
+        databaseURL: "https://androidbrinsk-default-rtdb.firebaseio.com",
+        projectId: "androidbrinsk",
+        storageBucket: "androidbrinsk.appspot.com",
+        messagingSenderId: "1038423598895",
+        appId: "1:1038423598895:web:ddfe2d9c575506d192a3da"
+      };
   
-    const app = initializeApp(config);
-  
-  
+    const app = initializeApp(firebaseConfig);
   
   
+  
+  // R E F E R E N C I A   BD   "C L I E N T E S"
     
     const dbRef = ref(getDatabase());
     get(child(dbRef,'Clientes')).then((snapshot) => {
@@ -207,49 +242,109 @@ const Calendario = (calendario) => {
           var nombreC = childSnapshot.child("Nombre").val()
           var turnoC =  childSnapshot.child("Horario").val()
           var cl = childSnapshot.child("Nombre").val()
+          var id = childSnapshot.key;
   
-          tabla.push({dom:domicilio,nom:nombreC,turn:turnoC,nombre:cl, asis: null, justi: null})
+
+
+          // tabla.push({dom:domicilio,nom:nombreC,turn:turnoC,nombre:cl,parent:id})
           console.log(tabla)
-          
-    
-
-
+          console.log(id)
           
         })
-  
-  
-        
       }
     })
   
+
   
-  
+  // R E F E R E N C I A  BD   "O P E R A D O R"
+
+
   
     get(child(dbRef,'Operador')).then((snapshot)=>{
       if(snapshot.exists()){
         snapshot.forEach((childSnapshot)=>{
           var operador = childSnapshot.child("Nombre").val()
           var cliente = childSnapshot.child("Cliente").val()
-          
-          map2.push({nameOp:operador, cliente:cliente })
-          console.log(map2)
-  
+          var hr = childSnapshot.child("Horario").val()
+          var estus = childSnapshot.child("Estatus").val()
+          var fecha = childSnapshot.child("Fecha_Ingreso").val()
+          tabla.push({cliente:cliente,nameOp:operador,hor:hr,estatus:estus,fi:fecha,asis:null, justi:null })
+          console.log(fecha)
         })
-
-
-
-
-        tabla.forEach(iter => {
-          map2.forEach(other => {
-            if (other.cliente == iter.nom) {
-              iter.nom = other.nameOp
-            }
-  
-          })
-        })
+       
       }
     })
 
+
+
+
+// R E F E R E N C I A   BD  "T U R N O S"    
+
+get(child(dbRef,'shift')).then((snapshot)=>{
+  if(snapshot.exists()){
+    snapshot.forEach((childSnapshot)=>{
+      var shift = childSnapshot.child("horaInicio").val()
+      var scliente = childSnapshot.child("cliente").val()
+      var hrf = childSnapshot.child("horaFin").val()
+
+      hr.push({sh:shift,scl:scliente,hf:hrf,asis: null, justi: null})
+
+   
+
+      
+    })
+
+    
+    // tabla.forEach(iter => {
+    //   hr.forEach(other => {
+    //     if (iter.cliente == other.scl || other.sh == iter.hora) {
+    //       other.hf = iter.nameOp
+    //     }
+
+    //   })
+    // })
+
+    // tabla.forEach(iter =>{
+    //   hr.forEach(other =>{
+    //     if (iter.cliente == other.scl || other.sh == iter.hora){
+    //       other.hf = iter.nameOp
+    //     }
+    //   })
+    // })
+
+
+
+  }
+})  
+
+
+// R E F E R E N C I A   BD  "U B I C A C I Ó N  C L I E N T E"
+
+
+// get(child(dbRef,'ClienteUbicacion')).then((snapshot)=>{
+//   if(snapshot.exists()){
+//     snapshot.forEach((childSnapshot)=>{
+//       var cu = childSnapshot.key;
+//       var p = childSnapshot.child("personal").val()
+//       tabla.push({clienteU:cu,per:p})
+      
+
+//     })
+
+//   }
+// })
+
+
+
+
+get(child(dbRef,'Operador')).then((snapshot)=>{
+  if(snapshot.exists()){
+    snapshot.forEach((childSnapshot)=>{
+      var baja = childSnapshot.child("Fecha_Baja").val()
+     
+    })
+  }
+})
 
    
     
@@ -283,41 +378,25 @@ const Calendario = (calendario) => {
 // for each
 
 
-    // tabla.forEach(com => {
-    //   if (com.asis == "Asistencia" || com.justi == null) {
-    //     handleShow(event); 
-    //   } else{
-    //     show(event)
-    //     writeAsistenciaData(event)
-        
-
-    //   }
-
-    // })
 
 
 
-    // "El que jala perron"
+    // "Funciona bien"
 
 
     tabla.forEach(com => {
-      if (com.asis == "Asistencia" && com.justi == null) {
-        handleShow(event);
-      } else{
-        writeAsistenciaData(event)
+      if (com.asis == "Asistencia") {
+        if (com.justi == null) {
+          handleShow(event);
+        } else {
+          show(event);
+          writeAsistenciaData(event)
+        }
       }
     })
 
 
-    // Prueba 
 
-    // tabla.forEach(com => {
-    //   if (com.asis == "Asistencia" && com.justi == null) {
-    //     handleShow(event);
-    //   } else if (){
-    //     writeAsistenciaData(event)
-    //   }
-    // })
 
 
     
@@ -360,16 +439,24 @@ mostrar?
 
 <div className="Calendario" id="inf">
 
+  <div className="calH">
+
 <h1 id="he">
+<i id="calendarI" class="bi bi-calendar-week-fill"></i>
   Calendario
 </h1>
 
+</div>
+<div className="divCale"></div>
 
-<InfiniteCalendar id="Cal"  
+  <div className="containerCal">
+
+<InfiniteCalendar className="Cal"  
 width={1200}
-height={600}
+height={500}
 selected={false}
 minDate={lastWeek}
+maxDate={nextWeek}
 onSelect={setInfinite}
 locale={{
   locale:require('date-fns/locale/es'),
@@ -395,6 +482,8 @@ displayOptions={{
 
 
 <input class="btn btn-success" type="submit" value="Ir al Registro" onClick={mostrarRegistro} id="calbt"></input>
+
+</div>
 
 
 </div>
@@ -427,32 +516,39 @@ displayOptions={{
 
 <div className="Background" id="Registro"  >
 
-<h1 id="head">Registro de Inasistencia</h1>
+  <div className="regIH">
 
-
-
-<table class="table table-bordered" id="Tabla">
+<h1 id="head">
+  <i id="calendarX" class="bi bi-calendar-x"></i>
+  Justificaciones
+  </h1>
+</div>
+<div className="tab">
+<div className="scroll">
+<table class="table table-striped" id="Tabla">
 <thead class="table-dark">
-<tr>
+<tr id="headertab">
   <th scope="col">Cliente/Ubicación</th>
   <th scope="col">Nombre Operador</th>
   <th scope="col">Turno</th>
-  <th scope="col"> {infinite.toDateString().substr(3,12)}</th>
+  <th scope="col"> {infinite.toISOString().substr(0,10)}</th>
 
 </tr>
 </thead>
-<tbody>
+<tbody className="test" >
 
 
 
-{ tabla.map((item,i)=> 
+{ tabla.map((item)=> 
+
 
 
 
 {
-  if (hora >= item.turn.substr(0,2)) {
-
-
+  
+  if (hora >= item.hor.substr(0,2) && item.estatus == 1  && item.fi <= infinite.toISOString().substr(0,10)  ) {
+    
+    
 
     return (
 
@@ -460,13 +556,11 @@ displayOptions={{
 
     <td onChange={setNombre} >
       
-       {item.nombre}  
-       <br/>
-       {item.dom}
-   
+       {item.cliente}
+      
     </td>
-    <td>{item.nom}</td>
-    <td>{item.turn}</td> 
+    <td>{item.nameOp}</td> 
+    <td>{item.hor}</td> 
    
 
    
@@ -488,20 +582,23 @@ displayOptions={{
    
     </tr>
     )
-  }
-  
-  else{
-      
-  }
+
+
+} 
+else {
+
 
 }
 
- 
+}
  )}
  
 </tbody>
 
 </table>
+
+</div>
+</div>
 
 
 
@@ -541,7 +638,7 @@ displayOptions={{
   <Button variant="danger" onClick={handleClose}>
 
 
-X
+Ok
 
 
   </Button>
@@ -591,7 +688,7 @@ X
   <Button variant="danger" onClick={close}>
 
 
-X
+Ok
 
 
   </Button>
@@ -606,11 +703,11 @@ X
 
 <p id="dia"></p>
 
-<div class = "btn-group">
+<div class = "btn-groupp">
 
 
 
-<input class="btn btn-success" type="submit" value="Guardar" onClick={comprobar} id="bt"></input>
+<input class="btn btn-success" type="submit" value="Guardar" onClick={comprobar} id="btt"></input>
 
 <input class="btn btn-secondary" type="submit" value="Regresar al Calendario" onClick={mostrarCalendario} id="bt2"></input>
 
@@ -621,27 +718,11 @@ X
 
 
 
-
-
-
 // F I N    D E L    S E G U N D O    D I V
 
 
 
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
 
 
 </div>
@@ -651,7 +732,6 @@ X
     
 
 }
-
 
 
 export default Calendario
