@@ -1,5 +1,5 @@
 import {React,useEffect} from "react"
-import {BrowserRouter,Switch,Route,Link,Navigate} from "react-router-dom";
+import {BrowserRouter,Routes,Route,Link,Navigate} from "react-router-dom";
 import './Firebase'
 import 'bootstrap/dist/css/bootstrap.css';
 import './Sidebar.css'
@@ -161,7 +161,7 @@ function App(props) {
 
            
 
-            <Switch>
+            <Routes>
                 <Route path="/Alta del Cliente" render={() => <Cliente/>}></Route>
                 <Route path="/Baja del Cliente" render={() => <BajaCliente/>} ></Route>
                 <Route path='/Alta del Operador' render={() => <Personal/>}></Route>
@@ -176,7 +176,7 @@ function App(props) {
                 {/* <Route path='/Registro de Inasistencia' render={() => <Asistencia/>}></Route> */}
                
                 
-            </Switch>
+            </Routes>
             
         </BrowserRouter>
 
