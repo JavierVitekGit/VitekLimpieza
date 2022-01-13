@@ -1,7 +1,6 @@
 import {React,useState} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import './Reporte.css'
-import InfiniteCalendar,{Calendar,defaultMultipleDateInterpolation,withMultipleDates} from 'react-infinite-calendar';
 import 'react-infinite-calendar/styles.css';
 import { initializeApp } from 'firebase/app';
 import {getDatabase,ref,update} from "firebase/database";

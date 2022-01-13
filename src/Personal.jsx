@@ -4,7 +4,6 @@ import './Personal.css'
 import 'react-infinite-calendar/styles.css';
 import { initializeApp } from 'firebase/app';
 import {child, get, getDatabase,ref,update} from "firebase/database";
-import Cliente from "./Cliente";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 
@@ -207,7 +206,7 @@ const Personal = ({personal}) => {
 
 
               <label class="form-outline-label" for="form1">Teléfono</label>
-                <input type="number" id="inp1" class="form-control" value={ID} onChange={v=>onChange1(v.target.value)} placeholder="Teléfono del Operador" />
+                <input type="tel" id="inp1" class="form-control" value={ID} onChange={v=>onChange1(v.target.value)}  maxLength={10} placeholder="Teléfono del Operador" />
 
               
         

@@ -5,11 +5,6 @@ import { initializeApp } from "@firebase/app";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import './Turno.css'
-import { getModularInstance } from "@firebase/app/node_modules/@firebase/util";
-
-import { Col, Form } from "react-bootstrap";
-
-import  { ForMTControl }  from  'react-bootstrap'
 
 
 

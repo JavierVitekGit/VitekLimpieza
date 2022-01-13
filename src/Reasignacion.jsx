@@ -1,8 +1,6 @@
 import {React,useState,useLayoutEffect,useCallback} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
-import {get, getDatabase,ref,child,update, set} from "firebase/database";
-import { initializeApp } from "@firebase/app";
-
+import {get, getDatabase,ref,child,update} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import './Reasignacion.css'

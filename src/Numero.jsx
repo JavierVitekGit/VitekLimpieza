@@ -4,8 +4,7 @@ import { initializeApp } from "@firebase/app";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import './Numero.css'
-import useTranslation from 'next-translate/useTranslation'
-import { array } from "i/lib/util";
+
 
 
 

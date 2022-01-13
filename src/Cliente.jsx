@@ -1,13 +1,9 @@
-import {React,useState,useCallback} from "react";
+import {React,useState} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import './Cliente.css'
-import TimeRangePicker from '@wojtekmaj/react-timerange-picker';
 import 'react-infinite-calendar/styles.css';
-import {get, getDatabase,ref,child,update} from "firebase/database";
-import { initializeApp } from "@firebase/app";
-import {Link,Switch,BrowserRouter,Route} from "react-router-dom"
-import DateRangePicker from '@wojtekmaj/react-daterange-picker'
-import BajaCliente from "./Bajas del Cliente";
+import {getDatabase,ref,update} from "firebase/database";
+import {initializeApp } from "@firebase/app";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 

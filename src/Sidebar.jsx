@@ -1,5 +1,5 @@
-import React, { useEffect, useState,useCallback } from 'react'
-import {BrowserRouter,Switch,Route,Link,Redirect,Router,useHistory} from "react-router-dom";
+import React, {useState,useCallback } from 'react'
+import {BrowserRouter,Link,useHistory} from "react-router-dom";
 const SideBar = (sideBar) => {
 
 const [inactive,setInactive] = useState(true)

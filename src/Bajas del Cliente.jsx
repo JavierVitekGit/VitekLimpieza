@@ -1,6 +1,6 @@
-import {React,useState,Component, useEffect, useLayoutEffect,useCallback} from "react";
+import {React,useState, useLayoutEffect,useCallback} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
-import {get, getDatabase,ref,child,update,set} from "firebase/database";
+import {get, getDatabase,ref,child,update,} from "firebase/database";
 import { initializeApp } from "@firebase/app";
 import "./BajaCliente.css"
 import Modal from 'react-bootstrap/Modal'

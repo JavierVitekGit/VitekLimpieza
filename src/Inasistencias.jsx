@@ -1,4 +1,4 @@
-import {React,useState,useEffect,useCallback} from "react";
+import {React,useState,useCallback} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import "./Inasistencias.css"
 import InfiniteCalendar from 'react-infinite-calendar';
@@ -8,10 +8,10 @@ import {es} from 'date-fns/locale'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'react-infinite-calendar/styles.css';
 import { initializeApp } from 'firebase/app';
-import {getDatabase,ref,child,get,update} from "firebase/database";
+import {getDatabase,ref,child,get} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
-import Calendar from 'react-calendar';
+
 
 
 
@@ -190,6 +190,16 @@ var milisegundos = ahora.getMilliseconds();
                                igual=true;
                    }
                   if(!igual)array.push(comp[i]);
+
+
+                var alpha =  array.sort((a,b) => {
+                    if (a.clienteC < b.clienteC) return -1;
+                    if (a.clienteC > b.clienteC) return 1
+
+                    return 0;
+                  })
+
+                  
                   
               
                   setTimeout(() => {
@@ -300,7 +310,8 @@ displayOptions={{
 <div> 
 
 <div className="inasistenciaHeader">
-  <h1 className="inasistenciaTitle">Lista de Inasistencias</h1>
+  <h1 className="inasistenciaTitle">Lista de Inasistencia</h1>
+  <h1 className="dateI">{dia + "-" + mes + "-" + año}</h1>
 </div>
 
 <table class="table table-striped" id="tablaRegistro">
