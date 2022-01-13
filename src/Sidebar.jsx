@@ -1,10 +1,10 @@
 import React, {useState,useCallback } from 'react'
-import {BrowserRouter,Link,useHistory} from "react-router-dom";
+import {BrowserRouter,Link,useNavigate} from "react-router-dom";
 const SideBar = (sideBar) => {
 
 const [inactive,setInactive] = useState(true)
 
-const history = useHistory();
+const history = useNavigate();
 
 const cliente = () => {
     history.push("/Alta del Cliente");
