@@ -1,7 +1,7 @@
 import {React,useState} from "react";
 import Modal from 'react-bootstrap/Modal'
 import './login.css'
-import {useHistory} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import Button from 'react-bootstrap/Button'
 
 const Login = (login) => {
@@ -9,7 +9,7 @@ const Login = (login) => {
 const [usuario,setUsuario] = useState ('')
 const [password,setPassword] = useState('')
 
-const history = useHistory();
+const history = useNavigate();
 
 
 const[modalLogin,setModalLogin] =useState(false)
