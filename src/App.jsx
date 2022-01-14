@@ -1,5 +1,5 @@
 import {React,useEffect} from "react"
-import {BrowserRouter,Switch,Route,Link,Redirect} from "react-router-dom";
+import {BrowserRouter,Switch,Route,Link,Navigate} from "react-router-dom";
 import './Firebase'
 import 'bootstrap/dist/css/bootstrap.css';
 import './Sidebar.css'
@@ -102,10 +102,10 @@ function App(props) {
 
         <BrowserRouter>
 
-        <Redirect
+        <Navigate
         from exact="/"
         to="/login">
-        </Redirect>
+        </Navigate>
 
         
         
