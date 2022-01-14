@@ -1,5 +1,5 @@
 import React, {useState,useCallback } from 'react'
-import {BrowserRouter,Link,useHistory} from "react-router";
+import {BrowserRouter as Router,Link,useHistory} from "react-router-dom";
 const SideBar = (sideBar) => {
 
 const [inactive,setInactive] = useState(true)
@@ -74,7 +74,7 @@ return (
 
     {/* <div className="divider"></div> */}
 
-    <BrowserRouter>
+    <Router>
 
     <div className="Cliente">
         <p>Cliente</p>
@@ -167,7 +167,7 @@ return (
 
 </div>
 
-    </BrowserRouter>
+    </Router>
 
 
 </div>
