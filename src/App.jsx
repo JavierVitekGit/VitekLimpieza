@@ -12,7 +12,7 @@ import Calendario from './Calendario'
 import BajaCliente from "./Bajas del Cliente";
 import BajaOperador from "./Baja Operador";
 import Reasignacion from "./Reasignacion";
-import Turno from "./Turno";
+import Turno from "./Turno.jsx";
 import Numero from "./Numero";
 import Login from "./login"
 import Inasistencia from "./Inasistencias";
@@ -102,10 +102,10 @@ function App(props) {
 
         <BrowserRouter>
 
-        <Navigate
-        from exact="/"
-        to="/login">
-        </Navigate>
+            {/* <Navigate
+            from exact="/"
+            to="/">
+            </Navigate> */}
 
         
         
@@ -162,18 +162,35 @@ function App(props) {
            
 
             <Routes>
-                <Route path="/Alta del Cliente" render={() => <Cliente/>}></Route>
-                <Route path="/Baja del Cliente" render={() => <BajaCliente/>} ></Route>
-                <Route path='/Alta del Operador' render={() => <Personal/>}></Route>
-                <Route path='/Baja del Operador' render={() => <BajaOperador/>}></Route>
-                <Route path='/Reporte' render={() => <Reporte/>}></Route>
-                <Route path='/Calendario' render={() => <Calendario/>}></Route>
-                <Route path='/Reasignacion' render={()=><Reasignacion/>}></Route>
-                <Route path='/Añadir Turno' render={()=><Turno/>}></Route>
-                <Route path='/Cambio de Numero' render={()=><Numero/>}></Route>
-                <Route path='/login' render={()=> <Login></Login>}></Route>
-                <Route path="/Inasistencia" render={()=> <Inasistencia></Inasistencia>}></Route>
-                {/* <Route path='/Registro de Inasistencia' render={() => <Asistencia/>}></Route> */}
+
+                <Route exact path="/" element={<Login/>} />
+                
+                <Route path="/Alta%20del%20Cliente" element={<Cliente/>}/>
+                <Route path="Baja%20del%20Cliente" element={<BajaCliente/>}/>
+                <Route path="/Alta%20del%20Operador" element={<Personal/>}/>
+                <Route path="/Baja%20del%20Operador" element={<BajaOperador/>}/>
+                <Route path="/Reporte" element={<Reporte/>}/>
+                <Route path="/Calendario" element={<Calendario/>}/>
+                <Route path="/Reasignacion" element={<Reasignacion/>}/>
+                <Route path="/Anadir%20Turno" element={<Turno/>}/>
+                <Route path="/Cambio%20de%20Numero" element={<Numero/>}/>
+                <Route path="Inasistencia" element={<Inasistencia/>}/>
+                {/* <Route path="/login" element={<Login/>}/> */}
+                
+z
+                
+                {/* <Route path="/Alta del Cliente" render={() => <Cliente/>}/>
+                <Route path="/Baja del Cliente" render={() => <BajaCliente/>} />
+                <Route path='/Alta del Operador' render={() => <Personal/>}/>
+                <Route path='/Baja del Operador' render={() => <BajaOperador/>}/>
+                <Route path='/Reporte' render={() => <Reporte/>}/>
+                <Route path='/Calendario' render={() => <Calendario/>}/>
+                <Route path='/Reasignacion' render={()=><Reasignacion/>}/>
+                <Route path='/Añadir Turno' render={()=><Turno/>}/>
+                <Route path='/Cambio de Numero' render={()=><Numero/>}/>
+                <Route path='/login' render={()=> <Login></Login>}/>
+                <Route path="/Inasistencia" render={()=> <Inasistencia></Inasistencia>}/> */}
+                {/* <Route path='/Registro de Inasistencia' render={() => <Asistencia/>}/> */}
                
                 
             </Routes>

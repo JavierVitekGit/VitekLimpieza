@@ -1,5 +1,5 @@
 import React, {useState,useCallback } from 'react'
-import {BrowserRouter as Router,Link,useNavigate} from "react-router-dom";
+import {BrowserRouter,Link,useNavigate} from "react-router-dom";
 const SideBar = (sideBar) => {
 
 const [inactive,setInactive] = useState(true)
@@ -7,39 +7,39 @@ const [inactive,setInactive] = useState(true)
 const history = useNavigate();
 
 const cliente = () => {
-    history.push("/Alta del Cliente");
+    history("Alta del Cliente");
 }
 
 const bajaCliente = () => {
-    history.push("/Baja del Cliente")
+    history("/Baja del Cliente");
 }
 
 const turno = () => {
-    history.push("/Añadir turno");
+    history("/Añadir Turno");
 }
 
 const Operador = () => {
-    history.push("/Alta del Operador")
+    history("/Alta del Operador");
 }
 
 const bajaOperador = () => {
-    history.push("/Baja del Operador");
+    history("/Baja del Operador");
 }
 
 const Reasignacion = () => {
-    history.push("/Reasignacion")
+    history("/Reasignacion");
 }
 
 const Numero = () => {
-    history.push("/Cambio de Numero");
+    history("/Cambio de Numero");
 }
 
 const Registro = () => {
-    history.push("/Calendario")
+    history("/Calendario");
 }
 
 const Inasistencia = () => {
-    history.push("/Inasistencia")
+    history("/Inasistencia");
 }
 
 
@@ -74,7 +74,7 @@ return (
 
     {/* <div className="divider"></div> */}
 
-    <Router>
+   {/* <BrowserRouter> */}
 
     <div className="Cliente">
         <p>Cliente</p>
@@ -102,7 +102,7 @@ return (
                 <div className="section1">
         <div className="b"> <i class="bi bi-newspaper" onClick={()=>setInactive(!inactive)} title="Datos del Cliente"></i>
          <Link to="/Alta del Cliente" >   <p className="alta" onClick={cliente}>Alta del Cliente</p></Link> 
-         {/* history.push("/Alta del Cliente") */}
+         {/* history("/Alta del Cliente") */}
         </div>
 
                 <div className="baja"> 
@@ -111,7 +111,7 @@ return (
 
 
                  <div className="turno">
-        <Link to="/Añadir Turno">        <p className="turno" onClick={turno}>Añadir Turno</p></Link>
+        <Link to="/Anadir Turno">        <p className="turno" onClick={turno}>Añadir Turno</p></Link>
                  </div>
 
 
@@ -167,7 +167,7 @@ return (
 
 </div>
 
-    </Router>
+   {/* </BrowserRouter> */}
 
 
 </div>

@@ -27,9 +27,7 @@ const Reasignacion = (reasignacion) => {
     // });
 
 
-    let arrayVegetales = ["Zanahoria", "Calabaza", "Cebolla", "Tomate", "Ajo"];
-let newArrayVegetales = arrayVegetales.filter(vegetal => vegetal.length >= 6);
-console.log(newArrayVegetales);
+
 
     console.log(filt)
 

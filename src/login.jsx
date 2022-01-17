@@ -25,7 +25,7 @@ function comprobar() {
                         || 
        usuario=="Nhyix" && password == "7620859gasai12") {
         
-        history.push("/Alta del Cliente")
+        history("/Alta del Cliente")
 
     }
 

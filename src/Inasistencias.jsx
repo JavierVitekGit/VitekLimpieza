@@ -191,6 +191,7 @@ var milisegundos = ahora.getMilliseconds();
                    }
                   if(!igual)array.push(comp[i]);
 
+                  
 
                 var alpha =  array.sort((a,b) => {
                     if (a.clienteC < b.clienteC) return -1;
