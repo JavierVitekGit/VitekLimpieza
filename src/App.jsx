@@ -19,15 +19,17 @@ import Inasistencia from "./Inasistencias";
 import './App.css'
 
 
-function useOutsideAlerter(ref) {
-    useEffect(()=> {
-        function handleClickOutside(event){
-            if(ref.current && !ref.current.contains(event.target)){
+// function useOutsideAlerter(ref) {
+//     useEffect(()=> {
+//         function handleClickOutside(event){
+//             if(ref.current && !ref.current.contains(event.target)){
 
-            }
-        }
-    })
-}
+//             }
+//         }
+//     })
+// }
+
+
 
 
 
@@ -42,7 +44,7 @@ function useOutsideAlerter(ref) {
 
 function App(props) {
 
-    
+   
   
     return(
 
@@ -102,11 +104,7 @@ function App(props) {
 
         <BrowserRouter>
 
-            {/* <Navigate
-            from exact="/"
-            to="/">
-            </Navigate> */}
-
+            
         
         
             
@@ -114,8 +112,11 @@ function App(props) {
             <SideBar></SideBar>
             
             </div>
+
+
             
             <div className="appTest">
+       
               <ul>
                 <li>
                     <Link to="/Alta del Cliente"></Link>
@@ -159,11 +160,14 @@ function App(props) {
                 
             </div>
 
-           
+  
 
             <Routes>
+                
 
-                <Route exact path="/" element={<Login/>} />
+                <Route path="/" element={<Navigate replace to="/login"/>} />
+
+                <Route path="/login" element={<Login/>} />
                 
                 <Route path="/Alta%20del%20Cliente" element={<Cliente/>}/>
                 <Route path="Baja%20del%20Cliente" element={<BajaCliente/>}/>
@@ -177,7 +181,7 @@ function App(props) {
                 <Route path="Inasistencia" element={<Inasistencia/>}/>
                 {/* <Route path="/login" element={<Login/>}/> */}
                 
-z
+
                 
                 {/* <Route path="/Alta del Cliente" render={() => <Cliente/>}/>
                 <Route path="/Baja del Cliente" render={() => <BajaCliente/>} />
@@ -193,6 +197,7 @@ z
                 {/* <Route path='/Registro de Inasistencia' render={() => <Asistencia/>}/> */}
                
                 
+
             </Routes>
             
         </BrowserRouter>
