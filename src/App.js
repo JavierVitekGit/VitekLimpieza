@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
-import {BrowserRouter,Link,useNavigate,Routes,Route,Navigate} from "react-router-dom";
-import './sideBar.css'
+import {BrowserRouter,useNavigate,Routes,Route,Navigate} from "react-router-dom";
 import './App.css';
 
 import Login from './login'
@@ -54,14 +53,8 @@ const App = (app) => {
 
   
 
-  const [usuario,setUsuario] = useState ('')
-  const [password,setPassword] = useState('')
 
 
-  let history = useNavigate;
-
-
-  
   
   return (
 
