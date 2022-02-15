@@ -6,7 +6,7 @@ import './App.css';
 import Login from './login'
 import Cliente from './Cliente'
 import BajaCliente from './Bajas del Cliente'
-import Personal from './Personal'
+import Personal from './Personal.jsx'
 import BajaOperador from './Baja Operador'
 import Reporte from './Reporte'
 import Calendario from './Calendario'
