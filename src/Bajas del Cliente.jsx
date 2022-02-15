@@ -176,7 +176,7 @@ return(
 
         <div className="Body">
 
-        <div className="containerB">
+     
 
 
         <div className="oneB">
@@ -221,24 +221,13 @@ return(
 
 
 
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-
-        
-
-            <br></br>
-            <br></br>
 
         <div class="btn-groupp">
 
         <input class="btn btn-danger" type="submit" value="Dar de Baja" onClick={comprobar} ></input>
         </div>
 
-        </div>
+        
         </div>
 
 

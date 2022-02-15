@@ -35,8 +35,8 @@
     color: black;
     background-color: white;
     border-radius: 5px;
-    height: 750px;
-    width: 1688px;
+    height: 70%;
+    width: 80%;
   }
   
   .Baja label{
@@ -85,11 +85,10 @@
 
   .bajaH{
     background-color: black;
-    height: 260px;
-    width: 1800px;
-    margin-left: 78px;
+    width: 100%;
+    text-align: center;
     color: white;
-    margin-top: -120px;
+
   }
 
 
