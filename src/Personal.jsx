@@ -204,15 +204,19 @@ const Personal = ({personal}) => {
               <div className="oneAP">
 
               <label class="form-outline-label" for="form1">R.F.C</label>
+              <br/>
                 <input type="text" id="inp1" class="form-control" value={rfc} onChange={v=>setRfc(v.target.value)} minLength="13" maxLength="13" placeholder="R.F.C del Operador" />
 
+                <br/>
 
               <label class="form-outline-label" for="form1">Teléfono</label>
+              <br/>
                 <input type="tel" id="inp1" class="form-control" value={ID} onChange={v=>onChange1(v.target.value)}  maxLength={10} placeholder="Teléfono del Operador" />
 
-              
+                <br/>
         
               <label class="form-outline-label" for="form1">Nombre Completo</label>
+              <br/>
                 <input type="text" id="inp2" class="form-control" value={nombre} onChange={v=>onChange2(v.target.value)} placeholder="Nombre del Operador" />
 
             
@@ -221,9 +225,12 @@ const Personal = ({personal}) => {
 
                 <div className="secondAP">
 
-              <label class="form-outline-label"  id="dej">Fecha de Ingreso</label>
-                <input type="Date" id="inputdis" class="form-control" value={fechaI} onChange={v=>onChange3(v.target.value)} min={minInp} />
+                <br/>
 
+              <label class="form-outline-label"  id="dej">Fecha de Ingreso</label>
+              <br/>
+                <input type="Date" id="inputdis" class="form-control" value={fechaI} onChange={v=>onChange3(v.target.value)} min={minInp} />
+                <br/>
 
 
 
