@@ -7,7 +7,7 @@ import {child, get, getDatabase,ref,update} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import {BrowserRouter,Link,useNavigate} from "react-router-dom";
-import SideBarO from "./SideBarO";
+import SideBar from "./Sidebar";
 
 const PersonalOlga = ({personal}) => {
 
@@ -266,8 +266,8 @@ const PersonalOlga = ({personal}) => {
            
         <div className="Usuario">
 
-        <div className="SideOlga">
-            <SideBarO/>
+        <div className="adminSide">
+            <SideBar/>
             
             </div>
 
