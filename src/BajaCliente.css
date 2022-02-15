@@ -33,6 +33,7 @@
   .Body input{
     width: 20%;
     align-self: center;
+    display: inline;
   }
   
   .Baja label{
