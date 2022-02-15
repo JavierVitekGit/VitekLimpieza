@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button'
 import {BrowserRouter,Link,useNavigate} from "react-router-dom";
 import SideBar from "./Sidebar";
 
-const PersonalOlga = ({personal}) => {
+const Personal = ({personal}) => {
 
     const [inactive,setInactive] = useState(true)
 
@@ -503,4 +503,4 @@ Ok
 
 
 
-export default PersonalOlga;
+export default Personal;
