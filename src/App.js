@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import {BrowserRouter,Link,useNavigate,Routes,Route,Navigate} from "react-router-dom";
-import SideBar from './sidebar';
 import './sideBar.css'
 import './App.css';
 
