@@ -5,10 +5,10 @@ import { initializeApp } from "@firebase/app";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import './Turno.css'
-import SideBarO from "./SideBarO";
+import SideBarL from "./SideBarL";
 
 
-const Turno = (turno) =>{
+const TurnoL = (turno) =>{
 
 
   // D I A S  C H E C K B O X
@@ -117,7 +117,15 @@ const Turno = (turno) =>{
       }
 
 
+// A R R A Y 
 
+const [arrayClientecL,setArrayClientesL] = useState([])
+
+const [arrayRfc,setArrayRfc] = useState([])
+
+
+
+//
 
     const [, updateState] = useState();
     const forceUpdate = useCallback(() => updateState({}), []); 
@@ -207,11 +215,12 @@ const Turno = (turno) =>{
 
 
     operador.forEach(v=>{
-        if (v.key == opcion) {
-            setNamee(v.nm)
+        if (v.nm == opcion) {
+            setNamee(v.key)
         }
     })
 }
+
 
 
     shift.forEach((item)=>{
@@ -228,7 +237,36 @@ const Turno = (turno) =>{
     useEffect(()=>{
 
 
+      arrayClientecL.push(
+      "SanMiguel",
+      "SeccionLomas",
+      "PulcraChemicals",
+      "GrupoCumbres",
+      "Mitzubishi",
+      "INELeon",
+      "BaraLeon" ,
+      "PaqExpressDelta",
+      "PaqExpressTorresLanda",
+      "Stadium",
+      "AndreaCorporativo",
+      "ALCIONE",
+      "InmobiliariaGuerrero" ,
+      "SecretariadeEconomia",
+      "INEArbide",
+      "UNITE AIRLINES INC",
+      "BajioAguascalientes",
+      "BajioBoulevard",
+      "BajioConvencion",
+      "BajioUniversidad",
+      "BajioLasAmericas",
+      "BajioEdificioRegional",
+      "BajioHilarioMedina",
+      "BajioCentro",
+      "BajioPaseodelMoral",
+      "BajioHermanosAldama",
+      "DAIBSA")
 
+      arrayClientecL.sort()
 
       const firebaseConfig = {
         apiKey: "AIzaSyBmZRACI4lPavlz-2N0NyIvTIW9j2DOJhY",
@@ -257,15 +295,25 @@ const Turno = (turno) =>{
 
                   arrayR.push({rfc:rfc})
 
-                console.log(rfc)
 
               })
+
+              arrayClientecL.forEach((other => {
+              operador.forEach(iter => {
+                if (iter.cl == other){
+                    arrayRfc.push(iter.nm)
+
+                    console.log("Lourdes:",arrayRfc)
+                    arrayRfc.sort()
+                }
+            })
+          }))
+
           }
       })
 
        
 
-  console.log("ARRAY R",arrayR)
 
 
       get(child(dbRef,'shift')).then((snapshot)=>{
@@ -293,13 +341,13 @@ return(
 <div className="turn">
 
 <div className="SideOlgaB">
-            <SideBarO/>
+            <SideBarL/>
             
             </div>
 
 <div className="header-turn"> 
 
-<h1 id="añadir">Añadir nuevo turno</h1>
+<h1 id="añadir">Añadir nuevo turno Lourdes</h1>
 
 </div>
 
@@ -307,23 +355,23 @@ return(
 
 
     <div className="container-turn">
-        <label class="form-outline-label">RFC del Operador</label>
+        <label class="form-outline-label">Nombre del Operador</label>
         <br/>
         <select onClick={forceUpdate} value={name} onChange={v=> setName(v.target.value),handlerEvent}> 
-         {rfcN.map((item)=> <option>{item}</option>)}
+         {arrayRfc.map((item)=> <option>{item}</option>)}
         </select>
 
         <br/>
 
 
-        <input type="text" class="form-comtrol" value={namee} placeholder="Nombre del Operador" ></input>
+        <input type="text" class="form-comtrol" value={namee} placeholder="R.F.C del Operador" ></input>
 
         <br/>
 
         <label class="form-outline-label">Nombre del Cliente</label>
         <br></br>
         <select onClick={forceUpdate} value={client} onChange={v=> setClient(v.target.value)} id="sLTCas">
-        {unicos.map((item,i)=> <option>{item}</option>)}
+        {arrayClientecL.map((item,i)=> <option>{item}</option>)}
         </select>
 
 <br/>
@@ -524,4 +572,4 @@ return(
 }
 
 
-export default Turno
+export default TurnoL;

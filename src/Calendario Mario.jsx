@@ -11,11 +11,11 @@ import { initializeApp } from 'firebase/app';
 import {getDatabase,ref,child,get,update, set} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import SideBarL from "./SideBarL";
 
 
 
-
-const Calendario = (calendario) => {
+const CalendarioM = (calendario) => {
 
 
   const [datos,setDatos] = useState ([])
@@ -214,7 +214,10 @@ const firebaseConfig = {
 
               // setArray([])
 
-             
+              if (datos.length == 0) {
+                handleShoww();
+              
+              } else {
 
               for (var i = 0; i < comp.length; i++) {
                   var igual=false;
@@ -240,7 +243,7 @@ const firebaseConfig = {
                     mostrarRegistro();
                   }, 100);
               }
-            
+            }
 
       
           
@@ -360,8 +363,8 @@ mostrar?
   <div className="containerCal">
 
 <InfiniteCalendar className="Cal"  
-width={500}
-height={250}
+width={1200}
+height={500}
 selected={false}
 minDate={lastWeek}
 maxDate={nextWeek}
@@ -474,7 +477,7 @@ Ok
 
 <h1 id="head">
   <i id="calendarX" class="bi bi-calendar-x"></i>
-  Justificaciones
+  Justificaciones Mario
   <h1 className="dateCa">{dia + "-" + mes + "-" + año}</h1>
   </h1>
 </div>
@@ -700,4 +703,4 @@ Ok
 }
 
 
-export default Calendario
+export default CalendarioM;

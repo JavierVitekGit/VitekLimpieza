@@ -209,9 +209,12 @@ const Cliente = (clientes) => {
           // "width: 100%; height: 100%;"
           
 
-    <div className="Usuario" style={myStyle} >
+    <div className="Usuario"  >
 
-
+            <div className="adminSide">
+       
+            
+            </div>        
 
 
    

@@ -21,24 +21,67 @@ const[modalLogin,setModalLogin] =useState(false)
 
 
 function comprobar() {
+  
     if(usuario=="Admin" && password=="asdq23" 
                         || 
        usuario=="Nhyix" && password == "7620859gasai12") {
-        
+      //                   ||
+      //  usuario=="Lourdes" && password =="lili1234") {
         history("/Alta del Cliente")
-
+        console.log("Pasale")
     }
 
     else {
         showLogin()
     }
+
+    // O L G A 
+
+    if (usuario =="Olga" && password=="olga1234")
+     {
+          history("/Alta del Operador O")
+    }  else {
+      showLogin()
+    }
+
+    // L O U R D E S
+
+    if (usuario =="Lourdes" && password=="lourdes1234")
+     {
+          history("/Alta del Operador L")
+    }  else {
+      showLogin()
+    }
+
+
+    // M A R I O
+
+    if (usuario =="Mario" && password=="mario1234")
+     {
+          history("/Alta del Operador M")
+    }  else {
+      showLogin()
+    }
+
+    // F A T I M A
+
+    if (usuario =="Fatima" && password=="fatima1234")
+    {
+         history("/Alta del Operador F")
+   }  else {
+     showLogin()
+   }
+
+
+    //
+
 }
 
 
 return(
 
 
-<div className="bodyLogin">
+<div className="bodyLogin"   >
 
     <div className="inicioS">
       

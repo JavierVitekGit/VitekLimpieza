@@ -3,16 +3,17 @@
   }
   
   .Baja {
-    margin-top: -284px;
     background-color: rgb(212,212,212);
-    min-height: 100.4vh;
-    display: flex;
+    align-self: center;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: black;
     font-style: oblique;
+    position: fixed;
+    height: 100%;
+    width: 100%;
   }
   
   .App-link {
@@ -20,18 +21,21 @@
   }
   
   .Bodyy{
-    margin-top: 15px;
-    margin-left: 90px;
+    width: 80%;
+    height: 80%;
+    margin-top: 3%;
+    margin-left: 12%;
     text-align: center;
     color: black;
     background-color: white;
     border-radius: 5px;
-    height: 750px;
-    width: 1688px;
+    align-self: center;
+
   }
   
   .Baja label{
-    margin-top: 30px;    
+    margin-top: 30px;
+
   }
 
   
@@ -42,7 +46,6 @@
 
 
   .Descanso{
-    margin-left: 0px;
   }
 
   #hora{
@@ -59,33 +62,30 @@
     border-width: 3px;
     width: 300px;
     text-align: center;
-   margin-left: 690px;
+    display: inline;
   }
 
   .btn-group > .btn{
     margin-top: -40px;
-    margin-right: 690px;
     width: 200px;
   }
 
   .bajaOH{
-    margin-top: 65px;
+    height: 15%;
     text-align: center;
   }
 
   .boH{
     background-color: black;
-    height: 180px;
-    width: 1800px;
-    margin-top: -50px;
-    margin-left: 78px;
+    width: 100%;
+
+
     color: white;
-    align-content: center;
-    justify-content: center;
+
   }
 
 #rfcT{
-  margin-top: 50px;
+  margin-top: 3%;
 }
 
 #cellBO{
@@ -93,22 +93,26 @@ margin-right: 30px;
 }
 
 .fechaIngresoOp{
-  margin-right: 400px;
+
 }
 
 .fechaIngresoOp input{
-  margin-left: 500px;
+
 }
 
-.fechaBajaOp{
-  margin-left: 470px;
-  margin-top: -115px;
-}
 
 .fechaBajaOp input{
-  margin-left: 440px;
+
 }
 
 #fbO{
-  margin-left: -30px;
+
+}
+
+.SideOlgaB{
+  align-self: start;
+}
+
+.SideOlgaBb{
+  align-self: start;
 }

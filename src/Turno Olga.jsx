@@ -8,7 +8,7 @@ import './Turno.css'
 import SideBarO from "./SideBarO";
 
 
-const Turno = (turno) =>{
+const TurnoOlga = (turno) =>{
 
 
   // D I A S  C H E C K B O X
@@ -153,7 +153,10 @@ const Turno = (turno) =>{
     }
 
 
+// A R R A Y
 
+    const [arrayClientCl,setArrayClientCl] = useState([]);
+    const [arrayNamae,setArrayNamae] = useState([]);
     
 
     const [shift,setShift] = useState([])
@@ -207,8 +210,8 @@ const Turno = (turno) =>{
 
 
     operador.forEach(v=>{
-        if (v.key == opcion) {
-            setNamee(v.nm)
+        if (v.nm == opcion) {
+            setNamee(v.key)
         }
     })
 }
@@ -227,8 +230,15 @@ const Turno = (turno) =>{
 
     useEffect(()=>{
 
+      arrayNamae.push("");
 
+        arrayClientCl.push("FlexiOriental",
+        "FlexiStivia",
+        "FlexiProcesosEspeciales",
+        "MolinoCasaClub",
+        "InstitutoCumbres")
 
+        arrayClientCl.sort()
 
       const firebaseConfig = {
         apiKey: "AIzaSyBmZRACI4lPavlz-2N0NyIvTIW9j2DOJhY",
@@ -260,6 +270,19 @@ const Turno = (turno) =>{
                 console.log(rfc)
 
               })
+
+
+              arrayClientCl.forEach((other => {
+                operador.forEach(iter => {
+                  if (iter.cl == other){
+                      arrayNamae.push(iter.nm)
+  
+                      console.log("Lourdes:",arrayNamae)  
+
+                      arrayNamae.sort()
+                  }
+              })
+            }))
           }
       })
 
@@ -307,23 +330,23 @@ return(
 
 
     <div className="container-turn">
-        <label class="form-outline-label">RFC del Operador</label>
+        <label class="form-outline-label">Nombre del Operador</label>
         <br/>
         <select onClick={forceUpdate} value={name} onChange={v=> setName(v.target.value),handlerEvent}> 
-         {rfcN.map((item)=> <option>{item}</option>)}
+         {arrayNamae.map((item)=> <option>{item}</option>)}
         </select>
 
         <br/>
 
 
-        <input type="text" class="form-comtrol" value={namee} placeholder="Nombre del Operador" ></input>
+        <input type="text" class="form-comtrol" value={namee} placeholder="CURP del Operador" ></input>
 
         <br/>
 
         <label class="form-outline-label">Nombre del Cliente</label>
         <br></br>
         <select onClick={forceUpdate} value={client} onChange={v=> setClient(v.target.value)} id="sLTCas">
-        {unicos.map((item,i)=> <option>{item}</option>)}
+        {arrayClientCl.map((item,i)=> <option>{item}</option>)}
         </select>
 
 <br/>
@@ -387,14 +410,8 @@ return(
 
         <br/>
         <select value={hr} onChange={v=> setHr(v.target.value)}> 
-            <option>07:00</option>
-            <option>08:00</option>
-            <option>09:00</option>
-            <option>10:00</option>
-            <option>11:00</option>
-            <option>12:00</option>
-            <option>13:00</option>
-            <option>14:00</option>
+            <option>Matutino</option>
+            <option>Vespertino</option>
         </select>
 
         
@@ -524,4 +541,4 @@ return(
 }
 
 
-export default Turno
+export default TurnoOlga;

@@ -1,4 +1,4 @@
-import { React,useState,useLayoutEffect,useCallback} from "react";
+import { React,useState,useLayoutEffect,useCallback,useEffect} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import './Personal.css'
 import 'react-infinite-calendar/styles.css';
@@ -6,9 +6,95 @@ import { initializeApp } from 'firebase/app';
 import {child, get, getDatabase,ref,update} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import {BrowserRouter,Link,useNavigate} from "react-router-dom";
+import SideBarL from "./SideBarL";
 
+const PersonalL = ({personal}) => {
 
-const Personal = ({personal}) => {
+    const [inactive,setInactive] = useState(true)
+
+    const history = useNavigate();
+    
+    const clientee = () => {
+        history("Alta del Cliente");
+    }
+    
+    const bajaCliente = () => {
+        history("/Baja del Cliente");
+    }
+    
+    const turno = () => {
+        history("/Añadir Turno");
+    }
+    
+    const Operador = () => {
+        history("/Alta del Operador");
+    }
+    
+    const bajaOperador = () => {
+        history("/Baja del Operador");
+    }
+    
+    const Reasignacion = () => {
+        history("/Reasignacion");
+    }
+    
+    const Numero = () => {
+        history("/Cambio de Numero");
+    }
+    
+    const Registro = () => {
+        history("/Calendario");
+    }
+    
+    const Inasistencia = () => {
+        history("/Inasistencia");
+    }
+    
+    
+    // document.addEventListener('click', function(event) {
+    //     if(event.target.id != 'botonQueMuestraMenu' && event.target.id != 'menu'){
+    //       document.getElementById('menu').style.display = 'none';
+    //     }
+    //   });
+    
+    
+    const [arrayClientes,setArrayClientes] = useState([])
+
+    useEffect(()=> {
+      arrayClientes.push("SanMiguel",
+      "SeccionLomas",
+      "PulcraChemicals",
+      "GrupoCumbres",
+      "Mitzubishi",
+      "INELeon",
+      "BaraLeon" ,
+      "PaqExpressDelta",
+      "PaqExpressTorresLanda",
+      "Stadium",
+      "AndreaCorporativo",
+      "ALCIONE",
+      "InmobiliariaGuerrero" ,
+      "SecretariadeEconomia",
+      "INEArbide",
+      "UNITE AIRLINES INC",
+      "BajioAguascalientes",
+      "BajioBoulevard",
+      "BajioConvencion",
+      "BajioUniversidad",
+      "BajioLasAmericas",
+      "BajioEdificioRegional",
+      "BajioHilarioMedina",
+      "BajioCentro",
+      "BajioPaseodelMoral",
+      "BajioHermanosAldama",
+      "DAIBSA")
+  
+      arrayClientes.sort()
+    },[])
+    
+    
+
 
   var today = new Date();
   var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
@@ -184,9 +270,11 @@ const Personal = ({personal}) => {
     return(
            
         <div className="Usuario">
-          <div>
-   
-          </div>
+
+        <div className="SideOlga">
+            <SideBarL/>
+            
+            </div>
 
         <div className="App-header">
             
@@ -194,7 +282,7 @@ const Personal = ({personal}) => {
         <div className="altaCH">
             <h1 className="dt"> 
             <i id="celI" class="bi bi-telephone-plus"></i>
-              Alta del Operador
+              Alta del Operador Lourdes
             </h1>
          </div>    
 
@@ -204,17 +292,20 @@ const Personal = ({personal}) => {
               <div className="oneAP">
 
               <label class="form-outline-label" for="form1">R.F.C</label>
+              <br/>
                 <input type="text" id="inp1" class="form-control" value={rfc} onChange={v=>setRfc(v.target.value)} minLength="13" maxLength="13" placeholder="R.F.C del Operador" />
-
+                <br/>
 
               <label class="form-outline-label" for="form1">Teléfono</label>
+              <br/>
                 <input type="tel" id="inp1" class="form-control" value={ID} onChange={v=>onChange1(v.target.value)}  maxLength={10} placeholder="Teléfono del Operador" />
-
+                <br/>
               
         
               <label class="form-outline-label" for="form1">Nombre Completo</label>
+              <br/>
                 <input type="text" id="inp2" class="form-control" value={nombre} onChange={v=>onChange2(v.target.value)} placeholder="Nombre del Operador" />
-
+                <br/>
             
                 </div>
 
@@ -222,8 +313,9 @@ const Personal = ({personal}) => {
                 <div className="secondAP">
 
               <label class="form-outline-label"  id="dej">Fecha de Ingreso</label>
+              <br/>
                 <input type="Date" id="inputdis" class="form-control" value={fechaI} onChange={v=>onChange3(v.target.value)} min={minInp} />
-
+                <br/>
 
 
 
@@ -237,7 +329,35 @@ const Personal = ({personal}) => {
                 <br/>
 
                 <select id="slc" onClick={forceUpdate} value={cliente} onChange={v=>onChange5(v.target.value)}>
-                {unicos.map((item) => <option>{item}</option> )} 
+              {arrayClientes.map((item)=> <option>{item}</option>)}
+             
+
+
+
+{/* INE  LEON
+Bara  León
+PAQ. EXPRESS  DELTA 
+PAQ. EXPRESS/T Landa,Camp
+PLAZA STADIUM
+Andrea  Corporativo
+ALCIONE
+Inmobiliaria Guerrero
+Secretaria de Economía
+INE ARBIDE
+UNITE AIRLINES INC
+Bajío AGUASCALIENTES
+Bajío BOULEVARD
+Bajío CONVENCIÓN
+Bajío UNIVERSIDAD
+Bajío LAS AMERICAS
+Bajío EDIFICIO REGIONAL
+Bajío HILARIO MEDINA
+Bajío CENTRO
+Bajío PASEO DEL MORAL
+Bajío HERMANOS ALDAMA
+DAIBSA */}
+
+
 
                 </select>
 
@@ -399,4 +519,4 @@ Ok
 
 
 
-export default Personal;
+export default PersonalL;

@@ -3,26 +3,27 @@
   }
   
   .Calendario {
-    margin-top: -280px;
     background-color: rgb(212,212,212);
-    min-height: 100vh;
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: black;
+    position: fixed;
+    width: 100%;
+    height: 100%;
   }
   
   .containerCal{
     margin-top: 15px;
-    margin-left: 90px;
+    margin-left: 15%;
     text-align: center;
     color: black;
     background-color: white;
     border-radius: 5px;
-    height: 750px;
-    width: 1688px;
+    width: 70%;
+    height: 70%;
+
   }
   .App-link {
     color: #61dafb;
@@ -30,13 +31,12 @@
 
   .Cal{
       margin-top: 50px;
-      margin-left: 250px;
+      margin-left: 27%;
       border-color: lawngreen;
       
   }
 
   #he{
-      margin-top: 50px;
       text-align: center;
   }
 
@@ -57,9 +57,7 @@
 
   .calH{
     background-color: black;
-    height: 165px;
-    width: 1800px;
-    margin-top: -40px;
+    height: 10%;
     margin-left: 78px;
     color: white;
   }
@@ -74,32 +72,79 @@
   #calendarI{
     margin-right: 15px;
   }
-/* 
-  #headertab{
-    position: fixed;
-    top: 170px;
+
+  .regIH{
+    background-color: #000;
     width: 100%;
-    padding: 15px 20px;
+    height: 20%;
 
-    font-size: 20px;
-  } */
+    text-align: center;
+    color: white;
+  }
 
+  #Tabla{
+    color: black;
+    align-items: center;
+    margin-top: 50px;
+    margin-left: 400px;
+    font-size:x-large;
+    text-align: center;
+    text-align: justify;
+    overflow: scroll;
+    width: 1200px;
+  }
 
+  #Tabla input{
+    height: 40px;
+    align-items: center;
+    align-content: center;
+  }
 
-
-
-
-
-
-
-
-  /* .table-fixed thead,
-  .table-fixed tfoot{
-    width: 97%;
+  #Tabla td,th {
+    text-align: center;
+    vertical-align: middle;
   }
   
-  .table-fixed tbody {
-    height: 230px;
-    overflow-y: auto;
-    width: 100%;
-  } */
+  .txtArea{
+    text-align: center;
+  }
+
+  .estados option{
+    text-align: center ;
+  }
+
+  #suplenciaCheck {
+    width: 25px;
+  }
+
+  #btt {
+    margin-left: 800px;
+  }
+
+  #bt2 {
+    margin-left: 50px;
+  }
+
+  .selectName{
+    text-align: center;
+  }
+
+  #selClient{
+    text-align: center;
+  }
+
+  #estateTable{
+    margin-top: 50px;
+    margin-left: 630px;
+
+    width: 90px;
+  }
+
+  #estateTable thead {
+      font-weight: 100;
+  }
+
+
+@-ms-viewport{
+  width: device-width;
+}

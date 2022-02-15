@@ -6,9 +6,62 @@ import { initializeApp } from 'firebase/app';
 import {child, get, getDatabase,ref,update} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import {BrowserRouter,Link,useNavigate} from "react-router-dom";
+import SideBarF from "./SideBarF";
 
+const PersonalF = ({personal}) => {
 
-const Personal = ({personal}) => {
+    const [inactive,setInactive] = useState(true)
+
+    const history = useNavigate();
+    
+    const clientee = () => {
+        history("Alta del Cliente");
+    }
+    
+    const bajaCliente = () => {
+        history("/Baja del Cliente");
+    }
+    
+    const turno = () => {
+        history("/Añadir Turno");
+    }
+    
+    const Operador = () => {
+        history("/Alta del Operador");
+    }
+    
+    const bajaOperador = () => {
+        history("/Baja del Operador");
+    }
+    
+    const Reasignacion = () => {
+        history("/Reasignacion");
+    }
+    
+    const Numero = () => {
+        history("/Cambio de Numero");
+    }
+    
+    const Registro = () => {
+        history("/Calendario");
+    }
+    
+    const Inasistencia = () => {
+        history("/Inasistencia");
+    }
+    
+    
+    // document.addEventListener('click', function(event) {
+    //     if(event.target.id != 'botonQueMuestraMenu' && event.target.id != 'menu'){
+    //       document.getElementById('menu').style.display = 'none';
+    //     }
+    //   });
+    
+    
+
+    
+
 
   var today = new Date();
   var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
@@ -23,6 +76,9 @@ const Personal = ({personal}) => {
   const [fechaB,onChange4] = useState('')
   const [cliente,onChange5] = useState('')
   const [hr,setHr] = useState('')
+
+    const [arrayClientCl,setArrayClientCl] = useState([]);
+
 
 
   const [rfc,setRfc] = useState('')
@@ -94,6 +150,38 @@ const Personal = ({personal}) => {
 
 
   useLayoutEffect(()=>{
+
+
+    arrayClientCl.push(
+      "TodoAcero",
+      "Syscom",
+      "FabricaAndrea",
+      "BajioHidalgo",
+      "BajioLosParaisos",
+      "BajioSanJuanBosco",
+      "BajioCarranza",
+      "BajioTorresLanda",
+      "BajioLeonModerno",
+      "BajioDelta",
+      "BajioSanFranciscoCentro",
+      "BajioSanFranciscodelRincon",
+      "BajioPurisimadelRincon",
+      "CACLeonVIIILosMurales",
+      "CACLeonIVLaPiscina",
+      "BajioSalamanca",
+      "CACLeonIICentroMax",
+      "CVTLeonIIPortalAldama",
+      "CVTLeonIMarianoEscobedo",
+      "CCTLeonStadium",
+      "TelcelPenjamo",
+      "TelcelGuanajuatoII",
+      "RBSLeonVillaInsurgentes",
+      "CentralManzanares",
+      "RBEcologicaSalamanca",
+      "TelcelLeonIXViaAlta")
+
+        arrayClientCl.sort();
+
     
     datos.push({nombres:"Seleccionar Cliente",cl:"Seleccionar Cliente"})
 
@@ -184,9 +272,11 @@ const Personal = ({personal}) => {
     return(
            
         <div className="Usuario">
-          <div>
-   
-          </div>
+
+        <div className="SideOlga">
+            <SideBarF/>
+            
+            </div>
 
         <div className="App-header">
             
@@ -194,7 +284,7 @@ const Personal = ({personal}) => {
         <div className="altaCH">
             <h1 className="dt"> 
             <i id="celI" class="bi bi-telephone-plus"></i>
-              Alta del Operador
+              Alta del Operador Fatima
             </h1>
          </div>    
 
@@ -204,27 +294,32 @@ const Personal = ({personal}) => {
               <div className="oneAP">
 
               <label class="form-outline-label" for="form1">R.F.C</label>
+              <br/>
                 <input type="text" id="inp1" class="form-control" value={rfc} onChange={v=>setRfc(v.target.value)} minLength="13" maxLength="13" placeholder="R.F.C del Operador" />
 
+                <br/>
 
               <label class="form-outline-label" for="form1">Teléfono</label>
+              <br/>
                 <input type="tel" id="inp1" class="form-control" value={ID} onChange={v=>onChange1(v.target.value)}  maxLength={10} placeholder="Teléfono del Operador" />
 
-              
+                <br/>
         
               <label class="form-outline-label" for="form1">Nombre Completo</label>
+              <br/>
                 <input type="text" id="inp2" class="form-control" value={nombre} onChange={v=>onChange2(v.target.value)} placeholder="Nombre del Operador" />
 
-            
+                <br/>
                 </div>
 
 
                 <div className="secondAP">
 
               <label class="form-outline-label"  id="dej">Fecha de Ingreso</label>
+              <br/>
                 <input type="Date" id="inputdis" class="form-control" value={fechaI} onChange={v=>onChange3(v.target.value)} min={minInp} />
 
-
+                <br/>
 
 
               {/* <label class="form-outline-label" for="form1">Fecha de baja</label>
@@ -237,7 +332,8 @@ const Personal = ({personal}) => {
                 <br/>
 
                 <select id="slc" onClick={forceUpdate} value={cliente} onChange={v=>onChange5(v.target.value)}>
-                {unicos.map((item) => <option>{item}</option> )} 
+                {arrayClientCl.map((item)=><option>{item}</option>)}
+
 
                 </select>
 
@@ -399,4 +495,4 @@ Ok
 
 
 
-export default Personal;
+export default PersonalF;

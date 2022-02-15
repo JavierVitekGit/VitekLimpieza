@@ -1,16 +1,15 @@
 .bodyLogin{
-      margin-top: -637px;
   background-color: rgb(212,212,212);
-  min-height: 136.7vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+
   font-size: calc(10px + 2vmin);
   color: black;
   font-style: oblique;
-  position: absolute;
-  width: 1877px;
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
 
 .modal-login{
@@ -26,14 +25,14 @@
 }
 
 .inicioS{
+    width: 100%;
     background-color: black;
+    height: 90px;
     color: white;
-    height: 150px;
-    width: 1880px;
-    margin-top: 316px;
     text-align: center;
     font-style: oblique;
     font-size: 2.5 rem;
+    
 }
 
 #InS{
@@ -51,17 +50,18 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 1800px;
-    height: 750px;
+    width: 70%;
+    height: 80%;
+
 }
 
 .containerLogin input{
     width: 250px;
-    position: relative;
-    margin-left: 770px;
+    align-self: center;
+
 }
 
 #ingresar{
     width: 150px;
-    margin-left: 820px;
+
 }

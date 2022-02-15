@@ -2,17 +2,18 @@
   text-align: center;
 }
 
-.App-header {
-  margin-top: -636px;
+.Usuario {
+
   background-color: rgb(212,212,212);
-  min-height: 136.7vh;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: black;
   font-style: oblique;
+  position: fixed;
+  height: 100%;
+  width: 100%;
 }
 
 .App-link {
@@ -21,24 +22,23 @@
 
 .Datoss{
   margin-top: 20px;
-  
   color: black;
   background-color: white;
   border-radius: 5px;
-  height: 750px;
-  width: 1688px;
   margin-left: 90px;
+  width: 75%;
 }
 
 .Datoss label{
   margin-top: 30px;
+  display: inline;
   text-align: center;
 }
 
 .dt{  
-margin-top: 180px;
 text-align: center;
 }
+
 
 
 
@@ -60,6 +60,7 @@ text-align: center;
   border-width: 3px;
   width: 300px;
   text-align: center;
+  display: inline;
 }
 
 .Datoss select{
@@ -72,23 +73,25 @@ text-align: center;
 
 .oneAP{
   margin-top: 50px;
+  flex-direction: column;
+
 }
 
 .oneAP input{
-  margin-left: 400px;
+  vertical-align: middle;
 }
 
 .oneAP label{
-  margin-right: 600px;
+
 }
 
 .secondAP{
-  margin-left: 500px;
-  margin-top: 75px;
+
+
 }
 
 .secondAP input{
-  margin-left: 450px;
+
   margin-top: -350px;
 }
 
@@ -100,24 +103,33 @@ text-align: center;
   background-image: linear-gradient(green,green);
 } */
 #dej{
-  position: absolute;
-  margin-top: -45px;
-  margin-left: -95px;
+
+  margin-top: -65px;
+
 }
 .altaCH{
-  margin-top: 190px;
+  height: 10%;
+  width: 100%;
+  align-self:baseline;
   background-color: black;
-  height: 300px;
-  width: 1800px;
   margin-left: 78px;
   color: white;
 }
 
 #celI{
-margin-right: 30px;
+
 }
 
 #guardarP{
   margin-top: 50px  ;
+}
+
+.SideOlga{
+
+}
+
+#gen{
+  margin-top: 20px;
+
 }
 

@@ -11,10 +11,12 @@ import { initializeApp } from 'firebase/app';
 import {getDatabase,ref,child,get} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import SideBarO from "./SideBarO";
 
 
 
-const Inasistencia = (inasistencia) => {
+
+const InasistenciaOlga = (inasistencia) => {
 
     const [datos,setDatos] = useState ([])
 
@@ -23,8 +25,10 @@ const Inasistencia = (inasistencia) => {
 
     const [array,setArray] = useState ([])
 
+    const [arrayClientCl,setArrayClientCl] = useState([]);
 
-    
+    const [arrayJusti,setArrayJusti] = useState([]);
+     
 
     const [, updateState] = useState();
     const forceUpdate = useCallback(() => updateState({}), []);  
@@ -246,10 +250,18 @@ return(
 
     <div id="all2">
 
+      
+
+
         {
             mostrar?
 
             <div className="Calendario" id="inf">
+
+<div className="SideOlgaB">
+            <SideBarO/>
+            
+            </div>
 
   <div className="calH">
 
@@ -319,8 +331,13 @@ displayOptions={{
 
 <div> 
 
+
 <div className="inasistenciaHeader">
-  <h1 className="inasistenciaTitle">Lista de Inasistencia</h1>
+<div className="SideOlgaB">
+            <SideBarO/>
+            
+            </div>
+  <h1 className="inasistenciaTitle">Lista de Inasistencia Olga</h1>
   <h1 className="dateI">{dia + "-" + mes + "-" + año}</h1>
 </div>
 
@@ -467,4 +484,4 @@ Ok
 }
 
 
-export default Inasistencia
+export default InasistenciaOlga

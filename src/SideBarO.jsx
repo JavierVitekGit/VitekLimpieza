@@ -1,10 +1,46 @@
 import React, {useState,useCallback } from 'react'
 import {BrowserRouter,Link,useNavigate} from "react-router-dom";
-const SideBar = (sideBar) => {
+const SideBarO = (sideBar) => {
 
 const [inactive,setInactive] = useState(true)
 
+const history = useNavigate();
 
+const cliente = () => {
+    history("Alta del Cliente");
+}
+
+const bajaCliente = () => {
+    history("/Baja del Cliente");
+}
+
+const turno = () => {
+    history("/Añadir Turno");
+}
+
+const Operador = () => {
+    history("/Alta del Operador");
+}
+
+const bajaOperador = () => {
+    history("/Baja del Operador O");
+}
+
+const Reasignacion = () => {
+    history("/Reasignacion");
+}
+
+const Numero = () => {
+    history("/Cambio de Numero");
+}
+
+const Registro = () => {
+    history("/Calendario");
+}
+
+const Inasistencia = () => {
+    history("/Inasistencia");
+}
 
 
 // document.addEventListener('click', function(event) {
@@ -64,43 +100,38 @@ return (
 
     <div className="lista">
                 <div className="section1">
-        <div className="b"> <i class="bi bi-newspaper" onClick={()=>setInactive(!inactive)} title="Datos del Cliente"></i>
-         <Link to="/Alta del Cliente" >   <p className="alta" >Alta del Cliente</p></Link> 
-         {/* history("/Alta del Cliente") */}
-        </div>
-
-                <div className="baja"> 
-        <Link to= "/Baja del Cliente">   <p className="baja" >Baja del Cliente</p></Link> 
-                 </div>
+   
 
 
                  <div className="turno">
-        <Link to="/Anadir Turno">        <p className="turno" >Añadir Turno</p></Link>
+        <Link to="/Anadir Turno O">        <p className="turno" onClick={turno}>Añadir Turno</p></Link>
                  </div>
 
 
                  </div>
 
-
+                 <div className="a"> 
                  <div className="section2">
     
-
-        <div className="a"> <i class="bi bi-phone-fill" onClick={()=>setInactive(!inactive)} title="Datos del Operador"></i>
-        <Link to ="/Alta del Operador">   <p className="alta-op" >Alta del Operador</p></Link>
+        <br></br>
+        <br></br>
+        <br></br>
+        
+        <Link to ="/Alta del Operador O">   <p className="alta-op" onClick={Operador}>Alta del Operador</p></Link>
         </div>
 
                 <div className="baja-op">
-        <Link to="/Baja del Operador">    <p className="baja-op" >Baja del Operador</p></Link>           
+        <Link to="/Baja del Operador O">    <p className="baja-op" onClick={bajaOperador}>Baja del Operador</p></Link>           
                 </div>
 
 
 
                 <div className="reasignacionn">
-        <Link to="/Reasignacion"> <p className="reasignacion-op" >Reasignación</p></Link>
+        <Link to="/Reasignacion O"> <p className="reasignacion-op" onClick={Reasignacion}>Reasignación</p></Link>
                 </div>
 
                 <div className="cambio">
-        <Link to="/Cambio de Numero"> <p className="cambioN" >Cambio de Número</p></Link>
+        <Link to="/Cambio de Numero O"> <p className="cambioN" onClick={Numero}>Cambio de Número</p></Link>
                 </div>
 
 
@@ -110,15 +141,16 @@ return (
                 <div className="section3">
 
 
-                <div className="Inasistencias"> <i class="bi bi-calendar-check" onClick={()=>setInactive(!inactive)} title="Registro de Justificaciones"></i> 
-        <Link to="/Inasistencia"> <p className="registroIn" >Inasistencias</p> </Link>    
+                {/* <div className="Inasistencias"> <i class="bi bi-calendar-check" onClick={()=>setInactive(!inactive)} title="Registro de Justificaciones"></i> 
+        <Link to="/Inasistencia O"> <p className="registroIn" onClick={Inasistencia}>Inasistencias</p> </Link>    
 
 
-                </div>
+                </div> */}
+                <br/>
 
 
         <div className="calendario"> 
-        <Link to="/Calendario"> <p className="registro" >Justificaciones</p> </Link>    
+        <Link to="/Calendario O"> <p className="registro" onClick={Registro}>Justificaciones</p> </Link>    
 
 
                 </div>
@@ -142,4 +174,4 @@ return (
 }
 
 
-export default SideBar;
+export default SideBarO;

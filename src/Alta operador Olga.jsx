@@ -6,9 +6,62 @@ import { initializeApp } from 'firebase/app';
 import {child, get, getDatabase,ref,update} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import {BrowserRouter,Link,useNavigate} from "react-router-dom";
+import SideBarO from "./SideBarO";
 
+const PersonalOlga = ({personal}) => {
 
-const Personal = ({personal}) => {
+    const [inactive,setInactive] = useState(true)
+
+    const history = useNavigate();
+    
+    const clientee = () => {
+        history("Alta del Cliente");
+    }
+    
+    const bajaCliente = () => {
+        history("/Baja del Cliente");
+    }
+    
+    const turno = () => {
+        history("/Añadir Turno");
+    }
+    
+    const Operador = () => {
+        history("/Alta del Operador");
+    }
+    
+    const bajaOperador = () => {
+        history("/Baja del Operador");
+    }
+    
+    const Reasignacion = () => {
+        history("/Reasignacion");
+    }
+    
+    const Numero = () => {
+        history("/Cambio de Numero");
+    }
+    
+    const Registro = () => {
+        history("/Calendario");
+    }
+    
+    const Inasistencia = () => {
+        history("/Inasistencia");
+    }
+    
+    
+    // document.addEventListener('click', function(event) {
+    //     if(event.target.id != 'botonQueMuestraMenu' && event.target.id != 'menu'){
+    //       document.getElementById('menu').style.display = 'none';
+    //     }
+    //   });
+    
+    
+
+    
+
 
   var today = new Date();
   var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
@@ -19,13 +72,19 @@ const Personal = ({personal}) => {
 
   const [ID,onChange1] = useState('')
   const [nombre,onChange2] = useState('')
+  const [apellidoP,setApellidoP] = useState('')
+  const [apellidoM,setApellidoM] = useState('')
   const [fechaI,onChange3] = useState('')
   const [fechaB,onChange4] = useState('')
+  const [fechaN,setFecha] = useState('')
   const [cliente,onChange5] = useState('')
   const [hr,setHr] = useState('')
 
 
-  const [rfc,setRfc] = useState('')
+  const [genero,setGenero] = useState()
+
+
+  
 
 
   const [datos,setDatos] = useState ([])
@@ -46,6 +105,10 @@ const Personal = ({personal}) => {
   console.log(unicos.sort())
 
 
+  const [clientCl,setClientCl] = useState([]);
+
+
+
 
 
   const firebaseConfig = {
@@ -64,16 +127,24 @@ const Personal = ({personal}) => {
 
 
   const app = initializeApp(firebaseConfig);
-  console.log(app)
+  console.log(app)  
 
   const db = getDatabase();
+
+  console.log("Fecha",fechaN)
+
+  console.log("Género:",genero)
   
   function writeOperadorData(event) {
+
+
+    var curp = (apellidoP.toUpperCase().substring(0,2) + apellidoM.toUpperCase().substring(0,1) + nombre.toUpperCase().substring(0,1) + fechaN.substring(2,4) + 
+    fechaN.substring(5,7) + fechaN.substring(8,10) + genero.substring(0,1))
     
     event.preventDefault()
-    update(ref(db,'Operador/' + rfc),{
+    update(ref(db,'Operador/' + curp),{
       ID: ID, 
-      Nombre: nombre,
+      Nombre: nombre + " " + apellidoP + " " + apellidoM,
       Fecha_Ingreso:fechaI,
       Fecha_Baja:fechaB,
       Cliente:cliente,
@@ -96,6 +167,16 @@ const Personal = ({personal}) => {
   useLayoutEffect(()=>{
     
     datos.push({nombres:"Seleccionar Cliente",cl:"Seleccionar Cliente"})
+
+
+    clientCl.push(
+      "FlexiOriental",
+      "FlexiStivia",
+      "FlexiProcesosEspeciales",
+      "MolinoCasaClub",
+      "InstitutoCumbres")
+
+      clientCl.sort();
 
     const dbRef = ref(getDatabase());
     get(child(dbRef,'shift')).then((snapshot)=> {
@@ -155,7 +236,7 @@ const Personal = ({personal}) => {
   
 
 
-  if (ID == "" || nombre == "" || cliente == "") {
+  if ( nombre == "" || cliente == "") {
     handleShow(event);
     
   } else{
@@ -184,9 +265,11 @@ const Personal = ({personal}) => {
     return(
            
         <div className="Usuario">
-          <div>
-   
-          </div>
+
+        <div className="SideOlga">
+            <SideBarO/>
+            
+            </div>
 
         <div className="App-header">
             
@@ -203,25 +286,50 @@ const Personal = ({personal}) => {
 
               <div className="oneAP">
 
-              <label class="form-outline-label" for="form1">R.F.C</label>
-                <input type="text" id="inp1" class="form-control" value={rfc} onChange={v=>setRfc(v.target.value)} minLength="13" maxLength="13" placeholder="R.F.C del Operador" />
+              <label class="form-outline-label" for="form1">Nombre</label>
+              <br/>
+                <input type="text" id="inp1" class="form-control" value={nombre} onChange={v=>onChange2(v.target.value)}  placeholder="Nombre del Operador" />
+                <br/>
+              <label class="form-outline-label" for="form1">Apellido Paterno</label>
+              <br/>
+                <input type="text" id="inp1" class="form-control" value={apellidoP} onChange={v=>setApellidoP(v.target.value)}  placeholder="Apellido paterno del Operador" />
+                <br/>
+              <label class="form-outline-label" for="form1">Apellido Materno</label>
+              <br/>
+                <input type="text" id="inp1" class="form-control" value={apellidoM} onChange={v=>setApellidoM(v.target.value)}  placeholder="Apellido materno del Operador" />  
 
+                <br/>
 
-              <label class="form-outline-label" for="form1">Teléfono</label>
-                <input type="tel" id="inp1" class="form-control" value={ID} onChange={v=>onChange1(v.target.value)}  maxLength={10} placeholder="Teléfono del Operador" />
+                <label class="form-outline-label"  >Fecha de Nacimiento</label>
+                <br/>
+                <input type="Date" id="inputdis" class="form-control" value={fechaN} onChange={v=>setFecha(v.target.value)}  />
+
+                <br/>
+
+                <select id="gen" value={genero} onChange={v=>setGenero(v.target.value)}>
+
+                <option>Selecc. género</option>
+                <option>Hombre</option>
+                <option>Mujer</option>
+
+                </select>
 
               
         
-              <label class="form-outline-label" for="form1">Nombre Completo</label>
-                <input type="text" id="inp2" class="form-control" value={nombre} onChange={v=>onChange2(v.target.value)} placeholder="Nombre del Operador" />
+             
 
             
                 </div>
 
 
                 <div className="secondAP">
+                <br/>
+
+                {/* <label class="form-outline-label" for="form1">Teléfono</label>
+                <input type="tel" id="inp2" class="form-control" value={ID} onChange={v=>onChange1(v.target.value)} placeholder="Teléfono del Operador" maxLength={"10"} />     */}
 
               <label class="form-outline-label"  id="dej">Fecha de Ingreso</label>
+              <br/>
                 <input type="Date" id="inputdis" class="form-control" value={fechaI} onChange={v=>onChange3(v.target.value)} min={minInp} />
 
 
@@ -230,14 +338,15 @@ const Personal = ({personal}) => {
               {/* <label class="form-outline-label" for="form1">Fecha de baja</label>
                 <input type="Date" id="inp4" class="form-control" value={fechaB} onChange={v=>onChange4(v.target.value)} /> */}
 
-            
+<br/>
 
               <label class="form-outline-label" for="form1">Cliente</label>
 
                 <br/>
 
                 <select id="slc" onClick={forceUpdate} value={cliente} onChange={v=>onChange5(v.target.value)}>
-                {unicos.map((item) => <option>{item}</option> )} 
+                {clientCl.map((item)=> <option>{item}</option>)}
+
 
                 </select>
 
@@ -257,14 +366,9 @@ const Personal = ({personal}) => {
 
                     
                     <option>Seleccionar Horario</option>
-                    <option>07:00</option>
-                    <option>08:00</option>
-                    <option>09:00</option>
-                    <option>10:00</option>
-                    <option>11:00</option>
-                    <option>12:00</option>
-                    <option>13:00</option>
-                    <option>14:00</option>
+                    <option>Matutino</option>
+                    <option>Vespertino</option>
+                    
 
 
                 </select> 
@@ -399,4 +503,4 @@ Ok
 
 
 
-export default Personal;
+export default PersonalOlga;

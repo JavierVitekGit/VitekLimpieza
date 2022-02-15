@@ -5,10 +5,10 @@ import { initializeApp } from "@firebase/app";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import './Turno.css'
-import SideBarO from "./SideBarO";
+import SideBarF from "./SideBarF";
 
 
-const Turno = (turno) =>{
+const TurnoF = (turno) =>{
 
 
   // D I A S  C H E C K B O X
@@ -123,7 +123,8 @@ const Turno = (turno) =>{
     const forceUpdate = useCallback(() => updateState({}), []); 
 
 
-
+    const [arrayClientCl,setArrayClientC] = useState([]);
+    const [arrayNamae,setArrayNamae] = useState([]);
 
     
     const[modal,setModal] =useState(false)
@@ -207,8 +208,8 @@ const Turno = (turno) =>{
 
 
     operador.forEach(v=>{
-        if (v.key == opcion) {
-            setNamee(v.nm)
+        if (v.nm == opcion) {
+            setNamee(v.key)
         }
     })
 }
@@ -227,7 +228,41 @@ const Turno = (turno) =>{
 
     useEffect(()=>{
 
+      arrayClientCl.push(
+        "TodoAcero",
+        "Syscom",
+        "FabricaAndrea",
+        "BajioHidalgo",
+        "BajioLosParaisos",
+        "BajioSanJuanBosco",
+        "BajioCarranza",
+        "BajioTorresLanda",
+        "BajioLeonModerno",
+        "BajioDelta",
+        "BajioSanFranciscoCentro",
+        "BajioSanFranciscodelRincon",
+        "BajioPurisimadelRincon",
+        "CACLeonVIIILosMurales",
+        "CACLeonIVLaPiscina",
+        "BajioSalamanca",
+        "CACLeonIICentroMax",
+        "CVTLeonIIPortalAldama",
+        "CVTLeonIMarianoEscobedo",
+        "CCTLeonStadium",
+        "TelcelPenjamo",
+        "TelcelGuanajuatoII",
+        "RBSLeonVillaInsurgentes",
+        "CentralManzanares",
+        "RBEcologicaSalamanca",
+        "TelcelLeonIXViaAlta")
 
+          arrayClientCl.sort();
+
+// TELCEL GUANAJUATO II
+// RBS LEÓN  Villa Insurgentes
+// CENTRAL MANZANARES
+// RB ECOLOGICA SALAMANCA
+// TELCEL LEON IX Vía Alta
 
 
       const firebaseConfig = {
@@ -260,6 +295,19 @@ const Turno = (turno) =>{
                 console.log(rfc)
 
               })
+
+              arrayClientCl.forEach((other => {
+                operador.forEach(iter => {
+                  if (iter.cl == other){
+                      arrayNamae.push(iter.nm)
+  
+                      console.log("Lourdes:",arrayNamae)
+                      arrayNamae.sort()
+                  }
+              })
+            }))
+
+
           }
       })
 
@@ -293,13 +341,13 @@ return(
 <div className="turn">
 
 <div className="SideOlgaB">
-            <SideBarO/>
+            <SideBarF/>
             
             </div>
 
 <div className="header-turn"> 
 
-<h1 id="añadir">Añadir nuevo turno</h1>
+<h1 id="añadir">Añadir nuevo turno Fatima</h1>
 
 </div>
 
@@ -307,23 +355,23 @@ return(
 
 
     <div className="container-turn">
-        <label class="form-outline-label">RFC del Operador</label>
+        <label class="form-outline-label">Nombre del Operador</label>
         <br/>
         <select onClick={forceUpdate} value={name} onChange={v=> setName(v.target.value),handlerEvent}> 
-         {rfcN.map((item)=> <option>{item}</option>)}
+         {arrayNamae.map((item)=> <option>{item}</option>)}
         </select>
 
         <br/>
 
 
-        <input type="text" class="form-comtrol" value={namee} placeholder="Nombre del Operador" ></input>
+        <input type="text" class="form-comtrol" value={namee} placeholder="Rfc del Operador" ></input>
 
         <br/>
 
         <label class="form-outline-label">Nombre del Cliente</label>
         <br></br>
         <select onClick={forceUpdate} value={client} onChange={v=> setClient(v.target.value)} id="sLTCas">
-        {unicos.map((item,i)=> <option>{item}</option>)}
+        {arrayClientCl.map((item,i)=> <option>{item}</option>)}
         </select>
 
 <br/>
@@ -524,4 +572,4 @@ return(
 }
 
 
-export default Turno
+export default TurnoF;

@@ -5,6 +5,7 @@ import { initializeApp } from "@firebase/app";
 import "./BajaCliente.css"
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import SideBar from "./Sidebar";
 
 const BajaCliente = (baja) => {
 
@@ -157,6 +158,11 @@ return(
   
     <div className="Baja-Client">
 
+<div className="adminSidee">
+            <SideBar></SideBar>
+            
+            </div>  
+
 <div className="bajaH">
 
 <h1 className="bch">
@@ -234,6 +240,17 @@ return(
 
         </div>
         </div>
+
+
+        {/* <div className="forky">
+          <div className="face"></div>
+          <div className="face-mask1"/>
+          <div className="fork1"/>
+          <div className="fork2"/>
+          <div className="fork3"/>
+          <div className="fork4"/>
+        </div> */}
+
 
         <Modal className="modal-container" 
       show={modal}  

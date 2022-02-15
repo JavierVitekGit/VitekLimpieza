@@ -126,3 +126,65 @@
   #selB{
     width: 200px;
   }
+
+  .adminSidee{
+    margin-top: -955px;
+    margin-left: -1900px;
+    position: absolute;
+  }
+
+  /* .forky{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .face{
+    width: 300px;
+    height: 300px;
+    background: #f0f0f0;
+    position: absolute;
+    border-radius: 65% 30% 65% 28%;
+    transform: rotate(-45deg);
+    top: -135px;
+    left: -147px;
+  }
+
+  .face-mask1 {
+  width: 300px;
+  height: 60px;
+  background: rgb(255, 255, 255);
+  position: absolute;
+  top: -160px;
+  left: -147px;
+}
+
+.fork1, .fork4 {
+  width: 193px;
+  height: 189px;
+  background: #f0f0f0;
+  border-radius: 100% 0% 97% 3% / 91% 0% 99% 3%;
+  transform: rotate(-44deg);
+  position: absolute;
+  top: -121px;
+  left: -159px;
+}
+.fork2, .fork3 {
+  width: 122px;
+  height: 77px;
+  background: #f0f0f0;
+  border-radius: 100% 0% 86% 14% / 98% 0% 100% 2%;
+  transform: rotate(128deg);
+  position: absolute;
+  top: -141px;
+  left: -88px;
+}
+.fork3 {
+  left: -34px;
+  transform: rotate(50deg) rotateY(180deg);
+}
+.fork4 {
+  left: -37px;
+  transform: rotate(45deg) rotateY(180deg);
+} */

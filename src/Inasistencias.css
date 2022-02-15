@@ -15,7 +15,7 @@ color: black;
 #tablaRegistro{
     color: black;
     align-items: center;
-    margin-top: 110px;
+    margin-top: 50px;
     margin-left: 400px;
     font-size:x-large;
     text-align: center;
@@ -51,4 +51,20 @@ color: black;
     font-size: xx-large;
     margin-top: 100px;
     margin-left: 40px;
+}
+
+.filter{
+    position: relative;
+    margin-top: 50px;
+    margin-left: 850px;
+    margin-bottom: -200px;
+    text-align: center;
+}
+.listTest{
+    margin-left: 800px;
+}
+
+
+.SideOlga{
+
 }

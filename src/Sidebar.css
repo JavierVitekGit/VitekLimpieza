@@ -1,297 +1,305 @@
 .side-menu{
-  position: fixed;
-  background: #000;
-  width: 300px;
-  height: 100%;
-  padding: 30px 20px;
-  transition: width 0.4s ease-out;
+    position: fixed;
+    background: #000;
+    width: 15%;
+    height: 100%;
+    padding: 30px 20px;
+    transition: width 0.4s ease-out;
+    text-align: left;
+  }
   
-}
-
-a{
-  color: white;
-  text-decoration: none;
-}
-
-
-.side-menu .top-section .toggle-btn{
-  color: white;
-  size: 60px;
-  font-size: 45px;
-  position: absolute;
-  top: 2%;
-  right: 0;
-  transform: translateY(-50%);
-  margin-top: 10px;
-}
-
-.side-menu .lista {
-  color: white;
-  font-size: 35px;
-  position: absolute;
-  top: 13%;
-  padding-left: 8px;
- /* border-left: tomato 0.2em solid ; */
- margin-top: 60px;
-}
-
-.side-menu .lista .alta{
-  font-size: 20px;
-  padding-left: 60px;
-  margin-top: -40px;
-  transition: none ;
-}
-
-.side-menu .lista .baja{
-  font-size: 20px;
-  padding-left: 30px;
-  margin-top: 10px;
-  transition: none ;
-}
-
-.side-menu .lista .turno{
-  font-size: 20px;
-  padding-left: 30px;
-  margin-top: 10px;
-  transition: none;
-}
-
-.side-menu .lista .a {
-  margin-top: 50px;
-
-}
-
-.side-menu .lista .a .alta-op{
-  font-size: 20px;
-  padding-left: 60px;
-  margin-top: -40px;
-  transition: none ;
-}
-
-.side-menu .lista .baja-op{
-  font-size: 20px;
-  padding-left: 30px;
-  margin-top: 10px;
-  transition: none ;
-}
-
-.side-menu .lista .reasignacionn{
-  font-size: 20px;
-  padding-left: 60px;
-  margin-top: 10px;
-  transition: none ;
-  position: relative;
-}
-
-
-.cambio{
-  font-size: 20px;
-  padding-left: 60px;
-  margin-top: 10px;
-  transition: none ;
-  position: relative;
-}
-
-.side-menu .lista .calendario{
-  margin-top: 50px;
-}
-
-.side-menu .lista .calendario .registro{
-  font-size: 20px;
-  padding-left: 60px;
-  margin-top: -40px;
-  transition: none ;
-}
-
-.side-menu .Inasistencias .registroIn{
-  font-size: 20px;
-  padding-left: 60px;
-  margin-top: -40px;
-  transition: none ;
-}
-
-.side-menu .menu-section{
-  color: white;
-  font-size: 30px;
-  text-align: center;
-  top: 5%;
-  display: block;
-}
-
-.side-menu .menu-section .Icon{
-  margin-left: 0px;
-  margin-top: -20px;
-}
-
-.side-menu .menu-section .men{
-color: whitesmoke;
-}
-
-.side-menu .menu-section .dash{
-  color: white;
-  position: absolute;
-  font-size: 200px;
+ .side-menu a{
+    color: white;
+    text-decoration: none;
+  }
   
-}
-
-
-.side-menu .Cliente{
-  color:white;
-  font-size: 20px;
-  text-align: center;
-  display: block;
-  margin-top: 10px;
-}
-
-.side-menu .Operador{
-  color: white;
-  font-size: 20px;
-  text-align: center;
-  display: block;
-  margin-top: 190px;
-}
-
-.side-menu .Registros{
-  color: white;
-  font-size: 20px;
-  text-align: center;
-  display: block;
-  margin-top: 250px;
-}
-
-
-.side-menu .lista .section2{
-  margin-top: 110px;
-}
-
-.side-menu .lista .section3{
-  margin-top: 120px;
-}
-
-
-.divider{
-  width: 100%;
-  height: 2px;
-  border-radius: 1px;
-  background:grey;
-}
-
-.divider2{
-  width: 100%;
-  height: 2px;
-  border-radius: 1px;
-  background: grey;
-}
-
-.divider3{
-  width: 100%;
-  height: 2px;
-  border-radius: 1px;
-  background: grey;
-}
-
-.divider4{
-  width: 100%;
-  height: 2px;
-  border-radius: 1px;
-  background: grey;
-}
-
-/* I N A C T I V E  */
-
-
-.side-menu.inactive{
-  width: 90px;
-}
-
-.side-menu.inactive .top-section .toggle-btn{
-color: white;
-right: -55px;
-}
-
-.side-menu.inactive .menu-section{
- transform: scale(0.5) translate(-35%, -5%);
-}
-
-.side-menu.inactive .lista {
-  position: absolute;
-}
-
-.side-menu.inactive .lista .alta{ 
-  transform: scale(0);
-}
-
-.side-menu.inactive .lista .baja{
-  transform: scale(0);
-}
-
-.side-menu.inactive .lista .alta-op{
-  transform: scale(0);
   
-}
-
-.side-menu.inactive .lista .a{
-  margin-top: -30px;
-
-}
-
-.side-menu.inactive .lista .baja-op{
-  transform: scale(0);
-}
-
-.side-menu.inactive .lista .calendario{
-  margin-top: -30px;
-}
-
-.side-menu.inactive .lista .calendario .registro{
-  transform: scale(0); 
+  .side-menu .top-section .toggle-btn{
+    color: white;
+    size: 60px;
+    font-size: 45px;
+    position: absolute;
+    top: 2%;
+    right: 0;
+    transform: translateY(-50%);
+    margin-top: 10px;
+  }
   
-}
+  .side-menu .lista {
+    color: white;
+    font-size: 35px;
+    position: absolute;
+    top: 13%;
+    padding-left: 8px;
+   /* border-left: tomato 0.2em solid ; */
+   margin-top: 60px;
+  }
 
-.side-menu.inactive .lista .Inasistencias .registroIn{
-  transform: scale(0);
-}
+  
+  
+  .side-menu .lista .alta{
+    position: relative;
+    font-size: 20px;
+    padding-left: 60px;
+    margin-top: -40px;
+    transition: none ;
+  }
+  
+  .side-menu .lista .baja{
+    font-size: 20px;
+    padding-left: 30px;
+    margin-top: 10px;
+    transition: none ;
+  }
+  
+  .side-menu .lista .turno{
+    font-size: 20px;
+    padding-left: 30px;
+    margin-top: 10px;
+    transition: none;
+  }
+  
+  .side-menu .lista .a {
+    margin-top: 50px;
+    position: relative;
+  }
+  
+  .side-menu .lista .a .alta-op{
+    font-size: 20px;
+    padding-left: 60px;
+    margin-top: -40px;
+    transition: none ;
+  }
+  
+  .side-menu .lista .baja-op{
+    font-size: 20px;
+    padding-left: 30px;
+    margin-top: 10px;
+    transition: none ;
+  }
+  
+  .side-menu .lista .reasignacionn{
+    font-size: 20px;
+    padding-left: 60px;
+    margin-top: 10px;
+    transition: none ;
+    position: relative;
+  }
 
-.side-menu.inactive .menu-section .Icon{
-  margin-left: 30px;
-}
-
-.side-menu.inactive .menu-section .men{
-  margin-left: 17px;
-}
-
-.side-menu.inactive .lista .reasignacionn{
-  transform: scale(0);
-}
-
-.side-menu.inactive .lista .turno{
-  transform: scale(0);
-}
-
-.side-menu.inactive .Cliente{
-  transform: scale(0);
-}
-
-.side-menu.inactive .Operador{
-  transform: scale(0);
-}
-
-.side-menu.inactive .Registros{
-  transform: scale(0);
-}
-
-.side-menu.inactive .divider2{
-  transform: scale(0);
-}
-
-.side-menu.inactive .divider3{
-  transform: scale(0);
-}
-
-.side-menu.inactive .divider4{
-  transform: scale(0);
-}
-
-.side-menu.inactive .cambio{
-  transform: scale(0);
-}
+  .side-menu p {
+    size: 5%;
+  }
+  
+  
+  .cambio{
+    font-size: 20px;
+    padding-left: 60px;
+    margin-top: 10px;
+    transition: none ;
+    position: relative;
+  }
+  
+  .side-menu .lista .calendario{
+    margin-top: 50px;
+  }
+  
+  .side-menu .lista .calendario .registro{
+    font-size: 20px;
+    padding-left: 60px;
+    margin-top: -40px;
+    transition: none ;
+  }
+  
+  .side-menu .Inasistencias .registroIn{
+    font-size: 20px;
+    padding-left: 60px;
+    margin-top: -40px;
+    transition: none ;
+  }
+  
+  .side-menu .menu-section{
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    top: 5%;
+    display: block;
+  }
+  
+  .side-menu .menu-section .Icon{
+    margin-left: 0px;
+    margin-top: -20px;
+  }
+  
+  .side-menu .menu-section .men{
+  color: whitesmoke;
+  }
+  
+  .side-menu .menu-section .dash{
+    color: white;
+    position: absolute;
+    font-size: 200px;
+    
+  }
+  
+  
+  .side-menu .Cliente{
+    position: relative;
+    color:white;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .side-menu .Operador{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    margin-top: 190px;
+  }
+  
+  .side-menu .Registros{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    margin-top: 250px;
+  }
+  
+  
+  .side-menu .lista .section2{
+    margin-top: 110px;
+  }
+  
+  .side-menu .lista .section3{
+    margin-top: 120px;
+  }
+  
+  
+  .divider{
+    width: 100%;
+    height: 2px;
+    border-radius: 1px;
+    background:grey;
+  }
+  
+  .divider2{
+    width: 100%;
+    height: 2px;
+    border-radius: 1px;
+    background: grey;
+  }
+  
+  .divider3{
+    width: 100%;
+    height: 2px;
+    border-radius: 1px;
+    background: grey;
+  }
+  
+  .divider4{
+    width: 100%;
+    height: 2px;
+    border-radius: 1px;
+    background: grey;
+  }
+  
+  /* I N A C T I V E  */
+  
+  
+  .side-menu.inactive{
+    width: 90px;
+  }
+  
+  .side-menu.inactive .top-section .toggle-btn{
+  color: white;
+  right: -55px;
+  }
+  
+  .side-menu.inactive .menu-section{
+   transform: scale(0.5) translate(-35%, -5%);
+  }
+  
+  .side-menu.inactive .lista {
+    position: absolute;
+  }
+  
+  .side-menu.inactive .lista .alta{ 
+    transform: scale(0);
+  }
+  
+  .side-menu.inactive .lista .baja{
+    transform: scale(0);
+  }
+  
+  .side-menu.inactive .lista .alta-op{
+    transform: scale(0);
+    
+  }
+  
+  .side-menu.inactive .lista .a{
+    margin-top: -30px;
+  
+  }
+  
+  .side-menu.inactive .lista .baja-op{
+    transform: scale(0);
+  }
+  
+  .side-menu.inactive .lista .calendario{
+    margin-top: -30px;
+  }
+  
+  .side-menu.inactive .lista .calendario .registro{
+    transform: scale(0); 
+    
+  }
+  
+  .side-menu.inactive .lista .Inasistencias .registroIn{
+    transform: scale(0);
+  }
+  
+  .side-menu.inactive .menu-section .Icon{
+    margin-left: 30px;
+  }
+  
+  .side-menu.inactive .menu-section .men{
+    margin-left: 17px;
+  }
+  
+  .side-menu.inactive .lista .reasignacionn{
+    transform: scale(0);
+  }
+  
+  .side-menu.inactive .lista .turno{
+    transform: scale(0);
+  }
+  
+  .side-menu.inactive .Cliente{
+    transform: scale(0);
+  }
+  
+  .side-menu.inactive .Operador{
+    transform: scale(0);
+  }
+  
+  .side-menu.inactive .Registros{
+    transform: scale(0);
+  }
+  
+  .side-menu.inactive .divider2{
+    transform: scale(0);
+  }
+  
+  .side-menu.inactive .divider3{
+    transform: scale(0);
+  }
+  
+  .side-menu.inactive .divider4{
+    transform: scale(0);
+  }
+  
+  .side-menu.inactive .cambio{
+    transform: scale(0);
+  }

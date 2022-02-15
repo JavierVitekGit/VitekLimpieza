@@ -4,12 +4,13 @@ import {get, getDatabase,ref,child,update} from "firebase/database";
 import "./BajaOperador.css"
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
-import SideBar from './sidebar'
+import SideBarO from "./SideBarO";
+import { useEffect } from "react";
 
 
 
-const BajaOperador = (baja) => {
-
+const BajaOperadorO = (baja) => {
+    var a=0
 
   
 
@@ -29,11 +30,16 @@ const BajaOperador = (baja) => {
     const [fechaI,setFechaI] = useState ('')
     const [fechaB,setFechaB] = useState ('')
     const [cliente,setCliente] = useState ('')
+    const [unicos,setUnicos] = useState ([])
+
+    const [clientCl,setClientCl] = useState([]);
+   
+    const [namae,setNamae] = useState([]);
 
 
     const [bajaOp,setBajaOp] = useState('')
 
-    
+    const [datosO,setDatosO] = useState([])
 
     const handlerNombres = function (e) {
         const opcion = e.target.value
@@ -44,9 +50,9 @@ const BajaOperador = (baja) => {
         
   
          datos.forEach (v=>{
-           if (v.key == opcion) {
+           if (v.name == opcion) {
              console.log(v.tel,opcion)
-             setNombre(v.name) 
+             setNombre(v.key) 
              setFechaI(v.fi)
              setFechaB(v.fb)    
              setCliente(v.cl)
@@ -67,23 +73,21 @@ const BajaOperador = (baja) => {
         close();
       }
 
-      const firebaseConfig = {
-        apiKey: "AIzaSyBmZRACI4lPavlz-2N0NyIvTIW9j2DOJhY",
-        authDomain: "androidbrinsk.firebaseapp.com",
-        databaseURL: "https://androidbrinsk-default-rtdb.firebaseio.com",
-        projectId: "androidbrinsk",
-        storageBucket: "androidbrinsk.appspot.com",
-        messagingSenderId: "1038423598895",
-        appId: "1:1038423598895:web:ddfe2d9c575506d192a3da"
-      };
-      
-      
-      console.log(firebaseConfig)
-
 
       useLayoutEffect(()=>{
 
         datos.push({tel:"Seleccionar Teléfono",name:"",fi:"",fb:"",cl:""})
+        namae.push("")
+
+
+        clientCl.push(
+        "FlexiOriental",
+        "FlexiStivia",
+        "FlexiProcesosEspeciales",
+        "MolinoCasaClub",
+        "InstitutoCumbres")
+
+        clientCl.sort();
 
         const dbRef = ref(getDatabase());
         get(child(dbRef,'Operador')).then((snapshot) => {
@@ -95,13 +99,29 @@ const BajaOperador = (baja) => {
               var cliente = childSnapshot.child("Cliente").val()
               var id = childSnapshot.key;
               
-             datos.push({tel:telefono,name:nombre,fi:fechaIngreso,key:id,cl:cliente}) 
               
+             datos.push({tel:telefono,name:nombre,fi:fechaIngreso,key:id,cl:cliente}) 
               
             })
             
+            clientCl.forEach((other => {
+              datos.forEach(iter => {
+                if (iter.cl == other){
+                    namae.push(iter.name)
+
+                    console.log("Lourdes:",namae)
+                    namae.sort()
+                }
+            })
+          }))
+
+           
+            
+         
           }
         })
+
+       
 
 
       },[])
@@ -140,16 +160,25 @@ const BajaOperador = (baja) => {
 
 
 
+
+
+
+
+console.log("Datos:", datos)
+
+console.log("Olga:", datosO)
+console.log("Unicos;",unicos)
+
 return(
 
 
 
 <div className="Baja">
 
-<div className="adminSide">
-            <SideBar></SideBar>
+<div className="SideOlgaBb">
+            <SideBarO/>
             
-            </div>    
+            </div>
 
   <div className="boH">
 
@@ -165,16 +194,17 @@ return(
 
 
 
-<label id="rfcT" class="form-outline-label" for="form1">RFC del Operador</label>
+<label id="rfcT" class="form-outline-label" for="form1">Nombre</label>
 
 <br></br>
 
 
+{/* onClick={forceUpdate} */}
 
+{/* <Autocomplete suggestions={["Oranges", "Apples", "Banana", "Kiwi", "Mango"]}/> */}
 
-
-<select  onClick={forceUpdate} value={tel} onChange={handlerNombres} > 
-{datos.map((item) => <option value={item.id}>{item.key}</option> )}
+<select  onClick={forceUpdate} value={tel} onChange={handlerNombres}> 
+{namae.map((item) => <option value={item}>{item}</option> )}
 </select> 
 
 <br></br>
@@ -182,7 +212,7 @@ return(
 
 
 
-<label class="form-outline-label" for="form1">Nombre Completo</label>
+<label class="form-outline-label" for="form1">CURP</label>
   <br/>
 <input type="text"  class="form-control" value={nombre} ></input>
 
@@ -211,6 +241,7 @@ return(
 
 
 <label class="form-outline-label" for="form1">Cliente</label>
+<br/>
 <input type="text" class="form-control" value={cliente} />
 
 <br></br>
@@ -342,4 +373,4 @@ No
     
 }
 
-export default BajaOperador;
+export default BajaOperadorO;

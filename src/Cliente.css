@@ -1,11 +1,4 @@
-.App {
-    text-align: center;
-    margin:0; 
-padding:0; 
-height:100%; 
-width: 100%;
-height: 100%;
-  }
+
 /* 
   html, body, div, iframe { 
     margin:0; 
@@ -16,9 +9,8 @@ height: 100%;
     }  */
   
   .header-client {
-    margin-top: -983px;
+
     background-color: rgb(212, 212, 212);
-    min-height: 170.9vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,8 +31,7 @@ height: 100%;
     color: black;
     background-color: white;
     border-radius: 5px;
-    height: 750px;
-    width: 1720px;
+
 
   }
   
@@ -50,8 +41,8 @@ height: 100%;
   }
   
   .dth{  
-  margin-top: 690px;    
-text-align: center;
+  width: 100%;
+  text-align: center;
   padding-bottom: 50px;
   }
   
@@ -119,10 +110,8 @@ text-align: center;
   }
 
   .altaH{
-    margin-top: 45px;
     background-color: black;
-    height: auto;
-    width: 1800px;
+    width: 100%;
     margin-left: 78px;
     color: white;
   }
@@ -232,3 +221,12 @@ text-align: center;
   .datosHC{
     margin-top: 20px;
   }
+
+  .adminSide{
+
+  }
+  
+  /* .SideOlgaa{
+    margin-top: 700px;
+    position: absolute;
+  } */

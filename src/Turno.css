@@ -1,7 +1,6 @@
 .turn{
-    margin-top: -512px;
+
    background-color: rgb(212,212,212);
-   min-height: 123.9vh;
    color: black;
    display: flex;
    flex-direction: column;
@@ -13,9 +12,7 @@
 
 .header-turn{
   background-color: black;
-  height: 190px;
-  width: 1800px;
-  margin-top: 160px;
+  width: 100%;
   margin-left: 78px;
   color: white;
 }
@@ -38,6 +35,7 @@
   border-radius: 5px;
   height: 750px;
   width: 1688px;
+
 }
 
 .turn label{
@@ -130,4 +128,13 @@ height: 20px;
 
 .horarioSec{
   margin-top: -60px;
+}
+
+.SideOlgaB{
+
+}
+
+.adminSideee{
+  margin-top: -740px;
+  position: absolute;
 }

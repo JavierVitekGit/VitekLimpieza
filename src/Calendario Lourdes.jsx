@@ -11,11 +11,12 @@ import { initializeApp } from 'firebase/app';
 import {getDatabase,ref,child,get,update, set} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import SideBarO from "./SideBarO";
+import Login from "./login";
 
 
 
-
-const Calendario = (calendario) => {
+const CalendarioO = (calendario) => {
 
 
   const [datos,setDatos] = useState ([])
@@ -28,6 +29,61 @@ const Calendario = (calendario) => {
   const [select,setSelect] = useState([])
 
   const [client,setClient] = useState('')
+
+  //Datos Olga
+
+  const [arrayClientCl,setArrayClientCl] = useState([]);
+
+  const [arrayJusti,setArrayJusti] = useState([]);
+
+  arrayClientCl.push("SanMiguel",
+  "SeccionLomas",
+  "PulcraChemicals",
+  "GrupoCumbres",
+  "Mitzubishi",
+  "INELeon",
+  "BaraLeon" ,
+  "PaqExpressDelta",
+  "PaqExpressTorresLanda",
+  "Stadium",
+  "AndreaCorporativo",
+  "ALCIONE",
+  "InmobiliariaGuerrero" ,
+  "SecretariadeEconomia",
+  "INEArbide",
+  "UNITE AIRLINES INC",
+  "BajioAguascalientes",
+  "BajioBoulevard",
+  "BajioConvencion",
+  "BajioUniversidad",
+  "BajioLasAmericas",
+  "BajioEdificioRegional",
+  "BajioHilarioMedina",
+  "BajioCentro",
+  "BajioPaseodelMoral",
+  "BajioHermanosAldama",
+  "DAIBSA")
+
+      arrayClientCl.sort()
+
+
+  const [namae,setNamae] = useState([]);
+
+
+  const unicos = [];
+
+  namae.forEach((item)=>{
+    if (!unicos.includes(item)){
+      unicos.push(item)
+    }
+  });
+
+  console.log(unicos.sort())
+
+
+
+
+
 
 
 // F I L T E R 
@@ -43,6 +99,25 @@ const Calendario = (calendario) => {
   :array.filter((client) =>
   client.clienteC.toLowerCase().includes(search.toLowerCase()) || client.name.toLowerCase().includes(search.toLowerCase())
   );
+
+// M O D A L
+
+const[modal,setModal] =useState(false)
+const handleShow = () => setModal(true)
+const handleClose = () => setModal(false)
+
+
+const [modd,setModd] = useState(false)
+const handleShoww = () => setModd(true)
+const handleClosee = () => setModd(false)
+
+
+const [mod,setMod] = useState(false)
+const show = () => setMod(true)
+const close = () => setMod(false)
+
+
+
 
 
 
@@ -95,7 +170,6 @@ const Calendario = (calendario) => {
 
 
 
-
     function mostrarRegistro () {
       setMostrar(false)
     }
@@ -134,6 +208,9 @@ const Calendario = (calendario) => {
 
 // F I R E B A S E
     
+useEffect(() => {
+
+
  
   
 const firebaseConfig = {
@@ -152,18 +229,10 @@ const firebaseConfig = {
     
       const db = getDatabase();
 
-      function abcd () {
-        obtener();
-
-      }
-
-      function regresar () {
-        setArray([]);
-        mostrarCalendario();
-      }
 
 
-      function obtener () {
+
+
 
      
 
@@ -199,61 +268,31 @@ const firebaseConfig = {
                   var nombreOp = childSnapshot.child("Nombre").val()
                   var hora = childSnapshot.child("Horario").val()
                   comp.push({clienteC:clienteOp,name:nombreOp,hr:hora})
-                  
-                  
               })
 
-              console.log("Operador:",datos)
-
-            //   var aux = [];
-
-            //   console.log("Validación:",aux)
-
-              
-              console.log("New Array",array)
-
-              // setArray([])
-
-             
-
-              for (var i = 0; i < comp.length; i++) {
-                  var igual=false;
-                   for (var j = 0; j < datos.length & !igual; j++) {
-                       if(comp[i]['name'] == datos[j]['nombre']) 
-                               igual=true;
-                   }
-                  if(!igual)array.push(comp[i]);
-
-                  
-
-                var alpha =  array.sort((a,b) => {
-                    if (a.clienteC < b.clienteC) return -1;
-                    if (a.clienteC > b.clienteC) return 1
-
-                    return 0;
-                  })
-
-                  
-                  
-              
-                  setTimeout(() => {
-                    mostrarRegistro();
-                  }, 100);
-              }
+              arrayClientCl.forEach((other => {
+                comp.forEach(iter => {
+                  if (iter.clienteC == other){
+                      arrayJusti.push({clienteC:iter.clienteC,name:iter.name,hr:iter.hr})
+                      console.log("Olga:",arrayJusti)
+                      arrayJusti.sort();
+                  }
+              })
+            }))
             
-
-      
-          
+              arrayClientCl.forEach((other) => {
+                comp.forEach(iter => {
+                  if (iter.clienteC == other) {
+                    namae.push(iter.name)
+                    namae.sort();
+                  }
+                })
+              })
 
 
           }
       })
 
-      comp.forEach(iter => {
-        if (iter.clienteC == client) {
-          select.push(iter.name)
-        }
-      })
 
 
       // filtered.forEach(iter => {
@@ -268,10 +307,15 @@ const firebaseConfig = {
 
       console.log("Select:", select)
 
-}
 
 
 
+// var isChecked = document.getElementById("suplenciaCheck").checked
+// if (isChecked) {
+//   alert("Checkbox Seleccionado")
+// } else {
+//   alert("Checkbox")
+// }
 
 
 
@@ -296,21 +340,7 @@ var check = document.getElementById("suplenciaCheck")
 
 
 
-  const[modal,setModal] =useState(false)
-  const handleShow = () => setModal(true)
-  const handleClose = () => setModal(false)
-
-
-  const [modd,setModd] = useState(false)
-  const handleShoww = () => setModd(true)
-  const handleClosee = () => setModd(false)
-
-
-  const [mod,setMod] = useState(false)
-  const show = () => setMod(true)
-  const close = () => setMod(false)
-
-
+ 
 
 
     
@@ -319,7 +349,7 @@ var check = document.getElementById("suplenciaCheck")
 
 
 
-
+},[])
 
 
 
@@ -346,6 +376,11 @@ mostrar?
 
 
 <div className="Calendario" id="inf">
+  
+<div className="SideOlgaBb">
+            <SideBarO/>
+            
+            </div>
 
   <div className="calH">
 
@@ -360,8 +395,8 @@ mostrar?
   <div className="containerCal">
 
 <InfiniteCalendar className="Cal"  
-width={500}
-height={250}
+width={1200}
+height={500}
 selected={false}
 minDate={lastWeek}
 maxDate={nextWeek}
@@ -389,7 +424,7 @@ displayOptions={{
 
 
 
-<input class="btn btn-success" type="submit" value="Ir al Registro" onClick={abcd} id="calbt"></input>
+<input class="btn btn-success" type="submit" value="Ir al Registro" onClick={mostrarRegistro} id="calbt"></input>
 
 </div>
 <Modal className="modal-container" 
@@ -470,13 +505,23 @@ Ok
 
 <div className="Background" id="Registro"  >
 
+
   <div className="regIH">
 
 <h1 id="head">
   <i id="calendarX" class="bi bi-calendar-x"></i>
-  Justificaciones
+  Justificaciones Lourdes
   <h1 className="dateCa">{dia + "-" + mes + "-" + año}</h1>
   </h1>
+
+  
+
+
+  <div className="SideOlgaB">
+            <SideBarO/>
+            
+            </div>
+
 </div>
 
 <table class="table table-striped" id="Tabla">
@@ -493,7 +538,7 @@ Ok
 
 
 
-{ filtered.map((item)=> 
+{ arrayJusti.map((item)=> 
 
 
 
@@ -526,14 +571,17 @@ Ok
       
       </select>
       <br/>
-      <textarea className="txtArea" placeholder="Motivo de la asistencia"  onChange={v=>item.justi = v.target.value}></textarea> 
+      <textarea className="txtArea" placeholder="Motivo de la Justificacion"  onChange={v=>item.justi = v.target.value}></textarea> 
     </td> 
    
     <td>
       <input id="suplenciaCheck" type="checkbox"/>
       <div id="hidden">
     
-        <select onClick={forceUpdate} value={select} onChange={v=>{setSelect(v.target.value)}} >
+
+                                                                                       {/* v=>{setSeleitect(v.target.value) */}
+        <select className="selectName" onClick={forceUpdate}  onChange={v=>item.asis = v.target.value} >
+          {unicos.map((item) => <option>{item}</option>)}
 
         </select>
 
@@ -675,7 +723,7 @@ Ok
 
 <input class="btn btn-success" type="submit" value="Guardar" onClick={show}  id="btt"></input>
 
-<input class="btn btn-secondary"  type="submit" value="Regresar al Calendario" onClick={regresar} id="bt2"></input>
+<input class="btn btn-secondary"  type="submit" value="Regresar al Calendario" onClick={mostrarCalendario} id="bt2"></input>
 
 
 </div>    
@@ -700,4 +748,4 @@ Ok
 }
 
 
-export default Calendario
+export default CalendarioO;
