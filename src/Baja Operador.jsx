@@ -4,7 +4,7 @@ import {get, getDatabase,ref,child,update} from "firebase/database";
 import "./BajaOperador.css"
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
-import SideBar from './sidebar'
+import SideBar from './Sidebar.jsx'
 
 
 
