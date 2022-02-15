@@ -5,7 +5,7 @@ import './App.css';
 
 import Login from './login'
 import Cliente from './Cliente'
-import BajaCliente from './Cliente'
+import BajaCliente from './Bajas del Cliente'
 import Personal from './Personal'
 import BajaOperador from './Baja Operador'
 import Reporte from './Reporte'
