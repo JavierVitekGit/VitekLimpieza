@@ -6,6 +6,7 @@ import {getDatabase,ref,update} from "firebase/database";
 import {initializeApp } from "@firebase/app";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import Sidebar from './Sidebar'
 
 /* eslint-disable no-unused-expressions */
 
@@ -210,6 +211,8 @@ const Cliente = (clientes) => {
           
 
     <div className="Usuario"  >
+
+      <Sidebar></Sidebar>
 
             <div className="adminSide">
        
