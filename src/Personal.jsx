@@ -169,14 +169,17 @@ const PersonalOlga = ({personal}) => {
     datos.push({nombres:"Seleccionar Cliente",cl:"Seleccionar Cliente"})
 
 
-    clientCl.push(
-      "FlexiOriental",
-      "FlexiStivia",
-      "FlexiProcesosEspeciales",
-      "MolinoCasaClub",
-      "InstitutoCumbres")
+    get(child(dbRef,'ClienteUbicacion')).then((snapshot) => {
+      if(snapshot.exists()){
+        snapshot.forEach((childSnapshot)=>{
 
-      clientCl.sort();
+          var clientes = childSnapshot.key
+
+          clientCl.push(clientes)
+
+        })
+      }
+    })
 
     const dbRef = ref(getDatabase());
     get(child(dbRef,'shift')).then((snapshot)=> {
