@@ -5,7 +5,7 @@ import { initializeApp } from "@firebase/app";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import './Turno.css'
-import SideBarO from "./SideBarO";
+import SideBar from './Sidebar'
 
 
 const Turno = (turno) =>{
@@ -293,7 +293,7 @@ return(
 <div className="turn">
 
 <div className="SideOlgaB">
-            <SideBarO/>
+            <SideBar/>
             
             </div>
 
