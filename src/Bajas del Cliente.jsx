@@ -172,14 +172,13 @@ return(
 
 </div>
 
-<div className="dive"></div>
 
         <div className="Body">
 
      
 
 
-        <div className="oneB">
+        
 
         <label class="form-outline-label" for="form1">Nombre del Cliente</label>
 
@@ -198,7 +197,7 @@ return(
         <label class="form-outline-label" id="fbO" for="form1">Fecha de Baja</label>
         <br/>
         <input type="Date" id="fechaBInp" class="form-control" value={bajaCl} onChange={v=>setBajaCl(v.target.value)} min={minInp} max={maxInp} />
-        </div>
+        
 
         <br/>
           {/* <label class="form-outline-label" for="form1">Domicilio</label>

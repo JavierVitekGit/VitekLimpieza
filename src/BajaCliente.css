@@ -20,12 +20,13 @@
   }
   
   .Body{
-    margin-top: 60px;
+    margin-top: 3%;
     text-align: center;
-    color: white;
+    background-color: white;
     border-radius: 5px;
-    width: 1800px;
-    margin-left: 8px;
+    width: 80%;
+    height: 70%;
+    margin-left: 5%;
   }
 
   .containerB{
