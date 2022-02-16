@@ -672,7 +672,7 @@ Ok
 
 <div className="Background" id="Registro"  >
 <div className="SideOlgas">
-            <SideBarF/>
+            <SideBarL/>
             
             </div>
 
