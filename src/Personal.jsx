@@ -351,11 +351,7 @@ const Personal = ({personal}) => {
                 <select name="Horas" value={hr} onChange={v=> setHr(v.target.value)}>
 
                 
-              <label class="form-outline-label" for="form3">Teléfono</label>
-
-              <br/>
-
-              <input type="number" onChange={v=>onChange1(v.target.value)}></input>
+              
                 
 
                   {/* {sel.map((item)=><option>{item}</option>)} */}
@@ -367,7 +363,14 @@ const Personal = ({personal}) => {
                     
 
 
-                </select> 
+                </select>
+
+
+                <label class="form-outline-label" for="form3">Teléfono</label>
+
+              <br/>
+
+              <input type="number" onChange={v=>onChange1(v.target.value)}></input>
 
                 </div>
 
