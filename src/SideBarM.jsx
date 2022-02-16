@@ -110,7 +110,7 @@ return (
 
                  </div>
 
-                 <div className="a"> <i class="bi bi-phone-fill" onClick={()=>setInactive(!inactive)} title="Datos del Operador"></i>
+                 <div className="a">
                  <div className="section2">
     
 
