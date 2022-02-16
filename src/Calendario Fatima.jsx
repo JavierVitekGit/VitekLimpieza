@@ -16,7 +16,7 @@ import Login from "./login";
 
 
 
-const CalendarioO = (calendario) => {
+const CalendarioF = (calendario) => {
 
 
   const [datos,setDatos] = useState ([])
@@ -929,4 +929,4 @@ Ok
 }
 
 
-export default CalendarioO;
+export default CalendarioF;
