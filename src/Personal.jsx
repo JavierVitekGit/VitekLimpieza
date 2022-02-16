@@ -169,14 +169,6 @@ const Personal = ({personal}) => {
     datos.push({nombres:"Seleccionar Cliente",cl:"Seleccionar Cliente"})
 
 
-    clientCl.push(
-      "FlexiOriental",
-      "FlexiStivia",
-      "FlexiProcesosEspeciales",
-      "MolinoCasaClub",
-      "InstitutoCumbres")
-
-      clientCl.sort();
 
     const dbRef = ref(getDatabase());
     get(child(dbRef,'shift')).then((snapshot)=> {
@@ -190,7 +182,7 @@ const Personal = ({personal}) => {
           datos.push({nombres:namae,cl:id,hr:hora})
           
          
-      
+          clientCl.push(key)
 
 
 
