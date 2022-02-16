@@ -124,7 +124,7 @@ const Cliente = (clientes) => {
 
     const db = getDatabase();
 
-    const dbRef = ref(getDatabase());
+
 
 
   
@@ -138,7 +138,8 @@ const Cliente = (clientes) => {
     Domicilio: domicilio,
     Días: arr,
     Horario: value2,
-    Estatus: 1
+    Estatus: 1,
+    Personal:0
     });
     }
 
@@ -193,11 +194,6 @@ const Cliente = (clientes) => {
   }
 
 
-
-   const myStyle = {
-    width: '100%',
-    height: '100%'
-   };
 
 
     
