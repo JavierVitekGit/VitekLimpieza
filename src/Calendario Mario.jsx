@@ -61,6 +61,8 @@ const CalendarioM = (calendario) => {
 
   const unicos = [];
 
+  unicos.push("")
+
   namae.forEach((item)=>{
     if (!unicos.includes(item)){
       unicos.push(item)
@@ -716,6 +718,7 @@ Ok
     <td>{item.hr}
     <br/>
     <select className="estados" onChange={v=>item.estado = v.target.value }  >
+      <option></option>
       <option>Descanso</option>
       <option>Incapacidad</option>
       <option>Injustificada</option>
@@ -732,7 +735,6 @@ Ok
     </td> 
    
     <td>
-      <input id="suplenciaCheck" type="checkbox"/>
       <div id="hidden">
     
 
