@@ -228,12 +228,12 @@ return(
     <div className="container">
 
 
-        <label id="rfcL" class="form-outline-label">RFC del Operador</label>
+        <label id="rfcL" class="form-outline-label">Nombre del Operador</label>
 
         <br />
 
         <select onClick={forceUpdate} value={tel} onChange={v=> setTel(v.target.value),handlerNombres}>
-        {datos.map((item)=> <option value={item.id}>{item.id}</option>)}    
+        {datos.map((item)=> <option value={item.nm}>{item.nm}</option>)}    
         </select>
           <br/>
         <input type="text"class="form-control" id="number" value={nombre} />
