@@ -214,7 +214,7 @@ return(
 
     <div className="Numero">
 
-<div className="SideOlgaBb">
+<div className="adminSide">
             <SideBarM/>
             
             </div>
