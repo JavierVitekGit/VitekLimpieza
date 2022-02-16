@@ -60,7 +60,7 @@ const CalendarioO = (calendario) => {
     }
   });
 
-
+    unicos.push("")
 
 
 // C L I E N T E
@@ -730,6 +730,7 @@ Ok
     <td>{item.hr}
     <br/>
     <select className="estados" onChange={v=>item.estado = v.target.value }  >
+      <option></option>
       <option>Descanso</option>
       <option>Incapacidad</option>
       <option>Injustificada</option>
