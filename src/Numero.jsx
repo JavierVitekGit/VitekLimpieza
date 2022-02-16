@@ -4,7 +4,7 @@ import { initializeApp } from "@firebase/app";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import './Numero.css'
-
+import SideBar from "./Sidebar";
 
 
 
@@ -181,6 +181,11 @@ return(
 
     <div className="Numero">
 
+<div className="adminSide">
+            <SideBar></SideBar>
+            
+            </div>  
+
     <div className="NHeader">
           <h1 id="cnH">
           <i id="cnI" class="bi bi-arrow-repeat"></i>
@@ -210,20 +215,22 @@ return(
 
       
       <label class="form-outline-label">Nombre del Operador</label>
+      <br/>
 
       <input type="text" class="form-control" value={nombre}></input>
 
 
-
+      <br/>
 
       <label class="form-outline-label">Número Anterior</label>
+      <br/>
 
       <input type="text" class="form-control" value={num}></input>
 
-
+      <br/>
       
       <label class="form-outline-label">Número Nuevo</label>
-
+      <br/>
       <input type="number" class="form-control" value={nuevo} onChange={v=>setNuevo(v.target.value)}></input>
 
 

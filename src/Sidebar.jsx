@@ -110,11 +110,11 @@ return (
                 <div className="section3">
 
 
-                <div className="Inasistencias"> <i class="bi bi-calendar-check" onClick={()=>setInactive(!inactive)} title="Registro de Justificaciones"></i> 
+                {/* <div className="Inasistencias"> <i class="bi bi-calendar-check" onClick={()=>setInactive(!inactive)} title="Registro de Justificaciones"></i> 
         <Link to="/Inasistencia"> <p className="registroIn" >Inasistencias</p> </Link>    
 
 
-                </div>
+                </div> */}
 
 
         <div className="calendario"> 
