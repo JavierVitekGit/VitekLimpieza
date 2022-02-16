@@ -117,12 +117,10 @@ return (
         <br></br>
         <br></br>
         
-        <Link to ="/Alta del Operador O">   <p className="alta-op" onClick={Operador}>Alta del Operador</p></Link>
+
         </div>
 
-                <div className="baja-op">
-        <Link to="/Baja del Operador O">    <p className="baja-op" onClick={bajaOperador}>Baja del Operador</p></Link>           
-                </div>
+
 
 
 
