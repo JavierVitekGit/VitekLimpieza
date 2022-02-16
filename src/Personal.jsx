@@ -364,6 +364,7 @@ const Personal = ({personal}) => {
 
 
                 </select>
+                <br/>
 
 
                 <label class="form-outline-label" for="form3">Teléfono</label>
