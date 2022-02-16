@@ -182,7 +182,7 @@ const Personal = ({personal}) => {
           datos.push({nombres:namae,cl:id,hr:hora})
           
          
-          clientCl.push(key)
+          clientCl.push(id)
 
 
 
