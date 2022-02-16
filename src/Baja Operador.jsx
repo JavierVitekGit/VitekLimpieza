@@ -211,6 +211,7 @@ return(
 
 
 <label class="form-outline-label" for="form1">Cliente</label>
+<br/>
 <input type="text" class="form-control" value={cliente} />
 
 <br></br>
