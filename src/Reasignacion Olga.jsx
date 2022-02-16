@@ -288,14 +288,11 @@ return(
 
           {/* {shift.map((item)=><option>{item.hora}</option>)} */}
           
-          <option >07:00 </option>
-          <option >08:00 </option>
-          <option >09:00 </option>
-          <option >10:00 </option>
-          <option >11:00 </option>
-          <option >12:00 </option>
-          <option >13:00 </option>
-          <option >14:00 </option>
+
+          <option></option>
+          <option >Matutino </option>
+          <option >Vespertino </option>
+ 
         </select>
 
             <br></br>
