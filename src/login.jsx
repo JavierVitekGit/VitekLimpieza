@@ -39,7 +39,7 @@ function comprobar() {
 
     if (usuario =="Olga" && password=="olga1234")
      {
-          history("/Calendario O")
+          history("/Alta del Operador O")
     }  else {
       showLogin()
     }
@@ -48,7 +48,7 @@ function comprobar() {
 
     if (usuario =="Lourdes" && password=="lourdes1234")
      {
-          history("/Calendario L")
+          history("/Alta del Operador L")
     }  else {
       showLogin()
     }
@@ -58,7 +58,7 @@ function comprobar() {
 
     if (usuario =="Mario" && password=="mario1234")
      {
-          history("/Calendario M")
+          history("/Alta del Operador M")
     }  else {
       showLogin()
     }
@@ -67,7 +67,7 @@ function comprobar() {
 
     if (usuario =="Fatima" && password=="fatima1234")
     {
-         history("/Calendario F")
+         history("/Alta del Operador F")
    }  else {
      showLogin()
    }
