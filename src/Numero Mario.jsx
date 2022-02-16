@@ -10,7 +10,7 @@ import SideBarM from "./SideBarM";
 
 const NumeroM = (numero) => {
 
-
+ 
 
     const [, updateState] = useState();
     const forceUpdate = useCallback(() => updateState({}), []); 
@@ -24,6 +24,8 @@ const NumeroM = (numero) => {
 
     const arrayP = [];
 
+   
+
 
     arrayRfc.filter((item)=> {
       if (item.rfc.length == 13) {
@@ -32,22 +34,17 @@ const NumeroM = (numero) => {
     })
     
 
+    const [arrayClientCl,setArrayClientCl] = useState([]);
+    const [arrayNamae,setArrayNamae] = useState([]);
 
-    console.log("RESULT",arrayP)
+
+
 
 
     const [rfc,setRfc] = useState('')
     const [nombre,setNombre] = useState('')
     const [num,setNum] = useState('')
     const [nuevo,setNuevo] = useState('')
-
-
-
-    const [clientCl,setClientCl] = useState([]);
-    const [rfcd,setRfcd] = useState([]);
-
-
-
 
 
 
@@ -68,7 +65,7 @@ const NumeroM = (numero) => {
     const showRepeat = () => setRepeatMod(true)
     const closeRepeat = () => setRepeatMod(false)
 
-
+    console.log("Nombre",nombre)
     
     const handlerRfc = function (e) {
         const opcion = e.target.value
@@ -79,9 +76,8 @@ const NumeroM = (numero) => {
         
   
          datnum.forEach (v=>{
-           if (v.rfc == opcion) {
-             console.log(v.rfc,opcion)
-             setNombre(v.nombre) 
+           if (v.nombre == opcion) {
+             setNombre(v.rfc) 
              setNum(v.numero)
            }
          })
@@ -91,7 +87,7 @@ const NumeroM = (numero) => {
 
       function writeNewData(event){
           event.preventDefault()
-          update(ref(db,'Operador/' + rfc),{
+          update(ref(db,'Operador/' + nombre),{
           ID:nuevo
           });
       }
@@ -129,7 +125,12 @@ const NumeroM = (numero) => {
     useEffect(()=> {
 
 
-      clientCl.push(
+
+      
+
+      arrayNamae.push("");
+
+      arrayClientCl.push(
         "CorporativoTelcelMatutino",
         "TelcelCACQueretaroIV",
         "TelcelCADQueretaro",
@@ -139,8 +140,11 @@ const NumeroM = (numero) => {
         "Andrea5Febrero",
         "AndreaPatioQueretaro",
         "PorsheQueretaro",
-        "BaraQro")
-      clientCl.sort()
+        "BaraQro"
+      )
+
+      arrayClientCl.sort()
+
 
 
       const firebaseConfig = {
@@ -177,24 +181,21 @@ const NumeroM = (numero) => {
 
                   datnum.push({rfc:rf,nombre:nombre,numero:num,cl:cliente})
                   arrayRfc.push({rfc:rf})
-                  console.log(datnum)
-                  console.log("RFC",arrayRfc)
 
 
                 
               })
 
               
-            clientCl.forEach((other => {
-              datnum.forEach(iter => {
-                if (iter.cl == other){
-                    rfcd.push(iter.rfc)
-
-                    console.log("Lourdes:",rfcd)
-                    rfcd.sort()
-                }
-            })
-          }))
+              arrayClientCl.forEach((other => {
+                datnum.forEach(iter => {
+                  if (iter.cl == other){
+                      arrayNamae.push(iter.nombre)
+  
+                      arrayNamae.sort();
+                  }
+              })
+            }))
 
 
           }
@@ -213,7 +214,7 @@ return(
 
     <div className="Numero">
 
-<div className="SideOlgaB">
+<div className="SideOlgaBb">
             <SideBarM/>
             
             </div>
@@ -221,20 +222,20 @@ return(
     <div className="NHeader">
           <h1 id="cnH">
           <i id="cnI" class="bi bi-arrow-repeat"></i>
-          Cambio de Número Mario
+          Cambio de número
           </h1>
     </div>
 
     <div className="NBody">
 
-    <label class="form-outline-label">RFC</label>
+    <label class="form-outline-label">Nombre del Operador</label>
 
     <br/>
 
   
 
     <select onClick={forceUpdate} onChange={handlerRfc} >
-    {rfcd.map((item)=><option>{item}</option>)}
+    {arrayNamae.map((item)=><option>{item}</option>)}
 
 
 
@@ -244,21 +245,22 @@ return(
 
       {/* <input type="text" class="form-control" /> */}
 
-  
+
       
-      <label class="form-outline-label">Nombre del Operador</label>
-      <br/>
-      <input type="text" class="form-control" value={nombre}></input>
-
+      <label class="form-outline-label">CURP del Operador</label>
       <br/>
 
+      <input type="text" class="form-control" value={nombre} onChange={v=>setNombre(v.target.value)}></input>
+
+
+      <br/>
 
       <label class="form-outline-label">Número Anterior</label>
       <br/>
       <input type="text" class="form-control" value={num}></input>
 
-
       <br/>
+      
       <label class="form-outline-label">Número Nuevo</label>
       <br/>
       <input type="number" class="form-control" value={nuevo} onChange={v=>setNuevo(v.target.value)}></input>
