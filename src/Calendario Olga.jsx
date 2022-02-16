@@ -32,6 +32,7 @@ const CalendarioO = (calendario) => {
 
   const [arrayPersonal,setArrayPersonal] = useState([]);
 
+
   //Datos Olga
 
   const [arrayClientCl,setArrayClientCl] = useState([]);
@@ -352,7 +353,7 @@ const firebaseConfig = {
       }, 500);
 
       setArrayPersonal([])
-      setSelCliente([])
+      
 
       console.log("Select:", select)
 
@@ -362,17 +363,24 @@ const firebaseConfig = {
 
 //   M O D A L  
 
-      
+
 
 
  
 }
 
-    
-//     R  E  N  D  E  R  
-  
+const dbRef = getDatabase();
 
 
+
+function writeJustiData(event) {
+  event.preventDefault()
+
+  update(ref(dbRef,'Justificaciones/' + dia + "-" + mes + "-" + año + "/" + selClient),{
+    Datos:arrayJusti
+  })
+
+}
 
 // },[])
 
@@ -721,7 +729,7 @@ Ok
     <td>{item.name}</td> 
     <td>{item.hr}
     <br/>
-    <select className="estados" onChange={v=> item.asis = v.target.value}  >
+    <select className="estados" onChange={v=>item.estado = v.target.value }  >
       <option>Descanso</option>
       <option>Incapacidad</option>
       <option>Injustificada</option>
@@ -750,7 +758,7 @@ Ok
 
         <p>Otro</p>
 
-        <textarea placeholder="Nombre del suplente"></textarea>
+        <textarea placeholder="Nombre del suplente" onChange={v=>item.suplencia = v.target.value}></textarea>
       </div>
     </td>
 
@@ -889,7 +897,7 @@ Ok
 
 
 
-<input class="btn btn-success" type="submit" value="Guardar" onClick={show}  id="btt"></input>
+<input class="btn btn-success" type="submit" value="Guardar" onClick={writeJustiData}  id="btt"></input>
 
 <input class="btn btn-secondary"  type="submit" value="Regresar al Calendario" onClick={regresar} id="bt2"></input>
 
