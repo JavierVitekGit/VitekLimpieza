@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import {get, getDatabase,ref,child,update} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import SideBar from "./Sidebar";
 import './Reasignacion.css'
 
 
@@ -207,6 +208,11 @@ const Reasignacion = (reasignacion) => {
 return(
 
     <div className="reasignacion">
+
+<div className="adminSide">
+            <SideBar></SideBar>
+            
+            </div>    
 
       <div className="roH">
 
