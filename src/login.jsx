@@ -39,7 +39,7 @@ function comprobar() {
 
     if (usuario =="Olga" && password=="olga1234")
      {
-          history("/Calendario%20O")
+          history("/Calendario O")
     }  else {
       showLogin()
     }
