@@ -54,13 +54,15 @@ const CalendarioO = (calendario) => {
 
   const unicos = [];
 
+  unicos.push("")
+
   namae.forEach((item)=>{
     if (!unicos.includes(item)){
       unicos.push(item)
     }
   });
 
-    unicos.push("")
+ 
 
 
 // C L I E N T E
@@ -747,7 +749,6 @@ Ok
     </td> 
    
     <td>
-      <input id="suplenciaCheck" type="checkbox"/>
       <div id="hidden">
     
 
