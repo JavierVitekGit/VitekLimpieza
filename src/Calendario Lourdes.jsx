@@ -11,12 +11,12 @@ import { initializeApp } from 'firebase/app';
 import {getDatabase,ref,child,get,update, set} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
-import SideBarO from "./SideBarO";
+import SideBarL from "./SideBarL";
 import Login from "./login";
 
 
 
-const CalendarioO = (calendario) => {
+const CalendarioL = (calendario) => {
 
 
   const [datos,setDatos] = useState ([])
@@ -30,45 +30,51 @@ const CalendarioO = (calendario) => {
 
   const [client,setClient] = useState('')
 
+  const [arrayPersonal,setArrayPersonal] = useState([]);
+
+
   //Datos Olga
 
   const [arrayClientCl,setArrayClientCl] = useState([]);
 
   const [arrayJusti,setArrayJusti] = useState([]);
 
-  arrayClientCl.push("SanMiguel",
-  "SeccionLomas",
-  "PulcraChemicals",
-  "GrupoCumbres",
-  "Mitzubishi",
-  "INELeon",
-  "BaraLeon" ,
-  "PaqExpressDelta",
-  "PaqExpressTorresLanda",
-  "Stadium",
-  "AndreaCorporativo",
-  "ALCIONE",
-  "InmobiliariaGuerrero" ,
-  "SecretariadeEconomia",
-  "INEArbide",
-  "UNITE AIRLINES INC",
-  "BajioAguascalientes",
-  "BajioBoulevard",
-  "BajioConvencion",
-  "BajioUniversidad",
-  "BajioLasAmericas",
-  "BajioEdificioRegional",
-  "BajioHilarioMedina",
-  "BajioCentro",
-  "BajioPaseodelMoral",
-  "BajioHermanosAldama",
-  "DAIBSA")
+  arrayClientCl.push(
+    "SanMiguel",
+    "SeccionLomas",
+    "PulcraChemicals",
+    "GrupoCumbres",
+    "Mitzubishi",
+    "INELeon",
+    "BaraLeon" ,
+    "PaqExpressDelta",
+    "PaqExpressTorresLanda",
+    "Stadium",
+    "AndreaCorporativo",
+    "ALCIONE",
+    "InmobiliariaGuerrero" ,
+    "SecretariadeEconomia",
+    "INEArbide",
+    "UNITE AIRLINES INC",
+    "BajioAguascalientes",
+    "BajioBoulevard",
+    "BajioConvencion",
+    "BajioUniversidad",
+    "BajioLasAmericas",
+    "BajioEdificioRegional",
+    "BajioHilarioMedina",
+    "BajioCentro",
+    "BajioPaseodelMoral",
+    "BajioHermanosAldama",
+    "DAIBSA"
+  )
 
       arrayClientCl.sort()
 
 
   const [namae,setNamae] = useState([]);
 
+  const unicosTable = [];
 
   const unicos = [];
 
@@ -78,8 +84,40 @@ const CalendarioO = (calendario) => {
     }
   });
 
-  console.log(unicos.sort())
 
+
+
+// C L I E N T E
+
+  const unicoss = [];
+
+  unicoss.push("");
+
+  arrayClientCl.forEach((item)=> {
+    if (!unicoss.includes(item) && !unicosTable.includes(item)){
+      unicoss.push(item)
+      unicosTable.push(item)
+    }
+  })
+
+  const [selClient,setSelCliente] = useState("")
+
+  console.log("Select",selClient)
+
+
+
+// P E R S O N A L
+
+const [arrayp,setArrayP] = useState([]);
+
+arrayJusti.forEach((item)=> {
+  if (!arrayp.includes(item)){
+    arrayp.push(item)
+
+    arrayp.sort()
+
+  }
+})
 
 
 
@@ -117,8 +155,9 @@ const show = () => setMod(true)
 const close = () => setMod(false)
 
 
-
-
+const [modClient,setModClient] = useState(false)
+const modOpen = () => setModClient(true)
+const modClose = () => setModClient(false)
 
 
 // C A L E N D A R I O
@@ -131,9 +170,7 @@ const close = () => setMod(false)
 
   const [infinite,setInfinite] = useState(new Date())
 
-  // var infiniteF = infinite.getDate
 
-  // console.log(infiniteF)
 
   var dia = infinite.toISOString().substring(8,10)
 
@@ -146,7 +183,7 @@ const close = () => setMod(false)
     var hora = today.getHours() 
 
 
-    var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 2);
+    var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 3);
     formatRelative(subDays(new Date(), 3), new Date(), { locale: es })
 
 
@@ -172,6 +209,7 @@ const close = () => setMod(false)
 
     function mostrarRegistro () {
       setMostrar(false)
+
     }
 
     function mostrarCalendario () {
@@ -208,7 +246,31 @@ const close = () => setMod(false)
 
 // F I R E B A S E
     
-useEffect(() => {
+// useEffect(() => {
+
+
+
+  function abcd () {
+
+    if (selClient == "") {
+      modOpen()
+    } else {
+      obtener();
+    }
+
+    
+
+  }
+
+  function regresar () {
+    setSelCliente("")
+    mostrarCalendario();
+    setArrayJusti([])
+    setNamae([])
+  }
+
+
+function obtener () {
 
 
  
@@ -239,10 +301,17 @@ const firebaseConfig = {
 
       const dbRef = ref(getDatabase());
 
+
+      get(child(dbRef,'ClienteUbicacion/' + selClient )).then((snapshot) => {
+        if(snapshot.exists()) {
+         arrayPersonal.push( snapshot.child("personal").val())
+
+         console.log("Razi:",arrayPersonal)
+        }
+      })
+
+
       get(child(dbRef,'Asistencia/' + dia + "-" + mes + "-" + año)).then((snapshot)=> {
-
-
-
           if (snapshot.exists()){
             setDatos([])
               snapshot.forEach((childSnapshot)=>{
@@ -258,7 +327,7 @@ const firebaseConfig = {
               })
           }
       })
-
+      
 
       get(child(dbRef,'Operador/')).then((snapshot)=>{
           if (snapshot.exists()){
@@ -270,86 +339,74 @@ const firebaseConfig = {
                   comp.push({clienteC:clienteOp,name:nombreOp,hr:hora})
               })
 
-              arrayClientCl.forEach((other => {
-                comp.forEach(iter => {
-                  if (iter.clienteC == other){
-                      arrayJusti.push({clienteC:iter.clienteC,name:iter.name,hr:iter.hr})
-                      console.log("Olga:",arrayJusti)
-                      arrayJusti.sort();
-                  }
-              })
-            }))
-            
-              arrayClientCl.forEach((other) => {
-                comp.forEach(iter => {
-                  if (iter.clienteC == other) {
-                    namae.push(iter.name)
-                    namae.sort();
-                  }
-                })
-              })
+            comp.forEach((iter)=> {
+              if (iter.clienteC == selClient) {
+                arrayJusti.push({clienteC:iter.clienteC,name:iter.name,hr:iter.hr})
+                arrayJusti.sort();
 
+                console.log("Justi",arrayJusti.length)
+
+              }
+            })
+
+            comp.forEach((iter)=>{
+              if (iter.clienteC == selClient) {
+                namae.push(iter.name)
+                namae.sort()
+              }
+            } )
+            
+            
 
           }
       })
 
+      setTimeout(() => {
 
+        console.log("Personal::: "+arrayPersonal[0])
+        for(var i=0; i<arrayPersonal[0]; i++){
+          if (arrayJusti[i] == undefined){
+            arrayJusti.push({clienteC:selClient,name:"Vacante",hr:"08:00"})
+          }else{
 
-      // filtered.forEach(iter => {
-      //   comp.forEach(other => {
-      //     if (iter.clienteC == other.clienteC) {
-      //         select.push(other.name)
-      //     }
-      //   })
-      // })
+          }
 
+        }
 
+        mostrarRegistro();
+      }, 500);
+
+      setArrayPersonal([])
+      
 
       console.log("Select:", select)
 
 
+      
 
-
-// var isChecked = document.getElementById("suplenciaCheck").checked
-// if (isChecked) {
-//   alert("Checkbox Seleccionado")
-// } else {
-//   alert("Checkbox")
-// }
-
-
-
-// H I D D E N
-
-function showContent() {
-var element = document.getElementById("hidden")
-var check = document.getElementById("suplenciaCheck")
-
-  if(check.checked) {
-    element.style.display='block';
-  }
-    else {
-      element.style.display='none';
-    }
-
-};
 
 //   M O D A L  
 
 
 
 
-
  
+}
 
-
-    
-//     R  E  N  D  E  R  
-  
+const dbRef = getDatabase();
 
 
 
-},[])
+function writeJustiData(event) {
+  event.preventDefault()
+
+  update(ref(dbRef,'Justificaciones/' + dia + "-" + mes + "-" + año + "/" + selClient),{
+    Datos:arrayJusti
+  })
+
+}
+
+// },[])
 
 
 
@@ -378,7 +435,7 @@ mostrar?
 <div className="Calendario" id="inf">
   
 <div className="SideOlgaBb">
-            <SideBarO/>
+            <SideBarL/>
             
             </div>
 
@@ -386,20 +443,22 @@ mostrar?
 
 <h1 id="he">
 <i id="calendarI" class="bi bi-calendar-week-fill"></i>
-  Calendario
+  Lista de Clientes
 </h1>
 
 </div>
-<div className="divCale"></div>
+
 
   <div className="containerCal">
 
+    <br/>
+
 <InfiniteCalendar className="Cal"  
-width={1200}
-height={500}
+width={600}
+height={250}
 selected={false}
 minDate={lastWeek}
-maxDate={nextWeek}
+maxDate={today}
 onSelect={setInfinite}
 locale={{
   locale:require('date-fns/locale/es'),
@@ -417,14 +476,72 @@ displayOptions={{
 
 
 
-<p id="txtcal"></p>
-<p id="infiniteV"></p>
 
 <br></br>
 
+<select id="selClient" onChange={v=>{setSelCliente(v.target.value)}}>
+  {unicoss.map((item)=> <option>{item}</option>)}
+</select>
+
+<br/>
 
 
-<input class="btn btn-success" type="submit" value="Ir al Registro" onClick={mostrarRegistro} id="calbt"></input>
+{/* <table id="estateTable" class="table table-striped" >
+<thead class="table-dark">
+<tr >
+  <th scope="col">Cliente/Ubicación</th>
+  <th scope="col">Estado</th>
+</tr>
+</thead>
+<tbody>
+{ unicosTable.map((item)=> 
+{
+  
+  // if (hora >= item.hr.substr(0,2)  ) {
+    
+    
+    return (
+    <tr>
+    <td id="testSelect" onChange={v=>{setClient(v.target.value)}}>
+      
+       {item}
+      
+    </td>
+    <td>
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-clipboard2-check" viewBox="0 0 16 16" color="green">
+  <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z"/>
+  <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z"/>
+  <path d="M10.854 7.854a.5.5 0 0 0-.708-.708L7.5 9.793 6.354 8.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3Z"/>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-clipboard2-minus" viewBox="0 0 16 16" color="orange">
+  <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z"/>
+  <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z"/>
+  <path d="M6 8a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1H6Z"/>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-clipboard2-x" viewBox="0 0 16 16" color="red">
+  <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z"/>
+  <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z"/>
+  <path d="M8 8.293 6.854 7.146a.5.5 0 1 0-.708.708L7.293 9l-1.147 1.146a.5.5 0 0 0 .708.708L8 9.707l1.146 1.147a.5.5 0 0 0 .708-.708L8.707 9l1.147-1.146a.5.5 0 0 0-.708-.708L8 8.293Z"/>
+</svg>
+    </td>
+    <td></td> 
+  
+   
+   
+   
+    </tr>
+    )
+// } 
+// else {
+// }
+}
+ )}
+ 
+</tbody>
+</table> */}
+
+
+<input class="btn btn-success" type="submit" value="Ir al Registro" onClick={abcd} id="calbt"></input>
 
 </div>
 <Modal className="modal-container" 
@@ -475,6 +592,56 @@ Ok
 </Modal>
 
 
+
+<Modal className="modal-container" 
+      show={modClient}  
+      onHide={modClose } 
+      animation={true} 
+      backdrop="static" 
+      keyboard={false}   
+      {...calendario}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered>
+
+
+<Modal.Header>
+
+
+<Modal.Title>No se ha seleccionado ningun cliente</Modal.Title>
+
+
+</Modal.Header>
+
+
+<Modal.Body>
+
+
+<p>Seleccione un cliente para poder continuar</p>
+
+
+</Modal.Body>
+
+
+<Modal.Footer>
+
+
+  <Button variant="danger" onClick={modClose}>
+
+
+Ok
+
+
+  </Button>
+
+
+</Modal.Footer>
+
+
+</Modal>
+
+
+
 </div>
 
 
@@ -504,27 +671,31 @@ Ok
 
 
 <div className="Background" id="Registro"  >
+<div className="SideOlgas">
+            <SideBarF/>
+            
+            </div>
 
 
   <div className="regIH">
 
+
 <h1 id="head">
+  
   <i id="calendarX" class="bi bi-calendar-x"></i>
-  Justificaciones Lourdes
+  Justificaciones
   <h1 className="dateCa">{dia + "-" + mes + "-" + año}</h1>
   </h1>
 
   
 
 
-  <div className="SideOlgaB">
-            <SideBarO/>
-            
-            </div>
+
 
 </div>
 
 <table class="table table-striped" id="Tabla">
+  
 <thead class="table-dark">
 <tr id="headertab">
   <th scope="col">Cliente/Ubicación</th>
@@ -545,7 +716,7 @@ Ok
 
 {
   
-  if (hora >= item.hr.substr(0,2)  ) {
+  // if (hora >= item.hr.substr(0,2)  ) {
     
     
 
@@ -561,15 +732,18 @@ Ok
     <td>{item.name}</td> 
     <td>{item.hr}
     <br/>
-    <select className="estados" onChange={v=> item.asis = v.target.value}  >
-      <option>Justificada</option>
-      <option>Injustificada</option>
+    <select className="estados" onChange={v=>item.estado = v.target.value }  >
+      <option>Descanso</option>
       <option>Incapacidad</option>
+      <option>Injustificada</option>
+      <option>Justificada</option>
+      <option>Sin Cubrir</option>
       <option>Vacaciones</option>
 
 
       
       </select>
+      <br/>
       <br/>
       <textarea className="txtArea" placeholder="Motivo de la Justificacion"  onChange={v=>item.justi = v.target.value}></textarea> 
     </td> 
@@ -585,6 +759,9 @@ Ok
 
         </select>
 
+        <p>Otro</p>
+
+        <textarea placeholder="Nombre del suplente" onChange={v=>item.suplencia = v.target.value}></textarea>
       </div>
     </td>
 
@@ -597,11 +774,11 @@ Ok
     )
 
 
-} 
-else {
+// } 
+// else {
 
 
-}
+// }
 
 }
  )}
@@ -688,7 +865,7 @@ Ok
 
 
 
-<p>El registro de la asistencia ha sido realizado con exito</p>
+<p>El registro de justificaciones ha sido realizado con exito</p>
 
 
 </Modal.Body>
@@ -713,17 +890,22 @@ Ok
 
 
 
-  
+
 
 <p id="dia"></p>
+
+<br/>
 
 <div class = "btn-groupp">
 
 
 
-<input class="btn btn-success" type="submit" value="Guardar" onClick={show}  id="btt"></input>
+<input class="btn btn-success" type="submit" value="Guardar" onClick={writeJustiData}  id="btt"></input>
 
-<input class="btn btn-secondary"  type="submit" value="Regresar al Calendario" onClick={mostrarCalendario} id="bt2"></input>
+<input class="btn btn-secondary"  type="submit" value="Regresar al Calendario" onClick={regresar} id="bt2"></input>
+
+<br/>
+<br/>
 
 
 </div>    
@@ -748,4 +930,4 @@ Ok
 }
 
 
-export default CalendarioO;
+export default CalendarioL;

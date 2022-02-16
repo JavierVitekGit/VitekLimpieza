@@ -10,7 +10,7 @@ import SideBarL from "./SideBarL";
 
 const NumeroL = (numero) => {
 
-
+ 
 
     const [, updateState] = useState();
     const forceUpdate = useCallback(() => updateState({}), []); 
@@ -24,10 +24,7 @@ const NumeroL = (numero) => {
 
     const arrayP = [];
 
-
-    const [arrayClientCl,setArrayClientCl] = useState([]);
-    const [arrayNamae,setArrayNamae] = useState([]);
-
+   
 
 
     arrayRfc.filter((item)=> {
@@ -37,8 +34,11 @@ const NumeroL = (numero) => {
     })
     
 
+    const [arrayClientCl,setArrayClientCl] = useState([]);
+    const [arrayNamae,setArrayNamae] = useState([]);
 
-    console.log("RESULT",arrayP)
+
+
 
 
     const [rfc,setRfc] = useState('')
@@ -65,7 +65,7 @@ const NumeroL = (numero) => {
     const showRepeat = () => setRepeatMod(true)
     const closeRepeat = () => setRepeatMod(false)
 
-
+    console.log("Nombre",nombre)
     
     const handlerRfc = function (e) {
         const opcion = e.target.value
@@ -76,9 +76,8 @@ const NumeroL = (numero) => {
         
   
          datnum.forEach (v=>{
-           if (v.rfc == opcion) {
-             console.log(v.rfc,opcion)
-             setNombre(v.nombre) 
+           if (v.nombre == opcion) {
+             setNombre(v.rfc) 
              setNum(v.numero)
            }
          })
@@ -88,7 +87,7 @@ const NumeroL = (numero) => {
 
       function writeNewData(event){
           event.preventDefault()
-          update(ref(db,'Operador/' + rfc),{
+          update(ref(db,'Operador/' + nombre),{
           ID:nuevo
           });
       }
@@ -126,6 +125,11 @@ const NumeroL = (numero) => {
     useEffect(()=> {
 
 
+
+      
+
+      arrayNamae.push("");
+
       arrayClientCl.push(
         "SanMiguel",
         "SeccionLomas",
@@ -153,9 +157,11 @@ const NumeroL = (numero) => {
         "BajioCentro",
         "BajioPaseodelMoral",
         "BajioHermanosAldama",
-        "DAIBSA")
-  
-        arrayClientCl.sort()
+        "DAIBSA"
+      )
+
+      arrayClientCl.sort()
+
 
 
       const firebaseConfig = {
@@ -192,24 +198,21 @@ const NumeroL = (numero) => {
 
                   datnum.push({rfc:rf,nombre:nombre,numero:num,cl:cliente})
                   arrayRfc.push({rfc:rf})
-                  console.log(datnum)
-                  console.log("RFC",arrayRfc)
 
 
                 
               })
 
+              
               arrayClientCl.forEach((other => {
                 datnum.forEach(iter => {
                   if (iter.cl == other){
-                      arrayNamae.push(iter.rfc)
+                      arrayNamae.push(iter.nombre)
   
-                      console.log("Lourdes:",arrayNamae)
                       arrayNamae.sort();
                   }
               })
             }))
-      
 
 
           }
@@ -236,17 +239,17 @@ return(
     <div className="NHeader">
           <h1 id="cnH">
           <i id="cnI" class="bi bi-arrow-repeat"></i>
-          Cambio de Número Lourdes
+          Cambio de número
           </h1>
     </div>
 
     <div className="NBody">
 
-    <label class="form-outline-label">RFC</label>
+    <label class="form-outline-label">Nombre del Operador</label>
 
     <br/>
 
-    
+  
 
     <select onClick={forceUpdate} onChange={handlerRfc} >
     {arrayNamae.map((item)=><option>{item}</option>)}
@@ -261,12 +264,13 @@ return(
 
 
       
-      <label class="form-outline-label">Nombre del Operador</label>
-        <br/>
-      <input type="text" class="form-control" value={nombre}></input>
-
+      <label class="form-outline-label">CURP del Operador</label>
       <br/>
 
+      <input type="text" class="form-control" value={nombre} onChange={v=>setNombre(v.target.value)}></input>
+
+
+      <br/>
 
       <label class="form-outline-label">Número Anterior</label>
       <br/>
