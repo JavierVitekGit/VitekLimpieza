@@ -44,9 +44,9 @@ const BajaOperador = (baja) => {
         
   
          datos.forEach (v=>{
-           if (v.key == opcion) {
+           if (v.name == opcion) {
              console.log(v.tel,opcion)
-             setNombre(v.name) 
+             setNombre(v.key) 
              setFechaI(v.fi)
              setFechaB(v.fb)    
              setCliente(v.cl)
