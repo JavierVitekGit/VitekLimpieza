@@ -80,6 +80,8 @@ const Personal = ({personal}) => {
   const [cliente,onChange5] = useState('')
   const [hr,setHr] = useState('')
 
+  const [supervisor,setSupervisor] = useState('')
+
 
   const [genero,setGenero] = useState()
 
@@ -149,7 +151,8 @@ const Personal = ({personal}) => {
       Fecha_Baja:fechaB,
       Cliente:cliente,
       Estatus: 1,
-      Horario: hr
+      Horario: hr,
+      Supervisor: supervisor
     });
   
   }
@@ -343,6 +346,17 @@ const Personal = ({personal}) => {
                 </select>
 
                 <br/>
+
+                <label class="form-outline-label" for="form1" onChange={v=>setSupervisor(v.target.value)}>Supervisor a Asignar</label>
+                <select>
+                  <option></option>
+                  <option>Fatima</option>
+                  <option>Lourdes</option>
+                  <option>Mario</option>
+                  <option>Olga</option>
+                </select>
+
+                <br/>
               
               <label class="form-outline-label" for="form3">Horario</label> 
 
@@ -503,4 +517,4 @@ Ok
 
 
 
-export default Personal;
+export default Personal
