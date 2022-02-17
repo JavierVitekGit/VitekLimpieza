@@ -314,9 +314,9 @@ const Cliente = (clientes) => {
           <br></br>
          
 
-          <label class="form-outline-label" for="form3">Horario</label>
+          {/* <label class="form-outline-label" for="form3">Horario</label>
 
-          <br></br>
+          <br></br> */}
           
           {/* <div className="horInput">
 
