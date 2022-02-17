@@ -246,6 +246,24 @@ const modClose = () => setModClient(false)
   }
 
 
+  const dbRef = ref(getDatabase());
+
+  get(child(dbRef,'Operador')).then((snapshot)=>{
+    if(snapshot.exists()){
+      snapshot.forEach((childSnapshot)=>{
+        var sup = childSnapshot.child("Supervisor").val()
+        var cliente = childSnapshot.child("Cliente").val()
+
+        if (sup == "Olga") {
+          arrayClientCl.push(cliente)
+          
+        }
+
+      })
+    }
+  })
+
+
 function obtener () {
 
 
@@ -316,9 +334,7 @@ const firebaseConfig = {
                   var hora = childSnapshot.child("Horario").val()
                   comp.push({clienteC:clienteOp,name:nombreOp,hr:hora})
 
-                  if (sup == "Olga") {
-                    arrayClientCl.push(clienteOp)
-                  }
+                
 
               })
 
