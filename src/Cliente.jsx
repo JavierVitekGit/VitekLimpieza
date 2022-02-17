@@ -316,17 +316,9 @@ const Cliente = (clientes) => {
 
           <br></br>
 
-       <select name="Horas" value={value2} onChange={v=> onChange2(v.target.value)}>
-          <option>07:00</option>
-          <option>08:00</option>
-          <option>09:00</option>
-          <option>10:00</option>
-          <option>11:00</option>
-          <option>12:00</option>
-          <option>13:00</option>
-          <option>14:00</option>
-       </select>
-
+          <input type="number"></input>
+          ":"
+          <input type="number"></input>
 
        {/* O P C I O N  2  H O R A R I O  */}
 
