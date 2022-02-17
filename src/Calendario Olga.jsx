@@ -478,7 +478,7 @@ displayOptions={{
 
 <br></br>
 
-<select id="selClient" onChange={v=>{setSelCliente(v.target.value)}}>
+<select onClick={forceUpdate} id="selClient" onChange={v=>{setSelCliente(v.target.value)}}>
   {unicoss.map((item)=> <option>{item}</option>)}
 </select>
 
