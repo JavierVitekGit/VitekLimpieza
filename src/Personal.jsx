@@ -174,6 +174,20 @@ const Personal = ({personal}) => {
 
 
     const dbRef = ref(getDatabase());
+
+    get(child(dbRef,'ClienteUbicacion')).then((snapshot)=>{
+      if (snapshot.exists()){
+        snapshot.forEach((childSnapshot)=>{
+          var nombre = childSnapshot.child("Nombre").val()
+
+          clientCl.push(nombre)
+        })
+      }
+    })
+
+
+
+
     get(child(dbRef,'shift')).then((snapshot)=> {
       if(snapshot.exists()){
         snapshot.forEach((childSnapshot)=>{
@@ -184,8 +198,7 @@ const Personal = ({personal}) => {
           var hora = childSnapshot.child("horaInicio").val()
           datos.push({nombres:namae,cl:id,hr:hora})
           
-         
-          clientCl.push(id)
+        
 
 
 
