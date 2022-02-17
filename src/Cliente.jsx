@@ -318,11 +318,11 @@ const Cliente = (clientes) => {
 
           <br></br>
           
-          <div className="horInput">
+          {/* <div className="horInput">
 
           <input type="number"></input>:<input type="number"></input>
 
-          </div>
+          </div> */}
        {/* O P C I O N  2  H O R A R I O  */}
 
         {/* <input id="hrta" type="text" maxLength="2"></input>
