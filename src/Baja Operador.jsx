@@ -174,7 +174,7 @@ return(
 
 
 <select  onClick={forceUpdate} value={tel} onChange={handlerNombres} > 
-{datos.map((item) => <option value={item.id}>{item.key}</option> )}
+{datos.map((item) => <option value={item.id}>{item.name}</option> )}
 </select> 
 
 <br></br>
