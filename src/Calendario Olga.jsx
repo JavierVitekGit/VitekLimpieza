@@ -444,10 +444,10 @@ mostrar?
 
 <div className="Calendario" id="inf">
   
-<div className="SideOlgaBb">
+{/* <div className="SideOlgaBb">
             <SideBarO/>
             
-            </div>
+            </div> */}
 
   <div className="calH">
 
@@ -702,10 +702,10 @@ Ok
 
 
 <div className="Background" id="Registro"  >
-<div className="SideOlgas">
+{/* <div className="SideOlgas">
             <SideBarO/>
             
-            </div>
+            </div> */}
 
 
   <div className="regIH">
