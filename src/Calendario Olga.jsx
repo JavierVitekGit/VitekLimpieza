@@ -39,11 +39,7 @@ const CalendarioO = (calendario) => {
 
   const [arrayJusti,setArrayJusti] = useState([]);
 
-  arrayClientCl.push("FlexiOriental",
-      "FlexiStivia",
-      "FlexiProcesosEspeciales",
-      "MolinoCasaClub",
-      "InstitutoCumbres")
+ 
 
       arrayClientCl.sort()
 
@@ -77,6 +73,8 @@ const CalendarioO = (calendario) => {
       unicosTable.push(item)
     }
   })
+
+  unicoss.sort()
 
   const [selClient,setSelCliente] = useState("")
 
@@ -311,10 +309,17 @@ const firebaseConfig = {
           if (snapshot.exists()){
               setComp([])
               snapshot.forEach((childSnapshot)=>{
+
+                  var sup = childSnapshot.child("Supervisor").val()
                   var clienteOp = childSnapshot.child("Cliente").val()
                   var nombreOp = childSnapshot.child("Nombre").val()
                   var hora = childSnapshot.child("Horario").val()
                   comp.push({clienteC:clienteOp,name:nombreOp,hr:hora})
+
+                  if (sup == "Olga") {
+                    arrayClientCl.push(clienteOp)
+                  }
+
               })
 
             comp.forEach((iter)=> {

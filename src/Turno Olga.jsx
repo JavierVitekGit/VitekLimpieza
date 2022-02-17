@@ -217,6 +217,16 @@ const TurnoOlga = (turno) =>{
 }
 
 
+  const nombrecitos = [];
+
+  arrayClientCl.forEach((item)=>{
+    if (!nombrecitos.includes(item)){
+      nombrecitos.push(item)
+    }
+  })
+
+  nombrecitos.sort()
+
     shift.forEach((item)=>{
         if (!unicos.includes(item.key)){
           unicos.push(item.key)
@@ -267,7 +277,7 @@ const TurnoOlga = (turno) =>{
                     arrayNamae.push(nombre)
                   }
 
-                  arrayClientCl.sort()
+        
                   arrayNamae.sort()
 
                   arrayR.push({rfc:rfc})
@@ -353,7 +363,7 @@ return(
         <label class="form-outline-label">Nombre del Cliente</label>
         <br></br>
         <select onClick={forceUpdate} value={client} onChange={v=> setClient(v.target.value)} id="sLTCas">
-        {arrayClientCl.map((item,i)=> <option>{item}</option>)}
+        {nombrecitos.map((item,i)=> <option>{item}</option>)}
         </select>
 
 <br/>
