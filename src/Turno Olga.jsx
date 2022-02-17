@@ -232,13 +232,9 @@ const TurnoOlga = (turno) =>{
 
       arrayNamae.push("");
 
-        arrayClientCl.push("FlexiOriental",
-        "FlexiStivia",
-        "FlexiProcesosEspeciales",
-        "MolinoCasaClub",
-        "InstitutoCumbres")
 
-        arrayClientCl.sort()
+
+        
 
       const firebaseConfig = {
         apiKey: "AIzaSyBmZRACI4lPavlz-2N0NyIvTIW9j2DOJhY",
@@ -260,10 +256,19 @@ const TurnoOlga = (turno) =>{
 
           if(snapshot.exists()){
               snapshot.forEach((childSnapshot)=>{
+                  var sup = childSnapshot.child("Supervisor").val()
                   var nombre = childSnapshot.child("Nombre").val()
                   var cliente = childSnapshot.child("Cliente").val()
                   var rfc = childSnapshot.key
                   operador.push({nm:nombre,cl:cliente,key:rfc})
+
+                  if(sup=="Olga") {
+                    arrayClientCl.push(cliente)
+                    arrayNamae.push(nombre)
+                  }
+
+                  arrayClientCl.sort()
+                  arrayNamae.sort()
 
                   arrayR.push({rfc:rfc})
 
@@ -272,17 +277,19 @@ const TurnoOlga = (turno) =>{
               })
 
 
-              arrayClientCl.forEach((other => {
-                operador.forEach(iter => {
-                  if (iter.cl == other){
-                      arrayNamae.push(iter.nm)
+            //   arrayClientCl.forEach((other => {
+            //     operador.forEach(iter => {
+            //       if (iter.cl == other){
+            //           arrayNamae.push(iter.nm)
   
-                      console.log("Lourdes:",arrayNamae)  
+            //           console.log("Lourdes:",arrayNamae)  
 
-                      arrayNamae.sort()
-                  }
-              })
-            }))
+            //           arrayNamae.sort()
+            //       }
+            //   })
+            // }))
+
+
           }
       })
 
