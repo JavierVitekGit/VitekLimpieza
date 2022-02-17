@@ -11,7 +11,7 @@ import { initializeApp } from 'firebase/app';
 import {getDatabase,ref,child,get,update, set} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
-
+import SideBar from './Sidebar'
 
 
 
@@ -346,6 +346,11 @@ mostrar?
 
 
 <div className="Calendario" id="inf">
+
+
+  <div className="adminSide">
+    <SideBar></SideBar>
+  </div>
 
   <div className="calH">
 
