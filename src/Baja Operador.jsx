@@ -165,7 +165,7 @@ return(
 
 
 
-<label id="rfcT" class="form-outline-label" for="form1">RFC del Operador</label>
+<label id="rfcT" class="form-outline-label" for="form1">Nombre del Operador</label>
 
 <br></br>
 
