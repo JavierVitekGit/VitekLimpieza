@@ -376,7 +376,6 @@ const Personal = ({personal}) => {
 
                     <br></br>
 
-                <select name="Horas" value={hr} onChange={v=> setHr(v.target.value)}>
 
                 
               
@@ -385,13 +384,15 @@ const Personal = ({personal}) => {
                   {/* {sel.map((item)=><option>{item}</option>)} */}
 
                     
-                    <option>Seleccionar Horario</option>
-                    <option>Matutino</option>
-                    <option>Vespertino</option>
+                  <div className="horInput">
+
+                    <input type="number"></input>:<input type="number"></input>
+
+                  </div>
                     
 
 
-                </select>
+          
                 <br/>
 
 
