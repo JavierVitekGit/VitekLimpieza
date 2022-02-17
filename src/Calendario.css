@@ -89,7 +89,7 @@
     text-align: center;
     text-align: justify;
     overflow: scroll;
-
+    width: min-content;
   }
 
   #Tabla input{
