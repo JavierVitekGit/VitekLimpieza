@@ -39,7 +39,7 @@ function comprobar() {
 
     if (usuario =="auxinfonavit" && password=="infoabc4")
      {
-          <Link to="/Calendario O"></Link>
+        {  <Link to="/Calendario O"></Link>}
     }  else {
       showLogin()
     }
