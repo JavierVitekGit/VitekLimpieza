@@ -248,7 +248,7 @@ const modClose = () => setModClient(false)
 
   const dbRef = ref(getDatabase());
 
-  get(child(dbRef,'Operador')).then((snapshot)=>{
+  get(child(dbRef,'Operador/')).then((snapshot)=>{
     if(snapshot.exists()){
       snapshot.forEach((childSnapshot)=>{
         var sup = childSnapshot.child("Supervisor").val()
