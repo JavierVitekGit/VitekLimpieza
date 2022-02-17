@@ -1,4 +1,4 @@
-import {React,useState,useEffect,useCallback} from "react";
+import {React,useState,useCallback} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import './Calendario.css';
 import InfiniteCalendar from 'react-infinite-calendar';
@@ -8,10 +8,10 @@ import {es} from 'date-fns/locale'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'react-infinite-calendar/styles.css';
 import { initializeApp } from 'firebase/app';
-import {getDatabase,ref,child,get,update, set} from "firebase/database";
+import {getDatabase,ref,child,get,update} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
-import SideBarF from "./SideBarF";
+import SideBarO from "./SideBarO";
 import Login from "./login";
 
 
@@ -39,34 +39,7 @@ const CalendarioF = (calendario) => {
 
   const [arrayJusti,setArrayJusti] = useState([]);
 
-  arrayClientCl.push(
-          "TodoAcero",
-          "Syscom",
-          "FabricaAndrea",
-          "BajioHidalgo",
-          "BajioLosParaisos",
-          "BajioSanJuanBosco",
-          "BajioCarranza",
-          "BajioTorresLanda",
-          "BajioLeonModerno",
-          "BajioDelta",
-          "BajioSanFranciscoCentro",
-          "BajioSanFranciscodelRincon",
-          "BajioPurisimadelRincon",
-          "CACLeonVIIILosMurales",
-          "CACLeonIVLaPiscina",
-          "BajioSalamanca",
-          "CACLeonIICentroMax",
-          "CVTLeonIIPortalAldama",
-          "CVTLeonIMarianoEscobedo",
-          "CCTLeonStadium",
-          "TelcelPenjamo",
-          "TelcelGuanajuatoII",
-          "RBSLeonVillaInsurgentes",
-          "CentralManzanares",
-          "RBEcologicaSalamanca",
-          "TelcelLeonIXViaAlta"
-  )
+ 
 
       arrayClientCl.sort()
 
@@ -85,7 +58,7 @@ const CalendarioF = (calendario) => {
     }
   });
 
-
+ 
 
 
 // C L I E N T E
@@ -100,6 +73,8 @@ const CalendarioF = (calendario) => {
       unicosTable.push(item)
     }
   })
+
+  unicoss.sort()
 
   const [selClient,setSelCliente] = useState("")
 
@@ -271,6 +246,24 @@ const modClose = () => setModClient(false)
   }
 
 
+  const dbRef = ref(getDatabase());
+
+  get(child(dbRef,'Operador/')).then((snapshot)=>{
+    if(snapshot.exists()){
+      snapshot.forEach((childSnapshot)=>{
+        var sup = childSnapshot.child("Supervisor").val()
+        var cliente = childSnapshot.child("Cliente").val()
+
+        if (sup == "Fatima") {
+          arrayClientCl.push(cliente)
+          
+        }
+
+      })
+    }
+  })
+
+
 function obtener () {
 
 
@@ -303,9 +296,20 @@ const firebaseConfig = {
       const dbRef = ref(getDatabase());
 
 
-      get(child(dbRef,'ClienteUbicacion/' + selClient )).then((snapshot) => {
+      get(child(dbRef,'ClienteUbicacion/' )).then((snapshot) => {
         if(snapshot.exists()) {
-         arrayPersonal.push( snapshot.child("personal").val())
+
+          snapshot.forEach((childSnapshot)=> {
+            var name = childSnapshot.child("Nombre").val()
+            var personal = childSnapshot.child("Personal").val()
+
+            if(name==selClient){
+              arrayPersonal.push(personal)
+            }
+
+          })
+
+     
 
          console.log("Razi:",arrayPersonal)
         }
@@ -334,10 +338,15 @@ const firebaseConfig = {
           if (snapshot.exists()){
               setComp([])
               snapshot.forEach((childSnapshot)=>{
+
+                  var sup = childSnapshot.child("Supervisor").val()
                   var clienteOp = childSnapshot.child("Cliente").val()
                   var nombreOp = childSnapshot.child("Nombre").val()
                   var hora = childSnapshot.child("Horario").val()
                   comp.push({clienteC:clienteOp,name:nombreOp,hr:hora})
+
+                
+
               })
 
             comp.forEach((iter)=> {
@@ -394,7 +403,7 @@ const firebaseConfig = {
  
 }
 
-const dbRef = getDatabase();
+
 
 
 
@@ -435,10 +444,7 @@ mostrar?
 
 <div className="Calendario" id="inf">
   
-<div className="SideOlgaBb">
-            <SideBarF/>
-            
-            </div>
+
 
   <div className="calH">
 
@@ -480,7 +486,7 @@ displayOptions={{
 
 <br></br>
 
-<select id="selClient" onChange={v=>{setSelCliente(v.target.value)}}>
+<select onClick={forceUpdate} id="selClient" onChange={v=>{setSelCliente(v.target.value)}}>
   {unicoss.map((item)=> <option>{item}</option>)}
 </select>
 
@@ -492,33 +498,47 @@ displayOptions={{
 <tr >
   <th scope="col">Cliente/Ubicación</th>
   <th scope="col">Estado</th>
+
+
 </tr>
 </thead>
+
 <tbody>
 { unicosTable.map((item)=> 
+
+
+
+
 {
   
   // if (hora >= item.hr.substr(0,2)  ) {
     
     
+
     return (
+
     <tr>
+
     <td id="testSelect" onChange={v=>{setClient(v.target.value)}}>
       
        {item}
       
     </td>
     <td>
+
+
     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-clipboard2-check" viewBox="0 0 16 16" color="green">
   <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z"/>
   <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z"/>
   <path d="M10.854 7.854a.5.5 0 0 0-.708-.708L7.5 9.793 6.354 8.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3Z"/>
 </svg>
+
 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-clipboard2-minus" viewBox="0 0 16 16" color="orange">
   <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z"/>
   <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z"/>
   <path d="M6 8a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1H6Z"/>
 </svg>
+
 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-clipboard2-x" viewBox="0 0 16 16" color="red">
   <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z"/>
   <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z"/>
@@ -526,15 +546,22 @@ displayOptions={{
 </svg>
     </td>
     <td></td> 
+
   
    
    
+
    
     </tr>
     )
+
+
 // } 
 // else {
+
+
 // }
+
 }
  )}
  
@@ -672,10 +699,7 @@ Ok
 
 
 <div className="Background" id="Registro"  >
-<div className="SideOlgas">
-            <SideBarF/>
-            
-            </div>
+
 
 
   <div className="regIH">
@@ -753,7 +777,7 @@ Ok
     <td>
       <div id="hidden">
     
-      <br/>
+        <br/>
                                                                                        {/* v=>{setSeleitect(v.target.value) */}
         <select className="selectName" onClick={forceUpdate}  onChange={v=>item.asis = v.target.value} >
           {unicos.map((item) => <option>{item}</option>)}
