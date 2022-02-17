@@ -47,6 +47,24 @@ const NumeroOlga = (numero) => {
     const [nuevo,setNuevo] = useState('')
 
 
+    const unicName = [];
+    arrayNamae.forEach((item)=>{
+      if(!unicName.includes(item)){
+        unicName.push(item)
+      }
+    })
+
+    unicName.sort()
+
+    const unicClient = [];
+    arrayClientCl.forEach(item=>{
+      if(!unicClient.includes(item)){
+        unicClient.push(item)
+      }
+    })
+
+    unicClient.sort()
+
 
     const[modal,setModal] =useState(false)
 
@@ -130,11 +148,7 @@ const NumeroOlga = (numero) => {
 
       arrayNamae.push("");
 
-      arrayClientCl.push("FlexiOriental",
-      "FlexiStivia",
-      "FlexiProcesosEspeciales",
-      "MolinoCasaClub",
-      "InstitutoCumbres")
+      
 
       arrayClientCl.sort()
 
@@ -171,24 +185,28 @@ const NumeroOlga = (numero) => {
                   var nombre = childSnapshot.child("Nombre").val()
                   var num = childSnapshot.child("ID").val()
                   var cliente = childSnapshot.child("Cliente").val()
+                  var sup = childSnapshot.child("Supervisor").val()
 
                   datnum.push({rfc:rf,nombre:nombre,numero:num,cl:cliente})
                   arrayRfc.push({rfc:rf})
 
-
+                  if(sup=="Olga") {
+                    arrayClientCl.push(cliente)
+                    arrayNamae.push(nombre)
+                  }
                 
               })
 
               
-              arrayClientCl.forEach((other => {
-                datnum.forEach(iter => {
-                  if (iter.cl == other){
-                      arrayNamae.push(iter.nombre)
+            //   arrayClientCl.forEach((other => {
+            //     datnum.forEach(iter => {
+            //       if (iter.cl == other){
+            //           arrayNamae.push(iter.nombre)
   
-                      arrayNamae.sort();
-                  }
-              })
-            }))
+            //           arrayNamae.sort();
+            //       }
+            //   })
+            // }))
 
 
           }
@@ -228,7 +246,7 @@ return(
   
 
     <select onClick={forceUpdate} onChange={handlerRfc} >
-    {arrayNamae.map((item)=><option>{item}</option>)}
+    {unicName.map((item)=><option>{item}</option>)}
 
 
 
