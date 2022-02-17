@@ -195,7 +195,7 @@ return(
 
     <div className="NBody">
 
-    <label class="form-outline-label">RFC</label>
+    <label class="form-outline-label">CURP</label>
 
     <br/>
 

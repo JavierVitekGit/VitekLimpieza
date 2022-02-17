@@ -182,7 +182,7 @@ return(
 
 
 
-<label class="form-outline-label" for="form1">Nombre Completo</label>
+<label class="form-outline-label" for="form1">CURP del Operador</label>
   <br/>
 <input type="text"  class="form-control" value={nombre} ></input>
 
