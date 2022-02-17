@@ -411,7 +411,7 @@ console.log("ArrayJusti:",arrayJusti)
 
 function writeJustiData(event) {
   event.preventDefault()
-
+console.log('Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient)
   update(ref(dbRef,'Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient),{
     Datos:arrayJusti
   });
