@@ -1,4 +1,4 @@
-import {React,useState,useEffect,useCallback} from "react";
+import {React,useState,useCallback} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import './Calendario.css';
 import InfiniteCalendar from 'react-infinite-calendar';
@@ -8,7 +8,7 @@ import {es} from 'date-fns/locale'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'react-infinite-calendar/styles.css';
 import { initializeApp } from 'firebase/app';
-import {getDatabase,ref,child,get,update, set, push} from "firebase/database";
+import {getDatabase,ref,child,get,update} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import SideBarO from "./SideBarO";

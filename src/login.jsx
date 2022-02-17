@@ -39,7 +39,7 @@ function comprobar() {
 
     if (usuario =="auxinfonavit" && password=="infoabc4")
      {
-          history("/Alta del Operador O")
+          history("/Calendario O")
     }  else {
       showLogin()
     }
