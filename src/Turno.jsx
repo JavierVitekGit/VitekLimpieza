@@ -220,7 +220,7 @@ const Turno = (turno) =>{
         }
 
       });
-  
+      
       
 
       
@@ -307,10 +307,10 @@ return(
 
 
     <div className="container-turn">
-        <label class="form-outline-label">RFC del Operador</label>
+        <label class="form-outline-label">CURP del Operador</label>
         <br/>
         <select onClick={forceUpdate} value={name} onChange={v=> setName(v.target.value),handlerEvent}> 
-         {rfcN.map((item)=> <option>{item}</option>)}
+         {arrayR.map((item)=> <option>{item}</option>)}
         </select>
 
         <br/>
