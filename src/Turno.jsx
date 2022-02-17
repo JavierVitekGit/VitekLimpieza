@@ -35,15 +35,15 @@ const Turno = (turno) =>{
 
   const [arrayR,setArrayR] = useState([]);
 
-  const rfcN = [];
+  // const rfcN = [];
 
-  // arrayR.filter((item)=>{
-  //   if (item.rfc.length == 13) {
-  //     rfcN.push(item.rfc)
-  //   }
-  // })
+  // // arrayR.filter((item)=>{
+  // //   if (item.rfc.length == 13) {
+  // //     rfcN.push(item.rfc)
+  // //   }
+  // // })
 
-  console.log("NHYIX",rfcN)
+  // console.log("NHYIX",rfcN)
  
 
   arrayd.push(lun,mar,mier,juev,vier,sab,dom)
