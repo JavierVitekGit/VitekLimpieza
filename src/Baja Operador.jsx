@@ -217,12 +217,6 @@ return(
 <br></br>
 
 
-
-
-
-<br></br>
-            <br></br>
-
         <div class="btn-group">
 
         <input id="bajaOP" class="btn btn-danger" type="submit" value="Dar de Baja" onClick={comprobar} ></input>
