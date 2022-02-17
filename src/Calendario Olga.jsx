@@ -154,7 +154,7 @@ const modClose = () => setModClient(false)
 
   var mes = infinite.toISOString().substring(5,7)
 
-  var año = infinite.toISOString().substring(0,4)
+  var anio = infinite.toISOString().substring(0,4)
   
   
     var today = new Date();
@@ -412,7 +412,7 @@ console.log("ArrayJusti:",arrayJusti)
 function writeJustiData(event) {
   event.preventDefault()
 
-  update(ref(dbRef,'Justificaciones/' + dia + "-" + mes + "-" + año + "/" + selClient),{
+  update(ref(dbRef,'Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient),{
     Datos:arrayJusti
   });
 
