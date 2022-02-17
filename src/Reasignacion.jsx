@@ -66,9 +66,9 @@ const Reasignacion = (reasignacion) => {
       
 
        datos.forEach (v=>{
-         if (v.id == opcion) {
+         if (v.nm == opcion) {
            console.log(v.id,opcion)
-           setNombre(v.nm)
+           setNombre(v.id)
          }
        })
 

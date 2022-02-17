@@ -202,7 +202,7 @@ return(
   
 
     <select onClick={forceUpdate} onChange={handlerRfc} >
-    {arrayP.map((item)=><option>{item}</option>)}
+    {arrayRfc.map((item)=><option>{item}</option>)}
 
 
 
