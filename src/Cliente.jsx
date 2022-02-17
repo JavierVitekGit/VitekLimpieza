@@ -317,9 +317,12 @@ const Cliente = (clientes) => {
           <label class="form-outline-label" for="form3">Horario</label>
 
           <br></br>
+          
+          <div className="horInput">
 
           <input type="number"></input>:<input type="number"></input>
 
+          </div>
        {/* O P C I O N  2  H O R A R I O  */}
 
         {/* <input id="hrta" type="text" maxLength="2"></input>
