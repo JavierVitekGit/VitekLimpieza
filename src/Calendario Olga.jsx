@@ -414,7 +414,7 @@ function writeJustiData(event) {
 
   update(ref(dbRef,'Justificaciones/' + dia + "-" + mes + "-" + año + "/" + selClient),{
     Datos:arrayJusti
-  })
+  });
 
 }
 
