@@ -185,7 +185,7 @@ return(
         <br></br>
 
         
-        <select id="selB" onClick={forceUpdate}  value={value1} onChange={ handlerNombres } className="test" > 
+        <select onClick={forceUpdate}  value={value1} onChange={ handlerNombres } className="test" > 
         {lista.map((item,i) =>  <option value={item.id} id="list">{item.id}</option> )}
         </select> 
 
