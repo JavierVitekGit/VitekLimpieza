@@ -31,13 +31,15 @@ const BajaOperador = (baja) => {
     const [cliente,setCliente] = useState ('')
 
 
+    const [arrayName,setArrayName] = useState([]);
+
     const [bajaOp,setBajaOp] = useState('')
 
 
     const nombrecitos = [];
 
-    datos.forEach((item)=>{
-      if (!nombrecitos.includes(item.name)){
+    arrayName.forEach((item)=>{
+      if (!nombrecitos.includes(item)){
           nombrecitos.push(item)
       }
     })
@@ -107,6 +109,8 @@ const BajaOperador = (baja) => {
              datos.push({tel:telefono,name:nombre,fi:fechaIngreso,key:id,cl:cliente}) 
               
              datos.sort()
+
+             arrayName.push(nombre)
               
             })
             
@@ -184,7 +188,7 @@ return(
 
 
 <select  onClick={forceUpdate} value={tel} onChange={handlerNombres} > 
-{nombrecitos.map((item) => <option value={item.id}>{item}</option> )}
+{nombrecitos.map((item) => <option value={item}>{item}</option> )}
 </select> 
 
 <br></br>
