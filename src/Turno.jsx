@@ -299,16 +299,16 @@ return(
 
 
     <div className="container-turn">
-        <label class="form-outline-label">CURP del Operador</label>
+        <label class="form-outline-label">Nombre del Operador</label>
         <br/>
         <select onClick={forceUpdate} value={name} onChange={v=> setName(v.target.value),handlerEvent}> 
-         {arrayR.map((item)=> <option>{item}</option>)}
+         {shift.map((item)=> <option>{item}</option>)}
         </select>
 
         <br/>
 
 
-        <input type="text" class="form-comtrol" value={namee} placeholder="Nombre del Operador" ></input>
+        <input type="text" class="form-comtrol" value={namee} placeholder="CURP del Operador" ></input>
 
         <br/>
 
