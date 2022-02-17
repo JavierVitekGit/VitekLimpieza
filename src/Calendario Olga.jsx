@@ -8,7 +8,7 @@ import {es} from 'date-fns/locale'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'react-infinite-calendar/styles.css';
 import { initializeApp } from 'firebase/app';
-import {getDatabase,ref,child,get,update, set} from "firebase/database";
+import {getDatabase,ref,child,get,update, set, push} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import SideBarO from "./SideBarO";
@@ -296,9 +296,20 @@ const firebaseConfig = {
       const dbRef = ref(getDatabase());
 
 
-      get(child(dbRef,'ClienteUbicacion/' + selClient )).then((snapshot) => {
+      get(child(dbRef,'ClienteUbicacion/' )).then((snapshot) => {
         if(snapshot.exists()) {
-         arrayPersonal.push( snapshot.child("Personal").val())
+
+          snapshot.forEach((childSnapshot)=> {
+            var name = childSnapshot.child("Nombre").val()
+            var personal = childSnapshot.child("Personal").val()
+
+            if(name==selClient){
+              arrayPersonal.push(personal)
+            }
+
+          })
+
+     
 
          console.log("Razi:",arrayPersonal)
         }
