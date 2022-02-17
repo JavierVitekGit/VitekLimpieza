@@ -33,7 +33,16 @@ const BajaOperador = (baja) => {
 
     const [bajaOp,setBajaOp] = useState('')
 
+
+    const nombrecitos = [];
+
+    datos.forEach((item)=>{
+      if (!nombrecitos.includes(item.name)){
+          nombrecitos.push(item)
+      }
+    })
     
+    nombrecitos.sort()
 
     const handlerNombres = function (e) {
         const opcion = e.target.value
@@ -175,7 +184,7 @@ return(
 
 
 <select  onClick={forceUpdate} value={tel} onChange={handlerNombres} > 
-{datos.map((item) => <option value={item.id}>{item.name}</option> )}
+{nombrecitos.map((item) => <option value={item.id}>{item}</option> )}
 </select> 
 
 <br></br>
