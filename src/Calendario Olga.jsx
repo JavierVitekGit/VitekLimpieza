@@ -406,7 +406,7 @@ const firebaseConfig = {
 }
 
 
-
+console.log("ArrayJusti:",arrayJusti)
 
 
 function writeJustiData(event) {
