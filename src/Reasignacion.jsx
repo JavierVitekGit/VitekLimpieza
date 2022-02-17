@@ -43,6 +43,8 @@ const Reasignacion = (reasignacion) => {
     const [nombre,setNombre] = useState('')
     const [datos,setDatos] = useState([])
 
+    const [nombrecitos,setNombrecitos] = useState([]);
+
     const [horario,setHorario] = useState('')
 
 
@@ -152,7 +154,9 @@ const Reasignacion = (reasignacion) => {
               var id = childSnapshot.key;
               
               
-              
+              nombrecitos.push(nombre)
+
+              nombrecitos.sort()
 
               clean.push({id:id})
               
@@ -234,7 +238,7 @@ return(
         <br />
 
         <select onClick={forceUpdate} value={tel} onChange={v=> setTel(v.target.value),handlerNombres}>
-        {datos.map((item)=> <option value={item.nm}>{item.nm}</option>)}    
+        {nombrecitos.map((item)=> <option value={item.nm}>{item}</option>)}    
         </select>
           <br/>
         <input type="text"class="form-control" id="number" value={nombre} />
