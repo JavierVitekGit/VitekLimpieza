@@ -62,6 +62,25 @@ const ReasignacionOlga = (reasignacion) => {
     console.log(unicos.sort())
 
 
+    const unicName = [];
+    arrayNamae.forEach((item)=>{
+      if(!unicName.includes(item)){
+        unicName.push(item)
+      }
+    })
+
+    unicName.sort()
+
+    const unicClient = [];
+    arrayClientCl.forEach(item=>{
+      if(!unicClient.includes(item)){
+        unicClient.push(item)
+      }
+    })
+
+    unicClient.sort()
+
+
     const handlerNombres = function (e) {
       const opcion = e.target.value
       setTel(e.target.value)
@@ -272,7 +291,7 @@ return(
         <br />
 
         <select onClick={forceUpdate} value={tel} onChange={v=> setTel(v.target.value),handlerNombres}>
-        {arrayNamae.map((item)=> <option value={item}>{item}</option>)}    
+        {unicName.map((item)=> <option value={item}>{item}</option>)}    
         </select>
           <br/>
         <input type="text"class="form-control" id="number" value={nombre} />
@@ -284,9 +303,8 @@ return(
         <label class="form-outline-label">Cliente a reasignar</label>
         <br></br>
         <select onClick={forceUpdate} value={cliente} onChange={v=>{setCliente(v.target.value)}}>
-            {/* {datos.map((item)=><option>{item.cl}</option>)} */}
-            {/* <option>{unicos}</option> */}
-            {arrayClientCl.map((item,i)=> <option>{item}</option>)}
+
+            {unicClient.map((item,i)=> <option>{item}</option>)}
 
         </select>
 
