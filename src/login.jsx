@@ -1,7 +1,7 @@
 import {React,useState} from "react";
 import Modal from 'react-bootstrap/Modal'
 import './login.css'
-import {useNavigate} from "react-router-dom";
+import {useNavigate,Link} from "react-router-dom";
 import Button from 'react-bootstrap/Button'
 
 const Login = (login) => {
