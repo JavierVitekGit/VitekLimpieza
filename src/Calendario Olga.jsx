@@ -318,7 +318,7 @@ const firebaseConfig = {
       })
 
 
-      get(child(dbRef,'Asistencia/' + dia + "-" + mes + "-" + año)).then((snapshot)=> {
+      get(child(dbRef,'Asistencia/' + dia + "-" + mes + "-" + anio)).then((snapshot)=> {
           if (snapshot.exists()){
             setDatos([])
               snapshot.forEach((childSnapshot)=>{
@@ -717,7 +717,7 @@ Ok
   
   <i id="calendarX" class="bi bi-calendar-x"></i>
   Justificaciones
-  <h1 className="dateCa">{dia + "-" + mes + "-" + año}</h1>
+  <h1 className="dateCa">{dia + "-" + mes + "-" + anio}</h1>
   </h1>
 
   
