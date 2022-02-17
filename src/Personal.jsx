@@ -407,8 +407,6 @@ const Personal = ({personal}) => {
               <br></br>
 
 
-              <br></br>
-
 
           <input id="guardarP" class="btn btn-success" type="submit" value="Guardar" onClick={comprobar}></input>
 

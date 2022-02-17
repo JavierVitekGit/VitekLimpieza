@@ -72,9 +72,10 @@ text-align: center;
 }
 
 .oneAP{
-  margin-top: 50px;
+  margin-top: 3%;
+  margin-left: 5%;
   flex-direction: column;
-
+  position: fixed;
 }
 
 .oneAP input{
@@ -86,7 +87,9 @@ text-align: center;
 }
 
 .secondAP{
-
+  position: static;
+  margin-top: 3%;
+  margin-left: 40%;
 
 }
 
