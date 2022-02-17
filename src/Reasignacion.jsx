@@ -159,6 +159,7 @@ const Reasignacion = (reasignacion) => {
 
              datos.push({tel:telefono,cl:cliente,nm:nombre,id:id}) 
               
+             datos.sort()
              
             })
             
