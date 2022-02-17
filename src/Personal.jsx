@@ -348,6 +348,7 @@ const Personal = ({personal}) => {
                 <br/>
 
                 <label class="form-outline-label" for="form1" onChange={v=>setSupervisor(v.target.value)}>Supervisor a Asignar</label>
+                <br/>
                 <select>
                   <option></option>
                   <option>Fatima</option>
