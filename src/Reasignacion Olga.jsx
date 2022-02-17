@@ -146,19 +146,30 @@ const ReasignacionOlga = (reasignacion) => {
 
       useLayoutEffect(()=>{
         datos.push({tel:"Seleccionar Teléfono"  })
+        const dbRef = ref(getDatabase());
 
 
-        arrayClientCl.push("FlexiOriental",
-        "FlexiStivia",
-        "FlexiProcesosEspeciales",
-        "MolinoCasaClub",
-        "InstitutoCumbres")
+        
+        get(child(dbRef,'Operador')).then((snapshot)=>{
+          if(snapshot.exists()){
+            snapshot.forEach((childSnapshot)=>{
+              var sup = childSnapshot.child("Supervisor").val()
+              var name = childSnapshot.child("Nombre").val()
+              var client = childSnapshot.child("Cliente").val()
+              if(sup=="Olga") {
+                arrayClientCl.push(client)
+                arrayNamae.push(name)
+              }
+            })
+          }
+        })
 
         arrayClientCl.sort()
+        arrayNamae.sort()
 
 
 
-        const dbRef = ref(getDatabase());
+        
         get(child(dbRef,'Operador')).then((snapshot) => {
           if(snapshot.exists()){
             snapshot.forEach((childSnapshot)=>{
@@ -168,7 +179,7 @@ const ReasignacionOlga = (reasignacion) => {
               var id = childSnapshot.key;
               
               
-              
+              arrayNamae.push(nombre)
 
               clean.push({id:id})
               
@@ -178,16 +189,16 @@ const ReasignacionOlga = (reasignacion) => {
              
             })
 
-            arrayClientCl.forEach((other => {
-              datos.forEach(iter => {
-                if (iter.cl == other){
-                    arrayNamae.push(iter.nm)
+          //   arrayClientCl.forEach((other => {
+          //     datos.forEach(iter => {
+          //       if (iter.cl == other){
+          //           arrayNamae.push(iter.nm)
 
-                    console.log("Lourdes:",arrayNamae)
-                    arrayNamae.sort();
-                }
-            })
-          }))
+          //           console.log("Lourdes:",arrayNamae)
+          //           arrayNamae.sort();
+          //       }
+          //   })
+          // }))
 
           }
         })
