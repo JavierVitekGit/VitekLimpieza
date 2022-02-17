@@ -119,7 +119,7 @@ function App(props) {
                 <Route path="/Cambio%20de%20Numero%20O" element={<NumeroOlga/>} />
                 <Route path="Inasistencia%20O" element={<InasistenciaOlga/>}/>
                 <Route path="/Anadir%20Turno%20O" element={<TurnoOlga/>}/>
-                <Route path="/CalendarioO" element={<CalendarioO/>}/> 
+                <Route path="/Calendario%20O" element={<CalendarioO/>}/> 
 
                                     {/* L O U R D E S  */}
 
