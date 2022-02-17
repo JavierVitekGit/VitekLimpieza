@@ -37,7 +37,7 @@ function comprobar() {
 
     // O L G A 
 
-    if (usuario =="Olga" && password=="olga1234")
+    if (usuario =="auxinfonavit" && password=="infoabc4")
      {
           history("/Alta del Operador O")
     }  else {
@@ -46,7 +46,7 @@ function comprobar() {
 
     // L O U R D E S
 
-    if (usuario =="Lourdes" && password=="lourdes1234")
+    if (usuario =="suplimpieza2" && password=="ventana")
      {
           history("/Alta del Operador L")
     }  else {
@@ -65,7 +65,7 @@ function comprobar() {
 
     // F A T I M A
 
-    if (usuario =="Fatima" && password=="fatima1234")
+    if (usuario =="suplimpieza1" && password=="calendario")
     {
          history("/Alta del Operador F")
    }  else {

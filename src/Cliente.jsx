@@ -27,6 +27,10 @@ const Cliente = (clientes) => {
     const [sabc,setSabc] = useState('')
     const [domc,setDomc] = useState('')
 
+
+
+    const [supervisor,setSupervisor] = useState('')
+
     var arraydc = [];
 
     arraydc.push(lunc,marc,mierc,juevc,vierc,sabc,domc)
@@ -41,64 +45,64 @@ const Cliente = (clientes) => {
   arraycM.push(lunc, + ",",marc, + ",",mierc, + ",",juevc, + ",",vierc, + ",",sabc, + ",",domc)
 
 
-      function checkboxval () {
-        if (document.getElementById("LC").checked ==true) {
-          document.getElementById("LC").value = "Lunes";
-          document.getElementById("LC").value = document.getElementById("LC").value;
-        } else {
-          document.getElementById("LC").value = ""
-          document.getElementById("LC").value = document.getElementById("LC").value;
-        }
+      // function checkboxval () {
+      //   if (document.getElementById("LC").checked ==true) {
+      //     document.getElementById("LC").value = "Lunes";
+      //     document.getElementById("LC").value = document.getElementById("LC").value;
+      //   } else {
+      //     document.getElementById("LC").value = ""
+      //     document.getElementById("LC").value = document.getElementById("LC").value;
+      //   }
 
-        if (document.getElementById("MC").checked==true) {
-          document.getElementById("MC").value = "Martes";
-          document.getElementById("MC").value = document.getElementById("MC").value
-        } else {
-          document.getElementById("MC"). value =""
-          document.getElementById("MC").value = document.getElementById("MC").value
-        }
+      //   if (document.getElementById("MC").checked==true) {
+      //     document.getElementById("MC").value = "Martes";
+      //     document.getElementById("MC").value = document.getElementById("MC").value
+      //   } else {
+      //     document.getElementById("MC"). value =""
+      //     document.getElementById("MC").value = document.getElementById("MC").value
+      //   }
 
-        if (document.getElementById("MIC").checked==true) {
-          document.getElementById("MIC").value = "Miércoles";
-          document.getElementById("MIC").value = document.getElementById("MIC").value
-        } else {
-          document.getElementById("MIC"). value =""
-          document.getElementById("MIC").value = document.getElementById("MIC").value
-        }
+      //   if (document.getElementById("MIC").checked==true) {
+      //     document.getElementById("MIC").value = "Miércoles";
+      //     document.getElementById("MIC").value = document.getElementById("MIC").value
+      //   } else {
+      //     document.getElementById("MIC"). value =""
+      //     document.getElementById("MIC").value = document.getElementById("MIC").value
+      //   }
 
-        if (document.getElementById("JC").checked==true) {
-          document.getElementById("JC").value = "Jueves";
-          document.getElementById("JC").value = document.getElementById("JC").value
-        } else {
-          document.getElementById("JC"). value =""
-          document.getElementById("JC").value = document.getElementById("JC").value
-        }
+      //   if (document.getElementById("JC").checked==true) {
+      //     document.getElementById("JC").value = "Jueves";
+      //     document.getElementById("JC").value = document.getElementById("JC").value
+      //   } else {
+      //     document.getElementById("JC"). value =""
+      //     document.getElementById("JC").value = document.getElementById("JC").value
+      //   }
 
-        if (document.getElementById("VC").checked==true) {
-          document.getElementById("VC").value = "Viernes";
-          document.getElementById("VC").value = document.getElementById("VC").value
-        } else {
-          document.getElementById("VC"). value =""
-          document.getElementById("VC").value = document.getElementById("VC").value
-        }
+      //   if (document.getElementById("VC").checked==true) {
+      //     document.getElementById("VC").value = "Viernes";
+      //     document.getElementById("VC").value = document.getElementById("VC").value
+      //   } else {
+      //     document.getElementById("VC"). value =""
+      //     document.getElementById("VC").value = document.getElementById("VC").value
+      //   }
 
-        if (document.getElementById("SC").checked==true) {
-          document.getElementById("SC").value = "Sábado";
-          document.getElementById("SC").value = document.getElementById("SC").value
-        } else {
-          document.getElementById("SC"). value =""
-          document.getElementById("SC").value = document.getElementById("SC").value
-        }
+      //   if (document.getElementById("SC").checked==true) {
+      //     document.getElementById("SC").value = "Sábado";
+      //     document.getElementById("SC").value = document.getElementById("SC").value
+      //   } else {
+      //     document.getElementById("SC"). value =""
+      //     document.getElementById("SC").value = document.getElementById("SC").value
+      //   }
 
-        if (document.getElementById("DOC").checked==true) {
-          document.getElementById("DOC").value = "Domingo";
-          document.getElementById("DOC").value = document.getElementById("DOC").value
-        } else {
-          document.getElementById("DOC"). value =""
-          document.getElementById("DOC").value = document.getElementById("DOC").value
-        }
+      //   if (document.getElementById("DOC").checked==true) {
+      //     document.getElementById("DOC").value = "Domingo";
+      //     document.getElementById("DOC").value = document.getElementById("DOC").value
+      //   } else {
+      //     document.getElementById("DOC"). value =""
+      //     document.getElementById("DOC").value = document.getElementById("DOC").value
+      //   }
 
-      }
+      // }
 
 
 
@@ -259,12 +263,20 @@ const Cliente = (clientes) => {
 
          
 
-       <label class="form-outline-label" for="form3" id="dil">Días a Laborar</label>
+       <label class="form-outline-label" for="form3" id="dil">Supervisor a Asignar</label>
 
        <br></br>
 
+       <select value={supervisor} onChange={v=>setSupervisor(v.target.value)}>
+                  <option></option>
+                  <option>Fatima</option>
+                  <option>Lourdes</option>
+                  <option>Mario</option>
+                  <option>Olga</option>
+                </select>
+<br/>
        
-          
+{/*           
        <div className="diass">
 
 <div className="lun">      
@@ -295,7 +307,7 @@ const Cliente = (clientes) => {
 <input type="checkbox" onChange={v=> setDomc(v.target.value)} id="DOC" onClick={checkboxval} /> <h1 id="domcheck">Domingo</h1>
 </div>
 
-</div>
+</div> */}
 
           <br></br>
          
