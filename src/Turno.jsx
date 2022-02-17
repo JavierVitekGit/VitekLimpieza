@@ -257,6 +257,8 @@ const Turno = (turno) =>{
 
                   arrayR.push({rfc:rfc})
 
+                  shift.push(nombre)
+
                 console.log(rfc)
 
               })
@@ -268,16 +270,6 @@ const Turno = (turno) =>{
   console.log("ARRAY R",arrayR)
 
 
-      get(child(dbRef,'shift')).then((snapshot)=>{
-          shift.push({key:"Seleccionar Cliente"})
-          if(snapshot.exists()){
-              snapshot.forEach((childSnapshot)=>{
-                  var cliente = childSnapshot.child("cliente").val()
-
-                  shift.push({key:cliente})
-              })
-          }
-      })
 
 
     },[])
