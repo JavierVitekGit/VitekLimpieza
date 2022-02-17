@@ -129,7 +129,7 @@ function App(props) {
                 <Route path="/Cambio%20de%20Numero%20L" element={<NumeroL/>} />
                 <Route path="Inasistencia%20L" element={<InasistenciaL/>}/>
                 <Route path="/Anadir%20Turno%20L" element={<TurnoL/>}/>
-                <Route path="/Calendario%20L" element={<CalendarioL/>}/> 
+                <Route path="/Calendario%20L" element={<CalendarioL/>} /> 
                 {/* <Route path="/login" element={<Login/>}/> */}
 
 

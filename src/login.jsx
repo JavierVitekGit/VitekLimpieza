@@ -40,7 +40,7 @@ function comprobar() {
     if (usuario =="auxinfonavit" && password=="infoabc4")
      {
       //  {<Link to="/Calendario O"></Link>}
-        history("Calendario O");
+        history("/Calendario O",{replace:true});
     }  else {
       showLogin()
     }
