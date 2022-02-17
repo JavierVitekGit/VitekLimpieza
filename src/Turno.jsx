@@ -301,7 +301,7 @@ return(
     <div className="container-turn">
         <label class="form-outline-label">Nombre del Operador</label>
         <br/>
-        <select onClick={forceUpdate} value={name} onChange={v=> setName(v.target.value),handlerEvent}> 
+        <select onClick={forceUpdate}  onChange={v=> setName(v.target.value),handlerEvent}> 
          {shift.map((item)=> <option>{item}</option>)}
         </select>
 

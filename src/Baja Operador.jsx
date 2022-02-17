@@ -36,7 +36,7 @@ const BajaOperador = (baja) => {
     const [bajaOp,setBajaOp] = useState('')
 
 
-    const nombrecitos = [];
+    const [nombrecitos,setNombrecitos] = useState([]);
 
     arrayName.forEach((item)=>{
       if (!nombrecitos.includes(item)){
@@ -187,7 +187,7 @@ return(
 
 
 
-<select  onClick={forceUpdate} value={tel} onChange={handlerNombres} > 
+<select  onClick={forceUpdate} value={tel} onChange={v=>setNombrecitos(v.target.value),handlerNombres} > 
 {nombrecitos.map((item) => <option value={item}>{item}</option> )}
 </select> 
 
