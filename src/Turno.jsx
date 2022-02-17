@@ -37,11 +37,11 @@ const Turno = (turno) =>{
 
   const rfcN = [];
 
-  arrayR.filter((item)=>{
-    if (item.rfc.length == 13) {
-      rfcN.push(item.rfc)
-    }
-  })
+  // arrayR.filter((item)=>{
+  //   if (item.rfc.length == 13) {
+  //     rfcN.push(item.rfc)
+  //   }
+  // })
 
   console.log("NHYIX",rfcN)
  
@@ -255,7 +255,7 @@ const Turno = (turno) =>{
                   var rfc = childSnapshot.key
                   operador.push({nm:nombre,cl:cliente,key:rfc})
 
-                  arrayR.push({rfc:rfc})
+                  arrayR.push(rfc)
 
                   shift.push(nombre)
 
@@ -315,7 +315,7 @@ return(
         <label class="form-outline-label">Nombre del Cliente</label>
         <br></br>
         <select onClick={forceUpdate} value={client} onChange={v=> setClient(v.target.value)} id="sLTCas">
-        {unicos.map((item,i)=> <option>{item}</option>)}
+        {unicos.map((item,i)=> <option>{item.key}</option>)}
         </select>
 
 <br/>

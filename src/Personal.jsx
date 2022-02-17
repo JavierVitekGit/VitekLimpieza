@@ -501,7 +501,7 @@ Ok
 <Modal.Footer>
 
 
-  <Button variant="danger" onClick={close}>
+  <Button variant="sucess" onClick={close}>
 
 
 Ok

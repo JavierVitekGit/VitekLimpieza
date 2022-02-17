@@ -25,11 +25,11 @@ const Numero = (numero) => {
     const arrayP = [];
 
 
-    arrayRfc.filter((item)=> {
-      if (item.rfc.length == 13) {
-        arrayP.push(item.rfc)
-      }
-    })
+    // arrayRfc.filter((item)=> {
+    //   if (item.rfc.length == 13) {
+    //     arrayP.push(item.rfc)
+    //   }
+    // })
     
 
 
@@ -153,7 +153,7 @@ const Numero = (numero) => {
                   var num = childSnapshot.child("ID").val()
 
                   datnum.push({rfc:rf,nombre:nombre,numero:num})
-                  arrayRfc.push({rfc:rf})
+                  arrayRfc.push(rf)
                   console.log(datnum)
                   console.log("RFC",arrayRfc)
 
