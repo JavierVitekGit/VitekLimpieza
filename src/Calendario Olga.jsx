@@ -392,7 +392,7 @@ const firebaseConfig = {
  
 }
 
-const dbRef = getDatabase();
+
 
 
 
