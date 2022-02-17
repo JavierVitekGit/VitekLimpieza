@@ -84,13 +84,13 @@
   #Tabla{
     color: black;
     align-items: center;
-    margin-top: 50px;
-    margin-left: 400px;
+    margin-top: 3%;
+    margin-left: 2%;
     font-size:x-large;
     text-align: center;
     text-align: justify;
     overflow: scroll;
-    width: 1200px;
+
   }
 
   #Tabla input{

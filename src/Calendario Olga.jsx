@@ -19,11 +19,6 @@ import {BrowserRouter,Link,useNavigate} from "react-router-dom";
 
 const CalendarioO = (calendario) => {
 
-  let history = useNavigate();
-
-  const Registro = () => {
-    history("/Calendario O");
-  }
 
 
   const [datos,setDatos] = useState ([])
