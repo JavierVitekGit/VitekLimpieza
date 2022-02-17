@@ -298,7 +298,7 @@ const firebaseConfig = {
 
       get(child(dbRef,'ClienteUbicacion/' + selClient )).then((snapshot) => {
         if(snapshot.exists()) {
-         arrayPersonal.push( snapshot.child("personal").val())
+         arrayPersonal.push( snapshot.child("Personal").val())
 
          console.log("Razi:",arrayPersonal)
         }
