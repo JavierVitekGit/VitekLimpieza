@@ -97,6 +97,7 @@ const BajaOperador = (baja) => {
               
              datos.push({tel:telefono,name:nombre,fi:fechaIngreso,key:id,cl:cliente}) 
               
+             datos.sort()
               
             })
             
