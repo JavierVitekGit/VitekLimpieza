@@ -111,7 +111,7 @@ const Personal = ({personal}) => {
   const [clientCl,setClientCl] = useState([]);
 
 
-
+  clientCl.push("Seleccionar Cliente")
 
 
   const firebaseConfig = {
