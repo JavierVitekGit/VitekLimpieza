@@ -763,7 +763,6 @@ Ok
       <option>Incapacidad</option>
       <option>Injustificada</option>
       <option>Justificada</option>
-      <option>Sin Cubrir</option>
       <option>Vacaciones</option>
 
 
