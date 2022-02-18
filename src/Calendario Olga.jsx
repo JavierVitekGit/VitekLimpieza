@@ -417,7 +417,15 @@ const firebaseConfig = {
 function writeJustiData(event) {
   event.preventDefault()
 console.log('Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient)
+
+  arrayJusti.forEach((item)=>{
+    if (item.suplencia == "") {
+      item.suplencia == "No se cubrio"
+    }
+  })
+
   update(ref(getDatabase(),'Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient),{
+    
     Datos:arrayJusti
   });
 
