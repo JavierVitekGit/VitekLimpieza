@@ -153,7 +153,6 @@ const Personal = ({personal}) => {
       Cliente:cliente,
       Estatus: 1,
       Horario: horarioOne + ":" + horarioTwo,
-      Supervisor: supervisor
     });
   
   }
@@ -361,15 +360,7 @@ const Personal = ({personal}) => {
 
                 <br/>
 
-                <label class="form-outline-label" for="form1" >Supervisor a Asignar</label>
-                <br/>
-                <select value={supervisor} onChange={v=>setSupervisor(v.target.value)}>
-                  <option></option>
-                  <option>Fatima</option>
-                  <option>Lourdes</option>
-                  <option>Mario</option>
-                  <option>Olga</option>
-                </select>
+              
 
                 <br/>
               

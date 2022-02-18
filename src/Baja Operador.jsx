@@ -38,6 +38,8 @@ const BajaOperador = (baja) => {
 
     const [nombrecitos,setNombrecitos] = useState([]);
 
+    const [nombres,setNombres] = useState('')
+
     arrayName.forEach((item)=>{
       if (!nombrecitos.includes(item)){
           nombrecitos.push(item)
@@ -140,7 +142,7 @@ const BajaOperador = (baja) => {
       
 
 
-    if (tel == "" || bajaOp == "" ) {
+    if (nombres == "" || bajaOp == "" ) {
       handleShow(event);
       
     } else{
@@ -187,7 +189,7 @@ return(
 
 
 
-<select  onClick={forceUpdate} value={tel} onChange={v=>setNombrecitos(v.target.value),handlerNombres} > 
+<select  onClick={forceUpdate} value={nombres} onChange={v=>setNombres(v.target.value),handlerNombres} > 
 {nombrecitos.map((item) => <option value={item}>{item}</option> )}
 </select> 
 
@@ -266,7 +268,7 @@ return(
 <Modal.Body>
 
 
-<p>No se ha seleccionado ningun teléfono  </p>
+<p>Faltan de completar algunos campos  </p>
 
 
 </Modal.Body>
