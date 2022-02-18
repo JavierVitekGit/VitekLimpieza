@@ -86,8 +86,9 @@ const Personal = ({personal}) => {
   const [genero,setGenero] = useState()
 
 
-  
-
+  const [horarioOne,setHorarioOne] = useState('')
+  const [horarioTwo,setHorarioTwo] = useState('')
+ 
 
   const [datos,setDatos] = useState ([])
 
@@ -151,7 +152,7 @@ const Personal = ({personal}) => {
       Fecha_Baja:fechaB,
       Cliente:cliente,
       Estatus: 1,
-      Horario: hr,
+      Horario: horarioOne + ":" + horarioTwo,
       Supervisor: supervisor
     });
   
@@ -386,7 +387,7 @@ const Personal = ({personal}) => {
                     
                   <div className="horInput">
 
-                    <input type="number"></input>:<input type="number"></input>
+                    <input type="number" value={horarioOne} onChange={v=>setHorarioOne(v.target.value)}></input>:<input type="number" value={horarioTwo} onChange={v=>setHorarioTwo(v.target.value)}></input>
 
                   </div>
                     
