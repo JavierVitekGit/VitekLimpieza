@@ -317,7 +317,7 @@ X
 <Modal.Body>
 
 
-<p>¿Está seguro que desea continuar con la baja del operador "{nombre}"?</p>
+<p>¿Está seguro que desea continuar con la baja del operador "{tel}"?</p>
 
 
 </Modal.Body>
