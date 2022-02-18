@@ -497,6 +497,8 @@ displayOptions={{
 
 <input type="text" onChange={handleSearchChange}></input>
 
+<br/>
+
 <select onClick={forceUpdate} id="selClient" onChange={v=>{setSelCliente(v.target.value)}}>
   {filtered.map((item)=> <option>{item}</option>)}
 </select>

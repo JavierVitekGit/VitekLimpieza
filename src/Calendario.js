@@ -109,9 +109,9 @@ arrayJusti.forEach((item)=> {
   };
 
   const filtered = !search
-  ?array
-  :array.filter((client) =>
-  client.clienteC.toLowerCase().includes(search.toLowerCase()) || client.name.toLowerCase().includes(search.toLowerCase())
+  ?unicoss
+  :unicoss.filter((client) =>
+  client.toLowerCase().includes(search.toLowerCase())
   );
 
 // M O D A L
@@ -493,8 +493,12 @@ displayOptions={{
 
 <br></br>
 
+<input type="text" onChange={handleSearchChange}></input>
+
+<br/>
+
 <select onClick={forceUpdate} id="selClient" onChange={v=>{setSelCliente(v.target.value)}}>
-  {unicoss.map((item)=> <option>{item}</option>)}
+  {filtered.map((item)=> <option>{item}</option>)}
 </select>
 
 <br/>
