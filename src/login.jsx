@@ -3,6 +3,9 @@ import Modal from 'react-bootstrap/Modal'
 import './login.css'
 import {useNavigate,Link} from "react-router-dom";
 import Button from 'react-bootstrap/Button'
+import { render } from "react-dom";
+import CalendarioO from './Calendario Olga'
+
 
 const Login = (login) => {
 
@@ -39,8 +42,11 @@ function comprobar() {
 
     if (usuario =="auxinfonavit" && password=="infoabc4")
      {
+       render(
+         <CalendarioO></CalendarioO>
+       )
       //  {<Link to="/Calendario O"></Link>}
-        history("/Alta del Operador O",{replace:true});
+        // history("/Alta del Operador O",{replace:true});
     }  else {
       showLogin()
     }
