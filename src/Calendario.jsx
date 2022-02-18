@@ -381,7 +381,7 @@ const firebaseConfig = {
         console.log("Personal::: "+arrayPersonal[0])
         for(var i=0; i<arrayPersonal[0]; i++){
           if (arrayJusti[i] == undefined){
-            arrayJusti.push({clienteC:selClient,name:"Vacante",hr:"08:00", est:1})
+            arrayJusti.push({clienteC:selClient,name:"Vacante",hr:"08:00", estatus:1})
           }else{
 
           }
