@@ -154,8 +154,8 @@ const Numero = (numero) => {
 
                   datnum.push({rfc:rf,nombre:nombre,numero:num})
                   arrayRfc.push(nombre)
-                  console.log(datnum)
-                  console.log("RFC",arrayRfc)
+                  
+                  arrayRfc.sort()
 
 
                 
