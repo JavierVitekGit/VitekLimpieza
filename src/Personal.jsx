@@ -250,6 +250,18 @@ const Personal = ({personal}) => {
   } else{
     show(event)
     writeOperadorData(event);
+
+
+    setTimeout(()=>{
+      nombre == "",
+      apellidoP == "",
+      apellidoM == "",
+      fechaN == "",
+      fechaI == "",
+      horarioOne == "",
+      horarioTwo == "",
+      ID == ""
+    },200);
   
   }
 
