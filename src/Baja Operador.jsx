@@ -72,7 +72,7 @@ const BajaOperador = (baja) => {
       function writeBajaData(event) {
         event.preventDefault()
 
-        update(ref(db,'Operador/' + tel),{
+        update(ref(db,'Operador/' + nombre),{
           Estatus:0,
           Fecha_Baja:bajaOp
         })
