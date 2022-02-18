@@ -343,7 +343,9 @@ const firebaseConfig = {
                   var clienteOp = childSnapshot.child("Cliente").val()
                   var nombreOp = childSnapshot.child("Nombre").val()
                   var hora = childSnapshot.child("Horario").val()
-                  comp.push({clienteC:clienteOp,name:nombreOp,hr:hora})
+                  var est = childSnapshot.child("Estatus").val()
+
+                  comp.push({clienteC:clienteOp,name:nombreOp,hr:hora,estatus:est})
 
                 
 
@@ -351,7 +353,7 @@ const firebaseConfig = {
 
             comp.forEach((iter)=> {
               if (iter.clienteC == selClient) {
-                arrayJusti.push({clienteC:iter.clienteC,name:iter.name,hr:iter.hr})
+                arrayJusti.push({clienteC:iter.clienteC,name:iter.name,hr:iter.hr,estatus:iter.estatus})
                 arrayJusti.sort();
 
                 console.log("Justi",arrayJusti.length)
@@ -757,7 +759,7 @@ Ok
   
   // if (hora >= item.hr.substr(0,2)  ) {
     
-    
+    if (item.estatus == 1) {
 
     return (
 
@@ -811,7 +813,7 @@ Ok
     </tr>
     )
 
-
+  }
 // } 
 // else {
 
