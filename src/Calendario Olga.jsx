@@ -406,12 +406,12 @@ const firebaseConfig = {
 }
 
 
-console.log("ArrayJusti:",arrayJusti)
-arrayJusti.forEach((item)=>{
-  if(item.suplencia ==""){
-    item.suplencia == "No se cubrio"
-  }
-})
+// console.log("ArrayJusti:",arrayJusti)
+// arrayJusti.forEach((item)=>{
+//   if(item.suplencia ==""){
+//     item.suplencia == "No se cubrio"
+//   }
+// })
 
 
 function writeJustiData(event) {
