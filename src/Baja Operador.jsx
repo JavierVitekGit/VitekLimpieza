@@ -50,7 +50,7 @@ const BajaOperador = (baja) => {
 
     const handlerNombres = function (e) {
         const opcion = e.target.value
-        setTel(e.target.value)
+        setNombres(e.target.value)
         console.log("### "+ tel)
         console.log("$$$" + opcion)
   
@@ -189,7 +189,7 @@ return(
 
 
 
-<select  onClick={forceUpdate} value={nombres} onChange={v=>setNombres(v.target.value),handlerNombres} > 
+<select  onClick={forceUpdate} value={nombres} onChange={handlerNombres} > 
 {nombrecitos.map((item) => <option value={item}>{item}</option> )}
 </select> 
 
