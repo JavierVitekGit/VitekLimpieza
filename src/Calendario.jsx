@@ -766,7 +766,7 @@ Ok
 
 {
 
-  if (item.estatus == 1) {
+  // if (item.estatus == 1) {
   
   // if (hora >= item.hr.substr(0,2)  ) {
     
@@ -824,9 +824,9 @@ Ok
     </tr>
     )
 
-  } else {
-    
-  }
+  // } else {
+
+  // }
 // } 
 // else {
 
