@@ -253,14 +253,14 @@ const Personal = ({personal}) => {
 
 
     setTimeout(()=>{
-      nombre == "",
-      apellidoP == "",
-      apellidoM == "",
-      fechaN == "",
-      fechaI == "",
-      horarioOne == "",
-      horarioTwo == "",
-      ID == ""
+      onChange2 == "",
+      setApellidoP == "",
+      setApellidoM == "",
+      setFecha == "",
+      onChange3 == "",
+      setHorarioOne == "",
+      setHorarioTwo == "",
+      onChange1 == ""
     },200);
   
   }
