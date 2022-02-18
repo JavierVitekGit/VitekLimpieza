@@ -358,6 +358,8 @@ const firebaseConfig = {
                 arrayJusti.push({clienteC:iter.clienteC,name:iter.name,hr:iter.hr,estatus:iter.est})
                 arrayJusti.sort();
 
+                console.log("Estatus",arrayJusti)
+
                 console.log("Justi",arrayJusti.length)
 
               }
