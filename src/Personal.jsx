@@ -253,15 +253,6 @@ const Personal = ({personal}) => {
 
 
 
-      nombre == "",
-      apellidoP == "",
-      apellidoM == "",
-      fechaN == "",
-      fechaI == "",
-      horarioOne == "",
-      horarioTwo == "",
-      ID == ""
-
   
   }
 
