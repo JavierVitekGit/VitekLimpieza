@@ -22,6 +22,9 @@ const Turno = (turno) =>{
   const [dom,setDom] = useState('')
 
 
+  const [nombreTurno,setNombreTurno] = useState([]);
+  const [clienteTurno,setClienteTurno] = useState([]);
+
   var today = new Date()
 
   var substr = today.toISOString()
@@ -143,7 +146,7 @@ const Turno = (turno) =>{
     function comprobar (event) {
         event.preventDefault()
 
-        if (name == "" || client == "" || name =="Seleccionar Operador" || client== "Seleccionar Cliente"){
+        if (nombreTurno == "" || clienteTurno == "" || nombreTurno =="Seleccionar Operador" || clienteTurno== "Seleccionar Cliente"){
             show(event)
         } else {
            
@@ -244,6 +247,8 @@ const Turno = (turno) =>{
 
       const dbRef = ref(getDatabase());
 
+      nombreTurno.push("Seleccionar Operador")
+      clienteTurno.push("Seleccionar Cliente")
     
       get(child(dbRef,'Operador')).then((snapshot)=>{
         operador.push({key:"Seleccionar Operador",nm:"",cl:""})
@@ -254,6 +259,11 @@ const Turno = (turno) =>{
                   var cliente = childSnapshot.child("Cliente").val()
                   var rfc = childSnapshot.key
                   operador.push({nm:nombre,cl:cliente,key:rfc})
+
+                  nombreTurno.push(nombre)
+                  nombreTurno.sort()
+                  clienteTurno.push(cliente)
+                  clienteTurno.sort()
 
                   arrayR.push(rfc)
 
@@ -302,7 +312,7 @@ return(
         <label class="form-outline-label">Nombre del Operador</label>
         <br/>
         <select onClick={forceUpdate}  onChange={v=> setName(v.target.value),handlerEvent}> 
-         {shift.map((item)=> <option>{item}</option>)}
+         {nombreTurno.map((item)=> <option>{item}</option>)}
         </select>
 
         <br/>
@@ -315,7 +325,7 @@ return(
         <label class="form-outline-label">Nombre del Cliente</label>
         <br></br>
         <select onClick={forceUpdate} value={client} onChange={v=> setClient(v.target.value)} id="sLTCas">
-        {unicos.map((item,i)=> <option>{item.key}</option>)}
+        {clienteTurno.map((item,i)=> <option>{item}</option>)}
         </select>
 
 <br/>
