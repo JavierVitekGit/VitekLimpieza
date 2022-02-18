@@ -246,7 +246,7 @@ const modClose = () => setModClient(false)
   }
 
 
-  const dbRef = ref(getDatabase());
+  const dbRef = getDatabase();
 
   get(child(dbRef,'Operador/')).then((snapshot)=>{
     if(snapshot.exists()){
@@ -292,7 +292,7 @@ const firebaseConfig = {
      
 
 
-      const dbRef = ref(getDatabase());
+
 
 
       get(child(dbRef,'ClienteUbicacion/' )).then((snapshot) => {
