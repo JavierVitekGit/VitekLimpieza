@@ -59,13 +59,7 @@ import './App.css'
 
 function App(props) {
 
-    var scale = 'scale(0.75)';
-    document.body.style.webkitTransform =       // Chrome, Opera, Safari
-     document.body.style.msTransform =          // IE 9
-     document.body.style.transform = scale; 
 
-     window.scrollTo( 250, 120 );
-    
     
   
     return(
@@ -113,13 +107,13 @@ function App(props) {
                                             {/* O L G A   */}
 
 
-                <Route path="/Alta%20del%20Operador%20O" element={<CalendarioO/>} />
+                <Route path="/Alta%20del%20Operador%20O" element={<PersonalOlga/>} />
                 <Route path="/Baja%20del%20Operador%20O" element={<BajaOperadorO/>} />
                 <Route path="Reasignacion%20O" element={<ReasignacionOlga/>}/>
                 <Route path="/Cambio%20de%20Numero%20O" element={<NumeroOlga/>} />
                 <Route path="Inasistencia%20O" element={<InasistenciaOlga/>}/>
                 <Route path="/Anadir%20Turno%20O" element={<TurnoOlga/>}/>
-                <Route path="/Calendario%20O" element={<PersonalOlga/>}/> 
+                <Route path="/Calendario%20O" element={<CalendarioO/>}/> 
 
                                     {/* L O U R D E S  */}
 
