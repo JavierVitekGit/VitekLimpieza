@@ -44,7 +44,7 @@ function comprobar() {
      {
 
       //  {<Link to="/Calendario O"></Link>}
-        history("/Calendario O",{replace:true});
+        history("/Calendario-O");
     }  else {
       showLogin()
     }
