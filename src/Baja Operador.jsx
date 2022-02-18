@@ -38,7 +38,7 @@ const BajaOperador = (baja) => {
 
     const [nombrecitos,setNombrecitos] = useState([]);
 
-    const [nombres,setNombres] = useState('')
+    const [nombres,setNombres] = useState('');
 
     arrayName.forEach((item)=>{
       if (!nombrecitos.includes(item)){
