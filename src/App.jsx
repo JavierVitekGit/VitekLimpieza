@@ -9,7 +9,7 @@ import './Cliente.css'
 import Cliente from './Cliente.jsx'
 import Personal from './Personal.jsx'
 import Reporte from './Reporte'
-import Calendario from './Calendario'
+import Calendario from './Calendario.jsx'
 import BajaCliente from "./Bajas del Cliente";
 import BajaOperador from "./Baja Operador";
 import Reasignacion from "./Reasignacion";
