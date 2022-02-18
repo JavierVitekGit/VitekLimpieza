@@ -805,7 +805,7 @@ Ok
 
         <p>Otro</p>
 
-        <textarea placeholder="Nombre del suplente" onChange={v=>item.suplencia = v.target.value}></textarea>
+        <textarea placeholder="Nombre del suplente" value="No se Cubrio" onChange={v=>item.suplencia = v.target.value}></textarea>
       </div>
     </td>
 
