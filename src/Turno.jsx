@@ -22,6 +22,10 @@ const Turno = (turno) =>{
   const [dom,setDom] = useState('')
 
 
+  const [horarioOne,setHorarioOne] = useState('')
+  const [horarioTwo,setHorarioTwo] = useState('')
+
+
   const [nombreTurno,setNombreTurno] = useState([]);
   const [clienteTurno,setClienteTurno] = useState([]);
 
@@ -156,7 +160,15 @@ const Turno = (turno) =>{
     }
 
 
+    const clientesUnicos = [];
 
+    clienteTurno.forEach((item)=>{
+      if (!clientesUnicos.includes(item)){
+        clientesUnicos.push(item)
+      }
+    })
+
+    clientesUnicos.sort()
     
 
     const [shift,setShift] = useState([])
@@ -181,7 +193,7 @@ const Turno = (turno) =>{
         update(ref(db,'shift/' + client.substr(0,2) + name.substr(0,2)),{
             cliente:client,
             horaFin:"00:00",
-            horaInicio:hr
+            horaInicio:horarioOne + ":" + horarioTwo
         });
     }
 
@@ -192,7 +204,7 @@ const Turno = (turno) =>{
         update(ref(db,'Operador/' + name.substr(0,5) + client.substr(0,5) + hr.substr(0,2)),{
             Cliente:client,
             Nombre: namee,
-            Horario:hr,
+            Horario: horarioOne + ":" + horarioTwo,
             Estatus:1,
             Días: arrayc,
             Fecha_Ingreso: sub
@@ -325,7 +337,7 @@ return(
         <label class="form-outline-label">Nombre del Cliente</label>
         <br></br>
         <select onClick={forceUpdate} value={client} onChange={v=> setClient(v.target.value)} id="sLTCas">
-        {clienteTurno.map((item,i)=> <option>{item}</option>)}
+        {clientesUnicos.map((item,i)=> <option>{item}</option>)}
         </select>
 
 <br/>
@@ -388,17 +400,13 @@ return(
 
 
         <br/>
-        <select value={hr} onChange={v=> setHr(v.target.value)}> 
-            <option>07:00</option>
-            <option>08:00</option>
-            <option>09:00</option>
-            <option>10:00</option>
-            <option>11:00</option>
-            <option>12:00</option>
-            <option>13:00</option>
-            <option>14:00</option>
-        </select>
 
+
+        <div className="horInput">
+
+<input type="number" value={horarioOne} onChange={v=>setHorarioOne(v.target.value)}></input>:<input type="number" value={horarioTwo} onChange={v=>setHorarioTwo(v.target.value)}></input>
+
+</div>
         
         </div>
 
