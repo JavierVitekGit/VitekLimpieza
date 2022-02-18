@@ -1,7 +1,7 @@
 import {React,useState} from "react";
 import Modal from 'react-bootstrap/Modal'
 import './login.css'
-import {useNavigate,Link} from "react-router-dom";
+import {Navigate,Link} from "react-router-dom";
 import Button from 'react-bootstrap/Button'
 import { render } from "react-dom";
 import CalendarioO from './Calendario Olga'
@@ -12,7 +12,7 @@ const Login = (login) => {
 const [usuario,setUsuario] = useState ('')
 const [password,setPassword] = useState('')
 
-const history = useNavigate();
+// const history = useNavigate();
 
 
 const[modalLogin,setModalLogin] =useState(false)
@@ -30,7 +30,7 @@ function comprobar() {
        usuario=="Nhyix" && password == "7620859gasai12") {
       //                   ||
       //  usuario=="Lourdes" && password =="lili1234") {
-        history("/Alta del Cliente")
+        // history("/Alta del Cliente")
         console.log("Pasale")
     }
 
@@ -44,7 +44,10 @@ function comprobar() {
      {
 
       //  {<Link to="/Calendario O"></Link>}
-        history("/Calendario-Olga");
+        // history("/Calendario-Olga");
+
+        return(<Navigate to="/Calendario-O"/>)
+
     }  else {
       showLogin()
     }
@@ -53,7 +56,7 @@ function comprobar() {
 
     if (usuario =="suplimpieza2" && password=="ventana")
      {
-          history("/Alta del Operador L")
+          // history("/Alta del Operador L")
     }  else {
       showLogin()
     }
@@ -63,7 +66,7 @@ function comprobar() {
 
     if (usuario =="Mario" && password=="mario1234")
      {
-          history("/Alta del Operador M")
+          // history("/Alta del Operador M")
     }  else {
       showLogin()
     }
@@ -72,7 +75,7 @@ function comprobar() {
 
     if (usuario =="suplimpieza1" && password=="calendario")
     {
-         history("/Alta del Operador F")
+        //  history("/Alta del Operador F")
    }  else {
      showLogin()
    }
