@@ -292,7 +292,7 @@ const firebaseConfig = {
      
 
 
-
+      const dbRef = ref(getDatabase());
 
 
       get(child(dbRef,'ClienteUbicacion/' )).then((snapshot) => {
