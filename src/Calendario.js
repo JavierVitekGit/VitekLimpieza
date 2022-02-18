@@ -17,7 +17,7 @@ import {BrowserRouter,Link,useNavigate} from "react-router-dom";
 
 
 
-const CalendarioO = (calendario) => {
+const Calendario = (calendario) => {
 
 
 
@@ -450,10 +450,10 @@ mostrar?
 
 <div className="Calendario" id="inf">
   
-{/* <div className="SideOlgaBb">
-            <SideBarO/>
+<div className="adminSide">
+            <SideBar/>
             
-            </div> */}
+            </div>
 
   <div className="calH">
 
@@ -966,4 +966,4 @@ Ok
 }
 
 
-export default CalendarioO;
+export default Calendario;
