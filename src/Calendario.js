@@ -11,11 +11,9 @@ import { initializeApp } from 'firebase/app';
 import {getDatabase,ref,child,get,update} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
-import SideBarO from "./SideBarO";
 import Login from "./login";
 import {BrowserRouter,Link,useNavigate} from "react-router-dom";
-
-
+import SideBar from "./Sidebar";
 
 const Calendario = (calendario) => {
 
@@ -712,6 +710,11 @@ Ok
             <SideBarO/>
             
             </div> */}
+
+<div className="adminSide">
+            <SideBar/>
+            
+            </div>
 
 
   <div className="regIH">
