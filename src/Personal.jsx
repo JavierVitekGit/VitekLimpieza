@@ -252,16 +252,16 @@ const Personal = ({personal}) => {
     writeOperadorData(event);
 
 
-    setTimeout(()=>{
-      nombre == (""),
-      apellidoP == (""),
-      apellidoM == (""),
-      fechaN == (""),
-      fechaI == (""),
-      horarioOne == (""),
-      horarioTwo == (""),
-      ID == ("")
-    },200);
+
+      nombre == "",
+      apellidoP == "",
+      apellidoM == "",
+      fechaN == "",
+      fechaI == "",
+      horarioOne == "",
+      horarioTwo == "",
+      ID == ""
+
   
   }
 
