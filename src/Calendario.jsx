@@ -35,6 +35,10 @@ const Calendario = (calendario) => {
 
   //Datos Olga
 
+  const [suplencia,setSuplencia] = useState('No se cubrio')
+
+
+
   const [arrayClientCl,setArrayClientCl] = useState([]);
 
   const [arrayJusti,setArrayJusti] = useState([]);
@@ -805,7 +809,7 @@ Ok
 
         <p>Otro</p>
 
-        <textarea placeholder="Nombre del suplente" value="No se Cubrio" onChange={v=>item.suplencia = v.target.value}></textarea>
+        <textarea placeholder="Nombre del suplente" value={suplencia}  onChange={v=>item.suplencia = v.target.value}></textarea>
       </div>
     </td>
 
