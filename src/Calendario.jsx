@@ -346,7 +346,6 @@ const firebaseConfig = {
                   var clienteOp = childSnapshot.child("Cliente").val()
                   var nombreOp = childSnapshot.child("Nombre").val()
                   var hora = childSnapshot.child("Horario").val()
-                  var estatus = childSnapshot.chilg("Estatus").val()
                   comp.push({clienteC:clienteOp,name:nombreOp,hr:hora})
 
                 
