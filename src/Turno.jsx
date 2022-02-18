@@ -230,14 +230,14 @@ const Turno = (turno) =>{
 
 
     shift.forEach((item)=>{
-        if (!unicos.includes(item.key)){
-          unicos.push(item.key)
+        if (!unicos.includes(item)){
+          unicos.push(item)
         }
 
       });
       
       
-
+ 
       
 
     useEffect(()=>{
