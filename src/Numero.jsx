@@ -71,9 +71,9 @@ const Numero = (numero) => {
         
   
          datnum.forEach (v=>{
-           if (v.rfc == opcion) {
+           if (v.nombre == opcion) {
              console.log(v.rfc,opcion)
-             setNombre(v.nombre) 
+             setNombre(v.rfc) 
              setNum(v.numero)
            }
          })
@@ -153,7 +153,7 @@ const Numero = (numero) => {
                   var num = childSnapshot.child("ID").val()
 
                   datnum.push({rfc:rf,nombre:nombre,numero:num})
-                  arrayRfc.push(rf)
+                  arrayRfc.push(nombre)
                   console.log(datnum)
                   console.log("RFC",arrayRfc)
 
@@ -195,7 +195,7 @@ return(
 
     <div className="NBody">
 
-    <label class="form-outline-label">CURP</label>
+    <label class="form-outline-label">Nombre</label>
 
     <br/>
 
@@ -214,7 +214,7 @@ return(
 
 
       
-      <label class="form-outline-label">Nombre del Operador</label>
+      <label class="form-outline-label">CURP del Operador</label>
       <br/>
 
       <input type="text" class="form-control" value={nombre}></input>
