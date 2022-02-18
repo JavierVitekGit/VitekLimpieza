@@ -46,6 +46,7 @@ const Reasignacion = (reasignacion) => {
     const [nombrecitos,setNombrecitos] = useState([]);
 
     const [horario,setHorario] = useState('')
+    const [horario2,setHorario2] = useState('')
 
 
     const unicos = [];
@@ -120,7 +121,7 @@ const Reasignacion = (reasignacion) => {
 
         update(ref(db,'Operador/' + tel),{
             Cliente:cliente,
-            Horario:horario
+            Horario:horario + horario2
         })
 
         Close();
@@ -261,20 +262,15 @@ return(
 
         <label class="form-outline-label" >Nuevo horario</label>
         <br/>
-        <select onClick={forceUpdate} id="select" onChange={v=>{setHorario(v.target.value)}}>
 
-          {/* {shift.map((item)=><option>{item.hora}</option>)} */}
-          
-          <option >07:00 </option>
-          <option >08:00 </option>
-          <option >09:00 </option>
-          <option >10:00 </option>
-          <option >11:00 </option>
-          <option >12:00 </option>
-          <option >13:00 </option>
-          <option >14:00 </option>
-        </select>
+        <div className="horInput">
+        <input type="number" id="select" onChange={v=>{setHorario(v.target.value)}}>
+        </input>
+            :
 
+        <input type="number" onChange={v=>{setHorario2(v.target.value)}}></input>
+
+        </div>
             <br></br>
             <br></br>
 
