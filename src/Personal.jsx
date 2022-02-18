@@ -253,6 +253,7 @@ const Personal = ({personal}) => {
 
 
 
+
   
   }
 
