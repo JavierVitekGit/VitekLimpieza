@@ -42,11 +42,9 @@ function comprobar() {
 
     if (usuario =="auxinfonavit" && password=="infoabc4")
      {
-       render(
-         <CalendarioO></CalendarioO>
-       )
+
       //  {<Link to="/Calendario O"></Link>}
-        // history("/Alta del Operador O",{replace:true});
+        history("/Alta del Operador O",{replace:true});
     }  else {
       showLogin()
     }
