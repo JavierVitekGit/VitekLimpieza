@@ -1,403 +1,595 @@
-import { React,useState,useLayoutEffect,useCallback} from "react";
+import {React,useState,useCallback} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
-import './Personal.css'
+import './Calendario.css';
+import InfiniteCalendar from 'react-infinite-calendar';
+import 'react-infinite-calendar/styles.css';
+import { formatRelative, subDays} from 'date-fns'
+import {es} from 'date-fns/locale'
+import 'bootstrap/dist/css/bootstrap.css';
 import 'react-infinite-calendar/styles.css';
 import { initializeApp } from 'firebase/app';
-import {child, get, getDatabase,ref,update} from "firebase/database";
+import {getDatabase,ref,child,get,update} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
-import {BrowserRouter,Link,useNavigate} from "react-router-dom";
 import SideBarO from "./SideBarO";
-
-const PersonalOlga = ({personal}) => {
-
-    const [inactive,setInactive] = useState(true)
-
-    const history = useNavigate();
-    
-    const clientee = () => {
-        history("Alta del Cliente");
-    }
-    
-    const bajaCliente = () => {
-        history("/Baja del Cliente");
-    }
-    
-    const turno = () => {
-        history("/Añadir Turno");
-    }
-    
-    const Operador = () => {
-        history("/Alta del Operador");
-    }
-    
-    const bajaOperador = () => {
-        history("/Baja del Operador");
-    }
-    
-    const Reasignacion = () => {
-        history("/Reasignacion");
-    }
-    
-    const Numero = () => {
-        history("/Cambio de Numero");
-    }
-    
-    const Registro = () => {
-        history("/Calendario");
-    }
-    
-    const Inasistencia = () => {
-        history("/Inasistencia");
-    }
-    
-    
-    // document.addEventListener('click', function(event) {
-    //     if(event.target.id != 'botonQueMuestraMenu' && event.target.id != 'menu'){
-    //       document.getElementById('menu').style.display = 'none';
-    //     }
-    //   });
-    
-    
-
-    
+import Login from "./login";
+import {BrowserRouter,Link,useNavigate} from "react-router-dom";
+import PersonalOlga from "./Alta operador Mario";
 
 
-  var today = new Date();
-  var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
-  var minInp = lastWeek.toISOString().split('T')[0]
-  
-    console.log(lastWeek.toISOString().split('T'[0]))
 
+const PersonalOlga = (calendario) => {
 
-  const [ID,onChange1] = useState('')
-  const [nombre,onChange2] = useState('')
-  const [apellidoP,setApellidoP] = useState('')
-  const [apellidoM,setApellidoM] = useState('')
-  const [fechaI,onChange3] = useState('')
-  const [fechaB,onChange4] = useState('')
-  const [fechaN,setFecha] = useState('')
-  const [cliente,onChange5] = useState('')
-  const [hr,setHr] = useState('')
-
-
-  const [genero,setGenero] = useState()
-
-
-  
 
 
   const [datos,setDatos] = useState ([])
 
-  const[sel,setSel] = useState([])
 
-  const [, updateState] = useState();
-  const forceUpdate = useCallback(() => updateState({}), []);  
+  const [comp,setComp] = useState ([])
+
+  const [array,setArray] = useState ([])
+
+  const [select,setSelect] = useState([])
+
+  const [client,setClient] = useState('')
+
+  const [arrayPersonal,setArrayPersonal] = useState([]);
+
+
+  //Datos Olga
+
+  const [arrayClientCl,setArrayClientCl] = useState([]);
+
+  const [arrayJusti,setArrayJusti] = useState([]);
+
+ 
+
+      arrayClientCl.sort()
+
+
+  const [namae,setNamae] = useState([]);
+
+  const unicosTable = [];
 
   const unicos = [];
 
-  datos.forEach((item)=>{
-    if (!unicos.includes(item.cl)){
-      unicos.push(item.cl)
+  unicos.push("")
+
+  namae.forEach((item)=>{
+    if (!unicos.includes(item)){
+      unicos.push(item)
     }
   });
 
-  console.log(unicos.sort())
+ 
 
 
-  const [clientCl,setClientCl] = useState([]);
+// C L I E N T E
+
+  const unicoss = [];
+
+  unicoss.push("");
+
+  arrayClientCl.forEach((item)=> {
+    if (!unicoss.includes(item) && !unicosTable.includes(item)){
+      unicoss.push(item)
+      unicosTable.push(item)
+    }
+  })
+
+  unicoss.sort()
+
+  const [selClient,setSelCliente] = useState("")
+
+  console.log("Select",selClient)
+
+
+
+// P E R S O N A L
+
+const [arrayp,setArrayP] = useState([]);
+
+arrayJusti.forEach((item)=> {
+  if (!arrayp.includes(item)){
+    arrayp.push(item)
+
+    arrayp.sort()
+
+  }
+})
 
 
 
 
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyBmZRACI4lPavlz-2N0NyIvTIW9j2DOJhY",
-    authDomain: "androidbrinsk.firebaseapp.com",
-    databaseURL: "https://androidbrinsk-default-rtdb.firebaseio.com",
-    projectId: "androidbrinsk",
-    storageBucket: "androidbrinsk.appspot.com",
-    messagingSenderId: "1038423598895",
-    appId: "1:1038423598895:web:ddfe2d9c575506d192a3da"
+
+// F I L T E R 
+
+  const [search,setNewSearch] = useState("");
+
+  const handleSearchChange = (e) => {
+    setNewSearch(e.target.value);
   };
 
+  const filtered = !search
+  ?array
+  :array.filter((client) =>
+  client.clienteC.toLowerCase().includes(search.toLowerCase()) || client.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+// M O D A L
+
+const[modal,setModal] =useState(false)
+const handleShow = () => setModal(true)
+const handleClose = () => setModal(false)
 
 
-  var id = ID
+const [modd,setModd] = useState(false)
+const handleShoww = () => setModd(true)
+const handleClosee = () => setModd(false)
 
 
-  const app = initializeApp(firebaseConfig);
-  console.log(app)  
+const [mod,setMod] = useState(false)
+const show = () => setMod(true)
+const close = () => setMod(false)
 
-  const db = getDatabase();
 
-  console.log("Fecha",fechaN)
+const [modClient,setModClient] = useState(false)
+const modOpen = () => setModClient(true)
+const modClose = () => setModClient(false)
 
-  console.log("Género:",genero)
+
+// C A L E N D A R I O
+
+
+
+
+
+  const [mostrar,setMostrar] = useState([])
+
+  const [infinite,setInfinite] = useState(new Date())
+
+
+
+  var dia = infinite.toISOString().substring(8,10)
+
+  var mes = infinite.toISOString().substring(5,7)
+
+  var anio = infinite.toISOString().substring(0,4)
   
-  function writeOperadorData(event) {
+  
+    var today = new Date();
+    var hora = today.getHours() 
 
 
-    var curp = (apellidoP.toUpperCase().substring(0,2) + apellidoM.toUpperCase().substring(0,1) + nombre.toUpperCase().substring(0,1) + fechaN.substring(2,4) + 
-    fechaN.substring(5,7) + fechaN.substring(8,10) + genero.substring(0,1))
+    var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 3);
+    formatRelative(subDays(new Date(), 3), new Date(), { locale: es })
+
+
+    var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 15);
+    formatRelative(subDays(new Date(), 3), new Date(), { locale: es })
+  
+    const cal = () => {
+      let calendario = infinite
+      document.getElementById("dia").innerHTML = calendario;
+
+    }
+
+
+
+
+
     
-    event.preventDefault()
-    update(ref(db,'Operador/' + curp),{
-      ID: ID, 
-      Nombre: nombre + " " + apellidoP + " " + apellidoM,
-      Fecha_Ingreso:fechaI,
-      Fecha_Baja:fechaB,
-      Cliente:cliente,
-      Estatus: 1,
-      Horario: hr
-    });
+// C A M B I A R   D E   V I S T A
+
+
+
+
+
+    function mostrarRegistro () {
+      setMostrar(false)
+
+    }
+
+    function mostrarCalendario () {
+      setMostrar(true)
+    }
+
+
+
+
+//    R E G I S T R O    D E    A S I S T E N C I A
+
+
   
+
+
+
+
+    const [, updateState] = useState();
+    const forceUpdate = useCallback(() => updateState({}), []);  
+  
+    
+  
+  
+    const [value1,onChange1] = useState('Inasistencia')
+    const [value2,onChange2] = useState('Inasistencia')
+
+  
+  
+    const [tabla,onChange] = useState([ ])
+
+    const alfabeticamente = [];
+
+
+
+// F I R E B A S E
+    
+// useEffect(() => {
+
+
+
+  function abcd () {
+
+    if (selClient == "") {
+      modOpen()
+    } else {
+      obtener();
+    }
+
+    
+
+  }
+
+  function regresar () {
+    setSelCliente("")
+    mostrarCalendario();
+    setArrayJusti([])
+    setNamae([])
   }
 
 
+  const dbRef = ref(getDatabase());
 
-  function writeClienteData(event) {
-    event.preventDefault()
+  get(child(dbRef,'Operador/')).then((snapshot)=>{
+    if(snapshot.exists()){
+      snapshot.forEach((childSnapshot)=>{
+        var sup = childSnapshot.child("Supervisor").val()
+        var cliente = childSnapshot.child("Cliente").val()
 
-    update(ref(db,'ClienteUbicacion/'))
+        if (sup == "Olga") {
+          arrayClientCl.push(cliente)
+          
+        }
 
-  }
+      })
+    }
+  })
 
 
-  useLayoutEffect(()=>{
+function obtener () {
+
+
+ 
+  
+const firebaseConfig = {
+  apiKey: "AIzaSyBmZRACI4lPavlz-2N0NyIvTIW9j2DOJhY",
+  authDomain: "androidbrinsk.firebaseapp.com",
+  databaseURL: "https://androidbrinsk-default-rtdb.firebaseio.com",
+  projectId: "androidbrinsk",
+  storageBucket: "androidbrinsk.appspot.com",
+  messagingSenderId: "1038423598895",
+  appId: "1:1038423598895:web:ddfe2d9c575506d192a3da"
+};
+
     
-    datos.push({nombres:"Seleccionar Cliente",cl:"Seleccionar Cliente"})
+      const app = initializeApp(firebaseConfig);
+      console.log(app)
+    
+      const db = getDatabase();
 
 
-    clientCl.push(
-      "FlexiOriental",
-      "FlexiStivia",
-      "FlexiProcesosEspeciales",
-      "MolinoCasaClub",
-      "InstitutoCumbres")
 
-      clientCl.sort();
 
-    const dbRef = ref(getDatabase());
-    get(child(dbRef,'shift')).then((snapshot)=> {
-      if(snapshot.exists()){
-        snapshot.forEach((childSnapshot)=>{
-          
-          var namae = childSnapshot.child("Nombre").val()
-          var id = childSnapshot.child("cliente").val();
-          var key = childSnapshot.key
-          var hora = childSnapshot.child("horaInicio").val()
-          datos.push({nombres:namae,cl:id,hr:hora})
-          
-         
+
+
+     
+
+
+      const dbRef = ref(getDatabase());
+
+
+      get(child(dbRef,'ClienteUbicacion/' )).then((snapshot) => {
+        if(snapshot.exists()) {
+
+          snapshot.forEach((childSnapshot)=> {
+            var name = childSnapshot.child("Nombre").val()
+            var personal = childSnapshot.child("Personal").val()
+
+            if(name==selClient){
+              arrayPersonal.push(personal)
+            }
+
+          })
+
+     
+
+         console.log("Razi:",arrayPersonal)
+        }
+      })
+
+
+      get(child(dbRef,'Asistencia/' + dia + "-" + mes + "-" + anio)).then((snapshot)=> {
+          if (snapshot.exists()){
+            setDatos([])
+              snapshot.forEach((childSnapshot)=>{
+                  var nombre = childSnapshot.child("0").val()
+                  var horario = childSnapshot.child("1").val()
+                  var cliente = childSnapshot.child("2").val()
+
+
+                  datos.push({cliente:cliente,nombre:nombre,horario:horario})
+
+                  
+                  console.log(datos)
+              })
+          }
+      })
+      
+
+      get(child(dbRef,'Operador/')).then((snapshot)=>{
+          if (snapshot.exists()){
+              setComp([])
+              snapshot.forEach((childSnapshot)=>{
+
+                  var sup = childSnapshot.child("Supervisor").val()
+                  var clienteOp = childSnapshot.child("Cliente").val()
+                  var nombreOp = childSnapshot.child("Nombre").val()
+                  var hora = childSnapshot.child("Horario").val()
+                  comp.push({clienteC:clienteOp,name:nombreOp,hr:hora})
+
+                
+
+              })
+
+            comp.forEach((iter)=> {
+              if (iter.clienteC == selClient) {
+                arrayJusti.push({clienteC:iter.clienteC,name:iter.name,hr:iter.hr})
+                arrayJusti.sort();
+
+                console.log("Justi",arrayJusti.length)
+
+              }
+            })
+
+            comp.forEach((iter)=>{
+              if (iter.clienteC == selClient) {
+                namae.push(iter.name)
+                namae.sort()
+              }
+            } )
+            
+            
+
+          }
+      })
+
+      setTimeout(() => {
+
+        console.log("Personal::: "+arrayPersonal[0])
+        for(var i=0; i<arrayPersonal[0]; i++){
+          if (arrayJusti[i] == undefined){
+            arrayJusti.push({clienteC:selClient,name:"Vacante",hr:"08:00"})
+          }else{
+
+          }
+
+        }
+
+        mostrarRegistro();
+      }, 500);
+
+      setArrayPersonal([])
+      
+
+      console.log("Select:", select)
+
+
       
 
 
-
-        
-        })
-
-        datos.forEach(iter =>{
-          if (iter.id == nombre){
-            sel.push(iter.hr)
-
-            console.log(sel)
-          }
-        })
-      }
-    })
-
-  },[])
-
-  /* 
-      datos.forEach(iter=> {
-        if (iter.id == nombre) {
-          sel.push(iter.hr)
-
-          console.log(sel)
-        }
-      })
-  */ 
-
-  const[modal,setModal] =useState(false)
-
-  const handleShow = () => setModal(true)
-
-  const handleClose = () => setModal(false)
+//   M O D A L  
 
 
-  const [mod,setMod] = useState(false)
-  const show = () => setMod(true)
-  const close = () => setMod(false)
-  
-
-  function comprobar (event) {
-    event.preventDefault()
-  
 
 
-  if ( nombre == "" || cliente == "") {
-    handleShow(event);
-    
-  } else{
-    show(event)
-    writeOperadorData(event);
-  
-  }
+ 
+}
+
+
+// console.log("ArrayJusti:",arrayJusti)
+// arrayJusti.forEach((item)=>{
+//   if(item.suplencia ==""){
+//     item.suplencia == "No se cubrio"
+//   }
+// })
+
+
+function writeJustiData(event) {
+  event.preventDefault()
+console.log('Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient)
+  update(ref(getDatabase(),'Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient),{
+    Datos:arrayJusti
+  });
 
 }
 
-/*
-  function comprobar (event) {
-    event.preventDefault()
+// },[])
 
-    if (nombre =="" || domicilio ==""){
-      handleShow(event);
-    } else {
-      show(event)
-      writeClienteData(event);
-      writeShiftData(event);
-    }
-  }
-*/
 
 
     return(
-           
-        <div className="Usuario">
 
-        <div className="SideOlga">
+
+
+      <div id="all">
+{
+
+mostrar?
+
+
+
+
+
+
+// P R I M E R    D I V 
+
+
+
+
+
+
+
+<div className="Calendario" id="inf">
+  
+{/* <div className="SideOlgaBb">
             <SideBarO/>
             
-            </div>
+            </div> */}
 
-        <div className="App-header">
-            
+  <div className="calH">
 
-        <div className="altaCH">
-            <h1 className="dt"> 
-            <i id="celI" class="bi bi-telephone-plus"></i>
-              Alta del Operador
-            </h1>
-         </div>    
+<h1 id="he">
+<i id="calendarI" class="bi bi-calendar-week-fill"></i>
+  Lista de Clientes
+</h1>
 
-            
-          <div className="Datoss"> 
-
-              <div className="oneAP">
-
-              <label class="form-outline-label" for="form1">Nombre</label>
-              <br/>
-                <input type="text" id="inp1" class="form-control" value={nombre} onChange={v=>onChange2(v.target.value)}  placeholder="Nombre del Operador" />
-                <br/>
-              <label class="form-outline-label" for="form1">Apellido Paterno</label>
-              <br/>
-                <input type="text" id="inp1" class="form-control" value={apellidoP} onChange={v=>setApellidoP(v.target.value)}  placeholder="Apellido paterno del Operador" />
-                <br/>
-              <label class="form-outline-label" for="form1">Apellido Materno</label>
-              <br/>
-                <input type="text" id="inp1" class="form-control" value={apellidoM} onChange={v=>setApellidoM(v.target.value)}  placeholder="Apellido materno del Operador" />  
-
-                <br/>
-
-                <label class="form-outline-label"  >Fecha de Nacimiento</label>
-                <br/>
-                <input type="Date" id="inputdis" class="form-control" value={fechaN} onChange={v=>setFecha(v.target.value)}  />
-
-                <br/>
-
-                <select id="gen" value={genero} onChange={v=>setGenero(v.target.value)}>
-
-                <option>Selecc. género</option>
-                <option>Hombre</option>
-                <option>Mujer</option>
-
-                </select>
-
-              
-        
-             
-
-            
-                </div>
+</div>
 
 
-                <div className="secondAP">
-                <br/>
+  <div className="containerCal">
 
-                {/* <label class="form-outline-label" for="form1">Teléfono</label>
-                <input type="tel" id="inp2" class="form-control" value={ID} onChange={v=>onChange1(v.target.value)} placeholder="Teléfono del Operador" maxLength={"10"} />     */}
+    <br/>
 
-              <label class="form-outline-label"  id="dej">Fecha de Ingreso</label>
-              <br/>
-                <input type="Date" id="inputdis" class="form-control" value={fechaI} onChange={v=>onChange3(v.target.value)} min={minInp} />
+<InfiniteCalendar className="Cal"  
+width={600}
+height={250}
+selected={false}
+minDate={lastWeek}
+maxDate={today}
+onSelect={setInfinite}
+locale={{
+  locale:require('date-fns/locale/es'),
+  headerFormat: 'dddd, D, MMM',
+  weekdays:["Dom","Lun","Mar","Mier","Juev","Vier","Sab"],
+  blank: 'Seleccione una fecha',
+  todayLabel: {
+    long:'Hoy',
+    short:'Hoy'
+  }
+}}
+displayOptions={{
+    showHeader:false}}
+/>
 
 
 
 
-              {/* <label class="form-outline-label" for="form1">Fecha de baja</label>
-                <input type="Date" id="inp4" class="form-control" value={fechaB} onChange={v=>onChange4(v.target.value)} /> */}
+<br></br>
+
+<select onClick={forceUpdate} id="selClient" onChange={v=>{setSelCliente(v.target.value)}}>
+  {unicoss.map((item)=> <option>{item}</option>)}
+</select>
 
 <br/>
 
-              <label class="form-outline-label" for="form1">Cliente</label>
 
-                <br/>
-
-                <select id="slc" onClick={forceUpdate} value={cliente} onChange={v=>onChange5(v.target.value)}>
-                {clientCl.map((item)=> <option>{item}</option>)}
-
-
-                </select>
-
-                <br/>
-              
-              <label class="form-outline-label" for="form3">Horario</label> 
-
-                    <br></br>
-
-                <select name="Horas" value={hr} onChange={v=> setHr(v.target.value)}>
-
-                
-
-                
-
-                  {/* {sel.map((item)=><option>{item}</option>)} */}
-
-                    
-                    <option>Seleccionar Horario</option>
-                    <option>Matutino</option>
-                    <option>Vespertino</option>
-                    
+{/* <table id="estateTable" class="table table-striped" >
+<thead class="table-dark">
+<tr >
+  <th scope="col">Cliente/Ubicación</th>
+  <th scope="col">Estado</th>
 
 
-                </select> 
+</tr>
+</thead>
 
-                </div>
-
-
-              <br></br>
-
-
-              <br></br>
+<tbody>
+{ unicosTable.map((item)=> 
 
 
-          <input id="guardarP" class="btn btn-success" type="submit" value="Guardar" onClick={comprobar}></input>
 
 
-          
-          
-          </div>
-          
-        </div>
+{
+  
+  // if (hora >= item.hr.substr(0,2)  ) {
+    
+    
 
-        <Modal className="modal-container" 
-      show={modal}  
-      onHide={handleClose } 
+    return (
+
+    <tr>
+
+    <td id="testSelect" onChange={v=>{setClient(v.target.value)}}>
+      
+       {item}
+      
+    </td>
+    <td>
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-clipboard2-check" viewBox="0 0 16 16" color="green">
+  <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z"/>
+  <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z"/>
+  <path d="M10.854 7.854a.5.5 0 0 0-.708-.708L7.5 9.793 6.354 8.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3Z"/>
+</svg>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-clipboard2-minus" viewBox="0 0 16 16" color="orange">
+  <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z"/>
+  <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z"/>
+  <path d="M6 8a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1H6Z"/>
+</svg>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-clipboard2-x" viewBox="0 0 16 16" color="red">
+  <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z"/>
+  <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z"/>
+  <path d="M8 8.293 6.854 7.146a.5.5 0 1 0-.708.708L7.293 9l-1.147 1.146a.5.5 0 0 0 .708.708L8 9.707l1.146 1.147a.5.5 0 0 0 .708-.708L8.707 9l1.147-1.146a.5.5 0 0 0-.708-.708L8 8.293Z"/>
+</svg>
+    </td>
+    <td></td> 
+
+  
+   
+   
+
+   
+    </tr>
+    )
+
+
+// } 
+// else {
+
+
+// }
+
+}
+ )}
+ 
+</tbody>
+</table> */}
+
+
+<input class="btn btn-success" type="submit" value="Ir al Registro" onClick={abcd} id="calbt"></input>
+
+</div>
+<Modal className="modal-container" 
+      show={modd}  
+      onHide={handleClosee} 
       animation={true} 
       backdrop="static" 
       keyboard={false}   
-      {...personal}
+      {...calendario}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered>
@@ -406,7 +598,7 @@ const PersonalOlga = ({personal}) => {
 <Modal.Header>
 
 
-<Modal.Title>Registro fallido</Modal.Title>
+<Modal.Title>Sin Registros</Modal.Title>
 
 
 </Modal.Header>
@@ -415,7 +607,253 @@ const PersonalOlga = ({personal}) => {
 <Modal.Body>
 
 
-<p>Faltan completar algunos campos</p>
+<p>No Existen registros de inasistencias del día seleccionado</p>
+
+
+</Modal.Body>
+
+
+<Modal.Footer>
+
+
+  <Button variant="danger" onClick={handleClosee}>
+
+
+Ok
+
+
+  </Button>
+
+
+</Modal.Footer>
+
+
+</Modal>
+
+
+
+<Modal className="modal-container" 
+      show={modClient}  
+      onHide={modClose } 
+      animation={true} 
+      backdrop="static" 
+      keyboard={false}   
+      {...calendario}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered>
+
+
+<Modal.Header>
+
+
+<Modal.Title>No se ha seleccionado ningun cliente</Modal.Title>
+
+
+</Modal.Header>
+
+
+<Modal.Body>
+
+
+<p>Seleccione un cliente para poder continuar</p>
+
+
+</Modal.Body>
+
+
+<Modal.Footer>
+
+
+  <Button variant="danger" onClick={modClose}>
+
+
+Ok
+
+
+  </Button>
+
+
+</Modal.Footer>
+
+
+</Modal>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+// F I N    D E L     P R I M E R    D I V
+
+
+
+
+
+:  
+
+
+
+
+
+// S E G U N D O   D I V
+
+
+
+
+
+<div className="Background" id="Registro"  >
+{/* <div className="SideOlgas">
+            <SideBarO/>
+            
+            </div> */}
+
+
+  <div className="regIH">
+
+
+<h1 id="head">
+  
+  <i id="calendarX" class="bi bi-calendar-x"></i>
+  Justificaciones
+  <h1 className="dateCa">{dia + "-" + mes + "-" + anio}</h1>
+  </h1>
+
+  
+
+
+
+
+</div>
+
+<table class="table table-striped" id="Tabla">
+  
+<thead class="table-dark">
+<tr id="headertab">
+  <th scope="col">Cliente/Ubicación</th>
+  <th scope="col">Nombre Operador</th>
+  <th scope="col">Turno</th>
+  <th scope="col">Suplencia</th>
+
+</tr>
+</thead>
+<tbody className="test" >
+
+
+
+{ arrayJusti.map((item)=> 
+
+
+
+
+{
+  
+  // if (hora >= item.hr.substr(0,2)  ) {
+    
+    
+
+    return (
+
+    <tr>
+
+    <td id="testSelect" onChange={v=>{setClient(v.target.value)}}>
+      
+       {item.clienteC}
+      
+    </td>
+    <td>{item.name}</td> 
+    <td>{item.hr}
+    <br/>
+    <select className="estados" onChange={v=>item.estado = v.target.value }  >
+      <option></option>
+      <option>Descanso</option>
+      <option>Incapacidad</option>
+      <option>Injustificada</option>
+      <option>Justificada</option>
+      <option>Vacaciones</option>
+
+
+      
+      </select>
+      <br/>
+      <br/>
+      <textarea className="txtArea" placeholder="Motivo de la Justificacion"  onChange={v=>item.justi = v.target.value}></textarea> 
+    </td> 
+   
+    <td>
+      <div id="hidden">
+    
+        <br/>
+                                                                                       {/* v=>{setSeleitect(v.target.value) */}
+        <select className="selectName" onClick={forceUpdate}  onChange={v=>item.asis = v.target.value} >
+          {unicos.map((item) => <option>{item}</option>)}
+
+        </select>
+
+        <p>Otro</p>
+
+        <textarea placeholder="Nombre del suplente" onChange={v=>item.suplencia = v.target.value}></textarea>
+      </div>
+    </td>
+
+   
+   
+   
+   
+   
+    </tr>
+    )
+
+
+// } 
+// else {
+
+
+// }
+
+}
+ )}
+ 
+</tbody>
+
+</table>
+
+
+
+
+
+<Modal className="modal-container" 
+      show={modal}  
+      onHide={handleClose } 
+      animation={true} 
+      backdrop="static" 
+      keyboard={false}   
+      {...calendario}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered>
+
+
+<Modal.Header>
+
+
+<Modal.Title>La asistencia no ha sido justificada</Modal.Title>
+
+
+</Modal.Header>
+
+
+<Modal.Body>
+
+
+<p>Favor de especificar el motivo de la asistencia</p>
 
 
 </Modal.Body>
@@ -440,15 +878,13 @@ Ok
 
 
 
-
-
-<Modal className="modal-c" 
+<Modal className="modal-container" 
       show={mod}  
       onHide={close } 
       animation={true} 
       backdrop="static" 
       keyboard={false}   
-      {...personal}
+      {...calendario}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered>
@@ -466,7 +902,8 @@ Ok
 <Modal.Body>
 
 
-<p>Los datos del operador han sido guardados correctamente</p>
+
+<p>El registro de justificaciones ha sido realizado con exito</p>
 
 
 </Modal.Body>
@@ -491,16 +928,44 @@ Ok
 
 
 
-      </div>
 
-    )
+
+<p id="dia"></p>
+
+<br/>
+
+<div class = "btn-groupp">
+
+
+
+<input class="btn btn-success" type="submit" value="Guardar" onClick={writeJustiData}  id="btt"></input>
+
+<input class="btn btn-secondary"  type="submit" value="Regresar al Calendario" onClick={regresar} id="bt2"></input>
+
+<br/>
+<br/>
+
+
+</div>    
+
+</div>     
+
+
+
+// F I N    D E L    S E G U N D O    D I V
+
+
 
 }
 
 
+</div>
 
 
+    )
+    
 
+}
 
 
 export default PersonalOlga;
