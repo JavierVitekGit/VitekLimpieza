@@ -814,7 +814,7 @@ Ok
 
         <p>Otro</p>
 
-        <textarea placeholder="Nombre del suplente" defaultValue={} value="" onChange={v=> item.suplencia = v.target.value?? "nel prro"}></textarea>
+        <textarea placeholder="Nombre del suplente" onChange={v=> item.suplencia = v.target.value?? "nel prro"}></textarea>
       </div>
     </td>
 
