@@ -83,7 +83,7 @@ const Numero = (numero) => {
 
       function writeNewData(event){
           event.preventDefault()
-          update(ref(db,'Operador/' + rfc),{
+          update(ref(db,'Operador/' + nombre),{
           ID:nuevo
           });
       }
