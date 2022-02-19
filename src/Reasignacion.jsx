@@ -121,7 +121,7 @@ const Reasignacion = (reasignacion) => {
 
         update(ref(db,'Operador/' + nombre),{
             Cliente:cliente,
-            Horario:horario + "" + horario2
+            Horario:horario + ":" + horario2
         })
 
         Close();
