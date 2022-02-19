@@ -766,7 +766,7 @@ Ok
   
   // if (hora >= item.hr.substr(0,2)  ) {
     
-    if (item.estatus == 1) {
+   
 
     return (
 
@@ -827,7 +827,7 @@ Ok
 
 // }
 
-}
+
  )}
  
 </tbody>
