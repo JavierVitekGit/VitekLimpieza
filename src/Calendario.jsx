@@ -422,6 +422,12 @@ const firebaseConfig = {
 
 function writeJustiData(event) {
   event.preventDefault()
+
+
+  arrayJusti.forEach(a =>{
+    console.log(a.suplencia)
+  })
+
 console.log('Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient)
   update(ref(getDatabase(),'Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient),{
     Datos:arrayJusti
@@ -814,7 +820,7 @@ Ok
 
         <p>Otro</p>
 
-        <textarea placeholder="Nombre del suplente"  onChange={v=> item.suplencia =(v.target.value== "" )? "No se cubrio":v.target.value}></textarea>
+        <textarea placeholder="Nombre del suplente"  onChange={v=> item.suplencia =v.target.value}></textarea>
       </div>
     </td>
 
