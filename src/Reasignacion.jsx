@@ -51,8 +51,6 @@ const Reasignacion = (reasignacion) => {
 
     const unicos = [];
 
-    unicos.push("")
-
     shift.forEach((item)=>{
       if (!unicos.includes(item.cli)){
         unicos.push(item.cli)
@@ -123,7 +121,7 @@ const Reasignacion = (reasignacion) => {
 
         update(ref(db,'Operador/' + nombre),{
             Cliente:cliente,
-            Horario:horario + ":" + horario2
+            Horario:horario + "" + horario2
         })
 
         Close();
@@ -240,7 +238,7 @@ return(
 
         <br />
 
-        <select onClick={forceUpdate} value={tel} onChange={v=>setTel(v.target.value)}>
+        <select onClick={forceUpdate} value={tel} onChange={v=> setTel(v.target.value)}>
         {nombrecitos.map((item)=> <option value={item.nm}>{item}</option>)}    
         </select>
           <br/>
