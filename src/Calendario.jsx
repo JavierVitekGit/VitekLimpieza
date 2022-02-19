@@ -426,6 +426,9 @@ function writeJustiData(event) {
 
   arrayJusti.forEach(a =>{
     console.log(a.suplencia)
+    a.suplencia = (a.suplencia== undefined || a.suplencia==null || a.suplencia == "")? "no se cubrio":a.suplencia
+
+
   })
 
 console.log('Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient)
@@ -820,7 +823,7 @@ Ok
 
         <p>Otro</p>
 
-        <textarea placeholder="Nombre del suplente"  onChange={v=> item.suplencia =v.target.value}></textarea>
+        <textarea placeholder="Nombre del suplente"  onChange={v=> item.suplencia = (item.suplencia === undefined)? "no se cubrio" : v.target.value}></textarea>
       </div>
     </td>
 
