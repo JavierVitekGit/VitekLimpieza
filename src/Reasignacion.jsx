@@ -238,7 +238,7 @@ return(
 
         <br />
 
-        <select onClick={forceUpdate} value={tel} onChange={v=> setTel(v.target.value),handlerNombres}>
+        <select onClick={forceUpdate} value={tel} onChange={v=> setTel(v.target.value)}>
         {nombrecitos.map((item)=> <option value={item.nm}>{item}</option>)}    
         </select>
           <br/>
