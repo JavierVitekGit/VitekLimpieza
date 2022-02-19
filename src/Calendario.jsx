@@ -254,12 +254,14 @@ const modClose = () => setModClient(false)
 
   const dbRef = ref(getDatabase());
 
-  get(child(dbRef,'Operador/')).then((snapshot)=>{
+  get(child(dbRef,'ClienteUbicacion/')).then((snapshot)=>{
     if(snapshot.exists()){
       snapshot.forEach((childSnapshot)=>{
-        var sup = childSnapshot.child("Supervisor").val()
-        var cliente = childSnapshot.child("Cliente").val()
+        
+        var cliente = childSnapshot.child("Nombre").val()
+        var est = childSnapshot.child("Estatus").val()
 
+        if (est == 1)
     
           arrayClientCl.push(cliente)
           
@@ -429,7 +431,7 @@ function writeJustiData(event) {
     a.suplencia = (a.suplencia== undefined || a.suplencia==null || a.suplencia == "")? "no se cubrio":a.suplencia
   })
 
-  
+
 console.log('Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient)
   update(ref(getDatabase(),'Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient),{
     Datos:arrayJusti
