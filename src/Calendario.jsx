@@ -17,9 +17,7 @@ import SideBar from "./Sidebar";
 
 const Calendario = (calendario) => {
 
-  console.log("PlaceHolder",noSeQueHago)
 
-  var noSeQueHago = document.getElementById("estoyLlorandoEnMiHabitacion").value()
 
   const [datos,setDatos] = useState ([])
 
@@ -816,7 +814,7 @@ Ok
 
         <p>Otro</p>
 
-        <textarea id="estoyLlorandoEnMiHabitacion" placeholder="Nombre del suplente" onChange={v=> item.suplencia = v.target.value?? "nel prro"}></textarea>
+        <textarea placeholder="Nombre del suplente"  onChange={v=> item.suplencia =(v.target.value== undefined )? "No se cubrio":v.target.value}></textarea>
       </div>
     </td>
 
