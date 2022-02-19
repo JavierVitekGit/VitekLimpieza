@@ -203,7 +203,7 @@ const Turno = (turno) =>{
 
         update(ref(db,'Operador/' + name.substr(0,5) + client.substr(0,5) + hr.substr(0,2)),{
             Cliente:client,
-            Nombre: namee,
+            Nombre: name,
             Horario: horarioOne + ":" + horarioTwo,
             Estatus:1,
             Días: arrayc,
