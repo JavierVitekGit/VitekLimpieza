@@ -104,6 +104,9 @@ useLayoutEffect(()=>{
         var fecha = childSnapshot.child("Fecha").val()
         var hora = childSnapshot.child("Horario").val()
 	      var id = childSnapshot.key;
+        var est = childSnapshot.child("Estatus").val()
+
+        if (est==1)
         
        lista.push({name:nombreC,dom:domicilio,date:fecha,hr:hora,id:id}) 
         
