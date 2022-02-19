@@ -323,7 +323,7 @@ return(
     <div className="container-turn">
         <label class="form-outline-label">Nombre del Operador</label>
         <br/>
-        <select onClick={forceUpdate}  onChange={v=> setName(v.target.value)}> 
+        <select onClick={forceUpdate} value={name}  onChange={v=> setName(v.target.value)}> 
          {nombreTurno.map((item)=> <option>{item}</option>)}
         </select>
 
@@ -444,7 +444,7 @@ return(
 <Modal.Body>
 
 
-<p>¿Está seguro que desea añadir un nuevo turno a "{namee}"" con el cliente "{client}" los dias "{arrayM}" en un horario de "{hr}"</p>
+<p>¿Está seguro que desea añadir un nuevo turno a "{name}"" con el cliente "{client}" los dias "{arrayM}" en un horario de "{hr}"</p>
 
 
 </Modal.Body>
