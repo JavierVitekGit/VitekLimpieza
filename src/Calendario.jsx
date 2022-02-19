@@ -427,10 +427,9 @@ function writeJustiData(event) {
   arrayJusti.forEach(a =>{
     console.log(a.suplencia)
     a.suplencia = (a.suplencia== undefined || a.suplencia==null || a.suplencia == "")? "no se cubrio":a.suplencia
-
-
   })
 
+  
 console.log('Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient)
   update(ref(getDatabase(),'Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient),{
     Datos:arrayJusti
