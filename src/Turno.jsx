@@ -444,7 +444,7 @@ return(
 <Modal.Body>
 
 
-<p>¿Está seguro que desea añadir un nuevo turno a "{name}"" con el cliente "{client}" los dias "{arrayM}" en un horario de "{hr}"</p>
+<p>¿Está seguro que desea añadir un nuevo turno a "{name}"" con el cliente "{client}" los dias "{arrayM}" en un horario de "{horarioOne + ":" + horarioTwo}"</p>
 
 
 </Modal.Body>
