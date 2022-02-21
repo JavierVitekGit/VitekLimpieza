@@ -24,7 +24,7 @@ const[modalLogin,setModalLogin] =useState(false)
 
   
 
-  
+
  const onKeyDown = e => {
 
     if (e.keyCode === 13) {
@@ -59,7 +59,7 @@ function comprobar() {
      {
 
       //  {<Link to="/Calendario O"></Link>}
-        history("/Calendario O");
+        history("/Alta del Operador O");
     }  else {
       showLogin()
     }
