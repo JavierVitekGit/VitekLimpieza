@@ -248,11 +248,11 @@ const modClose = () => setModClient(false)
 
   const dbRef = ref(getDatabase());
 
-  get(child(dbRef,'Operador/')).then((snapshot)=>{
+  get(child(dbRef,'ClienteUbicacion/')).then((snapshot)=>{
     if(snapshot.exists()){
       snapshot.forEach((childSnapshot)=>{
         var sup = childSnapshot.child("Supervisor").val()
-        var cliente = childSnapshot.child("Cliente").val()
+        var cliente = childSnapshot.child("Nombre").val()
 
         if (sup == "Fatima") {
           arrayClientCl.push(cliente)
