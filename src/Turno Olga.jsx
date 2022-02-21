@@ -12,6 +12,10 @@ import Autocomplete from "./Autocomplete";
 const TurnoOlga = (turno) =>{
 
 
+  const [autocomplete,setAutocomplete] = useState('')
+
+  console.log("AutoComplete::::",autocomplete)
+
   // D I A S  C H E C K B O X
 
   const [lun,setLun] = useState ('')
@@ -324,8 +328,8 @@ const TurnoOlga = (turno) =>{
     },[])
 
     function validate () {
-      handleClose();
-      writeTurnoData();
+      handleClose(),
+      writeTurnoData(),
       writeOperadorData();
     }
 
@@ -378,7 +382,7 @@ return(
 
         {
 
-        <Autocomplete suggestions={nombrecitos}>
+        <Autocomplete value={autocomplete} onChange={v=> setAutocomplete(v.target.value)} suggestions={nombrecitos}>
           
         </Autocomplete>
 }
