@@ -23,6 +23,15 @@ const[modalLogin,setModalLogin] =useState(false)
 
 
 
+ const onKeyDown = e => {
+
+    if (e.keyCode === 13) {
+      comprobar();
+    }
+
+  }
+
+
 function comprobar() {
   
     if(usuario=="Admin" && password=="asdq23" 
@@ -102,7 +111,7 @@ return(
     <p id="LogHeader"> LOG IN</p>
 
     <input type="text" placeholder="Usuario" value={usuario} onChange={v=>setUsuario(v.target.value)} />
-    <input type="password" placeholder="Contraseña" value={password} onChange={v=>setPassword(v.target.value)}></input>
+    <input type="password" placeholder="Contraseña" value={password} onChange={v=>setPassword(v.target.value)} onKeyDown={onKeyDown}></input>
 
 
     <br/>
