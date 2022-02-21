@@ -322,6 +322,12 @@ const TurnoOlga = (turno) =>{
 
     },[])
 
+    function validate () {
+      handleClose();
+      writeTurnoData();
+      writeOperadorData();
+    }
+
 
 
 
@@ -476,8 +482,9 @@ return(
 
 <Modal.Footer>
 
+{/* handleClose,writeTurnoData,writeOperadorData */}
 
-    <Button variant="success" onClick={handleClose,writeTurnoData,writeOperadorData}>
+    <Button variant="success" onClick={validate}>
     Si
     </Button>
 
