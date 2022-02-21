@@ -49,6 +49,7 @@ import NumeroF from "./Numero Fatima";
 import InasistenciaF from "./Inasistencia Fatima";
 import TurnoF from "./Turno Fatima";
 import CalendarioF from "./Calendario Fatima";
+import Quincena from './Quincena';
 
 const App = (app) => {
 
@@ -123,6 +124,8 @@ const App = (app) => {
       <Route path="Inasistencia%20F" element={<InasistenciaF/>}/>
       <Route path="/Anadir%20Turno%20F" element={<TurnoF/>}/>
       <Route path="/Calendario%20F" element={<CalendarioF/>}/> 
+
+      <Route path="/Quicena" element={<Quincena/>}/> 
 
 
       </Routes>
