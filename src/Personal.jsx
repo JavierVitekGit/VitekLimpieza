@@ -117,7 +117,22 @@ const Personal = ({personal}) => {
 
   const supervisores = [];
 
+  const unicSup = [];
   
+  clientCl.forEach((item)=>{
+    supervisores.forEach((iter)=>{
+
+      if (item == cliente){
+          unicSup.push(iter)
+      }
+
+    })
+  })
+
+ 
+  
+
+  console.log("Supervisor Unico:::",unicSup)
   console.log(supervisores)
 
   const firebaseConfig = {
@@ -190,8 +205,7 @@ const Personal = ({personal}) => {
 
           clientCl.push(nombre)
 
-            if (nombre == cliente)
-              supervisores.push(sup)
+          supervisores.push(sup)
 
         })
       }
