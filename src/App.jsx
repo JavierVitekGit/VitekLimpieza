@@ -167,7 +167,7 @@ function App(props) {
                 {/* <Route path='/Registro de Inasistencia' render={() => <Asistencia/>}/> */}
                
 
-               <Route path="/Reporte" element={<Quincena/>}></Route>
+               <Route path="/Quincena" element={<Quincena/>}></Route>
                 
 
             </Routes>
