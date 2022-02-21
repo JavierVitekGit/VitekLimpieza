@@ -328,8 +328,8 @@ const TurnoOlga = (turno) =>{
     },[])
 
     function validate () {
-      handleClose(),
-      writeTurnoData(),
+      handleClose();
+      writeTurnoData();
       writeOperadorData();
     }
 
