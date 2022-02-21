@@ -287,6 +287,14 @@ const Turno = (turno) =>{
           }
       })
 
+      const unicName = [];
+
+      nombreTurno.forEach((item)=> {
+        if (!unicName.includes(item)){
+          unicName.push(item)
+          unicName.sort()
+        }
+      })
        
 
   console.log("ARRAY R",arrayR)
@@ -324,7 +332,7 @@ return(
         <label class="form-outline-label">Nombre del Operador</label>
         <br/>
         <select onClick={forceUpdate} value={name}  onChange={handlerEvent}> 
-         {nombreTurno.map((item)=> <option>{item}</option>)}
+         {unicName.map((item)=> <option>{item}</option>)}
         </select>
 
         <br/>
