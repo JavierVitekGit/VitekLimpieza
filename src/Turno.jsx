@@ -287,7 +287,7 @@ const Turno = (turno) =>{
                       nKey.sort()
                   }
 
-                console.log(rfc)
+                  console.log(nKey)
 
               })
           }
