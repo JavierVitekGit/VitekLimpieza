@@ -15,7 +15,7 @@ const Cliente = (clientes) => {
     
     const [nombre,onChange3] = useState('')
     const [domicilio,onChange4] = useState('')
-    const [value2,onChange2] = useState('7:00 a.m - 4:00 p.m')
+
     const [Fecha,onChange5] = useState('Lunes-Viernes')
 
 
@@ -141,7 +141,6 @@ const Cliente = (clientes) => {
     Nombre: nombre,
     Domicilio: domicilio,
     Días: arr,
-    Horario: value2,
     Estatus: 1,
     Personal:0,
     Supervisor: supervisor
@@ -155,7 +154,6 @@ const Cliente = (clientes) => {
       update(ref(db,'shift/' + nombre.substr(0,3) + domicilio.substr(0,3)),{
         cliente:nombre,
         horaFin:"00:00",
-        horaInicio: value2
       })
     }
   
