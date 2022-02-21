@@ -313,7 +313,14 @@ const Turno = (turno) =>{
       }
     })
 
-     
+     function validate (event) {
+      event.preventDefault()
+
+      handleClose(event);
+      writeTurnoData(event);
+      writeOperadorData(event);
+
+     }
 
 
 return(
@@ -469,8 +476,9 @@ return(
 
 <Modal.Footer>
 
+{/* handleClose,writeTurnoData,writeOperadorData */}
 
-    <Button variant="success" onClick={handleClose,writeTurnoData,writeOperadorData}>
+    <Button variant="success" onClick={validate}>
     Si
     </Button>
 
