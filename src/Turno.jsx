@@ -259,7 +259,7 @@ const Turno = (turno) =>{
 
       const dbRef = ref(getDatabase());
 
-      nombreTurno.push("Seleccionar Operador")
+      nombreTurno.push("")
       clienteTurno.push("Seleccionar Cliente")
     
       get(child(dbRef,'Operador')).then((snapshot)=>{
