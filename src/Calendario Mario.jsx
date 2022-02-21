@@ -18,6 +18,9 @@ import Login from "./login";
 
 const CalendarioM = (calendario) => {
 
+  const app = initializeApp(firebaseConfig);
+  console.log(app)
+
 
   const [datos,setDatos] = useState ([])
 
@@ -246,8 +249,9 @@ const modClose = () => setModClient(false)
   }
 
 
+  const dbRef = ref(getDatabase());
 
-  get(child(ref(getDatabase()),'ClienteUbicacion/')).then((snapshot)=>{
+  get(child(dbRef,'ClienteUbicacion/')).then((snapshot)=>{
     if(snapshot.exists()){
       snapshot.forEach((childSnapshot)=>{
         var sup = childSnapshot.child("Supervisor").val()
@@ -279,8 +283,7 @@ const firebaseConfig = {
 };
 
     
-      const app = initializeApp(firebaseConfig);
-      console.log(app)
+      
     
       const db = getDatabase();
 
