@@ -1,3 +1,7 @@
+import {get, getDatabase,ref,child,update} from "firebase/database";
+import { initializeApp } from 'firebase/app';
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyBmZRACI4lPavlz-2N0NyIvTIW9j2DOJhY",
     authDomain: "androidbrinsk.firebaseapp.com",
