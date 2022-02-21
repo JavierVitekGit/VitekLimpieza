@@ -30,7 +30,8 @@ const Quincena = (quincena) => {
     return(
 
         <div className="bodyReport">
-            <h1>Reporte Quincenal</h1>
+            <div className="reportHeader"><h1>Reporte Quincenal</h1></div>
+            
 
         </div>
 

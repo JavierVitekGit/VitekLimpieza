@@ -6,8 +6,10 @@
     text-align: center;
 }
 
-.bodyReport h1{
+
+.reportHeader{
     width: 100%;
     background-color: black;
-    color: white !important;   
+    color: white;
+    text-align: center;
 }
