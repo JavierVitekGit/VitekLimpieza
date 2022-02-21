@@ -282,7 +282,7 @@ const Turno = (turno) =>{
                   shift.push(nombre)
 
 
-                  if (nombre == name) {
+                  if (name == nombre) {
                       nKey.push(rfc)
                       nKey.sort()
                   }
