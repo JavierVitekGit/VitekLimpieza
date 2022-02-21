@@ -44,7 +44,7 @@ function comprobar() {
      {
 
       //  {<Link to="/Calendario O"></Link>}
-        history("/Alta del Operador O");
+        history("/Calendario-O");
     }  else {
       showLogin()
     }
