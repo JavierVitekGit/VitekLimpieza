@@ -55,7 +55,7 @@ import TurnoF from "./Turno Fatima";
 import CalendarioF from "./Calendario Fatima";
 
 
-import Reporte from "./Quincena";
+import Quincena from "./Quincena";
 
 import './App.css'
 
@@ -167,7 +167,7 @@ function App(props) {
                 {/* <Route path='/Registro de Inasistencia' render={() => <Asistencia/>}/> */}
                
 
-               <Route path="/Reporte" element={<Reporte/>}></Route>
+               <Route path="/Reporte" element={<Quincena/>}></Route>
                 
 
             </Routes>

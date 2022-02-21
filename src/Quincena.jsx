@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button'
 import SideBar from './Sidebar.jsx'
 
 
-const Reporte = (reporte) => {
+const Quincena = (quincena) => {
 
 
 
@@ -27,4 +27,4 @@ const Reporte = (reporte) => {
 
 }
 
-export default Reporte;
+export default Quincena;
