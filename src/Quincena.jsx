@@ -18,8 +18,9 @@ const Quincena = (quincena) => {
         if (snapshot.exists()) {
             snapshot.forEach((childSnapshot)=>{
                 var state = childSnapshot.child("estado").val()
-
+                var key = childSnapshot.key;
                 console.log("State::::",state)
+                console.log("Key::::",key)
 
             })
         }
