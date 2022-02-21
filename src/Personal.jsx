@@ -114,6 +114,12 @@ const Personal = ({personal}) => {
   clientCl.push("Seleccionar Cliente")
 
 
+
+  const supervisores = [];
+
+  
+
+
   const firebaseConfig = {
     apiKey: "AIzaSyBmZRACI4lPavlz-2N0NyIvTIW9j2DOJhY",
     authDomain: "androidbrinsk.firebaseapp.com",
@@ -153,6 +159,7 @@ const Personal = ({personal}) => {
       Cliente:cliente,
       Estatus: 1,
       Horario: horarioOne + ":" + horarioTwo,
+      Supervisor: supervisores
     });
   
   }
@@ -179,8 +186,13 @@ const Personal = ({personal}) => {
       if (snapshot.exists()){
         snapshot.forEach((childSnapshot)=>{
           var nombre = childSnapshot.child("Nombre").val()
+          var sup = childSnapshot.child("Supervisor").val()
 
           clientCl.push(nombre)
+
+            if (nombre == cliente)
+              supervisores.push(sup)
+
         })
       }
     })

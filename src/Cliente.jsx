@@ -143,7 +143,8 @@ const Cliente = (clientes) => {
     Días: arr,
     Horario: value2,
     Estatus: 1,
-    Personal:0
+    Personal:0,
+    Supervisor: supervisor
     });
     }
 
