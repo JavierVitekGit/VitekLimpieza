@@ -287,15 +287,7 @@ const Turno = (turno) =>{
           }
       })
 
-      const unicName = [];
-
-      nombreTurno.forEach((item)=> {
-        if (!unicName.includes(item)){
-          unicName.push(item)
-          unicName.sort()
-        }
-      })
-       
+     
 
   console.log("ARRAY R",arrayR)
 
@@ -304,7 +296,15 @@ const Turno = (turno) =>{
 
     },[])
 
+    const unicName = [];
 
+    nombreTurno.forEach((item)=> {
+      if (!unicName.includes(item)){
+        unicName.push(item)
+        unicName.sort()
+      }
+    })
+     
 
 
 return(
