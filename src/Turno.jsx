@@ -201,7 +201,7 @@ const Turno = (turno) =>{
     function writeOperadorData(event){
         event.preventDefault()
 
-        update(ref(db,'Operador/' + name.substr(0,5) + client.substr(0,5) + hr.substr(0,2)),{
+        update(ref(db,'Operador/' + namee + namee.substring(-1) ),{
             Cliente:client,
             Nombre: name,
             Horario: horarioOne + ":" + horarioTwo,
