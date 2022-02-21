@@ -327,10 +327,12 @@ const TurnoOlga = (turno) =>{
 
     },[])
 
-    function validate () {
-      handleClose();
-      writeTurnoData();
-      writeOperadorData();
+    function validate (event) {
+      event.preventDefault()
+
+      handleClose(event);
+      writeTurnoData(event);
+      writeOperadorData(event);
     }
 
 
@@ -382,7 +384,7 @@ return(
 
         {
 
-        <Autocomplete value={autocomplete} onChange={v=> setAutocomplete(v.target.value)} suggestions={nombrecitos}>
+        <Autocomplete suggestions={nombrecitos}>
           
         </Autocomplete>
 }
