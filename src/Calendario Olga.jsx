@@ -253,7 +253,7 @@ const modClose = () => setModClient(false)
     if(snapshot.exists()){
       snapshot.forEach((childSnapshot)=>{
         var sup = childSnapshot.child("Supervisor").val()
-        var cliente = childSnapshot.child("Cliente").val()
+        var cliente = childSnapshot.child("Nombre").val()
 
         if (sup == "Olga") {
           arrayClientCl.push(cliente)
