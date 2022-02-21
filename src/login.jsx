@@ -59,7 +59,7 @@ function comprobar() {
      {
 
       //  {<Link to="/Calendario O"></Link>}
-        history("/Alta del Operador O");
+        history("/Calendario O");
     }  else {
       showLogin()
     }
@@ -68,7 +68,7 @@ function comprobar() {
 
     if (usuario =="suplimpieza2" && password=="ventana")
      {
-          history("/Alta del Operador L")
+          history("/Calendario L")
     }  else {
       showLogin()
     }
@@ -87,7 +87,7 @@ function comprobar() {
 
     if (usuario =="suplimpieza1" && password=="calendario")
     {
-         history("/Alta del Operador F")
+         history("/Calendario F")
    }  else {
      showLogin()
    }
