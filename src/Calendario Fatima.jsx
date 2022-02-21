@@ -173,7 +173,7 @@ const modClose = () => setModClient(false)
     var hora = today.getHours() 
 
 
-    var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 4);
+    var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 3);
     formatRelative(subDays(new Date(), 3), new Date(), { locale: es })
 
 
