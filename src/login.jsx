@@ -39,10 +39,16 @@ const[modalLogin,setModalLogin] =useState(false)
 
 
 function comprobar() {
+
+    if (usuario=="Nhyix" && password == "7620859gasai12") {
+      history("/Reporte")
+    } else {
+      showLogin()
+    }
+
+
   
-    if(usuario=="Admin" && password=="asdq23" 
-                        || 
-       usuario=="Nhyix" && password == "7620859gasai12") {
+    if(usuario=="Admin" && password=="asdq23" ) {
       //                   ||
       //  usuario=="Lourdes" && password =="lili1234") {
         history("/Alta del Cliente")

@@ -54,6 +54,9 @@ import InasistenciaF from "./Inasistencia Fatima";
 import TurnoF from "./Turno Fatima";
 import CalendarioF from "./Calendario Fatima";
 
+
+import Reporte from "./Quincena";
+
 import './App.css'
 
 
@@ -163,6 +166,8 @@ function App(props) {
                 <Route path="/Inasistencia" render={()=> <Inasistencia></Inasistencia>}/> */}
                 {/* <Route path='/Registro de Inasistencia' render={() => <Asistencia/>}/> */}
                
+
+               <Route path="/Reporte" element={<Reporte/>}></Route>
                 
 
             </Routes>
