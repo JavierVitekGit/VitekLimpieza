@@ -6,6 +6,7 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import './Turno.css'
 import SideBarO from "./SideBarO";
+import Autocomplete from "./Autocomplete";
 
 
 const TurnoOlga = (turno) =>{
@@ -371,6 +372,16 @@ return(
         <select onClick={forceUpdate} value={client} onChange={v=> setClient(v.target.value)} id="sLTCas">
         {nombrecitos.map((item,i)=> <option>{item}</option>)}
         </select>
+
+
+        <br/>
+
+        {
+
+        <Autocomplete suggestions={nombrecitos}>
+          
+        </Autocomplete>
+}
 
 <br/>
 
