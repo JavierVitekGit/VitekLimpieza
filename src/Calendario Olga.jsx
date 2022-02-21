@@ -31,10 +31,10 @@ const CalendarioO = (calendario) => {
     appId: "1:1038423598895:web:ddfe2d9c575506d192a3da"
   };
 
-  const app = initializeApp(firebaseConfig)
+  const app = initializeApp(firebaseConfig);
+  console.log(app)
 
-  const dbRef = getDatabase(app)
-
+  const dbRef = getDatabase();
 
 
   const [datos,setDatos] = useState ([])
@@ -263,8 +263,6 @@ const modClose = () => setModClient(false)
   }
 
 
-
-
   get(child(dbRef,'ClienteUbicacion/')).then((snapshot)=>{
     if(snapshot.exists()){
       snapshot.forEach((childSnapshot)=>{
@@ -285,22 +283,6 @@ function obtener () {
 
 
  
-  
-
-
-    
-  
-
-
-
-
-
-
-
-     
-
-
-  
 
 
       get(child(dbRef,'ClienteUbicacion/' )).then((snapshot) => {
