@@ -203,6 +203,8 @@ const Personal = ({personal}) => {
           var nombre = childSnapshot.child("Nombre").val()
           var sup = childSnapshot.child("Supervisor").val()
 
+          console.log(sup)
+
           clientCl.push(nombre)
 
           supervisores.push(sup)
