@@ -118,7 +118,7 @@ const Personal = ({personal}) => {
   const supervisores = [];
 
   
-
+  console.log(supervisores)
 
   const firebaseConfig = {
     apiKey: "AIzaSyBmZRACI4lPavlz-2N0NyIvTIW9j2DOJhY",
