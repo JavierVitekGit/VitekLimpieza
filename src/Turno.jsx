@@ -272,6 +272,13 @@ const Turno = (turno) =>{
                   var rfc = childSnapshot.key
                   operador.push({nm:nombre,cl:cliente,key:rfc})
 
+                  if (name == nombre) {
+                    nKey.push(rfc)
+                    nKey.sort()
+                }
+
+                console.log(nKey)
+
                   nombreTurno.push(nombre)
                   nombreTurno.sort()
                   clienteTurno.push(cliente)
@@ -282,12 +289,7 @@ const Turno = (turno) =>{
                   shift.push(nombre)
 
 
-                  if (name == nombre) {
-                      nKey.push(rfc)
-                      nKey.sort()
-                  }
-
-                  console.log(nKey)
+                  
 
               })
           }
