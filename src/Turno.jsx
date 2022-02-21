@@ -306,9 +306,7 @@ const Turno = (turno) =>{
     })
 
     function añadirModal () {
-      writeTurnoData();
-      writeOperadorData();
-      handleClose();
+      
     }
      
 
@@ -467,7 +465,7 @@ return(
 <Modal.Footer>
 
 
-    <Button variant="success" onClick={añadirModal}>
+    <Button variant="success" onClick={handleClose,writeTurnoData,writeOperadorData}>
     Si
     </Button>
 
