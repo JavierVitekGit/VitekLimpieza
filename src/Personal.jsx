@@ -115,7 +115,6 @@ const Personal = ({personal}) => {
 
   const supervisores = [];
 
-  const unicSup = [];
 
  
 
@@ -158,7 +157,6 @@ const Personal = ({personal}) => {
       Cliente:cliente,
       Estatus: 1,
       Horario: horarioOne + ":" + horarioTwo,
-      Supervisor: supervisores
     });
   
   }
@@ -187,11 +185,11 @@ const Personal = ({personal}) => {
           var nombre = childSnapshot.child("Nombre").val()
           var sup = childSnapshot.child("Supervisor").val()
 
-          console.log(sup)
+
 
           clientCl.push(nombre)
 
-          supervisores.push(sup)
+
 
         })
       }
@@ -274,22 +272,6 @@ const Personal = ({personal}) => {
 
 
 
-
-clientCl.forEach((item)=>{
-  supervisores.forEach((iter)=>{
-
-    if (item == cliente){
-        unicSup.push(iter)
-    }
-
-  })
-})
-
-
-
-
-console.log("Supervisor Unico:::",unicSup)
-console.log(supervisores)
 
 /*
   function comprobar (event) {
