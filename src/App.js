@@ -125,7 +125,7 @@ const App = (app) => {
       <Route path="/Anadir%20Turno%20F" element={<TurnoF/>}/>
       <Route path="/Calendario%20F" element={<CalendarioF/>}/> 
 
-      <Route path="/Quicena" element={<Quincena/>}/> 
+      <Route path="/Quincena" element={<Quincena/>}/> 
 
 
       </Routes>
