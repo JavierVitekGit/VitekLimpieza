@@ -222,7 +222,7 @@ const Turno = (turno) =>{
 
 
     operador.forEach(v=>{
-        if (v.name == opcion) {
+        if (v.nm == opcion) {
             setNamee(v.key)
         }
     })
