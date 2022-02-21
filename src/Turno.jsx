@@ -306,9 +306,9 @@ const Turno = (turno) =>{
     })
 
     function añadirModal () {
-      writeTurnoData(),
-      writeOperadorData(),
-      handleClose()
+      writeTurnoData();
+      writeOperadorData();
+      handleClose();
     }
      
 
