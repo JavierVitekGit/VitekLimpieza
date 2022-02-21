@@ -78,7 +78,7 @@ function comprobar() {
 
     if (usuario =="Mario" && password=="mario1234")
      {
-          history("/Alta del Operador M")
+          history("/Calendario M")
     }  else {
       showLogin()
     }
