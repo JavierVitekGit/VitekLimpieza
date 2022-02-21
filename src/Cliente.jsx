@@ -129,7 +129,7 @@ const Cliente = (clientes) => {
     const db = getDatabase();
 
 
-
+      console.log("Supervisor",supervisor)
 
   
 
