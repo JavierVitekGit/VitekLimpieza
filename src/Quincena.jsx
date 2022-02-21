@@ -22,6 +22,8 @@ const Quincena = (quincena) => {
                 console.log("State::::",state)
                 console.log("Key::::",key)
 
+                console.log("All$$$",snapshot)
+
             })
         }
     })
