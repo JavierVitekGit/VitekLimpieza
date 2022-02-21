@@ -201,7 +201,7 @@ const Turno = (turno) =>{
     function writeOperadorData(event){
         event.preventDefault()
 
-        update(ref(db,'Operador/' + nKey.length(-1).substring(-1) + 1 ),{
+        update(ref(db,'Operador/' + namee.substring(-1) + 1 ),{
             Cliente:client,
             Nombre: name,
             Horario: horarioOne + ":" + horarioTwo,
@@ -311,9 +311,6 @@ const Turno = (turno) =>{
       }
     })
 
-    function añadirModal () {
-      
-    }
      
 
 
