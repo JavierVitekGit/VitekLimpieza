@@ -304,6 +304,12 @@ const Turno = (turno) =>{
         unicName.sort()
       }
     })
+
+    function añadirModal () {
+      writeTurnoData(),
+      writeOperadorData(),
+      handleClose()
+    }
      
 
 
@@ -461,7 +467,7 @@ return(
 <Modal.Footer>
 
 
-    <Button variant="success" onClick={handleClose,writeTurnoData,writeOperadorData}>
+    <Button variant="success" onClick={añadirModal}>
     Si
     </Button>
 
