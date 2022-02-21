@@ -113,27 +113,11 @@ const Personal = ({personal}) => {
 
 
 
-
-
   const supervisores = [];
 
   const unicSup = [];
-  
-  clientCl.forEach((item)=>{
-    supervisores.forEach((iter)=>{
-
-      if (item == cliente){
-          unicSup.push(iter)
-      }
-
-    })
-  })
 
  
-  
-
-  console.log("Supervisor Unico:::",unicSup)
-  console.log(supervisores)
 
   const firebaseConfig = {
     apiKey: "AIzaSyBmZRACI4lPavlz-2N0NyIvTIW9j2DOJhY",
@@ -286,6 +270,26 @@ const Personal = ({personal}) => {
   }
 
 }
+
+
+
+
+
+clientCl.forEach((item)=>{
+  supervisores.forEach((iter)=>{
+
+    if (item == cliente){
+        unicSup.push(iter)
+    }
+
+  })
+})
+
+
+
+
+console.log("Supervisor Unico:::",unicSup)
+console.log(supervisores)
 
 /*
   function comprobar (event) {
