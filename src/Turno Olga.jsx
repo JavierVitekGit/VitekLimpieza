@@ -384,7 +384,7 @@ return(
 
         {
 
-        <Autocomplete suggestions={nombrecitos}>
+        <Autocomplete userInput={autocomplete} suggestions={nombrecitos}>
           
         </Autocomplete>
 }
