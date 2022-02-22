@@ -61,6 +61,8 @@ const Quincena = (quincena) => {
     
                         cSnapshot.forEach((ccSnapshot)=>{
 
+                            var nameC = ccSnapshot.child("clienteC").val()
+                            console.log("JALAAA::",nameC)
 
                             console.log("ccSnapshot",ccSnapshot.key)
     
