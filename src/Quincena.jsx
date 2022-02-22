@@ -23,8 +23,14 @@ const Quincena = (quincena) => {
             snapshot.forEach((childSnapshot)=>{
 
                 childSnapshot.forEach((cSnapshot)=>{
+
+                    var state = cSnapshot.child("estado").val()
+
+                    console.log("Estado:::", state)
                     
                     console.log(cSnapshot.val())
+
+
                 })
 
                 var state = childSnapshot.child("estado").val()
