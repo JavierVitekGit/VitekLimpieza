@@ -21,6 +21,12 @@ const Quincena = (quincena) => {
     get(child(dbRef,'Justificaciones/')).then((snapshot)=>{
         if (snapshot.exists()) {
             snapshot.forEach((childSnapshot)=>{
+
+                childSnapshot.forEach((cSnapshot)=>{
+                    
+                    console.log(cSnapshot.val())
+                })
+
                 var state = childSnapshot.child("estado").val()
                 var key = childSnapshot.key;
 
