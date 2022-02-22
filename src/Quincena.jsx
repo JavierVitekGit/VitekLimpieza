@@ -12,6 +12,8 @@ const Quincena = (quincena) => {
 
     const trySnapshot = [];
 
+    const filtSnapshot = [];
+
     // F I R E B A S E
 
     const dbRef = ref(getDatabase());
@@ -24,9 +26,11 @@ const Quincena = (quincena) => {
 
                 var snap = snapshot.child("estado").val()
 
+                if (trySnapshot.length() < 1) {
+
                 trySnapshot.push(snapshot.val())
 
-
+            } 
 
             })
         }
@@ -35,6 +39,12 @@ const Quincena = (quincena) => {
 
     function checking () {
         console.log("Array",trySnapshot)
+        
+        // trySnapshot.forEach((item)=>{
+        //     filtSnapshot.push(item.length(0))
+        // })
+        
+        console.log("Filter")
     }
 
 
