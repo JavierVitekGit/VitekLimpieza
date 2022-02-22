@@ -24,21 +24,18 @@ const Quincena = (quincena) => {
 
                 var snap = snapshot.child("estado").val()
 
-                console.log("snapshot::",snapshot.val())
-                console.log("All$$$",childSnapshot.val())
+                trySnapshot.push(snapshot.val())
 
-                console.log("StateSnapshot&:", )
-                console.log("StateChildSnapshot%:")
 
-                if (snap != "")
-
-                trySnapshot.push(snapshot)
-
-                console.log("trySnapshot::",trySnapshot)
 
             })
         }
     })
+
+
+    function checking () {
+        console.log("Array",trySnapshot)
+    }
 
 
     return(
@@ -46,6 +43,7 @@ const Quincena = (quincena) => {
         <div className="bodyReport">
             <div className="reportHeader"><h1>Reporte Quincenal</h1></div>
             
+            <input type="button" value="Obtener" onClick={checking}></input>
 
         </div>
 
