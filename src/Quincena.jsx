@@ -160,7 +160,7 @@ const Quincena = (quincena) => {
 
                         <tr>
                             <td>
-                                {item}
+                                {item.clienteC}
                             </td>
                             <td>
                                 {item.name}
