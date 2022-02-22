@@ -81,6 +81,8 @@ const Quincena = (quincena) => {
     
                     var state = childSnapshot.child("estado").val()
                     var key = childSnapshot.key;
+
+                    console.log("Key::",key)
     
                     var snap = snapshot.child("estado").val()
     
