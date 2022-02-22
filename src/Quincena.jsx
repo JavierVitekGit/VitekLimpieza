@@ -153,7 +153,7 @@ const Quincena = (quincena) => {
 
             <tbody>
 
-                {justificaciones.map((item)=>
+                {justificaciones.forEach((item)=>
                 {
 
                     return (
