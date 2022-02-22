@@ -10,6 +10,13 @@ import './Quincena.css'
 const Quincena = (quincena) => {
 
 
+    const [show,setShow] = useState([])
+
+    function mostrarReporte () {
+        setShow(false)
+    }
+
+// A R R A Y S
     const trySnapshot = [];
 
     const ccSnapshotArr = [];
@@ -94,6 +101,12 @@ const Quincena = (quincena) => {
         console.log("Estado$%/#:",stateArray)
         console.log("Justificaciones",justificaciones)
 
+        setTimeout(()=>{
+            mostrarReporte();
+        },500);
+
+
+
     }
 
 
@@ -103,13 +116,21 @@ const Quincena = (quincena) => {
 
         <div className="bodyReport">
 
+        { show?
 
+        
 
         <div classname="white">
+            <input type="button" value="Obtener" onClick={checking}></input>
+        </div>
+
+        :
+
+        <div className="reportShow">
             
             <div className="reportHeader"><h1>Reporte Quincenal</h1></div>
             
-            <input type="button" value="Obtener" onClick={checking}></input>
+            
         
 
         <div>
@@ -165,11 +186,11 @@ const Quincena = (quincena) => {
 
         </div>
 
-
         </div>
+       
 
 
-
+}
 
 
         </div>
