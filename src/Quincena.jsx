@@ -39,7 +39,7 @@ const Quincena = (quincena) => {
 
     function checking () {
         console.log("Array",trySnapshot)
-
+        console.log(trySnapshot[0])
 
     }
 
