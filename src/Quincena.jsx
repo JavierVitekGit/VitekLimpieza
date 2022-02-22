@@ -27,6 +27,7 @@ const Quincena = (quincena) => {
 
     const [justificaciones,setJustificaciones] = useState ([]);
 
+    const [keyName,setKeyName] = useState ([]);
 
     // F I R E B A S E
 
@@ -45,6 +46,11 @@ const Quincena = (quincena) => {
                     var key = childSnapshot.key;
 
                     console.log("childSnapshot::",key)
+
+
+                    var childName = childSnapshot.child.val()
+
+                    console.log("VALIDACION::",childName)
     
                     var snap = snapshot.child("estado").val()
     
@@ -55,6 +61,10 @@ const Quincena = (quincena) => {
                 } 
     
                     childSnapshot.forEach((cSnapshot)=>{
+
+                        var nameKey = cSnapshot.key
+
+                        keyName.push(nameKey)
     
                         console.log("cSnapshot::",cSnapshot.key)
     
