@@ -39,12 +39,8 @@ const Quincena = (quincena) => {
 
     function checking () {
         console.log("Array",trySnapshot)
-        
-        // trySnapshot.forEach((item)=>{
-        //     filtSnapshot.push(item.length(0))
-        // })
-        
-        console.log("Filter")
+
+
     }
 
 
