@@ -25,7 +25,7 @@ const Quincena = (quincena) => {
 
     const stateArray = [];
 
-    const [justificaciones,setJustificaciones] = useState = ([]);
+    const [justificaciones,setJustificaciones] = useState ([]);
 
 
     // F I R E B A S E
