@@ -55,7 +55,9 @@ const Quincena = (quincena) => {
             
             <input type="button" value="Obtener" onClick={checking}></input>
         {trySnapshot.map((item)=>{
-           <h1> {item} </h1>
+           <li> {item} </li>;
+
+           <p>{item}</p>
  
 
         })}
