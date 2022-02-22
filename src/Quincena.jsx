@@ -22,8 +22,8 @@ const Quincena = (quincena) => {
                 var key = childSnapshot.key;
                 console.log("State::::",state)
                 console.log("Key::::",key)
-                console.log("snapshot::",snapshot)
-                console.log("All$$$",childSnapshot)
+                console.log("snapshot::",snapshot.val())
+                console.log("All$$$",childSnapshot.val())
 
             })
         }
