@@ -39,13 +39,30 @@ const Quincena = (quincena) => {
         get(child(dbRef,'Justificaciones/')).then((snapshot)=>{
             if (snapshot.exists()) {
                 snapshot.forEach((childSnapshot)=>{
+
+
+                    var state = childSnapshot.child("estado").val()
+                    var key = childSnapshot.key;
+
+                    console.log("childSnapshot::",key)
+    
+                    var snap = snapshot.child("estado").val()
+    
+                    if (trySnapshot.length < 1) {
+    
+                    trySnapshot.push(snapshot.val())
+    
+                } 
     
                     childSnapshot.forEach((cSnapshot)=>{
     
-                        
+                        console.log("cSnapshot::",cSnapshot.key)
     
     
                         cSnapshot.forEach((ccSnapshot)=>{
+
+
+                            console.log("ccSnapshot",ccSnapshot.key)
     
                                 ccSnapshot.forEach((cccSnapshot)=>{
                                     
@@ -79,18 +96,7 @@ const Quincena = (quincena) => {
     
                     })
     
-                    var state = childSnapshot.child("estado").val()
-                    var key = childSnapshot.key;
-
-                    console.log("Key::",key)
-    
-                    var snap = snapshot.child("estado").val()
-    
-                    if (trySnapshot.length < 1) {
-    
-                    trySnapshot.push(snapshot.val())
-    
-                } 
+                   
     
                 })
             }
@@ -142,6 +148,7 @@ const Quincena = (quincena) => {
             <table class="table table-striped" id="justTable">
                 <thead class="table-dark">
                     <tr>
+                        <th scope="col" ></th>
                         <th scope="col">Cliente/Ubicación</th>
                         <th scope="col">Nombre del Operador</th>
                         <th scope="col">Turno</th>
