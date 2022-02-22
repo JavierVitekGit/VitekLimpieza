@@ -103,7 +103,7 @@ const Quincena = (quincena) => {
 
         setTimeout(()=>{
             mostrarReporte();
-        },500);
+        },1500);
 
 
 
