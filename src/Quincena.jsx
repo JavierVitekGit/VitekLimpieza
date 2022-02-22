@@ -40,6 +40,7 @@ const Quincena = (quincena) => {
     function checking () {
         console.log("Array",trySnapshot)
         console.log(trySnapshot[0])
+        console.log(trySnapshot[0]['14-02-2022'])
 
     }
 
@@ -51,9 +52,9 @@ const Quincena = (quincena) => {
             
             <input type="button" value="Obtener" onClick={checking}></input>
         {trySnapshot.forEach((item)=>{
-           <li> {item[0]} </li>;
+           <li> {item} </li>;
 
-           <p>{item[0]}</p>
+           <p>{item}</p>
  
 
         })}
