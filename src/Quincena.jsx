@@ -12,8 +12,9 @@ const Quincena = (quincena) => {
 
     const trySnapshot = [];
 
-    const filtSnapshot = [];
+    const ccSnapshotArr = [];
 
+    const cccSnapshotArr = [];
     // F I R E B A S E
 
     const dbRef = ref(getDatabase());
@@ -28,11 +29,22 @@ const Quincena = (quincena) => {
 
 
                     cSnapshot.forEach((ccSnapshot)=>{
+
+                            ccSnapshot.forEach((cccSnapshot)=>{
+                                cccSnapshotArr.push(cccSnapshot.val())
+                            })
+
+                            
+
                         var state = ccSnapshot.child("estado").val()
+
+                        ccSnapshotArr.push(ccSnapshot.val())
 
                         console.log("Estado:::",state)
 
                         console.log("ccSnapshot$$$:",ccSnapshot.val())
+
+                        
 
                     })
 
@@ -55,10 +67,9 @@ const Quincena = (quincena) => {
 
 
     function checking () {
-        console.log("Array",trySnapshot)
         console.log(trySnapshot[0])
-        console.log(trySnapshot[0]['14-02-2022'])
-
+        console.log("ccSnapshot::",ccSnapshotArr)
+        console.log("cccSnapshot%%",cccSnapshotArr)
     }
 
 
