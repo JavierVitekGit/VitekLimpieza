@@ -5,6 +5,7 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import SideBar from './Sidebar.jsx'
 import './Firebase init'
+import './Quincena.css'
 
 const Quincena = (quincena) => {
 
