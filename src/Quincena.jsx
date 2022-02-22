@@ -25,66 +25,70 @@ const Quincena = (quincena) => {
 
     const dbRef = ref(getDatabase());
 
-    get(child(dbRef,'Justificaciones/')).then((snapshot)=>{
-        if (snapshot.exists()) {
-            snapshot.forEach((childSnapshot)=>{
-
-                childSnapshot.forEach((cSnapshot)=>{
-
-                    
-
-
-                    cSnapshot.forEach((ccSnapshot)=>{
-
-                            ccSnapshot.forEach((cccSnapshot)=>{
-                                
-
-
-                                cccSnapshotArr.push(cccSnapshot.val())
-
-                                var state = cccSnapshot.child("estado").val()
-
-
-                                if (state != null) {
-                                    justificaciones.push(cccSnapshot.val())
-
-                                }
-
-                                stateArray.push(state)
-
-                            })
-
-                            
-
-                        var state = ccSnapshot.child("estado").val()
-
-                        ccSnapshotArr.push(ccSnapshot.val())
-
-        
-
-                        
-
-                    })
-
-                })
-
-                var state = childSnapshot.child("estado").val()
-                var key = childSnapshot.key;
-
-                var snap = snapshot.child("estado").val()
-
-                if (trySnapshot.length < 1) {
-
-                trySnapshot.push(snapshot.val())
-
-            } 
-
-            })
-        }
-    })
-
+  
 
     function checking () {
+
+        get(child(dbRef,'Justificaciones/')).then((snapshot)=>{
+            if (snapshot.exists()) {
+                snapshot.forEach((childSnapshot)=>{
+    
+                    childSnapshot.forEach((cSnapshot)=>{
+    
+                        
+    
+    
+                        cSnapshot.forEach((ccSnapshot)=>{
+    
+                                ccSnapshot.forEach((cccSnapshot)=>{
+                                    
+    
+    
+                                    cccSnapshotArr.push(cccSnapshot.val())
+    
+                                    var state = cccSnapshot.child("estado").val()
+    
+    
+                                    if (state != null) {
+                                        justificaciones.push(cccSnapshot.val())
+    
+                                    }
+    
+                                    stateArray.push(state)
+    
+                                })
+    
+                                
+    
+                            var state = ccSnapshot.child("estado").val()
+    
+                            ccSnapshotArr.push(ccSnapshot.val())
+    
+            
+    
+                            
+    
+                        })
+    
+                    })
+    
+                    var state = childSnapshot.child("estado").val()
+                    var key = childSnapshot.key;
+    
+                    var snap = snapshot.child("estado").val()
+    
+                    if (trySnapshot.length < 1) {
+    
+                    trySnapshot.push(snapshot.val())
+    
+                } 
+    
+                })
+            }
+        })
+    
+
+
         console.log("ccSnapshot::",ccSnapshotArr)
         console.log("cccSnapshot%%",cccSnapshotArr)
         console.log("Estado$%/#:",stateArray)
