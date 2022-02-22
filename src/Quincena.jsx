@@ -29,6 +29,7 @@ const Quincena = (quincena) => {
 
     const [keyName,setKeyName] = useState ([]);
 
+    console.log("KeyName",keyName)
 
     const [date,setDate] = useState([]);
 
@@ -78,8 +79,6 @@ const Quincena = (quincena) => {
     
                         cSnapshot.forEach((ccSnapshot)=>{
 
-                            var nameC = ccSnapshot.child("clienteC").val()
-                            console.log("JALAAA::",nameC)
 
                             console.log("ccSnapshot",ccSnapshot.key)
     
