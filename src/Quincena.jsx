@@ -45,7 +45,7 @@ const Quincena = (quincena) => {
                                 var state = cccSnapshot.child("estado").val()
 
 
-                                if (state != "") {
+                                if (state != null) {
                                     justificaciones.push(cccSnapshot.val())
 
                                 }
