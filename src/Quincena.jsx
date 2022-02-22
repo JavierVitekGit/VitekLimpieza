@@ -54,12 +54,17 @@ const Quincena = (quincena) => {
             <div className="reportHeader"><h1>Reporte Quincenal</h1></div>
             
             <input type="button" value="Obtener" onClick={checking}></input>
-
-           <h1> {trySnapshot} </h1>
+        {trySnapshot.map((item)=>{
+           <h1> {item} </h1>
  
+
+        })}
+
         </div>
 
 
+
+        
     )
 
 
