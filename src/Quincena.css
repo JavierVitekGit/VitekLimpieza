@@ -15,7 +15,7 @@
 }   
 
 .bodyReport table{
-    width: min-content;
     font-size:x-large;
     margin: auto;
+    overflow: scroll;
 }
