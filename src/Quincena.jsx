@@ -85,10 +85,11 @@ const Quincena = (quincena) => {
 
 
     function checking () {
-        console.log(trySnapshot[0])
         console.log("ccSnapshot::",ccSnapshotArr)
         console.log("cccSnapshot%%",cccSnapshotArr)
         console.log("Estado$%/#:",stateArray)
+        console.log("Justificaciones",justificaciones)
+
     }
 
 
