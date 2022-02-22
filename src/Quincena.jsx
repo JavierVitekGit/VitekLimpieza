@@ -127,6 +127,9 @@ const Quincena = (quincena) => {
         :
 
         <div className="reportShow">
+
+
+            <p> {justificaciones}</p>
             
             <div className="reportHeader"><h1>Reporte Quincenal</h1></div>
             
