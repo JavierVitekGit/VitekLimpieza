@@ -54,11 +54,6 @@ const Quincena = (quincena) => {
 
                     var childName = childSnapshot.val()
 
-                    console.log("VALIDACION::",childName)
-
-                    if(childName == keyName) {
-                        date.push(key)
-                    }
     
                     var snap = snapshot.child("estado").val()
     
@@ -77,6 +72,11 @@ const Quincena = (quincena) => {
                         console.log("cSnapshot::",cSnapshot.key)
     
     
+                            if (nameKey ==childName ) {
+                                date.push(key)
+                            }
+
+
                         cSnapshot.forEach((ccSnapshot)=>{
 
 
