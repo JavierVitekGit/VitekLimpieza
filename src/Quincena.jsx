@@ -32,7 +32,7 @@ const Quincena = (quincena) => {
 
                         console.log("Estado:::",state)
 
-                        console.log("ccSnapshot$$$:",ccSnapshot.value())
+                        console.log("ccSnapshot$$$:",ccSnapshot.val())
 
                     })
 
