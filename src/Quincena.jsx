@@ -51,9 +51,9 @@ const Quincena = (quincena) => {
             
             <input type="button" value="Obtener" onClick={checking}></input>
         {trySnapshot.forEach((item)=>{
-           <li> {item} </li>;
+           <li> {item[0]} </li>;
 
-           <p>{item}</p>
+           <p>{item[0]}</p>
  
 
         })}
