@@ -13,3 +13,8 @@
     color: white;
     text-align: center;
 }   
+
+.bodyReport table{
+    width: min-content;
+    font-size:x-large;
+}
