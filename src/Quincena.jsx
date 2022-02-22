@@ -50,10 +50,10 @@ const Quincena = (quincena) => {
             <div className="reportHeader"><h1>Reporte Quincenal</h1></div>
             
             <input type="button" value="Obtener" onClick={checking}></input>
-        {trySnapshot.map((item)=>{
-           <li> {item[0]} </li>;
+        {trySnapshot.forEach((item)=>{
+           <li> {item} </li>;
 
-           <p>{item[0]}</p>
+           <p>{item}</p>
  
 
         })}
