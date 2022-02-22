@@ -48,7 +48,7 @@ const Quincena = (quincena) => {
                     console.log("childSnapshot::",key)
 
 
-                    var childName = childSnapshot.child.val()
+                    var childName = childSnapshot.val()
 
                     console.log("VALIDACION::",childName)
     
