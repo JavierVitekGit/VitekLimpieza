@@ -122,7 +122,8 @@ const Quincena = (quincena) => {
 
             <tbody>
 
-                {justificaciones.forEach((item)=>{
+                {justificaciones.map((item)=>
+                {
 
                     return (
 
@@ -139,10 +140,10 @@ const Quincena = (quincena) => {
                             <td>
                                 {item.estado}
                             </td>
-                            <td>
+                            {/* <td>
                                 {item.justi}
                             </td>
-                            <td>{item.suplencia}</td>
+                            <td>{item.suplencia}</td> */}
                         </tr>
 
                     )
