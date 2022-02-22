@@ -15,7 +15,7 @@ const Quincena = (quincena) => {
 
     const dbRef = ref(getDatabase());
 
-    get(child(dbRef,'Justificaciones/15-02-2022/')).then((snapshot)=>{
+    get(child(dbRef,'Justificaciones/')).then((snapshot)=>{
         if (snapshot.exists()) {
             snapshot.forEach((childSnapshot)=>{
                 var state = childSnapshot.child("estado").val()
