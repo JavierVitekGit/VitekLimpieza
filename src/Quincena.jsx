@@ -72,7 +72,7 @@ const Quincena = (quincena) => {
                         console.log("cSnapshot::",cSnapshot.key)
     
     
-                            if (nameKey ==childName ) {
+                            if (cSnapshot.key == childSnapshot.val() ) {
                                 date.push(key)
                             }
 
