@@ -26,7 +26,7 @@ const Quincena = (quincena) => {
 
                 var snap = snapshot.child("estado").val()
 
-                if (trySnapshot.length() < 1) {
+                if (trySnapshot.length < 1) {
 
                 trySnapshot.push(snapshot.val())
 
