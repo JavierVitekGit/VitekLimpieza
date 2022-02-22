@@ -439,6 +439,10 @@ console.log('Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient)
 
 }
 
+
+  console.log("ArrayJusti",arrayJusti)
+
+
 // },[])
 
 

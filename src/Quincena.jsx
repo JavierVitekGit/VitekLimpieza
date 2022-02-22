@@ -99,7 +99,14 @@ const Quincena = (quincena) => {
 
     return(
 
+        
+
         <div className="bodyReport">
+
+
+
+        <div classname="white">
+            
             <div className="reportHeader"><h1>Reporte Quincenal</h1></div>
             
             <input type="button" value="Obtener" onClick={checking}></input>
@@ -157,6 +164,13 @@ const Quincena = (quincena) => {
 
 
         </div>
+
+
+        </div>
+
+
+
+
 
         </div>
 
