@@ -10,6 +10,7 @@ import './Quincena.css'
 const Quincena = (quincena) => {
 
 
+    const trySnapshot = [];
 
     // F I R E B A S E
 
@@ -20,10 +21,20 @@ const Quincena = (quincena) => {
             snapshot.forEach((childSnapshot)=>{
                 var state = childSnapshot.child("estado").val()
                 var key = childSnapshot.key;
-                console.log("State::::",state)
-                console.log("Key::::",key)
+
+                var snap = snapshot.child("estado").val()
+
                 console.log("snapshot::",snapshot.val())
                 console.log("All$$$",childSnapshot.val())
+
+                console.log("StateSnapshot&:", )
+                console.log("StateChildSnapshot%:")
+
+                if (snap != "")
+
+                trySnapshot.push(snapshot)
+
+                console.log("trySnapshot::",trySnapshot)
 
             })
         }
