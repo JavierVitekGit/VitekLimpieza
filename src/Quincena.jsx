@@ -14,14 +14,14 @@ const Quincena = (quincena) => {
 
     const dbRef = ref(getDatabase());
 
-    get(child(dbRef,'Justificaciones')).then((snapshot)=>{
+    get(child(dbRef,'Justificaciones/')).then((snapshot)=>{
         if (snapshot.exists()) {
             snapshot.forEach((childSnapshot)=>{
                 var state = childSnapshot.child("estado").val()
                 var key = childSnapshot.key;
                 console.log("State::::",state)
                 console.log("Key::::",key)
-
+                console.log("snapshot::",snapshot)
                 console.log("All$$$",childSnapshot)
 
             })
