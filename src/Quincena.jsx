@@ -29,6 +29,9 @@ const Quincena = (quincena) => {
 
     const [keyName,setKeyName] = useState ([]);
 
+
+    const [date,setDate] = useState([]);
+
     // F I R E B A S E
 
     const dbRef = ref(getDatabase());
@@ -51,6 +54,10 @@ const Quincena = (quincena) => {
                     var childName = childSnapshot.val()
 
                     console.log("VALIDACION::",childName)
+
+                    if(childName == keyName) {
+                        date.push(key)
+                    }
     
                     var snap = snapshot.child("estado").val()
     
@@ -120,6 +127,8 @@ const Quincena = (quincena) => {
         console.log("cccSnapshot%%",cccSnapshotArr)
         console.log("Estado$%/#:",stateArray)
         console.log("Justificaciones",justificaciones)
+
+        console.log("Fecha",date)
 
         setTimeout(()=>{
             mostrarReporte();
