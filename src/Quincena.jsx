@@ -148,7 +148,7 @@ const Quincena = (quincena) => {
             <table class="table table-striped" id="justTable">
                 <thead class="table-dark">
                     <tr>
-                        <th scope="col" ></th>
+                        {/* <th scope="col" ></th> */}
                         <th scope="col">Cliente/Ubicación</th>
                         <th scope="col">Nombre del Operador</th>
                         <th scope="col">Turno</th>
