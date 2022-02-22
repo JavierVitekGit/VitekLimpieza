@@ -18,6 +18,8 @@ const Quincena = (quincena) => {
 
     const stateArray = [];
 
+    const justificaciones = [];
+
 
     // F I R E B A S E
 
@@ -35,11 +37,18 @@ const Quincena = (quincena) => {
                     cSnapshot.forEach((ccSnapshot)=>{
 
                             ccSnapshot.forEach((cccSnapshot)=>{
+                                
 
 
                                 cccSnapshotArr.push(cccSnapshot.val())
 
                                 var state = cccSnapshot.child("estado").val()
+
+
+                                if (state != "") {
+                                    justificaciones.push(cccSnapshot.val())
+
+                                }
 
                                 stateArray.push(state)
 
@@ -89,13 +98,59 @@ const Quincena = (quincena) => {
             <div className="reportHeader"><h1>Reporte Quincenal</h1></div>
             
             <input type="button" value="Obtener" onClick={checking}></input>
-        {trySnapshot.forEach((item)=>{
-           <li> {item} </li>;
+        
 
-           <p>{item}</p>
- 
+        <div>
+            <table class="table table-striped" id="justTable">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Cliente/Ubicación</th>
+                        <th scope="col">Nombre del Operador</th>
+                        <th scope="col">Turno</th>
+                        <th scope="col">Incidencia</th>
+                        <th scope="col">Justificacion</th>
+                        <th scope="col">Suplencia</th>
 
-        })}
+
+                    </tr>
+                </thead>
+
+            <tbody>
+
+                {justificaciones.map((item)=>{
+
+                    return (
+
+                        <tr>
+                            <td>
+                                {item.clienteC}
+                            </td>
+                            <td>
+                                {item.name}
+                            </td>
+                            <td>
+                                {item.hr}
+                            </td>
+                            <td>
+                                {item.estado}
+                            </td>
+                            <td>
+                                {item.justi}
+                            </td>
+                            <td>{item.suplencia}</td>
+                        </tr>
+
+                    )
+
+                })}
+
+            </tbody>
+
+
+            </table>
+
+
+        </div>
 
         </div>
 
