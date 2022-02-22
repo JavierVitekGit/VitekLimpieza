@@ -25,7 +25,7 @@ const Quincena = (quincena) => {
 
     const stateArray = [];
 
-    const justificaciones = [];
+    const [justificaciones,setJustificaciones] = useState = ([]);
 
 
     // F I R E B A S E
@@ -162,7 +162,7 @@ const Quincena = (quincena) => {
                             <td>
                                 {item.clienteC}
                             </td>
-                            {/* <td>
+                            <td>
                                 {item.name}
                             </td>
                             <td>
@@ -174,7 +174,7 @@ const Quincena = (quincena) => {
                             <td>
                                 {item.justi}
                             </td>
-                            <td>{item.suplencia}</td> */}
+                            <td>{item.suplencia}</td>
                         </tr>
 
                     )
