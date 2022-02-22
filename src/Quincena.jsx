@@ -15,6 +15,10 @@ const Quincena = (quincena) => {
     const ccSnapshotArr = [];
 
     const cccSnapshotArr = [];
+
+    const stateArray = [];
+
+
     // F I R E B A S E
 
     const dbRef = ref(getDatabase());
@@ -25,13 +29,20 @@ const Quincena = (quincena) => {
 
                 childSnapshot.forEach((cSnapshot)=>{
 
-                    console.log(cSnapshot.val())
+                    
 
 
                     cSnapshot.forEach((ccSnapshot)=>{
 
                             ccSnapshot.forEach((cccSnapshot)=>{
+
+
                                 cccSnapshotArr.push(cccSnapshot.val())
+
+                                var state = cccSnapshot.child("estado").val()
+
+                                stateArray.push(state)
+
                             })
 
                             
@@ -40,9 +51,7 @@ const Quincena = (quincena) => {
 
                         ccSnapshotArr.push(ccSnapshot.val())
 
-                        console.log("Estado:::",state)
-
-                        console.log("ccSnapshot$$$:",ccSnapshot.val())
+        
 
                         
 
@@ -70,6 +79,7 @@ const Quincena = (quincena) => {
         console.log(trySnapshot[0])
         console.log("ccSnapshot::",ccSnapshotArr)
         console.log("cccSnapshot%%",cccSnapshotArr)
+        console.log("Estado$%/#:",stateArray)
     }
 
 
