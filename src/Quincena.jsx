@@ -55,8 +55,8 @@ const Quincena = (quincena) => {
             
             <input type="button" value="Obtener" onClick={checking}></input>
 
-            {trySnapshot}
-
+           <h1> {trySnapshot} </h1>
+ 
         </div>
 
 
