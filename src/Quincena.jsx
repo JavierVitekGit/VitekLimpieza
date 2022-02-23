@@ -38,6 +38,16 @@ var today = new Date();
 
 var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 15);
 
+
+onCalendarSelect = (e) => {
+    if (e.eventType === 3) {
+        this.setState({ selectedDates: {
+            start: e.start,
+            end: e.end,
+        } });
+    }
+}
+
 // A R R A Y S
     const trySnapshot = [];
 
@@ -203,11 +213,10 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
             
             <InfiniteCalendar
             Component={withRange(Calendar)}
-            selected={{
-                start: new Date(2022, 2, 25),
-                end: new Date(2022, 3, 12)
-            }}
-            onSelect={e=> {setInfinite(e)}}
+            selected={
+                this.state.selectedDates
+            }
+            onSelect={this.onCalendarSelect}
             displayOptions={{
                 showHeader: false
             }}
