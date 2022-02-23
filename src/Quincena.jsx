@@ -73,10 +73,9 @@ const Quincena = (quincena) => {
     
                         console.log("cSnapshot::",cSnapshot.key)    
     
+                        var validateOne = cSnapshot.key
     
-                            if (cSnapshot.key == childSnapshot ) {
-                                date.push(key)
-                            }
+                
 
 
                         cSnapshot.forEach((ccSnapshot)=>{
@@ -90,9 +89,11 @@ const Quincena = (quincena) => {
     
                                     cccSnapshotArr.push(cccSnapshot.val())
 
-                                    var find = cccSnapshot.child("clienteC").val()
+                                    var validateTwo = cccSnapshot.child("clienteC").val()
 
-                                    console.log("FIND$$$::",find)
+                                    if (validateOne == validateTwo) {
+                                        date.push(key)
+                                    }
     
                                     var state = cccSnapshot.child("estado").val()
     
