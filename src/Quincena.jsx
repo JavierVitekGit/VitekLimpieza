@@ -203,10 +203,11 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
             
             <InfiniteCalendar
             Component={withRange(Calendar)}
-            selected={{
-                start: new Date(2022, 2, 25),
-                end: new Date(2022, 3, 12)
-            }}
+            selected={false}
+            // selected={{
+            //     start: new Date(2022, 2, 25),
+            //     end: new Date(2022, 3, 12)
+            // }}
             displayOptions={{
                 showHeader: false
             }}
