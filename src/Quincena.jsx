@@ -205,6 +205,10 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
         { show?
 
         <div classname="white">
+
+            <div className="calQuincenaHeader">
+                <h1>Calendario de Reporte Quincenal</h1>
+            </div>
             
             <InfiniteCalendar
             Component={withRange(Calendar)}

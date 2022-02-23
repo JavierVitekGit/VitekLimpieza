@@ -17,8 +17,17 @@
 .bodyReport table{
     margin: auto;
     overflow: scroll;
+    vertical-align: middle;
 }
 
 .infiniteQuincena{
-    padding-left: 20%;
+    margin-top: 5%;
+    margin-left: 20%;
+}
+
+.calQuincenaHeader {
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
 }
