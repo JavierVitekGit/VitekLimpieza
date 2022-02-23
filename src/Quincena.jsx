@@ -90,20 +90,32 @@ const Quincena = (quincena) => {
                                     cccSnapshotArr.push(cccSnapshot.val())
 
                                     var validateTwo = cccSnapshot.child("clienteC").val()
+                                    var nombr = cccSnapshot.child("name").val()
+                                    var turn = cccSnapshot.child("hr").val()
+                                    var incidenci = cccSnapshot.child("estado").val()
+                                    var just = cccSnapshot.child("justi").val()
+                                    var sup = cccSnapshot.child("suplencia").val()
 
-                                    
     
                                     var state = cccSnapshot.child("estado").val()
     
     
                                     if (validateOne == validateTwo && state != null) {
-                                        justificaciones.push(key)
+                                        // date.push(key)
+                                        justificaciones.push({
+                                            fecha:key,
+                                            clienteC:validateTwo,
+                                            name:nombr,
+                                            hr:turn,
+                                            estado:incidenci,
+                                            justi:just,
+                                            suplencia:sup})
                                     }
 
-                                    if (state != null) {
-                                        justificaciones.push(cccSnapshot.val())
+                                    // if (state != null) {
+                                    //     justificaciones.push(cccSnapshot.val())
     
-                                    }
+                                    // }
     
                                     stateArray.push(state)
     
@@ -207,9 +219,9 @@ const Quincena = (quincena) => {
                     return (
 
                         <tr>
-                            {/* <td>
+                            <td>
                                 {item.fecha}
-                            </td> */}
+                            </td>
 
                             <td>
                                 {item.clienteC}
