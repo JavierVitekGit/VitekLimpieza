@@ -201,7 +201,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
         <div classname="white">
             
             <InfiniteCalendar
-            width={(window.innerWidth <= 650) ? window.innerWidth : 650}
+            width={(window.innerWidth <= 600) ? window.innerWidth : 600}
             height={window.innerHeight - 250}
              Component={withRange(Calendar)}
              selected={{
@@ -212,6 +212,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
                  showHeader: false
              }}
              onSelect={setInfinite}
+             className={"infiniteQuincena"}
             />
 
             <br/>
