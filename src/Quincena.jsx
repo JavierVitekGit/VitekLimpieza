@@ -204,10 +204,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
             width={(window.innerWidth <= 600) ? window.innerWidth : 600}
             height={window.innerHeight - 250}
              Component={withRange(Calendar)}
-             selected={{
-                 start: today,
-                 end: nextWeek
-             }}
+             selected={ false}
              displayOptions={{
                  showHeader: false
              }}
