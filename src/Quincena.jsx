@@ -30,6 +30,8 @@ const Quincena = (quincena) => {
 
 const [infinite,setInfinite] = useState ([])
 
+console.log("Infinite:::",infinite)
+
 var today = new Date();
 
 
