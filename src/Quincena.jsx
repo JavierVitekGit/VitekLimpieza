@@ -199,7 +199,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
 
         <div classname="white">
             
-            {/* <InfiniteCalendar
+            <InfiniteCalendar
              Component={withRange(Calendar)}
              selected={{
                  start: today,
@@ -208,7 +208,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
              displayOptions={{
                  showHeader: false
              }}
-            /> */}
+            />
 
             <br/>
 
