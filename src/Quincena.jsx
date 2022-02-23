@@ -266,6 +266,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
         <div classname="white">
             
             <InfiniteCalendar
+            className="infiniteQuincena"
             Component={withRange(Calendar)}
             selected={false}
             // selected={{
