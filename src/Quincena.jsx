@@ -130,15 +130,25 @@ const Quincena = (quincena) => {
         })
     
 
-        justificaciones.push({fecha:date})
+
+
+        // justificaciones.push({fecha:date})
+
+        justificaciones.forEach((iter)=>{
+            date.forEach((item)=>{
+                justificaciones.push({fecha:item})
+            })
+        })
 
 
         console.log("ccSnapshot::",ccSnapshotArr)
         console.log("cccSnapshot%%",cccSnapshotArr)
         console.log("Estado$%/#:",stateArray)
         console.log("Justificaciones",justificaciones)
-
         console.log("Fecha",date)
+
+
+     
 
         setTimeout(()=>{
             mostrarReporte();
