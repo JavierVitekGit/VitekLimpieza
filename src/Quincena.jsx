@@ -71,7 +71,7 @@ const Quincena = (quincena) => {
 
                         keyName.push(nameKey)
     
-                        console.log("cSnapshot::",cSnapshot.key)
+                        console.log("cSnapshot::",cSnapshot.key)    
     
     
                             if (cSnapshot.key == childSnapshot ) {
@@ -81,8 +81,9 @@ const Quincena = (quincena) => {
 
                         cSnapshot.forEach((ccSnapshot)=>{
 
+                            var find = ccSnapshot.child("clienteC").value
 
-                            console.log("ccSnapshot",ccSnapshot.key)
+                            console.log("Find$$$::",find)
     
                                 ccSnapshot.forEach((cccSnapshot)=>{
                                     
