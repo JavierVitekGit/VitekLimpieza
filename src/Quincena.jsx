@@ -11,6 +11,11 @@ import {es} from 'date-fns/locale'
 import './Firebase init'
 import './Quincena.css'
 
+
+import { CSVLink, CSVDownload } from "react-csv";
+
+
+
 const Quincena = (quincena) => {
 
 
@@ -277,6 +282,9 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
 
 
         </div>
+
+
+        <CSVDownload data={justificaciones} target="_blank" />
 
         </div>
        
