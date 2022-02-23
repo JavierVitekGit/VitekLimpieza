@@ -30,6 +30,7 @@ const Quincena = (quincena) => {
 
 const [infinite,setInfinite] = useState ([])
 
+
 console.log("Infinite:::",infinite)
 
 var today = new Date();
@@ -205,10 +206,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
             width={(window.innerWidth <= 600) ? window.innerWidth : 600}
             height={window.innerHeight - 250}
             rowHeight={70}
-             selected={{
-            start: new Date(2022, 2, 25),
-            end: new Date(2022, 3, 12)
-             }}
+             selected={true}
              displayOptions={{
                  showHeader: false
              }}
