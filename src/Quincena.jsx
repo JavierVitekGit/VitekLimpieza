@@ -206,14 +206,15 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
             rowHeight={70}
              Component={withRange(Calendar)}
              selected={{
-                 start: today,
-                 end: nextWeek
+            start: new Date(2022, 2, 25),
+            end: new Date(2022, 3, 12)
              }}
              displayOptions={{
                  showHeader: false
              }}
              onSelect={setInfinite}
              className={"infiniteQuincena"}
+             
             />
 
             <br/>
