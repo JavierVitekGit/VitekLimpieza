@@ -39,6 +39,10 @@ var today = new Date();
 var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 15);
 
 // A R R A Y S
+
+    const arrayPersonal = [];
+
+
     const trySnapshot = [];
 
     const ccSnapshotArr = [];
@@ -67,6 +71,28 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
   
 
     function checking () {
+
+        get(child(dbRef,'ClienteUbicacion/' )).then((snapshot) => {
+            if(snapshot.exists()) {
+    
+              snapshot.forEach((childSnapshot)=> {
+                var name = childSnapshot.child("Nombre").val()
+                var personal = childSnapshot.child("Personal").val()
+    
+               
+                  arrayPersonal.push(personal)
+                
+                  console.log("ArrayPersonal",arrayPersonal)
+    
+              })
+    
+         
+    
+            }
+          })
+
+
+
 
         get(child(dbRef,'Justificaciones/')).then((snapshot)=>{
             if (snapshot.exists()) {
