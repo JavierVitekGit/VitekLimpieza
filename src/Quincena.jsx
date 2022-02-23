@@ -4,6 +4,7 @@ import {get, getDatabase,ref,child,update} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import SideBar from './Sidebar.jsx'
+import InfiniteCalendar from 'react-infinite-calendar';
 import './Firebase init'
 import './Quincena.css'
 
@@ -15,6 +16,15 @@ const Quincena = (quincena) => {
     function mostrarReporte () {
         setShow(false)
     }
+
+
+// I N F I N I T E   C A L E N D A R
+
+var today = new Date();
+
+
+var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 15);
+    formatRelative(subDays(new Date(), 3), new Date(), { locale: es })
 
 // A R R A Y S
     const trySnapshot = [];
@@ -177,9 +187,17 @@ const Quincena = (quincena) => {
 
         { show?
 
-        
-
         <div classname="white">
+            
+            <InfiniteCalendar
+             Component={withRange(Calendar)}
+             selected={{
+                 start: today,
+                 end: nextWeek
+             }}
+            />
+
+
             <input type="button" value="Obtener" onClick={checking}></input>
         </div>
 
