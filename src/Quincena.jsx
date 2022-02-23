@@ -208,6 +208,9 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
                 end: new Date(2022, 3, 12)
             }}
             onSelect={setInfinite}
+            displayOptions={{
+                showHeader: false
+            }}
             />
 
             <br/>
