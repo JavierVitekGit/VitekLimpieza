@@ -130,6 +130,8 @@ const Quincena = (quincena) => {
         })
     
 
+        justificaciones.push({fecha:date})
+
 
         console.log("ccSnapshot::",ccSnapshotArr)
         console.log("cccSnapshot%%",cccSnapshotArr)
