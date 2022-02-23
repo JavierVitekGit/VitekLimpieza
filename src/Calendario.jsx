@@ -491,7 +491,7 @@ mostrar?
     <br/>
 
 <InfiniteCalendar className="Cal"  
-width={50%}
+width={600}
 height={250}
 selected={false}
 minDate={lastWeek}
