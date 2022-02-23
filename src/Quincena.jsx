@@ -30,6 +30,7 @@ const Quincena = (quincena) => {
 
 const [infinite,setInfinite] = useState ([])
 
+const [selectedDates,setSelectedDates] = useState('')
 
 console.log("Infinite:::",infinite)
 
@@ -39,7 +40,7 @@ var today = new Date();
 var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 15);
 
 
-onCalendarSelect = (e) => {
+function onCalendarSelect  (e)  {
     if (e.eventType === 3) {
         this.setState({ selectedDates: {
             start: e.start,
