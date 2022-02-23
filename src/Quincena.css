@@ -37,3 +37,9 @@
     color: white;
     text-align: center;
 }
+
+#justTable{
+    overflow: scroll;
+    width: 80%;
+    height: auto;
+}
