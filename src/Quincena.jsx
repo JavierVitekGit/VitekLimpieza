@@ -197,6 +197,8 @@ var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() +
              }}
             />
 
+            <br/>
+
 
             <input type="button" value="Obtener" onClick={checking}></input>
         </div>
