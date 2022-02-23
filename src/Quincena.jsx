@@ -4,7 +4,12 @@ import {get, getDatabase,ref,child,update} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import SideBar from './Sidebar.jsx'
-import InfiniteCalendar, {withRange,Calendar} from 'react-infinite-calendar';
+// import InfiniteCalendar, {withRange,Calendar} from 'react-infinite-calendar';
+import InfiniteCalendar, {
+    Calendar,
+    defaultMultipleDateInterpolation,
+    withMultipleDates,
+  } from 'react-infinite-calendar';
 import 'react-infinite-calendar/styles.css';
 import { formatRelative, subDays} from 'date-fns'
 import {es} from 'date-fns/locale'
@@ -201,13 +206,22 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
 
         <div classname="white">
             
-            <InfiniteCalendar
+            {/* <InfiniteCalendar
             Component={withRange(Calendar)}
             selected={false}
             // selected={{
             //     start: new Date(2022, 2, 25),
             //     end: new Date(2022, 3, 12)
             // }}
+            displayOptions={{
+                showHeader: false
+            }}
+            /> */}
+
+            <InfiniteCalendar
+            Component={withMultipleDates(Calendar)}
+            interpolateSelection={defaultMultipleDateInterpolation}
+            selected={false}
             displayOptions={{
                 showHeader: false
             }}
