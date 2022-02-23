@@ -33,6 +33,8 @@ const Quincena = (quincena) => {
 
     const [date,setDate] = useState([]);
 
+
+    console.log("FECHAA::",date)
     // F I R E B A S E
 
     const dbRef = ref(getDatabase());
