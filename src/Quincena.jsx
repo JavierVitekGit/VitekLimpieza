@@ -206,7 +206,10 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
             width={(window.innerWidth <= 650) ? window.innerWidth : 650}
             height={window.innerHeight - 250}
             rowHeight={70}
-             selected={true}
+             selected={{
+                 start: new Date(),
+                 end: new Date()
+             }}
              displayOptions={{
                  showHeader: false
              }}
