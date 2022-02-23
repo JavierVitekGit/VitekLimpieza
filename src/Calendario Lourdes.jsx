@@ -421,7 +421,7 @@ function writeJustiData(event) {
     a.suplencia = (a.suplencia== undefined || a.suplencia==null || a.suplencia == "")? "no se cubrio":a.suplencia
   })
 
-  update(ref(dbRef,'Justificaciones/' + dia + "-" + mes + "-" + año + "/" + selClient),{
+  update(ref(getDatabase(),'Justificaciones/' + dia + "-" + mes + "-" + año + "/" + selClient),{
     Datos:arrayJusti
   })
 
