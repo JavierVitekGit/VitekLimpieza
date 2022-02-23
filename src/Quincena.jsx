@@ -120,13 +120,13 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
                                     if (validateOne == validateTwo && state != null) {
                                         // date.push(key)
                                         justificaciones.push({
-                                            fecha:key,
-                                            clienteC:validateTwo,
-                                            name:nombr,
-                                            hr:turn,
-                                            estado:incidenci,
-                                            justi:just,
-                                            suplencia:sup})
+                                            Fecha:key,
+                                            Cliente:validateTwo,
+                                            Nombre:nombr,
+                                            Turno:turn,
+                                            Estado:incidenci,
+                                            Justificacion:just,
+                                            Suplencia:sup})
                                     }
 
                                     // if (state != null) {
@@ -250,25 +250,25 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
 
                         <tr>
                             <td>
-                                {item.fecha}
+                                {item.Fecha}
                             </td>
 
                             <td>
-                                {item.clienteC}
+                                {item.Cliente}
                             </td>
                             <td>
-                                {item.name}
+                                {item.Nombre}
                             </td>
                             <td>
-                                {item.hr}
+                                {item.Turno}
                             </td>
                             <td>
-                                {item.estado}
+                                {item.Estado}
                             </td>
                             <td>
-                                {item.justi}
+                                {item.Justificacion}
                             </td>
-                            <td>{item.suplencia}</td>
+                            <td>{item.Suplencia}</td>
                         </tr>
 
                     )
