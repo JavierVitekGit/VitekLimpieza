@@ -91,13 +91,15 @@ const Quincena = (quincena) => {
 
                                     var validateTwo = cccSnapshot.child("clienteC").val()
 
-                                    if (validateOne == validateTwo) {
-                                        date.push(key)
-                                    }
+                                    
     
                                     var state = cccSnapshot.child("estado").val()
     
     
+                                    if (validateOne == validateTwo && state != null) {
+                                        date.push(key)
+                                    }
+
                                     if (state != null) {
                                         justificaciones.push(cccSnapshot.val())
     
