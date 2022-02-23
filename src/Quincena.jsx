@@ -30,7 +30,6 @@ const Quincena = (quincena) => {
 
 const [infinite,setInfinite] = useState ([])
 
-const [selectedDates,setSelectedDates] = useState('')
 
 console.log("Infinite:::",infinite)
 
@@ -38,16 +37,6 @@ var today = new Date();
 
 
 var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 15);
-
-
-function onCalendarSelect  (e)  {
-    if (e.eventType === 3) {
-        this.setState({ selectedDates: {
-            start: e.start,
-            end: e.end,
-        } });
-    }
-}
 
 // A R R A Y S
     const trySnapshot = [];
@@ -214,10 +203,10 @@ function onCalendarSelect  (e)  {
             
             <InfiniteCalendar
             Component={withRange(Calendar)}
-            selected={
-                this.state.selectedDates
-            }
-            onSelect={this.onCalendarSelect}
+            selected={{
+                start: new Date(2022, 2, 25),
+                end: new Date(2022, 3, 12)
+            }}
             displayOptions={{
                 showHeader: false
             }}
