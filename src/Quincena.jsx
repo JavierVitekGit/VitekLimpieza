@@ -203,7 +203,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
             
             <InfiniteCalendar
             Component={withRange(Calendar)}
-            width={(window.innerWidth <= 600) ? window.innerWidth : 600}
+            width={(window.innerWidth <= 650) ? window.innerWidth : 650}
             height={window.innerHeight - 250}
             rowHeight={70}
              selected={true}
