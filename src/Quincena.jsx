@@ -97,7 +97,7 @@ const Quincena = (quincena) => {
     
     
                                     if (validateOne == validateTwo && state != null) {
-                                        date.push(key)
+                                        justificaciones.push(key)
                                     }
 
                                     if (state != null) {
