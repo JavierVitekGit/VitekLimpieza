@@ -56,6 +56,9 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
 
     const dbRef = ref(getDatabase());
 
+    function generateReport() {
+        <CSVDownload data={justificaciones} target="ReporteQuincenal" />
+    }
   
 
     function checking () {
@@ -284,7 +287,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
         </div>
 
 
-        <CSVDownload data={justificaciones} target="_blank" />
+        <input class="btn btn-success" type="submit" value="Generar Reporte" onClick={generateReport}></input>
 
         </div>
        
