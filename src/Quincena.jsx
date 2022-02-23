@@ -4,7 +4,7 @@ import {get, getDatabase,ref,child,update} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import SideBar from './Sidebar.jsx'
-import InfiniteCalendar, {withRange,withMultipleDates,Calendar,defaultMultipleDateInterpolation} from 'react-infinite-calendar';
+import InfiniteCalendar, {withRange,Calendar} from 'react-infinite-calendar';
 import 'react-infinite-calendar/styles.css';
 import { formatRelative, subDays} from 'date-fns'
 import {es} from 'date-fns/locale'
@@ -67,7 +67,6 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
   
 
     function checking () {
-        
 
         get(child(dbRef,'Justificaciones/')).then((snapshot)=>{
             if (snapshot.exists()) {
@@ -202,13 +201,15 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
 
         <div classname="white">
             
-            
             <InfiniteCalendar
-            Component={withMultipleDates(Calendar)}
+            Component={withRange(Calendar)}
             selected={false}
-            interpolateSelection={defaultMultipleDateInterpolation}
+            // selected={{
+            //     start: new Date(2022, 2, 25),
+            //     end: new Date(2022, 3, 12)
+            // }}
             displayOptions={{
-                showHeader:false
+                showHeader: false
             }}
             />
 
