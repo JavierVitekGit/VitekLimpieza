@@ -286,6 +286,8 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
 
         </div>
 
+        <br/>
+
         <CSVLink data={justificaciones} filename={"Reporte Quincenal.csv"} className="btn btn-primary" target="_blank">
             Generar Reporte
         </CSVLink>
