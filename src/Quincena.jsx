@@ -5,6 +5,9 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import SideBar from './Sidebar.jsx'
 import InfiniteCalendar from 'react-infinite-calendar';
+import 'react-infinite-calendar/styles.css';
+import { formatRelative, subDays} from 'date-fns'
+import {es} from 'date-fns/locale'
 import './Firebase init'
 import './Quincena.css'
 
@@ -23,8 +26,7 @@ const Quincena = (quincena) => {
 var today = new Date();
 
 
-var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 15);
-    formatRelative(subDays(new Date(), 3), new Date(), { locale: es })
+var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 15);
 
 // A R R A Y S
     const trySnapshot = [];
