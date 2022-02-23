@@ -81,15 +81,18 @@ const Quincena = (quincena) => {
 
                         cSnapshot.forEach((ccSnapshot)=>{
 
-                            var find = ccSnapshot.child("clienteC").val()
 
-                            console.log("Find$$$::",find)
+                            console.log("ccSnapshot",ccSnapshot.key)
     
                                 ccSnapshot.forEach((cccSnapshot)=>{
                                     
     
     
                                     cccSnapshotArr.push(cccSnapshot.val())
+
+                                    var find = cccSnapshot.child("clienteC").val()
+
+                                    console.log("FIND$$$::",find)
     
                                     var state = cccSnapshot.child("estado").val()
     
