@@ -134,10 +134,8 @@ const Quincena = (quincena) => {
 
         // justificaciones.push({fecha:date})
 
-        justificaciones.forEach((iter)=>{
-            date.forEach((item)=>{
-                justificaciones.push({fecha:item})
-            })
+        justificaciones.forEach((item)=>{
+            justificaciones.push({fecha:date})
         })
 
 
