@@ -164,7 +164,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
 
 
 
-        justificaciones.push({fecha:date})
+
 
         // justificaciones.forEach((item)=>{
         //     justificaciones.push({fecha:date})
