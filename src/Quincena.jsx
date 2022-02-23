@@ -132,11 +132,11 @@ const Quincena = (quincena) => {
 
 
 
-        // justificaciones.push({fecha:date})
+        justificaciones.push({fecha:date})
 
-        justificaciones.forEach((item)=>{
-            justificaciones.push({fecha:date})
-        })
+        // justificaciones.forEach((item)=>{
+        //     justificaciones.push({fecha:date})
+        // })
 
 
         console.log("ccSnapshot::",ccSnapshotArr)
@@ -187,7 +187,7 @@ const Quincena = (quincena) => {
             <table class="table table-striped" id="justTable">
                 <thead class="table-dark">
                     <tr>
-                        {/* <th scope="col" ></th> */}
+                        <th scope="col">Fecha</th>
                         <th scope="col">Cliente/Ubicación</th>
                         <th scope="col">Nombre del Operador</th>
                         <th scope="col">Turno</th>
@@ -207,6 +207,10 @@ const Quincena = (quincena) => {
                     return (
 
                         <tr>
+                            <td>
+                                {item.fecha}
+                            </td>
+
                             <td>
                                 {item.clienteC}
                             </td>
