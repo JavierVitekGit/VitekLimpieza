@@ -287,7 +287,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
         </div>
 
 
-        <input class="btn btn-success" type="submit" value="Generar Reporte" onClick={generateReport}></input>
+        <input class="btn btn-success" type="button" value="Generar Reporte" onClick={<CSVDownload data={justificaciones} target="ReporteQuincenal" />}></input>
 
         </div>
        
