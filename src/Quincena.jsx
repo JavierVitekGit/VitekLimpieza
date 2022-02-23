@@ -187,7 +187,7 @@ const Quincena = (quincena) => {
             <table class="table table-striped" id="justTable">
                 <thead class="table-dark">
                     <tr>
-                        <th scope="col">Fecha</th>
+                        {/* <th scope="col">Fecha</th> */}
                         <th scope="col">Cliente/Ubicación</th>
                         <th scope="col">Nombre del Operador</th>
                         <th scope="col">Turno</th>
@@ -207,9 +207,9 @@ const Quincena = (quincena) => {
                     return (
 
                         <tr>
-                            <td>
+                            {/* <td>
                                 {item.fecha}
-                            </td>
+                            </td> */}
 
                             <td>
                                 {item.clienteC}
