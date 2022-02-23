@@ -28,6 +28,8 @@ const Quincena = (quincena) => {
 
 // I N F I N I T E   C A L E N D A R
 
+const [infinite,setInfinite] = useState ([])
+
 var today = new Date();
 
 
@@ -71,7 +73,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
                     var state = childSnapshot.child("estado").val()
                     var key = childSnapshot.key;
 
-                    console.log("childSnapshot::",key)
+           
 
 
                     var childName = childSnapshot.val()
@@ -91,7 +93,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
 
                         keyName.push(nameKey)
     
-                        console.log("cSnapshot::",cSnapshot.key)    
+                    
     
                         var validateOne = cSnapshot.key
     
@@ -101,7 +103,6 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
                         cSnapshot.forEach((ccSnapshot)=>{
 
 
-                            console.log("ccSnapshot",ccSnapshot.key)
     
                                 ccSnapshot.forEach((cccSnapshot)=>{
                                     
@@ -171,9 +172,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
         // })
 
 
-        console.log("ccSnapshot::",ccSnapshotArr)
-        console.log("cccSnapshot%%",cccSnapshotArr)
-        console.log("Estado$%/#:",stateArray)
+
         console.log("Justificaciones",justificaciones)
         console.log("Fecha",date)
 
@@ -200,6 +199,8 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
         <div classname="white">
             
             <InfiniteCalendar
+            width={(window.innerWidth <= 650) ? window.innerWidth : 650}
+            height={window.innerHeight - 250}
              Component={withRange(Calendar)}
              selected={{
                  start: today,
@@ -208,6 +209,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
              displayOptions={{
                  showHeader: false
              }}
+             onSelect={setInfinite}
             />
 
             <br/>
