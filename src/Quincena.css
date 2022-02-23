@@ -20,6 +20,12 @@
     vertical-align: middle;
 }
 
+.scrollTab{
+    overflow: scroll;
+    width: 80%;
+    height: auto;
+}
+
 .infiniteQuincena{
     margin-top: 5%;
     margin-left: 20%;

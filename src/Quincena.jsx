@@ -249,7 +249,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
             
         
 
-        <div>
+        <div classname="scrollTab">
             <table class="table table-striped" id="justTable">
                 <thead class="table-dark">
                     <tr>
