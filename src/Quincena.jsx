@@ -4,7 +4,7 @@ import {get, getDatabase,ref,child,update} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import SideBar from './Sidebar.jsx'
-import InfiniteCalendar, {withRange,withMultipleDates,Calendar} from 'react-infinite-calendar';
+import InfiniteCalendar, {withRange,withMultipleDates,Calendar,defaultMultipleDateInterpolation} from 'react-infinite-calendar';
 import 'react-infinite-calendar/styles.css';
 import { formatRelative, subDays} from 'date-fns'
 import {es} from 'date-fns/locale'
