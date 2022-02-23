@@ -42,6 +42,10 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
 
     const arrayPersonal = [];
 
+    const comp = [];
+
+    const arrayJusti = [];
+
 
     const trySnapshot = [];
 
@@ -90,6 +94,40 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
     
             }
           })
+
+
+          get(child(dbRef,'Operador/')).then((snapshot)=>{
+            if (snapshot.exists()){
+                snapshot.forEach((childSnapshot)=>{
+  
+                    var sup = childSnapshot.child("Supervisor").val()
+                    var clienteOp = childSnapshot.child("Cliente").val()
+                    var nombreOp = childSnapshot.child("Nombre").val()
+                    var hora = childSnapshot.child("Horario").val()
+                    var est = childSnapshot.child("Estatus").val()
+  
+                    if( est == 1 ) 
+                    comp.push({clienteC:clienteOp,name:nombreOp,hr:hora,estat:est})
+  
+                  
+  
+                })
+  
+              comp.forEach((iter)=> {
+                
+                  arrayJusti.push({clienteC:iter.clienteC,name:iter.name,hr:iter.hr,estatus:iter.estat})
+                  arrayJusti.sort();
+  
+                  console.log("Justi",arrayJusti.length)
+  
+                
+              })
+
+              
+              
+  
+            }
+        })
 
 
 
