@@ -207,6 +207,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
                 start: new Date(2022, 2, 25),
                 end: new Date(2022, 3, 12)
             }}
+            onSelect={setInfinite}
             />
 
             <br/>
