@@ -39,14 +39,6 @@ var today = new Date();
 var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 15);
 
 // A R R A Y S
-
-    const arrayPersonal = [];
-
-    const comp = [];
-
-    const arrayJusti = [];
-
-
     const trySnapshot = [];
 
     const ccSnapshotArr = [];
@@ -75,62 +67,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
   
 
     function checking () {
-
-        get(child(dbRef,'ClienteUbicacion/' )).then((snapshot) => {
-            if(snapshot.exists()) {
-    
-              snapshot.forEach((childSnapshot)=> {
-                var name = childSnapshot.child("Nombre").val()
-                var personal = childSnapshot.child("Personal").val()
-    
-               
-                  arrayPersonal.push(personal)
-                
-                  console.log("ArrayPersonal",arrayPersonal)
-    
-              })
-    
-         
-    
-            }
-          })
-
-
-          get(child(dbRef,'Operador/')).then((snapshot)=>{
-            if (snapshot.exists()){
-                snapshot.forEach((childSnapshot)=>{
-  
-                    var sup = childSnapshot.child("Supervisor").val()
-                    var clienteOp = childSnapshot.child("Cliente").val()
-                    var nombreOp = childSnapshot.child("Nombre").val()
-                    var hora = childSnapshot.child("Horario").val()
-                    var est = childSnapshot.child("Estatus").val()
-  
-                    if( est == 1 ) 
-                    comp.push({clienteC:clienteOp,name:nombreOp,hr:hora,estat:est})
-  
-                  
-  
-                })
-  
-              comp.forEach((iter)=> {
-                
-                  arrayJusti.push({clienteC:iter.clienteC,name:iter.name,hr:iter.hr,estatus:iter.estat})
-                  arrayJusti.sort();
-  
-                  console.log("Justi",arrayJusti.length)
-  
-                
-              })
-
-              
-              
-  
-            }
-        })
-
-
-
+        
 
         get(child(dbRef,'Justificaciones/')).then((snapshot)=>{
             if (snapshot.exists()) {
@@ -266,7 +203,6 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
         <div classname="white">
             
             <InfiniteCalendar
-            className="infiniteQuincena"
             Component={withRange(Calendar)}
             selected={false}
             // selected={{
