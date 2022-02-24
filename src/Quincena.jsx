@@ -30,6 +30,10 @@ const Quincena = (quincena) => {
         setShow(false)
     }
 
+    function mostrarCalendario() {
+        setShow(true)
+    }
+
 
 // I N F I N I T E   C A L E N D A R
 
@@ -309,11 +313,18 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
 
         <br/>
 
+        <div classname="btnQuincena">
+
         <CSVLink data={justificaciones} filename={"Reporte Quincenal.csv"} className="btn btn-primary" target="_blank">
             Generar Reporte
         </CSVLink>
 
+        <input class="btn btn-primary" type="submit" onClick={mostrarCalendario}></input>
 
+        </div>
+
+
+        
         {/* <input class="btn btn-success" type="button" value="Generar Reporte" onClick={<CSVDownload data={justificaciones} target="ReporteQuincenal" />}></input> */}
 
         </div>
