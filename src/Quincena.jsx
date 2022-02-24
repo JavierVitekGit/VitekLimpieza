@@ -315,11 +315,11 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
 
         <div classname="btnQuincena">
 
-        <CSVLink data={justificaciones} filename={"Reporte Quincenal.csv"} className="btn btn-primary" target="_blank">
+        <CSVLink data={justificaciones} filename={"Reporte Quincenal.csv"} className="btn btn-success" target="_blank">
             Generar Reporte
         </CSVLink>
 
-        <input class="btn btn-primary" type="submit" onClick={mostrarCalendario}></input>
+        <input class="btn btn-primary" type="submit" value="Regresar al Calendario" onClick={mostrarCalendario}></input>
 
         </div>
 
