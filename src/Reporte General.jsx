@@ -40,6 +40,10 @@ const ReporteG = (reporte) => {
             if (snapshot.exists()){
                 snapshot.forEach((childSnapshot)=>{
 
+
+                    
+
+
                     var nm = childSnapshot.child("Nombre").val()
                     var cl = childSnapshot.child("Cliente").val()
                     var fechaI = childSnapshot.child("Fecha_Ingreso").val()
@@ -53,6 +57,22 @@ const ReporteG = (reporte) => {
             
                         return 0;
                       })
+
+
+
+                      get(child(dbRef,'Justificaciones/')).then((jsnapshot)=>{
+                        if (jsnapshot.exists()){
+                            jsnapshot.forEach((jchildSnapshot)=>{
+
+                                console.log("KEY:::",jchildSnapshot.key)
+                                
+                            })
+                        }
+                    })
+
+
+
+
 
                 })
             }
