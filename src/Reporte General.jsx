@@ -11,7 +11,7 @@ import {es} from 'date-fns/locale'
 import './Firebase init'
 import './Reporte General.css'
 
-const reporteG = (reporte) => {
+const ReporteG = (reporte) => {
 
 
     const [show,setShow] = useState([]);
@@ -31,6 +31,8 @@ const reporteG = (reporte) => {
 
 
 return (
+
+
     <div className="bodyReportGB">
 
        {show? 
@@ -75,4 +77,4 @@ return (
 
 }
 
-export default reporteG;
+export default ReporteG;
