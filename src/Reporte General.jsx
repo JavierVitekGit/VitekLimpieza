@@ -41,7 +41,7 @@ return (
 
     
 
-        <h1>Reporte General</h1>
+        <h1>Calendario General</h1>
 
 
        
