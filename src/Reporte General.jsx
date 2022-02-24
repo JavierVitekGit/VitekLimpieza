@@ -39,7 +39,7 @@ const ReporteG = (reporte) => {
 
                     var nm = childSnapshot.child("Nombre").val()
                     var cl = childSnapshot.child("Cliente").val()
-                    var fechaI = childSnapshot.child("Fecha_Inicio").val()
+                    var fechaI = childSnapshot.child("Fecha_Ingreso").val()
                     var fechaB = childSnapshot.child("Fecha_Baja").val()
 
                     datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB})
@@ -86,7 +86,7 @@ return (
 
         <div className="tabReportGB">
 
-         <div>    <h1>Reporte General</h1> </div>
+         <div className="reporteGH"> <h1>Reporte General</h1> </div>
 
         <div className="scrollR">
             <table class="table table-striped">
