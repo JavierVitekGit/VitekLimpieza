@@ -345,6 +345,12 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
                                 {item.Justificacion}
                             </td>
                             <td>{item.Suplencia}</td>
+                            <td>
+                                {fechaT.map((item)=>{item.Ingreso})}
+                            </td>
+                            <td>
+                                {fechaT.map((item)=>{item.Baja})}
+                            </td>
                         </tr>
 
                     )
