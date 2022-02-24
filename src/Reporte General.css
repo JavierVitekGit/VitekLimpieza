@@ -23,3 +23,11 @@
     text-align: center;
     overflow: scroll;
 }
+
+.bodyReportGB table{
+    width: 80%;
+    margin: auto;
+    overflow: scroll;
+    vertical-align: middle;
+    height: auto;
+}
