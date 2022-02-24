@@ -34,6 +34,22 @@ const QuincenaTest = (quincena) => {
         setShow(true)
     }
 
+// F I L T R O  T A B L A 
+
+const [search,setNewSearch] = useState("");
+
+const handleSearchChange = (e) => {
+  setNewSearch(e.target.value);
+};
+
+const filtered = !search
+?justificaciones
+:justificaciones.filter((client) =>
+client.Cliente.toLowerCase().includes(search.toLowerCase()) || client.Nombre.toLowerCase().includes(search.toLowerCase())
+);
+
+
+
 
 // I N F I N I T E   C A L E N D A R
 
@@ -305,6 +321,9 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
         
 
         <div classname="scrollTab">
+
+            <input type="text" onChange={handleSearchChange}></input>
+
             <table class="table table-striped" id="justTable">
                 <thead class="table-dark">
                     <tr>
@@ -324,7 +343,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
 
             <tbody>
 
-                {justificaciones.map((item)=>
+                {filtered.map((item)=>
                 {
 
                     return (
