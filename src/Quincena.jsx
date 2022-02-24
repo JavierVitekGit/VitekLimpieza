@@ -214,7 +214,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
                 <h1>Calendario de Reporte Quincenal</h1>
             </div>
             
-            <div classname="divCalQuin"> 
+            <div className="divCalQuin"> 
 
             <InfiniteCalendar
             Component={withRange(Calendar)}
@@ -237,10 +237,10 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
             }}
             /> */}
 
-            <br/>
+            
 
             </div>
-
+            <br/>
 
             <input type="button" value="Obtener" onClick={checking}></input>
         </div>
