@@ -76,8 +76,6 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
 
 
 
-    console.log("BAJA && INGRESO:::", fechas)
-
     // F I R E B A S E
 
     const dbRef = ref(getDatabase());
@@ -207,6 +205,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
 
                         if(item.Nombre == iter.Nombre) {
                             fechaT.push({Ingreso:iter.Ingreso,Baja:iter.Baja})
+                            justificaciones.push({Ingreso:iter.Ingreso,Baja:iter.Baja})
                         }
 
                     })
@@ -345,12 +344,8 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
                                 {item.Justificacion}
                             </td>
                             <td>{item.Suplencia}</td>
-                            <td>
-                                {fechaT.map((item)=>{item.Ingreso})}
-                            </td>
-                            <td>
-                                {fechaT.map((item)=>{item.Baja})}
-                            </td>
+                    
+
                         </tr>
 
                     )
