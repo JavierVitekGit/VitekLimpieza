@@ -28,6 +28,9 @@ const ReporteG = (reporte) => {
     const [datos,setDatos] = useState([]);
 
 
+    const [alpha,setAlpha] = useState([]);
+
+
     const dbRef = ref(getDatabase());
 
 
@@ -49,7 +52,7 @@ const ReporteG = (reporte) => {
         })
 
 
-        var alpha =  datos.sort((a,b) => {
+         alpha =  datos.sort((a,b) => {
             if (a.Cliente < b.Cliente) return -1;
             if (a.Cliente > b.Cliente) return 1
 
@@ -131,7 +134,7 @@ return (
 
                 <tbody>
                     {
-                        datos.map((item)=>{
+                        alpha.map((item)=>{
                             return(
                                 <tr>
                                     <td>
