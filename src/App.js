@@ -51,6 +51,9 @@ import TurnoF from "./Turno Fatima";
 import CalendarioF from "./Calendario Fatima";
 import Quincena from './Quincena';
 
+
+import QuincenaTest from './QuincenaPrueba';
+
 const App = (app) => {
 
   
@@ -126,6 +129,8 @@ const App = (app) => {
       <Route path="/Calendario%20F" element={<CalendarioF/>}/> 
 
       <Route path="/Quincena" element={<Quincena/>}/> 
+
+      <Route path="/Test" element={<QuincenaTest/>}/>
 
 
       </Routes>
