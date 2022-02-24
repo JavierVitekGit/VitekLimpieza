@@ -49,6 +49,36 @@ const ReporteG = (reporte) => {
         })
 
 
+        var alpha =  datos.sort((a,b) => {
+            if (a.Cliente < b.Cliente) return -1;
+            if (a.Cliente > b.Cliente) return 1
+
+            return 0;
+          })
+
+
+
+
+
+        // var mapped = datos.map(function(el,i){
+        //     return {index:i,value: el.toLowerCase()};
+
+        // })
+
+        // mapped.sort(function(a,b){
+        //     if (a.value > b.value) {
+        //         return 1;
+        //     }
+
+        //     if (a.value < b.value) {
+        //         return -1;
+        //     }
+
+        //     return 0;
+
+
+        // })
+
 
         setTimeout(()=>{
             mostrarReporte();
