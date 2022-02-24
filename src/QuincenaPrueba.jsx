@@ -36,17 +36,6 @@ const QuincenaTest = (quincena) => {
 
 // F I L T R O  T A B L A 
 
-const [search,setNewSearch] = useState("");
-
-const handleSearchChange = (e) => {
-  setNewSearch(e.target.value);
-};
-
-const filtered = !search
-?justificaciones
-:justificaciones.filter((client) =>
-client.Cliente.toLowerCase().includes(search.toLowerCase()) || client.Nombre.toLowerCase().includes(search.toLowerCase())
-);
 
 
 
@@ -257,11 +246,27 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
         setTimeout(()=>{
             mostrarReporte();
         },1500);
-
+        
 
 
     }
 
+
+    const [search,setNewSearch] = useState("");
+
+        const handleSearchChange = (e) => {
+          setNewSearch(e.target.value);
+        };
+        
+        const filtered = !search
+        ?justificaciones
+        :justificaciones.filter((client) =>
+        client.Cliente.toLowerCase().includes(search.toLowerCase()) || client.Nombre.toLowerCase().includes(search.toLowerCase())
+        );
+
+
+
+        
 
     return(
 
