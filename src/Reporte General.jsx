@@ -49,7 +49,7 @@ const ReporteG = (reporte) => {
         })
 
 
-        var alpha =  datos.sort((a,b) => {
+         datos.sort((a,b) => {
             if (a.Cliente < b.Cliente) return -1;
             if (a.Cliente > b.Cliente) return 1
 
