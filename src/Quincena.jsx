@@ -62,11 +62,14 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
     const [fechas,setFechas] = useState([]);
 
 
-    const [fechaT,setFechaT] = useState([]);
+    const [bajaT,setBajaT] = useState([]);
+
+    const [ingresoT,setIngresoT] = useState([]);
 
 
-    console.log("FechaTable",fechaT)
-
+    console.log("IngresoT",ingresoT)
+    console.log("BajaT",bajaT)
+   
 
     const [keyName,setKeyName] = useState ([]);
 
@@ -97,7 +100,18 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
                 })
 
 
-                
+                justificaciones.forEach((item)=>{
+
+                    fechas.forEach((iter)=>{
+
+                        if(item.Nombre == iter.Nombre) {
+                            bajaT.push(iter.Baja)
+                            IngresoT.push(iter.Ingreso)
+                        }
+
+                    })
+
+                })
 
 
 
@@ -160,53 +174,25 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
 
     
                                     var state = cccSnapshot.child("estado").val()
-
-
-                                    
     
     
-                                    // if (validateOne == validateTwo && state != null) {
-                                    //     // date.push(key)
-                                    //     justificaciones.push({
-                                    //         Fecha:key,
-                                    //         Cliente:validateTwo,
-                                    //         Nombre:nombr,
-                                    //         Turno:turn,
-                                    //         Estado:incidenci,
-                                    //         Justificacion:just,
-                                    //         Suplencia:sup})
-                                    // }
+                                    if (validateOne == validateTwo && state != null) {
+                                        // date.push(key)
+                                        justificaciones.push({
+                                            Fecha:key,
+                                            Cliente:validateTwo,
+                                            Nombre:nombr,
+                                            Turno:turn,
+                                            Estado:incidenci,
+                                            Justificacion:just,
+                                            Suplencia:sup})
+                                    }
 
                                     // if (state != null) {
                                     //     justificaciones.push(cccSnapshot.val())
     
                                     // }
     
-
-                                    justificaciones.forEach((item)=>{
-
-                                        fechas.forEach((iter)=>{
-                    
-                                            if(item.Nombre == iter.Nombre && validateOne == validateTwo && state != null) {
-                                                justificaciones.push({
-                                                    Fecha:key,
-                                                    Cliente:validateTwo,
-                                                    Nombre:nombr,
-                                                    Turno:turn,
-                                                    Estado:incidenci,
-                                                    Justificacion:just,
-                                                    Suplencia:sup,
-                                                    Ingreso:iter.Ingreso,
-                                                    Baja:iter.Baja})
-                                                
-                    
-                                            }
-                    
-                                        })
-                    
-                                    })
-
-
                                     stateArray.push(state)
     
                                 })
@@ -362,6 +348,12 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
                             </td>
                             <td>{item.Suplencia}</td>
                     
+                            <td>
+                                {ingresoT}
+                            </td>
+                            <td>
+                                {bajaT}
+                            </td>
 
                         </tr>
 
