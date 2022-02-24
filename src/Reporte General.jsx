@@ -28,7 +28,7 @@ const ReporteG = (reporte) => {
     const [datos,setDatos] = useState([]);
 
 
-    const [alpha,setAlpha] = useState([]);
+    
 
 
     const dbRef = ref(getDatabase());
@@ -46,13 +46,15 @@ const ReporteG = (reporte) => {
                     var fechaB = childSnapshot.child("Fecha_Baja").val()
 
                     datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB})
+                    
+                    datos.sort()
 
                 })
             }
         })
 
 
-         alpha =  datos.sort((a,b) => {
+        var alpha =  datos.sort((a,b) => {
             if (a.Cliente < b.Cliente) return -1;
             if (a.Cliente > b.Cliente) return 1
 
@@ -134,7 +136,7 @@ return (
 
                 <tbody>
                     {
-                        alpha.map((item)=>{
+                        datos.map((item)=>{
                             return(
                                 <tr>
                                     <td>
