@@ -106,7 +106,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
 
                         if(item.Nombre == iter.Nombre) {
                             bajaT.push(iter.Baja)
-                            IngresoT.push(iter.Ingreso)
+                            ingresoT.push(iter.Ingreso)
                         }
 
                     })
