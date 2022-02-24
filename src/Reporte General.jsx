@@ -49,6 +49,12 @@ const ReporteG = (reporte) => {
         })
 
 
+
+        setTimeout(()=>{
+            mostrarReporte();
+        },1000)
+
+
     }
 
 
@@ -70,7 +76,7 @@ return (
 
 
        
-        <input type="button" value="Change" onClick={mostrarReporte} />
+        <input type="button" value="Change" onClick={obtener} />
 
 
 
