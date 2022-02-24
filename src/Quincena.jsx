@@ -87,34 +87,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
     function checking () {
 
 
-        get(child(dbRef,'Operador/')).then((snapshot)=>{
-            if (snapshot.exists()) {
-                snapshot.forEach((childSnapshot)=>{
-                    var name = childSnapshot.child("Nombre").val()
-                    var fechaI = childSnapshot.child("Fecha_Ingreso").val()
-                    var fechaB = childSnapshot.child("Fecha_Baja").val()
 
-                    fechas.push({Ingreso:fechaI,Baja:fechaB,Nombre:name})
-
-                })
-
-
-                justificaciones.forEach((item)=>{
-
-                    fechas.forEach((iter)=>{
-
-                        if(item.Nombre == iter.Nombre) {
-                            fechaT.push({Ingreso:iter.Ingreso,Baja:iter.Baja})
-                        }
-
-                    })
-
-                })
-
-
-
-            }
-        })
 
 
 
@@ -214,8 +187,36 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
                 })
             }
         })
+        
     
+        get(child(dbRef,'Operador/')).then((snapshot)=>{
+            if (snapshot.exists()) {
+                snapshot.forEach((childSnapshot)=>{
+                    var name = childSnapshot.child("Nombre").val()
+                    var fechaI = childSnapshot.child("Fecha_Ingreso").val()
+                    var fechaB = childSnapshot.child("Fecha_Baja").val()
 
+                    fechas.push({Ingreso:fechaI,Baja:fechaB,Nombre:name})
+
+                })
+
+
+                justificaciones.forEach((item)=>{
+
+                    fechas.forEach((iter)=>{
+
+                        if(item.Nombre == iter.Nombre) {
+                            fechaT.push({Ingreso:iter.Ingreso,Baja:iter.Baja})
+                        }
+
+                    })
+
+                })
+
+
+
+            }
+        })
 
 
 
