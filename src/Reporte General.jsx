@@ -47,7 +47,12 @@ const ReporteG = (reporte) => {
 
                     datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB})
                     
-                    datos.sort()
+                    datos.sort((a,b) => {
+                        if (a.Cliente < b.Cliente) return -1;
+                        if (a.Cliente > b.Cliente) return 1
+            
+                        return 0;
+                      })
 
                 })
             }
