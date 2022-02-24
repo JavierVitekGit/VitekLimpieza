@@ -28,7 +28,7 @@ const ReporteG = (reporte) => {
     const [datos,setDatos] = useState([]);
 
 
-    
+    console.log("DATOS:::",datos)
 
 
     const dbRef = ref(getDatabase());
@@ -49,7 +49,7 @@ const ReporteG = (reporte) => {
                     var fechaI = childSnapshot.child("Fecha_Ingreso").val()
                     var fechaB = childSnapshot.child("Fecha_Baja").val()
 
-                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB})
+                    // datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB})
                     
                     datos.sort((a,b) => {
                         if (a.Cliente < b.Cliente) return -1;
@@ -61,15 +61,92 @@ const ReporteG = (reporte) => {
 
 
                       get(child(dbRef,'Justificaciones/')).then((jsnapshot)=>{
-                        if (jsnapshot.exists()){
+                        if (jsnapshot.exists()) {
                             jsnapshot.forEach((jchildSnapshot)=>{
-
-                                console.log("KEY:::",jchildSnapshot.key)
+            
+            
+                                var state = jchildSnapshot.child("estado").val()
+                                var key = jchildSnapshot.key;
+            
+                       
+            
+            
+                        
+                
+                                jchildSnapshot.forEach((cSnapshot)=>{
+            
+                                    var nameKey = cSnapshot.key
+            
+                               
+                
                                 
+                
+                                    var validateOne = cSnapshot.key
+                
+                            
+            
+            
+                                    cSnapshot.forEach((ccSnapshot)=>{
+            
+            
+                
+                                            ccSnapshot.forEach((cccSnapshot)=>{
+                                                
+                
+                
+                                              
+            
+                                                var validateTwo = cccSnapshot.child("clienteC").val()
+                                                var nombr = cccSnapshot.child("name").val()
+                                                var turn = cccSnapshot.child("hr").val()
+                                                var incidenci = cccSnapshot.child("estado").val()
+                                                var just = cccSnapshot.child("justi").val()
+                                                var sup = cccSnapshot.child("suplencia").val()
+            
+                
+                                                var state = cccSnapshot.child("estado").val()
+                
+                
+                                                if (cl == validateTwo && nm == nombr && state != null) {
+                                                    // date.push(key)
+                                                    datos.push({
+                                                        Cliente:cl,
+                                                        Nombre:nm,
+                                                        Ingreso:fechaI,
+                                                        Baja:fechaB,
+                                                        Razon:incidenci,
+                                                        Justificacion:just,
+                                                        Suplencia:sup})
+                                                }
+            
+                                                // if (state != null) {
+                                                //     justificaciones.push(cccSnapshot.val())
+                
+                                                // }
+                
+                                            
+                
+                                            })
+                
+                                            
+                
+                                        var state = ccSnapshot.child("estado").val()
+                
+                   
+                
+                        
+                
+                                        
+                
+                                    })
+                
+                                })
+                
+                               
+                
                             })
                         }
                     })
-
 
 
 
