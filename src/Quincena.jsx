@@ -61,14 +61,20 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
 
     const [fechas,setFechas] = useState([]);
 
+
+    const [fechaT,setFechaT] = useState([]);
+
+
+    console.log("FechaTable",fechaT)
+
+
     const [keyName,setKeyName] = useState ([]);
 
-    console.log("KeyName",keyName)
 
     const [date,setDate] = useState([]);
 
 
-    console.log("FECHAA::",date)
+
 
     console.log("BAJA && INGRESO:::", fechas)
 
@@ -84,16 +90,26 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
         get(child(dbRef,'Operador/')).then((snapshot)=>{
             if (snapshot.exists()) {
                 snapshot.forEach((childSnapshot)=>{
-
+                    var name = childSnapshot.child("Nombre").val()
                     var fechaI = childSnapshot.child("Fecha_Ingreso").val()
                     var fechaB = childSnapshot.child("Fecha_Baja").val()
 
-                    fechas.push({Ingreso:fechaI,Baja:fechaB})
+                    fechas.push({Ingreso:fechaI,Baja:fechaB,Nombre:name})
 
                 })
 
 
+                justificaciones.forEach((item)=>{
 
+                    fechas.forEach((iter)=>{
+
+                        if(item.Nombre == iter.Nombre) {
+                            fechaT.push({Ingreso:iter.Ingreso,Baja:iter.Baja})
+                        }
+
+                    })
+
+                })
 
 
 
