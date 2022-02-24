@@ -58,6 +58,9 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
 
     const [justificaciones,setJustificaciones] = useState ([]);
 
+
+    const [fechas,setFechas] = useState([]);
+
     const [keyName,setKeyName] = useState ([]);
 
     console.log("KeyName",keyName)
@@ -66,16 +69,38 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
 
 
     console.log("FECHAA::",date)
+
+    console.log("BAJA && INGRESO:::", fechas)
+
     // F I R E B A S E
 
     const dbRef = ref(getDatabase());
 
-    function generateReport() {
-        <CSVDownload data={justificaciones} target="ReporteQuincenal" />
-    }
-  
+
 
     function checking () {
+
+
+        get(child(dbRef,'Operador/')).then((snapshot)=>{
+            if (snapshot.exists()) {
+                snapshot.forEach((childSnapshot)=>{
+
+                    var fechaI = childSnapshot.child("Fecha_Ingreso").val()
+                    var fechaB = childSnapshot.child("Fecha_Baja").val()
+
+                    fechas.push({Ingreso:fechaI,Baja:fechaB})
+
+                })
+
+
+
+
+
+
+            }
+        })
+
+
 
         get(child(dbRef,'Justificaciones/')).then((snapshot)=>{
             if (snapshot.exists()) {
