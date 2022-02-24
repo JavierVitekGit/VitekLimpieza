@@ -14,14 +14,58 @@ import './Firebase init'
 const reporteG = (reporte) => {
 
 
+    const [show,setShow] = useState([])
+
+    function mostrarReporte () {
+        setShow(false)
+    }
+
+    function mostrarCalendario() {
+        setShow(true)
+    }
+
+
 
 
 
 
 
 return (
-    <div>
+    <div className="bodyReportGB">
+
+       {show? 
+       
+        <div className="reportGB">
+
+    
+
         <h1>Reporte General</h1>
+
+
+       
+        <input type="button" value="Change" onClick={mostrarReporte} />
+
+
+
+        </div>
+
+: 
+
+        <div className="tabReportGB">
+
+            <h1>Reporte General</h1>
+
+
+
+        <input type="button" value="Regresar" onClick={mostrarCalendario} />
+
+
+        </div>
+
+
+
+}
+
     </div>
 )
 
