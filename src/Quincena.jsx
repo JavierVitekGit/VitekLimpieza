@@ -211,7 +211,7 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
                             bajaT.push(iter.Baja)
                             ingresoT.push(iter.Ingreso)
 
-                            justificaciones.push(iter.Baja,iter.Ingreso)
+                            justificaciones.push({Baja:iter.Baja,Ingreso:iter.Ingreso})
 
                         }
 
