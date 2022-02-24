@@ -25,6 +25,31 @@ const ReporteG = (reporte) => {
     }
 
 
+    const [datos,setDatos] = useState([]);
+
+
+    const dbRef = ref(getDatabase());
+
+
+    function obtener () {
+
+        get(child(dbRef,'Operador/')).then((snapshot)=>{
+            if (snapshot.exists()){
+                snapshot.forEach((childSnapshot)=>{
+
+                    var nm = childSnapshot.child("Nombre").val()
+                    var cl = childSnapshot.child("Cliente").val()
+                    var fechaI = childSnapshot.child("Fecha_Inicio").val()
+                    var fechaB = childSnapshot.child("Fecha_Baja").val()
+
+                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB})
+
+                })
+            }
+        })
+
+
+    }
 
 
 
@@ -41,7 +66,7 @@ return (
 
     
 
-        <h1>Calendario General</h1>
+        <div>    <h1>Calendario General</h1> </div>
 
 
        
@@ -55,9 +80,46 @@ return (
 
         <div className="tabReportGB">
 
-            <h1>Reporte General</h1>
+         <div>    <h1>Reporte General</h1> </div>
 
+        <div className="scrollR">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Cliente/Ubicación</th>
+                        <th scope="col">Nombre del Operador</th>
+                        <th scope="col">Ingreso</th>
+                        <th scope="col">Baja</th>
+                    </tr>
+                </thead>
 
+                <tbody>
+                    {
+                        datos.map((item)=>{
+                            return(
+                                <tr>
+                                    <td>
+                                        {item.Cliente}
+                                    </td>
+
+                                    <td>
+                                        {item.Nombre}
+                                    </td>
+
+                                    <td>
+                                        {item.Ingreso}
+                                    </td>
+
+                                    <td>
+                                        {item.Baja}
+                                    </td>
+                                </tr>
+                            )
+                        })
+                    }
+                </tbody>
+            </table>
+        </div>
 
         <input type="button" value="Regresar" onClick={mostrarCalendario} />
 
