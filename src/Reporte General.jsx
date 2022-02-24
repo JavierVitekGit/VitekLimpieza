@@ -49,7 +49,7 @@ const ReporteG = (reporte) => {
                     var fechaI = childSnapshot.child("Fecha_Ingreso").val()
                     var fechaB = childSnapshot.child("Fecha_Baja").val()
 
-                    // datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB})
+                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB})
                     
                     datos.sort((a,b) => {
                         if (a.Cliente < b.Cliente) return -1;
@@ -107,17 +107,17 @@ const ReporteG = (reporte) => {
                                                 var state = cccSnapshot.child("estado").val()
                 
                 
-                                                if (cl == validateTwo && nm == nombr && state != null) {
-                                                    // date.push(key)
-                                                    datos.push({
-                                                        Cliente:cl,
-                                                        Nombre:nm,
-                                                        Ingreso:fechaI,
-                                                        Baja:fechaB,
-                                                        Razon:incidenci,
-                                                        Justificacion:just,
-                                                        Suplencia:sup})
-                                                }
+                                                // if (cl == validateTwo && nm == nombr && state != null) {
+                                                //     // date.push(key)
+                                                //     datos.push({
+                                                //         Cliente:cl,
+                                                //         Nombre:nm,
+                                                //         Ingreso:fechaI,
+                                                //         Baja:fechaB,
+                                                //         Razon:incidenci,
+                                                //         Justificacion:just,
+                                                //         Suplencia:sup})
+                                                // }
             
                                                 // if (state != null) {
                                                 //     justificaciones.push(cccSnapshot.val())
@@ -233,6 +233,16 @@ return (
                         <th scope="col">Nombre del Operador</th>
                         <th scope="col">Ingreso</th>
                         <th scope="col">Baja</th>
+                        <th scope="col">16</th>
+                        <th scope="col">17</th>
+                        <th scope="col">18</th>
+                        <th scope="col">19</th>
+                        <th scope="col">20</th>
+                        <th scope="col">21</th>
+                        <th scope="col">22</th>
+                        <th scope="col">23</th>
+                        <th scope="col">24</th>
+                        <th scope="col">25</th>
                     </tr>
                 </thead>
 
