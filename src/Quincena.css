@@ -44,3 +44,8 @@
     width: 80%;
     height: auto;
 }
+
+.btnQuincena{
+    margin-left: 2%;
+    display: inline;
+}
