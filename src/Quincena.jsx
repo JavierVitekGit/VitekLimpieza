@@ -268,6 +268,8 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
                         <th scope="col">Incidencia</th>
                         <th scope="col">Justificacion</th>
                         <th scope="col">Suplencia</th>
+                        <th scope="col">Fecha Ingreso</th>
+                        <th scope="col">Fecha de Baja</th>
 
 
                     </tr>
