@@ -52,6 +52,12 @@ function comprobar() {
       showLogin()
     }
 
+    if (usuario == "rg" && password == "1234") {
+      history("/ReporteG")
+    } else {
+      showLogin()
+    }
+
 
   
     if(usuario=="Admin" && password=="asdq23" ) {
