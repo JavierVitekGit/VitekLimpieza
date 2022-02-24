@@ -9,12 +9,12 @@ import 'react-infinite-calendar/styles.css';
 import { formatRelative, subDays} from 'date-fns'
 import {es} from 'date-fns/locale'
 import './Firebase init'
-
+import './Reporte General.css'
 
 const reporteG = (reporte) => {
 
 
-    const [show,setShow] = useState([])
+    const [show,setShow] = useState([]);
 
     function mostrarReporte () {
         setShow(false)
