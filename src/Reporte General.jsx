@@ -24,7 +24,7 @@ const ReporteG = (reporte) => {
 
 
 
-    var diff = d1 - d2
+    var diff = dateOne - dateTwo
 
     console.log("Diferencia",diff/(1000*60*60*24))
 
