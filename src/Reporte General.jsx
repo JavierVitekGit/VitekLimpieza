@@ -10,6 +10,7 @@ import { formatRelative, subDays} from 'date-fns'
 import {es} from 'date-fns/locale'
 import './Firebase init'
 import './Reporte General.css'
+import { CSVLink, CSVDownload } from "react-csv";
 
 const ReporteG = (reporte) => {
 
