@@ -28,9 +28,13 @@ const ReporteG = (reporte) => {
 
     var diasC = dateTwo.substring(8,10) - dateOne.substring(8,10)
 
-    function columnas () {
-
-    }
+    function addHeaderCell(){
+        var table = document.getElementById("generate");
+        var th = document.createElement("th");
+        th.innerText = "im a th";
+        var row1 = table.rows[0];
+        row1.appendChild(th);
+      }
 
     const [arrayD,setArrayD] = useState([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15])
 
@@ -250,7 +254,7 @@ return (
          <div className="reporteGH"> <h1>Reporte General</h1> </div>
 
         <div className="scrollR">
-            <table class="table table-striped">
+            <table class="table table-striped" id="generate">
                 <thead>
                     
                     <tr>
@@ -258,7 +262,7 @@ return (
                         <th scope="col">Nombre del Operador</th>
                         <th scope="col">Ingreso</th>
                         <th scope="col">Baja</th>
-                        <th scope="col" key={15}></th>
+                        <th scope="col" ></th>
                         {/* <th scope="col">16</th>
                         <th scope="col">17</th>
                         <th scope="col">18</th>
@@ -301,6 +305,8 @@ return (
         </div>
 
         <input type="button" class="btn btn-primary" value="Regresar" onClick={mostrarCalendario} />
+
+        <input type="button" class="btn btn-danger" value="Calele mi Razi" onClikc={addHeaderCell}></input>
 
         <CSVLink data={datos} filename={"Reporte Quincenal.csv"} className="btn btn-success" target="_blank">
             Generar Reporte
