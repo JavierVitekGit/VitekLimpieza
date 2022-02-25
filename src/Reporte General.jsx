@@ -15,14 +15,14 @@ import { CSVLink, CSVDownload } from "react-csv";
 const ReporteG = (reporte) => {
 
 
-    const [dateOne,setDateOne] = useState(new Date())
-    const [dateTwo,setDateTwo] = useState(new Date())
+    const [dateOne,setDateOne] = useState(new Date().toISOString())
+    const [dateTwo,setDateTwo] = useState(new Date().toISOString())
 
     console.log("Date One", dateOne)
     console.log("Date Two", dateTwo)
 
-    console.log("Sub Date One",dateOne.toISOString().substring(8,9))
-    console.log("Sub Date Two",dateTwo.toISOString().substring(8,9))
+    console.log("Sub Date One",dateOne.substring(8,9))
+    console.log("Sub Date Two",dateTwo.substring(8,9))
 
 
     var diff = dateOne - dateTwo
