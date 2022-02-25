@@ -21,8 +21,8 @@ const ReporteG = (reporte) => {
     console.log("Date One", dateOne)
     console.log("Date Two", dateTwo)
 
-    console.log("Sub Date One",dateOne.substring(8,9))
-    console.log("Sub Date Two",dateTwo.substring(8,9))
+    console.log("Sub Date One",dateOne.toISOString().substring(8,9))
+    console.log("Sub Date Two",dateTwo.toISOString().substring(8,9))
 
 
     var diff = dateOne - dateTwo
