@@ -274,7 +274,11 @@ return (
             </table>
         </div>
 
-        <input type="button" value="Regresar" onClick={mostrarCalendario} />
+        <input type="button" class="btn btn-primary" value="Regresar" onClick={mostrarCalendario} />
+
+        <CSVLink data={datos} filename={"Reporte Quincenal.csv"} className="btn btn-success" target="_blank">
+            Generar Reporte
+        </CSVLink>
 
 
         </div>
