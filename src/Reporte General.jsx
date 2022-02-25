@@ -263,7 +263,7 @@ return (
                         <th scope="col">Ingreso</th>
                         <th scope="col">Baja</th>
                         {/* <th scope="col" ></th> */}
-                        <th scope="col">16</th>
+                        {/* <th scope="col">16</th>
                         <th scope="col">17</th>
                         <th scope="col">18</th>
                         <th scope="col">19</th>
@@ -272,8 +272,8 @@ return (
                         <th scope="col">22</th>
                         <th scope="col">23</th>
                         <th scope="col">24</th>
-                        <th scope="col">25</th>
-                        <th scope="col">{arrayD}</th>
+                        <th scope="col">25</th> */}
+                       {arrayD.map((item)=>{ return (<th scope="col">{item}</th>)})} 
                     </tr>
                 </thead>
 
@@ -281,6 +281,7 @@ return (
                     {
                         datos.map((item)=>{
                             return(
+
                                 <tr>
                                     <td>
                                         {item.Cliente}
