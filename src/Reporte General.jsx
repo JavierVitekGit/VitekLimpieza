@@ -26,9 +26,13 @@ const ReporteG = (reporte) => {
     
     var d2 = dateTwo.toISOString()
 
-    var diff = d1 - d2
+    console.log("D1", d1)
 
-    console.log("Diferencia",diff/(1000*60*60*24))
+    console.log("D2", d2)
+
+    // var diff = d1 - d2
+
+    // console.log("Diferencia",diff/(1000*60*60*24))
 
 
     const [show,setShow] = useState([]);
