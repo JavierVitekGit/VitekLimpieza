@@ -22,9 +22,9 @@ const ReporteG = (reporte) => {
     console.log("Date Two", dateTwo)
 
 
-    var d1 = dateOne.toISOString().split('T')[0]
+    var d1 = dateOne.toISOString.split('T')[0]
     
-    var d2 = dateTwo.toISOString().split('T')[0]
+    var d2 = dateTwo.toISOString.split('T')[0]
 
     var diff = d1 - d2
 
