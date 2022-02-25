@@ -21,8 +21,8 @@ const ReporteG = (reporte) => {
     console.log("Date One", dateOne)
     console.log("Date Two", dateTwo)
 
-    console.log("Sub Date One",dateOne.substring(9,10))
-    console.log("Sub Date Two",dateTwo.substring(9,10))
+    console.log("Sub Date One",dateOne.substring(8,10))
+    console.log("Sub Date Two",dateTwo.substring(8,10))
 
     console.log("Dif String:::", dateTwo.substring(9,10) - dateOne.substring(9,10))
 
