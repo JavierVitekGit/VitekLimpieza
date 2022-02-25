@@ -26,9 +26,13 @@ const ReporteG = (reporte) => {
 
     console.log("Dif String:::", dateTwo.substring(8,10) - dateOne.substring(8,10))
 
-    var diff = dateOne - dateTwo
+    var diasC = dateTwo.substring(8,10) - dateOne.substring(8,10)
 
-    console.log("Diferencia",diff/(1000*60*60*24))
+    function columnas () {
+
+    }
+
+    const [arrayD,setArrayD] = useState([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15])
 
 
     const [show,setShow] = useState([]);
@@ -252,7 +256,8 @@ return (
                         <th scope="col">Nombre del Operador</th>
                         <th scope="col">Ingreso</th>
                         <th scope="col">Baja</th>
-                        <th scope="col">16</th>
+                        <th scope="col">{arrayD}</th>
+                        {/* <th scope="col">16</th>
                         <th scope="col">17</th>
                         <th scope="col">18</th>
                         <th scope="col">19</th>
@@ -261,7 +266,7 @@ return (
                         <th scope="col">22</th>
                         <th scope="col">23</th>
                         <th scope="col">24</th>
-                        <th scope="col">25</th>
+                        <th scope="col">25</th> */}
                     </tr>
                 </thead>
 
