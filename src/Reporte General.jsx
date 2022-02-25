@@ -20,6 +20,10 @@ const ReporteG = (reporte) => {
 
     console.log("Date One", dateOne)
     console.log("Date Two", dateTwo)
+    
+    var diff = dateOne - dateTwo
+
+    console.log("Diferencia",diff/(1000*60*60*24))
 
 
     const [show,setShow] = useState([]);
