@@ -251,7 +251,10 @@ return (
         <div className="scrollR">
             <table class="table table-striped">
                 <thead>
-                    {diasC.map((item)=>
+                    {diasC.map((item)=>{
+
+                    return(
+
                     <tr>
                         <th scope="col">Cliente/Ubicación</th>
                         <th scope="col">Nombre del Operador</th>
@@ -269,6 +272,8 @@ return (
                         <th scope="col">24</th>
                         <th scope="col">25</th> */}
                     </tr>
+                    )
+                    }
                     )}
                 </thead>
 
