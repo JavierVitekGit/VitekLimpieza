@@ -22,17 +22,11 @@ const ReporteG = (reporte) => {
     console.log("Date Two", dateTwo)
 
 
-    var d1 = dateOne.toISOString()
-    
-    var d2 = dateTwo.toISOString()
 
-    console.log("D1", d1)
 
-    console.log("D2", d2)
+    var diff = d1 - d2
 
-    // var diff = d1 - d2
-
-    // console.log("Diferencia",diff/(1000*60*60*24))
+    console.log("Diferencia",diff/(1000*60*60*24))
 
 
     const [show,setShow] = useState([]);
