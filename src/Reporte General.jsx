@@ -15,8 +15,8 @@ import { CSVLink, CSVDownload } from "react-csv";
 const ReporteG = (reporte) => {
 
 
-    const [dateOne,setDateOne] = useState(new Date())
-    const [dateTwo,setDateTwo] = useState(new Date())
+    const [dateOne,setDateOne] = useState(new Date().getTime())
+    const [dateTwo,setDateTwo] = useState(new Date().getTime())
 
     console.log("Date One", dateOne)
     console.log("Date Two", dateTwo)
