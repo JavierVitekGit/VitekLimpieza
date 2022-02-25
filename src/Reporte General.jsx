@@ -223,8 +223,8 @@ return (
 
         <div>    <h1>Calendario General</h1> </div>
 
-        <input type="date" onChange={setDateOne}></input>
-        <input type="date" onChange={setDateTwo}></input>
+        <input type="date" value={dateOne} onChange={v=>setDateOne(v.target.value)}></input>
+        <input type="date" value={dateTwo} onChange={v=>setDateTwo(v.target.value)}></input>
 
        
         <input type="button" class="btn btn-success" value="Change" onClick={obtener} />
