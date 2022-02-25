@@ -251,12 +251,13 @@ return (
         <div className="scrollR">
             <table class="table table-striped">
                 <thead>
+                    {diasC.forEach((item)=>
                     <tr>
                         <th scope="col">Cliente/Ubicación</th>
                         <th scope="col">Nombre del Operador</th>
                         <th scope="col">Ingreso</th>
                         <th scope="col">Baja</th>
-                        <th scope="col">{arrayD}</th>
+                        <th scope="col">{item}</th>
                         {/* <th scope="col">16</th>
                         <th scope="col">17</th>
                         <th scope="col">18</th>
@@ -268,6 +269,7 @@ return (
                         <th scope="col">24</th>
                         <th scope="col">25</th> */}
                     </tr>
+                    )}
                 </thead>
 
                 <tbody>
