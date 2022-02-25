@@ -251,7 +251,7 @@ return (
         <div className="scrollR">
             <table class="table table-striped">
                 <thead>
-                    {diasC.map((item)=>{
+                    {diasC.forEach((item)=>{
 
                     return(
 
