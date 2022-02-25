@@ -15,6 +15,13 @@ import { CSVLink, CSVDownload } from "react-csv";
 const ReporteG = (reporte) => {
 
 
+    const [dateOne,setDateOne] = useState('')
+    const [dateTwo,setDateTwo] = useState('')
+
+    console.log("Date One", dateOne)
+    console.log("Date Two", dateTwo)
+
+
     const [show,setShow] = useState([]);
 
     function mostrarReporte () {
@@ -212,9 +219,11 @@ return (
 
         <div>    <h1>Calendario General</h1> </div>
 
+        <input type="date" onChange={v=>setDateOne(v.target.value)}></input>
+        <input type="date" onChange={v=>setDateTwo(v.target.value)}></input>
 
        
-        <input type="button" value="Change" onClick={obtener} />
+        <input type="button" class="btn btn-success" value="Change" onClick={obtener} />
 
 
 
