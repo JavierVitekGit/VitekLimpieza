@@ -273,6 +273,7 @@ return (
                         <th scope="col">23</th>
                         <th scope="col">24</th>
                         <th scope="col">25</th>
+                        <th scope="col">{arrayD}</th>
                     </tr>
                 </thead>
 
