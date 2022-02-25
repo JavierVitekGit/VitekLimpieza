@@ -258,7 +258,7 @@ return (
                         <th scope="col">Nombre del Operador</th>
                         <th scope="col">Ingreso</th>
                         <th scope="col">Baja</th>
-                        <th scope="col"></th>
+                        <th scope="col" key={15}></th>
                         {/* <th scope="col">16</th>
                         <th scope="col">17</th>
                         <th scope="col">18</th>
