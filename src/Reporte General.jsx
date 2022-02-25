@@ -251,7 +251,7 @@ return (
         <div className="scrollR">
             <table class="table table-striped">
                 <thead>
-                    {diasC.forEach((item)=>
+                    {diasC.map((item)=>
                     <tr>
                         <th scope="col">Cliente/Ubicación</th>
                         <th scope="col">Nombre del Operador</th>
