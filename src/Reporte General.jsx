@@ -272,11 +272,7 @@ const ReporteG = (reporte) => {
         
             
 
-          datos.forEach((item)=>{
-              item.dias.forEach((it)=>{
-                console.log("itemdias",it)
-              })
-          })
+          
 
 
         setTimeout(()=>{
@@ -285,6 +281,12 @@ const ReporteG = (reporte) => {
 
 
     }
+
+    datos.forEach((item)=>{
+        item.dias.forEach((it)=>{
+          console.log("itemdias",it)
+        })
+    })
 
     
     function getDays(){
