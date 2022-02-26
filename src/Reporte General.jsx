@@ -272,7 +272,11 @@ const ReporteG = (reporte) => {
         
             
 
-
+          datos.map((item)=>{
+              item.dias.map((it)=>{
+                console.log("item.dias",it)
+              })
+          })
 
 
         setTimeout(()=>{
@@ -378,7 +382,7 @@ return (
                                     
                                     {
                                         item.dias.map((d)=>{
-                                            console.log("item.dias",d)
+                                            
 
                                             return (<td> / </td>)
                                         })
