@@ -274,7 +274,7 @@ const ReporteG = (reporte) => {
 
           datos.forEach((item)=>{
               item.dias.forEach((it)=>{
-                console.log("item.dias",it)
+                console.log("itemdias",it)
               })
           })
 
