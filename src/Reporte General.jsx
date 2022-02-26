@@ -272,8 +272,8 @@ const ReporteG = (reporte) => {
         
             
 
-          datos.map((item)=>{
-              item.dias.map((it)=>{
+          datos.forEach((item)=>{
+              item.dias.forEach((it)=>{
                 console.log("item.dias",it)
               })
           })
