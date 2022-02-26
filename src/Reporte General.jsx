@@ -202,7 +202,7 @@ const ReporteG = (reporte) => {
 
                                                     
                                 
-                                                    if (item.Nombre == iter.Nombre && iter.Fecha.substring(0,2) == 17 ) {
+                                                    if (item.Nombre == iter.Nombre && iter.Fecha.substring(0,2) == "17" ) {
                                                             item.dias = iter.Estado
                                                     }
                                 
