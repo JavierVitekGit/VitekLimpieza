@@ -435,7 +435,7 @@ return (
         <input type="button" class="btn btn-primary" value="Regresar" onClick={mostrarCalendario} />
 
 
-        <CSVLink data={funcionPerrona} filename={"Reporte Quincenal.csv"} className="btn btn-success" target="_blank">
+        <CSVLink data={datos} filename={"Reporte Quincenal.csv"} className="btn btn-success" target="_blank">
             Generar Reporte
         </CSVLink>
 
