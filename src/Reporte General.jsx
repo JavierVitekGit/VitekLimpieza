@@ -200,11 +200,15 @@ const ReporteG = (reporte) => {
                                             datos.forEach((item)=>{
                                                 justificaciones.forEach((iter)=>{
 
-                                                    
+                                                   item.map((dialokobydiego)=>{
+                                                        if (item.Nombre == iter.Nombre && iter.Fecha.substring(0,2) == dialokobydiego.key ) {
+                                                            dialokobydiego = {[dialokobydiego.key]:iter.Estado}
+                                                        }
+                                                       
+                                                    })
+
                                 
-                                                    if (item.Nombre == iter.Nombre && iter.Fecha.substring(0,2) == arrayD ) {
-                                                            item.dias = iter.Estado
-                                                    }
+                                                    
                                 
                                 
                                                 })
@@ -362,7 +366,7 @@ return (
 
                 <tbody>
                     {
-                        datos.map((item, inx)=>{
+                        datos.map((item)=>{
                             return(
 
                                 <tr>
@@ -383,7 +387,7 @@ return (
                                     </td>
                                     
                                     {
-                                        item.dias.map((d)=>{
+                                        item.dias.map((d, inx)=>{
                                             
 
                                             return(<td>{d[arrayD[inx.toString()]]}</td>)
