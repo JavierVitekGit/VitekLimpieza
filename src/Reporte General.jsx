@@ -208,7 +208,7 @@ const ReporteG = (reporte) => {
                                                     // console.log(""+iter.Fecha.substring(0,2) +"=="+ Object.keys(dialokobydiego)[0]  );
                                                     // console.log(dialokobydiego)
                                                     // console.log(item.Nombre+"=="+iter.Nombre);
-                                                        if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
+                                                        if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] && iter.Suplencia != null && iter.Justificacion != null ) {
                                                           
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion+" "+iter.Suplencia}
                                                         }
