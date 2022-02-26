@@ -276,7 +276,7 @@ const ReporteG = (reporte) => {
     })
 
 
-    generalData.concat({Dias:arrayD})
+    generalData.push({Dias:arrayD})
 
     console.log("General Data::",generalData)
 
