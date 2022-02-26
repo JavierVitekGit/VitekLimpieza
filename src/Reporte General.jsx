@@ -238,20 +238,7 @@ const ReporteG = (reporte) => {
         // })
 
 
-        datos.forEach((item)=> {
-            arrayD.forEach((iter)=>{
-
-            
-            generalData.push({
-                Cliente:item.cliente,
-                Nombre:item.Nombre,
-                Ingreso:item.Ingreso,
-                Baja:item.Baja,
-                dias:iter})
-
-            })
-
-        })
+        
 
 
 
@@ -275,7 +262,20 @@ const ReporteG = (reporte) => {
 
     }
 
+    datos.forEach((item)=> {
+        arrayD.forEach((iter)=>{
 
+        
+        generalData.push({
+            Cliente:item.cliente,
+            Nombre:item.Nombre,
+            Ingreso:item.Ingreso,
+            Baja:item.Baja,
+            dias:iter})
+
+        })
+
+    })
 
     console.log("General Data::",generalData)
 
@@ -318,7 +318,7 @@ return (
                         <th scope="col">Nombre del Operador</th>
                         <th scope="col">Ingreso</th>
                         <th scope="col">Baja</th>
-                       {datos.map((item)=>{ return (<th scope="col">{item.dias}</th>)})} 
+                       {arrayD.map((item)=>{ return (<th scope="col">{item}</th>)})} 
                     </tr>
                 </thead>
 
