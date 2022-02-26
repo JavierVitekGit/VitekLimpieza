@@ -203,7 +203,7 @@ const ReporteG = (reporte) => {
                                                     
                                 
                                                     if (item.Nombre == iter.Nombre && iter.Fecha.substring(0,2) == arrayD ) {
-                                                            (item.dias.forEach((it)=>{it})) = iter.Estado
+                                                            item.dias = iter.Estado
                                                     }
                                 
                                 
