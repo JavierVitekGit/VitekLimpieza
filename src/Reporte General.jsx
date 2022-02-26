@@ -292,7 +292,7 @@ const ReporteG = (reporte) => {
     function getDays(){
         var days = [];
         for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
-            days.push({index:"/"});
+            days.push({[index.toString()]:"/"});
             
         }
         return days;
@@ -362,7 +362,7 @@ return (
 
                 <tbody>
                     {
-                        datos.map((item)=>{
+                        datos.map((item, inx)=>{
                             return(
 
                                 <tr>
@@ -386,7 +386,7 @@ return (
                                         item.dias.map((d)=>{
                                             
 
-                                            return(<td>{d}</td>)
+                                            return(<td>{d[arrayD[inx.toString()]]}</td>)
                                         })
                                     }
 
