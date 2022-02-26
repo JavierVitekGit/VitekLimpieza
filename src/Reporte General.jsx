@@ -32,7 +32,7 @@ const ReporteG = (reporte) => {
 
     const [arrayD,setArrayD] = useState([])
     
-    
+    const [generalData,setGeneralData] = useState([]);
 
 
     function Columnsx() {
@@ -238,6 +238,25 @@ const ReporteG = (reporte) => {
         // })
 
 
+        datos.forEach((item)=> {
+            arrayD.forEach((iter)=>{
+
+            
+            generalData.push({
+                Cliente:item.cliente,
+                Nombre:item.Nombre,
+                Ingreso:item.Ingreso,
+                Baja:item.Baja,
+                dias:iter})
+
+            })
+
+        })
+
+
+
+
+
         setTimeout(()=>{
             mostrarReporte();
         },1000)
@@ -258,7 +277,7 @@ const ReporteG = (reporte) => {
 
 
 
-
+    console.log("General Data::",generalData)
 
 
 return (
