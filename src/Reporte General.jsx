@@ -267,7 +267,7 @@ const ReporteG = (reporte) => {
 
         
         generalData.push({
-            Cliente:item.cliente,
+            Cliente:item.Cliente,
             Nombre:item.Nombre,
             Ingreso:item.Ingreso,
             Baja:item.Baja,
