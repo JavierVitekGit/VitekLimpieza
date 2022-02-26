@@ -271,11 +271,12 @@ const ReporteG = (reporte) => {
             Nombre:item.Nombre,
             Ingreso:item.Ingreso,
             Baja:item.Baja,
-            dias:arrayD})
-
-      
+           })
 
     })
+
+
+    generalData.concat({Dias:arrayD})
 
     console.log("General Data::",generalData)
 
@@ -318,7 +319,7 @@ return (
                         <th scope="col">Nombre del Operador</th>
                         <th scope="col">Ingreso</th>
                         <th scope="col">Baja</th>
-                       {generalData.map((item)=>{ return (<th scope="col">{item.dias}</th>)})} 
+                       {arrayD.map((item)=>{ return (<th scope="col">{item}</th>)})} 
                     </tr>
                 </thead>
 
