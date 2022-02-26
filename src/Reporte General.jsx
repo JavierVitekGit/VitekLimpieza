@@ -263,7 +263,7 @@ const ReporteG = (reporte) => {
     }
 
     datos.forEach((item)=> {
-        arrayD.forEach((iter)=>{
+        
 
         
         generalData.push({
@@ -271,9 +271,9 @@ const ReporteG = (reporte) => {
             Nombre:item.Nombre,
             Ingreso:item.Ingreso,
             Baja:item.Baja,
-            dias:iter})
+            dias:getDays()})
 
-        })
+      
 
     })
 
