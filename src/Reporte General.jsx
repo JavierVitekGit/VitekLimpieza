@@ -28,15 +28,20 @@ const ReporteG = (reporte) => {
 
     var diasC = dateTwo.substring(8,10) - dateOne.substring(8,10)
 
-    function addHeaderCell(){
-        var table = document.getElementById("generate");
-        var th = document.createElement("th");
-        th.innerText = "im a th";
-        var row1 = table.rows[0];
-        row1.appendChild(th);
-      }
+    
 
-    const [arrayD,setArrayD] = useState([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15])
+    const [arrayD,setArrayD] = useState([])
+
+    for (let index = +substring(8,10); index <= +dateTwo.substring(8,10); index++) {
+        arrayD.push(index);
+        
+    }
+
+    console.log(arrayD)
+
+    dateOne.substring(8,10)
+
+
 
 
     const [show,setShow] = useState([]);
@@ -61,6 +66,9 @@ const ReporteG = (reporte) => {
 
 
     function obtener () {
+
+        
+        
 
         get(child(dbRef,'Operador/')).then((snapshot)=>{
             if (snapshot.exists()){
@@ -220,6 +228,19 @@ const ReporteG = (reporte) => {
 
     }
 
+    function Columnsx() {
+       
+        return (
+            
+                <React.Fragment>
+                  {arrayD.map((day) => {
+                    return <td> / </td>;
+                  })}
+                </React.Fragment>
+        
+        );
+      }
+
 
 
 
@@ -262,17 +283,6 @@ return (
                         <th scope="col">Nombre del Operador</th>
                         <th scope="col">Ingreso</th>
                         <th scope="col">Baja</th>
-                        {/* <th scope="col" ></th> */}
-                        {/* <th scope="col">16</th>
-                        <th scope="col">17</th>
-                        <th scope="col">18</th>
-                        <th scope="col">19</th>
-                        <th scope="col">20</th>
-                        <th scope="col">21</th>
-                        <th scope="col">22</th>
-                        <th scope="col">23</th>
-                        <th scope="col">24</th>
-                        <th scope="col">25</th> */}
                        {arrayD.map((item)=>{ return (<th scope="col">{item}</th>)})} 
                     </tr>
                 </thead>
@@ -298,6 +308,9 @@ return (
                                     <td>
                                         {item.Baja}
                                     </td>
+                                    
+                                    <Columnsx />
+
                                 </tr>
                             )
                         })
