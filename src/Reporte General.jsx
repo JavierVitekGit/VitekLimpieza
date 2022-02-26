@@ -202,7 +202,7 @@ const ReporteG = (reporte) => {
 
                                                     
                                 
-                                                    if (item.Nombre == iter.Nombre && iter.Fecha.substring(0,2) == arrayD ) {
+                                                    if (item.Nombre == iter.Nombre || iter.Fecha.substring(0,2) == arrayD ) {
                                                             item.dias = iter.Estado
                                                     }
                                 
