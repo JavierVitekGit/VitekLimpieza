@@ -208,7 +208,7 @@ const ReporteG = (reporte) => {
                                                     // console.log(item.Nombre+"=="+iter.Nombre);
                                                         if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
                                                             console.log("Aqui se encontro algo :",{[dialokobydiego.key]:iter.Estado})
-                                                            dialokobydiego = {[dialokobydiego.key]:iter.Estado}
+                                                            dialokobydiego = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion+" "+iter.Suplencia}
                                                         }
                                                        
                                                     })
