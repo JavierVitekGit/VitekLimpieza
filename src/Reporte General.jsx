@@ -292,7 +292,7 @@ const ReporteG = (reporte) => {
     function getDays(){
         var days = [];
         for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
-            days.push("/");
+            days.push({index:"/"});
             
         }
         return days;
