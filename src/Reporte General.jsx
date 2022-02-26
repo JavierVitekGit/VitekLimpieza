@@ -85,6 +85,8 @@ const ReporteG = (reporte) => {
           arrayD.push(index);
             
         }
+
+        generalData.push({Dias:arrayD})
     
 
         get(child(dbRef,'Operador/')).then((snapshot)=>{
@@ -276,7 +278,7 @@ const ReporteG = (reporte) => {
     })
 
 
-    generalData.push({Dias:arrayD})
+    
 
     console.log("General Data::",generalData)
 
