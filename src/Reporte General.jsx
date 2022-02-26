@@ -81,7 +81,7 @@ const ReporteG = (reporte) => {
 
     function obtener () {
 
-        for (let index = +dateOne.substring(8,10); index < +dateTwo.substring(8,10); index++) {
+        for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
           arrayD.push(index);
             
         }
