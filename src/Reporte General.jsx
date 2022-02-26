@@ -378,6 +378,8 @@ return (
                                     
                                     {
                                         item.dias.map((d)=>{
+                                            console.log("item.dias",d)
+
                                             return (<td> / </td>)
                                         })
                                     }
