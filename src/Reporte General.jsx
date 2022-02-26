@@ -288,7 +288,6 @@ const ReporteG = (reporte) => {
             Nombre:item.Nombre,
             Ingreso:item.Ingreso,
             Baja:item.Baja,
-            dias:getDays()
            })
 
     })
@@ -337,13 +336,13 @@ return (
                         <th scope="col">Nombre del Operador</th>
                         <th scope="col">Ingreso</th>
                         <th scope="col">Baja</th>
-                       {generalData.map((item)=>{ return (<th scope="col">{item.Dias}</th>)})} 
+                       {datos.map((item)=>{ return (<th scope="col">{item.dias}</th>)})} 
                     </tr>
                 </thead>
 
                 <tbody>
                     {
-                        generalData.map((item)=>{
+                        datos.map((item)=>{
                             return(
 
                                 <tr>
