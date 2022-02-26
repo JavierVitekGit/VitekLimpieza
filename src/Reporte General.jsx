@@ -202,6 +202,10 @@ const ReporteG = (reporte) => {
                                                 justificaciones.forEach((iter)=>{
 
                                                    item.dias.map((dialokobydiego)=>{
+
+                                                    console.log(""+iter.Fecha.substring(0,2) +"=="+ dialokobydiego.key);
+                                                    console.log(dialokobydiego)
+                                                    console.log(item.Nombre+"=="+iter.Nombre);
                                                         if (item.Nombre == iter.Nombre && iter.Fecha.substring(0,2) == dialokobydiego.key ) {
                                                             dialokobydiego = {[dialokobydiego.key]:iter.Estado}
                                                         }
