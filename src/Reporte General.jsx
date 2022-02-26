@@ -203,9 +203,9 @@ const ReporteG = (reporte) => {
 
                                                    item.dias.map((dialokobydiego)=>{
 
-                                                    console.log(""+iter.Fecha.substring(0,2) +"=="+ Object.keys(dialokobydiego)[0]  );
-                                                    console.log(dialokobydiego)
-                                                    console.log(item.Nombre+"=="+iter.Nombre);
+                                                    // console.log(""+iter.Fecha.substring(0,2) +"=="+ Object.keys(dialokobydiego)[0]  );
+                                                    // console.log(dialokobydiego)
+                                                    // console.log(item.Nombre+"=="+iter.Nombre);
                                                         if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
                                                             dialokobydiego = {[dialokobydiego.key]:iter.Estado}
                                                         }
