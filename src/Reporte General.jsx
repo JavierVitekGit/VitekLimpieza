@@ -200,7 +200,7 @@ const ReporteG = (reporte) => {
                                             datos.forEach((item)=>{
                                                 justificaciones.forEach((iter)=>{
 
-                                                    console.log("Val sub::", iter.Fecha.substring(0,2))
+                                                    
                                 
                                                     if (item.Nombre == iter.Nombre && iter.Fecha.substring(0,2) == item.dias ) {
                                                             item.dias = iter.Estado
