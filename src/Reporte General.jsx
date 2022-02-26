@@ -31,10 +31,7 @@ const ReporteG = (reporte) => {
     
 
     const [arrayD,setArrayD] = useState([])
-    for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
-        arrayD.push(index);
-        
-    }
+    
     
 
 
@@ -85,7 +82,10 @@ const ReporteG = (reporte) => {
     function obtener () {
 
         
-        
+        for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
+            arrayD.push(index);
+            
+        }
 
         get(child(dbRef,'Operador/')).then((snapshot)=>{
             if (snapshot.exists()){
