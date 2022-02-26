@@ -386,7 +386,7 @@ return (
                                         item.dias.map((d)=>{
                                             
 
-                                            <td>{item.dias} </td>
+                                            return(<td>{item.dias}</td>)
                                         })
                                     }
 
