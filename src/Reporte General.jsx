@@ -116,6 +116,7 @@ const ReporteG = (reporte) => {
                       })
 
 
+                    })
 
                       get(child(dbRef,'Justificaciones/')).then((jsnapshot)=>{
                         if (jsnapshot.exists()) {
@@ -200,7 +201,7 @@ const ReporteG = (reporte) => {
                                             datos.forEach((item)=>{
                                                 justificaciones.forEach((iter)=>{
 
-                                                   item.map((dialokobydiego)=>{
+                                                   item.dias.map((dialokobydiego)=>{
                                                         if (item.Nombre == iter.Nombre && iter.Fecha.substring(0,2) == dialokobydiego.key ) {
                                                             dialokobydiego = {[dialokobydiego.key]:iter.Estado}
                                                         }
@@ -237,7 +238,6 @@ const ReporteG = (reporte) => {
 
 
 
-                })
             }
         })
 
