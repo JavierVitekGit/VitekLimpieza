@@ -271,7 +271,7 @@ const ReporteG = (reporte) => {
             Nombre:item.Nombre,
             Ingreso:item.Ingreso,
             Baja:item.Baja,
-            dias:getDays()})
+            dias:arrayD})
 
       
 
