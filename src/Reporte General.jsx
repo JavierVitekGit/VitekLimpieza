@@ -386,7 +386,7 @@ return (
                                         item.dias.map((d)=>{
                                             
 
-                                            return (<td> / </td>)
+                                            <td>{d} </td>
                                         })
                                     }
 
