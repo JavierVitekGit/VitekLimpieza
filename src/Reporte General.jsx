@@ -31,15 +31,15 @@ const ReporteG = (reporte) => {
     
 
     const [arrayD,setArrayD] = useState([])
+    for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
+        arrayD.push(index);
+        
+    }
     
 
 
     function Columnsx() {
-        for (let index = + dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
-            arrayD.push(index);
-            
-        }
-       
+        
         return (
             
                 <React.Fragment>
