@@ -31,15 +31,32 @@ const ReporteG = (reporte) => {
     
 
     const [arrayD,setArrayD] = useState([])
+    
 
-    for (let index = + dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
-        arrayD.push(index);
+
+    function Columnsx() {
+        for (let index = + dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
+            arrayD.push(index);
+            
+        }
+       
+        return (
+            
+                <React.Fragment>
+                  {arrayD.map((day) => {
+                    return <td> / </td>;
+                  })}
+                </React.Fragment>
         
-    }
+        );
+      }
+
+
+    
 
     console.log(arrayD)
 
-    dateOne.substring(8,10)
+
 
 
 
@@ -228,18 +245,7 @@ const ReporteG = (reporte) => {
 
     }
 
-    function Columnsx() {
-       
-        return (
-            
-                <React.Fragment>
-                  {arrayD.map((day) => {
-                    return <td> / </td>;
-                  })}
-                </React.Fragment>
-        
-        );
-      }
+    
 
 
 
