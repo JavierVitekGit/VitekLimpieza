@@ -424,7 +424,6 @@ return (
                                             return(<td>{d[arrayD[inx.toString()]]}</td>)
                                         })
                                     }
-
                                 </tr>
                             )
                         })
