@@ -82,10 +82,7 @@ const ReporteG = (reporte) => {
     function obtener () {
 
         
-        for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
-            arrayD.push(index);
-            
-        }
+    
 
         get(child(dbRef,'Operador/')).then((snapshot)=>{
             if (snapshot.exists()){
@@ -100,7 +97,7 @@ const ReporteG = (reporte) => {
                     var fechaI = childSnapshot.child("Fecha_Ingreso").val()
                     var fechaB = childSnapshot.child("Fecha_Baja").val()
 
-                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB})
+                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB, dias:getDays()})
                     
                     datos.sort((a,b) => {
                         if (a.Cliente < b.Cliente) return -1;
@@ -246,6 +243,16 @@ const ReporteG = (reporte) => {
     }
 
     
+    function getDays(){
+        var days = [];
+        for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
+            days.push(index);
+            
+        }
+        return days;
+
+    }
+
 
 
 
@@ -315,7 +322,11 @@ return (
                                         {item.Baja}
                                     </td>
                                     
-                                    <Columnsx />
+                                    {
+                                        item.dias.map((d)=>{
+                                            return (<td> / </td>)
+                                        })
+                                    }
 
                                 </tr>
                             )
