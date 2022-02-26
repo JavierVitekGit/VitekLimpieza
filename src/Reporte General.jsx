@@ -32,7 +32,7 @@ const ReporteG = (reporte) => {
 
     const [arrayD,setArrayD] = useState([])
 
-    for (let index = +substring(8,10); index <= +dateTwo.substring(8,10); index++) {
+    for (let index = + dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
         arrayD.push(index);
         
     }
@@ -321,7 +321,6 @@ return (
 
         <input type="button" class="btn btn-primary" value="Regresar" onClick={mostrarCalendario} />
 
-        <input type="button" class="btn btn-danger" value="Calele mi Razi" onClikc={addHeaderCell}></input>
 
         <CSVLink data={datos} filename={"Reporte Quincenal.csv"} className="btn btn-success" target="_blank">
             Generar Reporte
