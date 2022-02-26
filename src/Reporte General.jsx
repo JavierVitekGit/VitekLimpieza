@@ -35,6 +35,10 @@ const ReporteG = (reporte) => {
     const [generalData,setGeneralData] = useState([]);
 
 
+    const [justificaciones,setJustificaciones] = useState([]);
+
+    console.log("Justificaciones", justificaciones)
+
     function Columnsx() {
         
         return (
@@ -177,6 +181,17 @@ const ReporteG = (reporte) => {
                 
                                                 // }
                 
+                                                if (validateOne == validateTwo && state != null) {
+                                                    // date.push(key)
+                                                    justificaciones.push({
+                                                        Fecha:key,
+                                                        Cliente:validateTwo,
+                                                        Nombre:nombr,
+                                                        Turno:turn,
+                                                        Estado:incidenci,
+                                                        Justificacion:just,
+                                                        Suplencia:sup})
+                                                }
                                             
                 
                                             })
