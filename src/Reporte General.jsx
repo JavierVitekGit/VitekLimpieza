@@ -326,6 +326,29 @@ const ReporteG = (reporte) => {
 
 
     
+    function funcionPerrona(){
+       var datosReporte=[];
+
+        datos.map((fila)=>{
+            var dataFila = [];
+            
+            dataFila.push({"Nombre":fila.Nombre});
+              
+            var cnt = 0
+            fila.dias.map((v)=>{
+               dataFila.push({[arrayD[cnt]]:v[""+arrayD[cnt]]})
+               cnt ++;
+            })
+            
+           datosReporte.push(dataFila);     
+        })
+
+        return datosReporte;
+
+
+    }
+
+
 
     console.log("General Data::",generalData)
 
@@ -413,7 +436,7 @@ return (
         <input type="button" class="btn btn-primary" value="Regresar" onClick={mostrarCalendario} />
 
 
-        <CSVLink data={datos} filename={"Reporte Quincenal.csv"} className="btn btn-success" target="_blank">
+        <CSVLink data={funcionPerrona} filename={"Reporte Quincenal.csv"} className="btn btn-success" target="_blank">
             Generar Reporte
         </CSVLink>
 
