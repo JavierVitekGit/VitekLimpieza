@@ -437,7 +437,17 @@ const ReporteG = (reporte) => {
     // var tableHTML = encodeUtf8(tableSelect.outerHTML)
     // var tableHTML = utf8.encode(tableSelect.outerHTML)
     // var tableHTML = tableSelect.innerHTML.toString()
-    var tableHTML = btoa(tableSelect.outerHTML)
+    // var tableHTML = btoa(tableSelect.outerHTML)
+
+    var tableHTML = tableSelect.outerHTML;
+
+    tableHTML = html.replace(/'á'/g, '&aacute;');
+    tableHTML = html.replace(/'é'/g, '&eacute;');
+    tableHTML = html.replace(/'í'/g, '&iacute;');
+    tableHTML = html.replace(/'ó'/g, '&oacute;');
+    tableHTML = html.replace(/'ú'/g, '&uacute;');
+    tableHTML = html.replace(/'º'/g, '&ordm;');
+    tableHTML = html.replace(/ /g, '%20');
 
     // var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
     
