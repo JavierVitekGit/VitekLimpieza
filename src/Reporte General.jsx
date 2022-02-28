@@ -332,11 +332,11 @@ const ReporteG = (reporte) => {
         datos.map((fila)=>{
             var dataFila = [];
             
-            dataFila.push({"Nombre":fila.Nombre}.val());
+            dataFila.push({"Nombre":fila.Nombre});
               
             var cnt = 0
             fila.dias.map((v)=>{
-               dataFila.push({[arrayD[cnt].val()]:v[""+arrayD[cnt].val()]})
+               dataFila.push({[arrayD[cnt]]:v[""+arrayD[cnt]]})
                cnt ++;
             })
             
