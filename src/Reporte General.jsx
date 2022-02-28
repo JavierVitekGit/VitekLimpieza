@@ -343,7 +343,7 @@ const ReporteG = (reporte) => {
            datosReporte.push(dataFila);     
         })
 
-        return datosReporte[key];
+        return datosReporte;
 
 
     }
