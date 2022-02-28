@@ -326,7 +326,7 @@ const ReporteG = (reporte) => {
 
 
     
-   
+    function funcionPerrona(){
        var datosReporte=[];
 
         datos.map((fila)=>{
@@ -343,10 +343,10 @@ const ReporteG = (reporte) => {
            datosReporte.push(dataFila);     
         })
 
-    
+        return datosReporte;
 
 
-   
+    }
 
 
 
