@@ -295,12 +295,6 @@ const ReporteG = (reporte) => {
 
     }
 
-    datos.forEach((item)=>{
-        item.dias.forEach((it)=>{
-
-        })
-    })
-
     
     function getDays(){
         var days = [];
