@@ -429,10 +429,14 @@ const ReporteG = (reporte) => {
 
 
 
+
+
+
+
     function fnExcelReport()
 {
-    var downloadLink;
-    var dataType = 'application/vnd.ms-excel';
+    // var downloadLink;
+    // var dataType = 'application/vnd.ms-excel';
     var tableSelect = document.getElementById('generate');
     // var tableHTML = encodeUtf8(tableSelect.outerHTML)
     // var tableHTML = utf8.encode(tableSelect.outerHTML)
@@ -441,47 +445,50 @@ const ReporteG = (reporte) => {
 
     var tableHTML = tableSelect.outerHTML;
 
-    tableHTML.replace(/'á'/g, '&aacute;');
-    tableHTML.replace(/'é'/g, '&eacute;');
-    tableHTML.replace(/'í'/g, '&iacute;');
-    tableHTML.replace(/'ó'/g, '&oacute;');
-    tableHTML.replace(/'ú'/g, '&uacute;');
-    tableHTML.replace(/'º'/g, '&ordm;');
-    tableHTML.replace(/ /g, '%20');
-    tableHTML.replace(/'Á'/g, '&Aacute;');
-    tableHTML.replace(/'É'/g, '&Eacute;');
-    tableHTML.replace(/'Í'/g, '&Iacute;');
-    tableHTML.replace(/'Ã³'/g, '&Oacute;');
-    tableHTML.replace(/'Ú'/g, '&Uacute;');
-    tableHTML.replace(/'Ã±'/g, '&ntilde;');
-    tableHTML.replace(/'Ã‘'/g, '&Ntilde;');
-    // var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    // tableHTML.replace(/'á'/g, '&aacute;');
+    // tableHTML.replace(/'é'/g, '&eacute;');
+    // tableHTML.replace(/'í'/g, '&iacute;');
+    // tableHTML.replace(/'ó'/g, '&oacute;');
+    // tableHTML.replace(/'ú'/g, '&uacute;');
+    // tableHTML.replace(/'º'/g, '&ordm;');
+    // tableHTML.replace(/ /g, '%20');
+    // tableHTML.replace(/'Á'/g, '&Aacute;');
+    // tableHTML.replace(/'É'/g, '&Eacute;');
+    // tableHTML.replace(/'Í'/g, '&Iacute;');
+    // tableHTML.replace(/'Ã³'/g, '&Oacute;');
+    // tableHTML.replace(/'Ú'/g, '&Uacute;');
+    // tableHTML.replace(/'Ã±'/g, '&ntilde;');
+    // tableHTML.replace(/'Ã‘'/g, '&Ntilde;');
+    // // var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
     
 
     
-    // Specify file name
-    var filename = 'Reporte.xls';
+    // // Specify file name
+    // var filename = 'Reporte.xls';
     
-    // Create download link element
-    downloadLink = document.createElement("a");
+    // // Create download link element
+    // downloadLink = document.createElement("a");
     
-    document.body.appendChild(downloadLink);
+    // document.body.appendChild(downloadLink);
     
-    if(navigator.msSaveOrOpenBlob){
-        var blob = new Blob(['\ufeff', tableHTML], {
-            type: dataType
-        });
-        navigator.msSaveOrOpenBlob( blob, filename);
-    }else{
-        // Create a link to the file
-        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+    // if(navigator.msSaveOrOpenBlob){
+    //     var blob = new Blob(['\ufeff', tableHTML], {
+    //         type: dataType
+    //     });
+    //     navigator.msSaveOrOpenBlob( blob, filename);
+    // }else{
+    //     // Create a link to the file
+    //     downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
     
-        // Setting the file name
-        downloadLink.download = filename;
+        window.open('data:application/vnd.ms-excel;base64,' + window.atob(tableHTML));
+
+
+        // // Setting the file name
+        // downloadLink.download = filename;
         
-        //triggering the function
-        downloadLink.click();
-}
+        // //triggering the function
+        // downloadLink.click();
+// }
 
 }
 
