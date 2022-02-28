@@ -475,11 +475,7 @@ return (
         <input type="button" class="btn btn-primary" value="Regresar" onClick={mostrarCalendario} />
 
 
-        <CSVLink data={datosTest} filename={"Reporte Quincenal.csv"} className="btn btn-success" target="_blank">
-            Generar Reporte
-        </CSVLink>
-
-        <input type="button" class="btn btn-primary" value="Segundo intento" onClick={fnExcelReport} />
+        <input type="button" class="btn btn-success" value="Segundo intento" onClick={fnExcelReport} />
 
 
         </div>
