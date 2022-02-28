@@ -445,9 +445,9 @@ const ReporteG = (reporte) => {
 
     var tableHTML = tableSelect.outerHTML;
 
-    tableHTML.replace(/'á'/g, '&aacute;');
-    tableHTML.replace(/'é'/g, '&eacute;');
-    tableHTML.replace(/'í'/g, '&iacute;');
+    tableHTML.replace(/'á'/g, 'á');
+    tableHTML.replace(/'é'/g, 'é');
+    tableHTML.replace(/'í'/g, 'í');
     tableHTML.replace(/'ó'/g, '&oacute;');
     tableHTML.replace(/'ú'/g, '&uacute;');
     tableHTML.replace(/'º'/g, '&ordm;');
@@ -457,8 +457,8 @@ const ReporteG = (reporte) => {
     tableHTML.replace(/'Í'/g, '&Iacute;');
     tableHTML.replace(/'Ã³'/g, '&Oacute;');
     tableHTML.replace(/'Ú'/g, '&Uacute;');
-    tableHTML.replace(/'Ã±'/g, '&ntilde;');
-    tableHTML.replace(/'Ã‘'/g, '&Ntilde;');
+    tableHTML.replace(/'ñ'/g, 'ñ');
+    tableHTML.replace(/'Ñ‘'/g, 'Ñ');
     // var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
     
 
