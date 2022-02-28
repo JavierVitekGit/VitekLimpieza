@@ -360,7 +360,7 @@ const ReporteG = (reporte) => {
     var tableSelect = document.getElementById('generate');
     var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
     
-    tableSelect.outerHTML.replace(/ ´ /,'%C2%B4')
+    tableSelect.outerHTML.replace( "´ ",'%C2%B4')
     
     // Specify file name
     var filename = 'report.xls';
