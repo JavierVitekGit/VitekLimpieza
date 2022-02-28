@@ -442,7 +442,9 @@ const ReporteG = (reporte) => {
     var tableSelect = document.getElementById('generate');
     // var tableHTML = encodeUtf8(tableSelect.outerHTML)
     // var tableHTML = utf8.encode(tableSelect.outerHTML)
-    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    var tableHTML = tableSelect.innerHTML.toString()
+
+    // var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
     
 
     
