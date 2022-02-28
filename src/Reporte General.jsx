@@ -347,7 +347,7 @@ const ReporteG = (reporte) => {
 
 
   
-
+        var datosTest = Object.values(datos)
 
 
     console.log("General Data::",generalData)
@@ -436,7 +436,7 @@ return (
         <input type="button" class="btn btn-primary" value="Regresar" onClick={mostrarCalendario} />
 
 
-        <CSVLink data={final} filename={"Reporte Quincenal.csv"} className="btn btn-success" target="_blank">
+        <CSVLink data={datosTest} filename={"Reporte Quincenal.csv"} className="btn btn-success" target="_blank">
             Generar Reporte
         </CSVLink>
 
