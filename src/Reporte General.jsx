@@ -449,7 +449,7 @@ const ReporteG = (reporte) => {
 
     
     // Specify file name
-    var filename = 'report.xls';
+    var filename = 'Reporte.xls';
     
     // Create download link element
     downloadLink = document.createElement("a");
