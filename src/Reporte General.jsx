@@ -506,7 +506,7 @@ return (
         <input type="button" class="btn btn-primary" value="Regresar" onClick={mostrarCalendario} />
 
 
-        <input type="button" class="btn btn-success" value="Segundo intento" onClick={fnExcelReport} />
+        <input type="button" class="btn btn-success" value="Generar Reporte" onClick={fnExcelReport} />
 
             <table class="table table-striped" id="generate">
                 <thead>
