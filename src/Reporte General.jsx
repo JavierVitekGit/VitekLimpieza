@@ -343,7 +343,7 @@ const ReporteG = (reporte) => {
            datosReporte.push(dataFila);     
         })
 
-        var final = Object.values.toString(datosReporte)
+        var final = Object.values(datosReporte)
 
         console.log("FinalObject",final)
   
