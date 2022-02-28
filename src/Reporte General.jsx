@@ -411,9 +411,9 @@ const ReporteG = (reporte) => {
     var downloadLink;
     var dataType = 'application/vnd.ms-excel';
     var tableSelect = document.getElementById('generate');
-    // var tableHTML = encodeUtf8(tableSelect.outerHTML)
-    var tableHTML = Utf8ArrayToStr(tableSelect.outerHTML)
-    // var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+
+    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
     
 
     
