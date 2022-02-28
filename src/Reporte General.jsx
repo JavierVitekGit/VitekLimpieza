@@ -296,7 +296,7 @@ const ReporteG = (reporte) => {
 
     datos.forEach((item)=>{
         item.dias.forEach((it)=>{
-          console.log("itemdias",it)
+
         })
     })
 
@@ -345,12 +345,11 @@ const ReporteG = (reporte) => {
 
         var final = Object.values(datosReporte)
 
-        console.log("FinalObject",datosReporte)
+
   
         var datosTest = Object.values(datos)
 
 
-    console.log("General Data::",generalData)
 
 
     function fnExcelReport()
