@@ -77,7 +77,7 @@ const ReporteG = (reporte) => {
     const [datos,setDatos] = useState([]);
 
 
-    console.log("DATOS:::",datos)
+
 
 
     const dbRef = ref(getDatabase());
@@ -209,7 +209,7 @@ const ReporteG = (reporte) => {
                                                     // console.log(dialokobydiego)
                                                     // console.log(item.Nombre+"=="+iter.Nombre);
                                                         if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
-                                                            console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
+                                                            // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion+" "+iter.Suplencia}
                                                         }
                                                         index++;
@@ -327,27 +327,27 @@ const ReporteG = (reporte) => {
 
     
     
-       var datosReporte=[];
+    //    var datosReporte=[];
 
-        datos.map((fila)=>{
-            var dataFila = [];
+    //     datos.map((fila)=>{
+    //         var dataFila = [];
             
-            dataFila.push({"Nombre":fila.Nombre});
+    //         dataFila.push({"Nombre":fila.Nombre});
               
-            var cnt = 0
-            fila.dias.map((v)=>{
-               dataFila.push({[arrayD[cnt]]:v[+arrayD[cnt]]})
-               cnt ++;
-            })
+    //         var cnt = 0
+    //         fila.dias.map((v)=>{
+    //            dataFila.push({[arrayD[cnt]]:v[+arrayD[cnt]]})
+    //            cnt ++;
+    //         })
             
-           datosReporte.push(dataFila);     
-        })
+    //        datosReporte.push(dataFila);     
+    //     })
 
-        var final = Object.values(datosReporte)
+    //     var final = Object.values(datosReporte)
 
 
   
-        var datosTest = Object.values(datos)
+    //     var datosTest = Object.values(datos)
 
 
         function encodeUtf8(text) {
@@ -371,7 +371,7 @@ const ReporteG = (reporte) => {
     var downloadLink;
     var dataType = 'application/vnd.ms-excel';
     var tableSelect = document.getElementById('generate');
-    var tableHTML = encodeURIComponent(tableSelect.outerHTML)
+    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
     
 
     
