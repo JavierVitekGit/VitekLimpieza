@@ -350,6 +350,20 @@ const ReporteG = (reporte) => {
         var datosTest = Object.values(datos)
 
 
+        function encodeUtf8(text) {
+            const code = encodeURIComponent(text);
+            const bytes = [];
+            for (var i = 0; i < code.length; i++) {
+                const c = code.charAt(i);
+                if (c === '%') {
+                    const hex = code.charAt(i + 1) + code.charAt(i + 2);
+                    const hexVal = parseInt(hex, 16);
+                    bytes.push(hexVal);
+                    i += 2;
+                } else bytes.push(c.charCodeAt(0));
+            }
+            return bytes;
+        }
 
 
     function fnExcelReport()
@@ -357,7 +371,7 @@ const ReporteG = (reporte) => {
     var downloadLink;
     var dataType = 'application/vnd.ms-excel';
     var tableSelect = document.getElementById('generate');
-    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    var tableHTML = encodeURIComponent(tableSelect.outerHTML)
     
 
     
