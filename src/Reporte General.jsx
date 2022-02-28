@@ -209,7 +209,7 @@ const ReporteG = (reporte) => {
                                                     // console.log(dialokobydiego)
                                                     // console.log(item.Nombre+"=="+iter.Nombre);
                                                         if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
-                                                          
+                                                            console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion+" "+iter.Suplencia}
                                                         }
                                                         index++;
@@ -326,28 +326,27 @@ const ReporteG = (reporte) => {
 
 
     
-    
+    function funcionPerrona(){
        var datosReporte=[];
 
         datos.map((fila)=>{
             var dataFila = [];
             
-            dataFila.push({"Nombre":fila.Nombre});
-
-            console.log("DataFila::",dataFila)
+            dataFila.push({"Nombre":fila.Nombre}.val());
               
             var cnt = 0
             fila.dias.map((v)=>{
-               dataFila.push({[arrayD[cnt]]:v[""+arrayD[cnt]]})
+               dataFila.push({[arrayD[cnt].val()]:v[""+arrayD[cnt].val()]})
                cnt ++;
             })
             
            datosReporte.push(dataFila);     
-
-           console.log("DatosReporte%%%::",datosReporte)
         })
 
-        var final = Object.values(datosReporte)
+        return datosReporte[key];
+
+
+    }
 
 
 
@@ -425,6 +424,7 @@ return (
                                             return(<td>{d[arrayD[inx.toString()]]}</td>)
                                         })
                                     }
+
                                 </tr>
                             )
                         })
@@ -436,7 +436,7 @@ return (
         <input type="button" class="btn btn-primary" value="Regresar" onClick={mostrarCalendario} />
 
 
-        <CSVLink data={final} filename={"Reporte Quincenal.csv"} className="btn btn-success" target="_blank">
+        <CSVLink data={funcionPerrona} filename={"Reporte Quincenal.csv"} className="btn btn-success" target="_blank">
             Generar Reporte
         </CSVLink>
 
