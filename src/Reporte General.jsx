@@ -480,7 +480,7 @@ const ReporteG = (reporte) => {
     //     // Create a link to the file
     //     downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
     
-        window.open('data:application/vnd.ms-excel;base64,' + window.atob(tableHTML));
+        window.open('data:application/vnd.ms-excel;base64,' + Buffer.from(tableHTML).toString('base64'));
 
 
         // // Setting the file name
