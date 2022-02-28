@@ -445,21 +445,21 @@ const ReporteG = (reporte) => {
 
     var tableHTML = tableSelect.outerHTML;
 
-    // tableHTML.replace(/'á'/g, '&aacute;');
-    // tableHTML.replace(/'é'/g, '&eacute;');
-    // tableHTML.replace(/'í'/g, '&iacute;');
-    // tableHTML.replace(/'ó'/g, '&oacute;');
-    // tableHTML.replace(/'ú'/g, '&uacute;');
-    // tableHTML.replace(/'º'/g, '&ordm;');
-    // tableHTML.replace(/ /g, '%20');
-    // tableHTML.replace(/'Á'/g, '&Aacute;');
-    // tableHTML.replace(/'É'/g, '&Eacute;');
-    // tableHTML.replace(/'Í'/g, '&Iacute;');
-    // tableHTML.replace(/'Ã³'/g, '&Oacute;');
-    // tableHTML.replace(/'Ú'/g, '&Uacute;');
-    // tableHTML.replace(/'Ã±'/g, '&ntilde;');
-    // tableHTML.replace(/'Ã‘'/g, '&Ntilde;');
-    // // var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    tableHTML.replace(/'á'/g, '&aacute;');
+    tableHTML.replace(/'é'/g, '&eacute;');
+    tableHTML.replace(/'í'/g, '&iacute;');
+    tableHTML.replace(/'ó'/g, '&oacute;');
+    tableHTML.replace(/'ú'/g, '&uacute;');
+    tableHTML.replace(/'º'/g, '&ordm;');
+    tableHTML.replace(/ /g, '%20');
+    tableHTML.replace(/'Á'/g, '&Aacute;');
+    tableHTML.replace(/'É'/g, '&Eacute;');
+    tableHTML.replace(/'Í'/g, '&Iacute;');
+    tableHTML.replace(/'Ã³'/g, '&Oacute;');
+    tableHTML.replace(/'Ú'/g, '&Uacute;');
+    tableHTML.replace(/'Ã±'/g, '&ntilde;');
+    tableHTML.replace(/'Ã‘'/g, '&Ntilde;');
+    // var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
     
 
     
@@ -480,7 +480,7 @@ const ReporteG = (reporte) => {
     //     // Create a link to the file
     //     downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
     
-        window.open('data:application/vnd.ms-excel;base64,' + Buffer.from(tableHTML).toString('base64'));
+        window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tableHTML));
 
 
         // // Setting the file name
