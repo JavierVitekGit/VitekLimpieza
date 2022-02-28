@@ -451,10 +451,10 @@ const ReporteG = (reporte) => {
     tableHTML.replace(/'Á'/g, '&Aacute;');
     tableHTML.replace(/'É'/g, '&Eacute;');
     tableHTML.replace(/'Í'/g, '&Iacute;');
-    tableHTML.replace(/'Ó'/g, '&Oacute;');
+    tableHTML.replace(/'Ã³'/g, '&Oacute;');
     tableHTML.replace(/'Ú'/g, '&Uacute;');
-    tableHTML.replace(/'ñ'/g, '&ntilde;');
-    tableHTML.replace(/'Ñ'/g, '&Ntilde;');
+    tableHTML.replace(/'Ã±'/g, '&ntilde;');
+    tableHTML.replace(/'Ã‘'/g, '&Ntilde;');
     // var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
     
 
