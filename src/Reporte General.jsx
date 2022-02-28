@@ -341,7 +341,10 @@ const ReporteG = (reporte) => {
             })
             
            datosReporte.push(dataFila);     
+
         })
+
+        var final = Object.values(datosReporte[0])
 
     
 
