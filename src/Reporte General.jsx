@@ -437,8 +437,9 @@ const ReporteG = (reporte) => {
     // var tableHTML = encodeUtf8(tableSelect.outerHTML)
     // var tableHTML = utf8.encode(tableSelect.outerHTML)
     // var tableHTML = tableSelect.innerHTML.toString()
+    var tableHTML = btoa(tableSelect.outerHTML)
 
-    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    // var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
     
 
     
