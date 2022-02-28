@@ -508,6 +508,12 @@ return (
          <div className="reporteGH"> <h1>Reporte General</h1> </div>
 
         <div className="scrollR">
+
+        <input type="button" class="btn btn-primary" value="Regresar" onClick={mostrarCalendario} />
+
+
+        <input type="button" class="btn btn-success" value="Segundo intento" onClick={fnExcelReport} />
+
             <table class="table table-striped" id="generate">
                 <thead>
                     
@@ -558,10 +564,7 @@ return (
             </table>
         </div>
 
-        <input type="button" class="btn btn-primary" value="Regresar" onClick={mostrarCalendario} />
-
-
-        <input type="button" class="btn btn-success" value="Segundo intento" onClick={fnExcelReport} />
+        
 
 
         </div>
