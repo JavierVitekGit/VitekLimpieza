@@ -347,7 +347,11 @@ const ReporteG = (reporte) => {
 
 
   
-        var datosTest = Object.values(datos)
+        var datosTest = Object.values(datos.forEach((item)=>{
+            item.dias.forEach((day)=>{
+                day
+            })
+        }))
 
 
     console.log("General Data::",generalData)
