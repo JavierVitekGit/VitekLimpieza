@@ -353,6 +353,43 @@ const ReporteG = (reporte) => {
     console.log("General Data::",generalData)
 
 
+    function fnExcelReport()
+{
+    var downloadLink;
+    var dataType = 'application/vnd.ms-excel';
+    var tableSelect = document.getElementById('generate');
+    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    
+    // Specify file name
+    filename = filename?filename+'.xls':'excel_data.xls';
+    
+    // Create download link element
+    downloadLink = document.createElement("a");
+    
+    document.body.appendChild(downloadLink);
+    
+    if(navigator.msSaveOrOpenBlob){
+        var blob = new Blob(['\ufeff', tableHTML], {
+            type: dataType
+        });
+        navigator.msSaveOrOpenBlob( blob, filename);
+    }else{
+        // Create a link to the file
+        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+    
+        // Setting the file name
+        downloadLink.download = filename;
+        
+        //triggering the function
+        downloadLink.click();
+}
+
+}
+
+
+
+
+
 return (
 
 
@@ -439,6 +476,8 @@ return (
         <CSVLink data={datosTest} filename={"Reporte Quincenal.csv"} className="btn btn-success" target="_blank">
             Generar Reporte
         </CSVLink>
+
+        <input type="button" class="btn btn-primary" value="Segundo intento" onClick={fnExcelReport} />
 
 
         </div>
