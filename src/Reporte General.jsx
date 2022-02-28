@@ -345,7 +345,7 @@ const ReporteG = (reporte) => {
 
         var final = Object.values.toString(datosReporte)
 
-
+        console.log("FinalObject",final)
   
         var datosTest = Object.values(datos)
 
