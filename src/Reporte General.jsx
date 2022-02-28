@@ -326,7 +326,7 @@ const ReporteG = (reporte) => {
 
 
     
-    function funcionPerrona(){
+
        var datosReporte=[];
 
         datos.map((fila)=>{
@@ -343,10 +343,10 @@ const ReporteG = (reporte) => {
            datosReporte.push(dataFila);     
         })
 
-        return datosReporte;
+        
 
 
-    }
+    
 
 
 
@@ -438,7 +438,7 @@ return (
         <input type="button" class="btn btn-primary" value="Regresar" onClick={mostrarCalendario} />
 
 
-        <CSVLink data={funcionPerrona} filename={"Reporte Quincenal.csv"} className="btn btn-success" target="_blank">
+        <CSVLink data={datosReporte} filename={"Reporte Quincenal.csv"} className="btn btn-success" target="_blank">
             Generar Reporte
         </CSVLink>
 
