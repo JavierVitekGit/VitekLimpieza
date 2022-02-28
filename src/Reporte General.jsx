@@ -345,7 +345,7 @@ const ReporteG = (reporte) => {
 
         var final = Object.values(datosReporte)
 
-        console.log("FinalObject",final)
+        console.log("FinalObject",datosReporte)
   
         var datosTest = Object.values(datos)
 
