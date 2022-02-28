@@ -333,6 +333,8 @@ const ReporteG = (reporte) => {
             var dataFila = [];
             
             dataFila.push({"Nombre":fila.Nombre});
+
+            console.log("DataFila::",dataFila)
               
             var cnt = 0
             fila.dias.map((v)=>{
@@ -341,6 +343,8 @@ const ReporteG = (reporte) => {
             })
             
            datosReporte.push(dataFila);     
+
+           console.log("DatosReporte%%%::",datosReporte)
         })
 
         return datosReporte;
