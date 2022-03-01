@@ -97,7 +97,7 @@ const ReporteG = (reporte) => {
         get(child(dbRef,'ClienteUbicacion/')).then((snapshot)=>{
             if (snapshot.exists()){
                 snapshot.forEach((childSnapshot)=>{
-                    var nombreC = childSnapshot.child("Nombre")
+                    var nombreC = childSnapshot.child("Nombre").val()
                     var personalC = childSnapshot.child("Personal").val()
 
                     personal.push({nombreC:nombreC,Personal:personalC})
