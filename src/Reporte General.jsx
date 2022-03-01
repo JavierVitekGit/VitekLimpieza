@@ -296,7 +296,7 @@ const ReporteG = (reporte) => {
 
           for (var i = 0; i< indices.length; i++) {
               for (var j = 0; j< personal.length; j++) {
-                  if (i == x[j]) {
+                  if (i == personal[j]) {
                       indices[i] = indices[i] + 1
                   }
               }
