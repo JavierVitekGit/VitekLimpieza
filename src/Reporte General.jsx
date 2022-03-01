@@ -314,7 +314,7 @@ const ReporteG = (reporte) => {
         var days = [];
         for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
             days.push({[index.toString()]:"/"});
-            
+            console.log("Indexxx",index)
         }
         return days;
 
