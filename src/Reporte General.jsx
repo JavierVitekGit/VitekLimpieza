@@ -445,7 +445,7 @@ return (
 
     
 
-        <div>    <h1>Calendario General</h1> </div>
+        <div className="cgHeader">    <h1>Calendario General</h1> </div>
 
         <input type="date" value={dateOne} onChange={v=>setDateOne(v.target.value)}></input>
         <br/>
