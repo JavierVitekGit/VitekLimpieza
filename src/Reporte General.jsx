@@ -16,8 +16,8 @@ const ReporteG = (reporte) => {
 
     const utf8 = require('utf8')
 
-    const [dateOne,setDateOne] = useState(new Date())
-    const [dateTwo,setDateTwo] = useState(new Date())
+    const [dateOne,setDateOne] = useState(new Date().toISOString())
+    const [dateTwo,setDateTwo] = useState(new Date().toISOString())
 
     console.log("Date One", dateOne)
     console.log("Date Two", dateTwo)
