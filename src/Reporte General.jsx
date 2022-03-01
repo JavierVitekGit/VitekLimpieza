@@ -448,6 +448,9 @@ return (
 
         <div className="cgHeader">    <h1>Calendario General</h1> </div>
 
+        <br/>
+        <br/>
+
         <input type="date" value={dateOne} onChange={v=>setDateOne(v.target.value)}></input>
     
         <input type="date" value={dateTwo} onChange={v=>setDateTwo(v.target.value)}></input>
