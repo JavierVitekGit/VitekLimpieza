@@ -293,13 +293,7 @@ const ReporteG = (reporte) => {
 
 
         
-            datos.forEach((item)=>{
-                for(var i = 0; i<personal; i++) {
-                    if (datos[i] == undefined){
-                        datos.push({Cliente:item.Cliente,Nombre:"Vacante",Ingreso:"",Baja:""})
-                    }
-                }
-            })
+            console.log("Personal::",personal)
 
           
 
