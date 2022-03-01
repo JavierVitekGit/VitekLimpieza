@@ -272,46 +272,28 @@ const ReporteG = (reporte) => {
 
 
 
-        // var mapped = datos.map(function(el,i){
-        //     return {index:i,value: el.toLowerCase()};
 
-        // })
-
-        // mapped.sort(function(a,b){
-        //     if (a.value > b.value) {
-        //         return 1;
-        //     }
-
-        //     if (a.value < b.value) {
-        //         return -1;
-        //     }
-
-        //     return 0;
+        //   for (var i=0; i<personal;i++){
+        //       if (datos[i] == undefined){
+        //           datos.push({Cliente:personal,Nombre:"Vacante",Ingreso:"",Baja:""})
+        //       }
+        //   }
 
 
-        // })
+        // var  result = {};
 
-          for (var i=0; i<personal;i++){
-              if (datos[i] == undefined){
-                  datos.push({Cliente:personal,Nombre:"Vacante",Ingreso:"",Baja:""})
-              }
-          }
+        //   for (i = 0; i< personal.length; i++) {
+        //       if (!result[personal[i]])
+        //       result[personal[i]] = 0;
+        //       ++result[personal[i]]
+        //   }
 
-
-        var  result = {};
-
-          for (i = 0; i< personal.length; i++) {
-              if (!result[personal[i]])
-              result[personal[i]] = 0;
-              ++result[personal[i]]
-          }
-
-          console.log("Resultt::",Object.values(result))
+        //   console.log("Resultt::",Object.values(result))
          
 
         
             console.log("Personal::",personal)
-
+            console.log("Datos%%",datos)
           
 
 
