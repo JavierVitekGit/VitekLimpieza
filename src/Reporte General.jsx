@@ -292,7 +292,7 @@ const ReporteG = (reporte) => {
          const repeat = [];
 
          datos.forEach((item)=>{
-             repeat[item.Cliente] = (repeat[item.Cliente] || 0) + 1;
+             repeat[item.Cliente.val()] = (repeat[item.Cliente.val()] || 0) + 1;
          })
         
          console.log("Repeat::",repeat)
