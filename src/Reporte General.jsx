@@ -270,18 +270,18 @@ const ReporteG = (reporte) => {
 
 
 
-          personal.forEach((item)=>{
-              repeat.forEach((iter)=>{
-                  datos.forEach((dat)=>{
+        //   personal.forEach((item)=>{
+        //       repeat.forEach((iter)=>{
+        //           datos.forEach((dat)=>{
 
-                if(
-                    item.nombreC == iter.Cliente && iter.Personal < item.Personal
-                ){
-                    datos.push({Cliente:item.nombreC,Nombre:"Vacante",Ingreso:"",Baja:""})
-                }
-            })
-              })
-          })
+        //         if(
+        //             item.nombreC == iter.Cliente && iter.Personal < item.Personal
+        //         ){
+        //             datos.push({Cliente:item.nombreC,Nombre:"Vacante",Ingreso:"",Baja:""})
+        //         }
+        //     })
+        //       })
+        //   })
 
 
         //   for (var i=0; i<personal;i++){
@@ -320,13 +320,13 @@ const ReporteG = (reporte) => {
 
     }
 
-    const repeat = [];
+    // const repeat = [];
 
-    datos.forEach((item)=>{
-        repeat[item.Cliente] = repeat.push({Cliente:item.Cliente + 1 || 1})
-    })
+    // datos.forEach((item)=>{
+    //     repeat[item.Cliente] = repeat.push({Cliente:item.Cliente + 1 || 1})
+    // })
    
-    console.log("Repeat::",repeat)
+    // console.log("Repeat::",repeat)
 
        console.log("Personal::",personal)
        console.log("Datos%%",datos)
