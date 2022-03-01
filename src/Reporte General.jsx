@@ -425,6 +425,11 @@ const ReporteG = (reporte) => {
 
 }
 
+function regresar () {
+    setDatos([]);
+    mostrarCalendario();
+}
+
 
 
 
@@ -462,7 +467,7 @@ return (
 
         <div className="scrollR">
 
-        <input type="button" class="btn btn-primary" value="Regresar" onClick={mostrarCalendario} />
+        <input type="button" class="btn btn-primary" value="Regresar" onClick={regresar} />
 
 
         <input type="button" class="btn btn-success" value="Generar Reporte" onClick={fnExcelReport} />
