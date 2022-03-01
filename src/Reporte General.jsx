@@ -363,7 +363,7 @@ const ReporteG = (reporte) => {
     // var tableHTML = tableSelect.innerHTML.toString()
     // var tableHTML = btoa(tableSelect.outerHTML)
 
-    var tableHTML = tableSelect.outerHTML.replace(/ñ/g,);
+    var tableHTML = tableSelect.outerHTML.replace(/ñ/g, '&ntilde;');
 
     tableHTML.replace(/'á'/g, 'á');
     tableHTML.replace(/'é'/g, 'é');
