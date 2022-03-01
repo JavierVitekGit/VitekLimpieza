@@ -427,6 +427,7 @@ const ReporteG = (reporte) => {
 
 function regresar () {
     setDatos([]);
+    setArrayD([]);
     mostrarCalendario();
 }
 
