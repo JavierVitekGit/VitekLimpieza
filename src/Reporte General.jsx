@@ -306,7 +306,7 @@ const ReporteG = (reporte) => {
               ++result[personal[i]]
           }
 
-          console.log("Resultt::",result)
+          console.log("Resultt::",Object.values(result))
          
 
         
