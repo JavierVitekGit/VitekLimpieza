@@ -364,18 +364,18 @@ const ReporteG = (reporte) => {
     // var tableHTML = btoa(tableSelect.outerHTML)
 
     var tableHTML =  tableSelect.outerHTML.replace(/ñ/g, '&ntilde;');
-                     tableSelect.outerHTML.replace(/Ñ/g, '&Ntilde;');
-                     tableSelect.outerHTML.replace(/á/g, '&aacute;');
-                     tableSelect.outerHTML.replace(/Á/g, '&Aacute;');
-                     tableSelect.outerHTML.replace(/é/g, '&eacute;');
-                     tableSelect.outerHTML.replace(/É/g, '&Eacute;');
-                     tableSelect.outerHTML.replace(/í/g, '&iacute;');
-                     tableSelect.outerHTML.replace(/Í/g, '&Iacute;');
-                     tableSelect.outerHTML.replace(/ó/g, '&oacute;');
-                     tableSelect.outerHTML.replace(/Ó/g, '&Oacute;');
-                     tableSelect.outerHTML.replace(/ú/g, '&uacute;');
-                     tableSelect.outerHTML.replace(/Ú/g, '&Uacute;');
-                     tableSelect.outerHTML.replace(/º/g, '&ordm;');
+                     replace(/Ñ/g, '&Ntilde;');
+                     replace(/á/g, '&aacute;');
+                     replace(/Á/g, '&Aacute;');
+                     replace(/é/g, '&eacute;');
+                     replace(/É/g, '&Eacute;');
+                     replace(/í/g, '&iacute;');
+                     replace(/Í/g, '&Iacute;');
+                     replace(/ó/g, '&oacute;');
+                     replace(/Ó/g, '&Oacute;');
+                     replace(/ú/g, '&uacute;');
+                     replace(/Ú/g, '&Uacute;');
+                     replace(/º/g, '&ordm;');
                      
 
     // tableHTML.replace(/'á'/g, 'á');
