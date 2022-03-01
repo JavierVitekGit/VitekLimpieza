@@ -312,7 +312,7 @@ const ReporteG = (reporte) => {
     const repeat = [];
 
     datos.forEach((item)=>{
-        repeat[item.Cliente] = repeat.push([item.Cliente] + 1 || 1)
+        repeat[item.Cliente] = repeat.push({Cliente:item.Cliente, Personal: + 1 || 1})
     })
    
     console.log("Repeat::",repeat)
