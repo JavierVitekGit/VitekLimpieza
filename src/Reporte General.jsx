@@ -459,7 +459,7 @@ return (
         <br/>
         <br/>
        
-        <input type="button" class="btn btn-success" value="Change" onClick={obtener} />
+        <input type="button" class="btn btn-success" value="Ver reporte" onClick={obtener} />
 
 
 
