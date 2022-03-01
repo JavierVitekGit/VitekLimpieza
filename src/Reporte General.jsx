@@ -298,19 +298,16 @@ const ReporteG = (reporte) => {
           }
 
 
-          var indices = [];
+        var  result = {};
 
-          indices.fill(0);
-
-          for (var i = 0; i< indices.length; i++) {
-              for (var j = 0; j< datos.length; j++) {
-                  if (i == datos[j]) {
-                      indices[i] = indices[i] + 1
-                  }
-              }
+          for (i = 0; i< personal.length; i++) {
+              if (!result[personal[i]])
+              result[personal[i]] = 0;
+              ++result[personal[i]]
           }
 
-          console.log("Indicess", indices)
+          console.log("Resultt::",result)
+         
 
         
             console.log("Personal::",personal)
