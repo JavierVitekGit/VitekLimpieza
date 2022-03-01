@@ -363,19 +363,19 @@ const ReporteG = (reporte) => {
     // var tableHTML = tableSelect.innerHTML.toString()
     // var tableHTML = btoa(tableSelect.outerHTML)
 
-    var tableHTML =  tableSelect.outerHTML.replace(/ñ/g, '&ntilde;');
-                     replace(/Ñ/g, '&Ntilde;');
-                     replace(/á/g, '&aacute;');
-                     replace(/Á/g, '&Aacute;');
-                     replace(/é/g, '&eacute;');
-                     replace(/É/g, '&Eacute;');
-                     replace(/í/g, '&iacute;');
-                     replace(/Í/g, '&Iacute;');
-                     replace(/ó/g, '&oacute;');
-                     replace(/Ó/g, '&Oacute;');
-                     replace(/ú/g, '&uacute;');
-                     replace(/Ú/g, '&Uacute;');
-                     replace(/º/g, '&ordm;');
+    var tableHTML =  tableSelect.outerHTML.replace(/ñ/g, '&ntilde;')
+                     .replace(/Ñ/g, '&Ntilde;')
+                     .replace(/á/g, '&aacute;')
+                     .replace(/Á/g, '&Aacute;')
+                     .replace(/é/g, '&eacute;')
+                     .replace(/É/g, '&Eacute;')
+                     .replace(/í/g, '&iacute;')
+                     .replace(/Í/g, '&Iacute;')
+                     .replace(/ó/g, '&oacute;')
+                     .replace(/Ó/g, '&Oacute;')
+                     .replace(/ú/g, '&uacute;')
+                     .replace(/Ú/g, '&Uacute;')
+                     .replace(/º/g, '&ordm;')
                      
 
     // tableHTML.replace(/'á'/g, 'á');
