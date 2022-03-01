@@ -295,8 +295,8 @@ const ReporteG = (reporte) => {
           indices.fill(0);
 
           for (var i = 0; i< indices.length; i++) {
-              for (var j = 0; j< personal.length; j++) {
-                  if (i == personal[j]) {
+              for (var j = 0; j< datos.length; j++) {
+                  if (i == datos[j]) {
                       indices[i] = indices[i] + 1
                   }
               }
@@ -328,18 +328,7 @@ const ReporteG = (reporte) => {
 
     }
 
-    datos.forEach((item)=> {
-        
 
-        
-        generalData.push({
-            Cliente:item.Cliente,
-            Nombre:item.Nombre,
-            Ingreso:item.Ingreso,
-            Baja:item.Baja,
-           })
-
-    })
 
 
     // F U N C I O N   P E R R O N A
