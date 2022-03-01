@@ -289,18 +289,7 @@ const ReporteG = (reporte) => {
         //   }
 
         //   console.log("Resultt::",Object.values(result))
-         const repeat = [];
-
-         datos.forEach((item)=>{
-             repeat[item.Cliente] = repeat[item.Cliente] + 1 || 1
-         })
-        
-         console.log("Repeat::",repeat)
-
-            console.log("Personal::",personal)
-            console.log("Datos%%",datos)
-          
-
+         
 
         setTimeout(()=>{
             mostrarReporte();
@@ -320,6 +309,17 @@ const ReporteG = (reporte) => {
 
     }
 
+    const repeat = [];
+
+    datos.forEach((item)=>{
+        repeat[item.Cliente] = repeat[item.Cliente] + 1 || 1
+    })
+   
+    console.log("Repeat::",repeat)
+
+       console.log("Personal::",personal)
+       console.log("Datos%%",datos)
+     
 
 
 
