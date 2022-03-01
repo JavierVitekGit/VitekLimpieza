@@ -322,7 +322,7 @@ const ReporteG = (reporte) => {
 
     const repeat = [];
 
-    datos.forEach((item)=>{
+    datos.map((item)=>{
         repeat[item.Cliente] = repeat.push({Cliente:item.Cliente, Personal: + 1 || 1})
     })
    
