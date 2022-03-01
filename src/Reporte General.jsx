@@ -270,7 +270,17 @@ const ReporteG = (reporte) => {
 
 
 
+          personal.forEach((item)=>{
+              repeat.forEach((iter)=>{
 
+                if(
+                    item.nombreC == iter.Cliente && item.Personal != iter.Personal
+                ){
+                    datos.push({Cliente:item.nombreC,Nombre:"Vacante",Ingreso:"",Baja:""})
+                }
+
+              })
+          })
 
 
         //   for (var i=0; i<personal;i++){
