@@ -78,7 +78,7 @@ const ReporteG = (reporte) => {
     const [datos,setDatos] = useState([]);
 
 
-
+    const [personal,setPersonal] = useState([]);
 
 
     const dbRef = ref(getDatabase());
@@ -92,14 +92,24 @@ const ReporteG = (reporte) => {
         }
 
         generalData.push({Dias:arrayD})
+
+
+        get(child(dbRef,'ClienteUbicacion/')).then((snapshot)=>{
+            if (snapshot.exists()){
+                snapshot.forEach((childSnapshot)=>{
+                    var nombreC = childSnapshot.child("Nombre")
+                    var personalC = childSnapshot.child("Personal").val()
+
+                    personal.push({nombreC:nombreC,Personal:personalC})
+
+                })
+            }
+        })
     
 
         get(child(dbRef,'Operador/')).then((snapshot)=>{
             if (snapshot.exists()){
                 snapshot.forEach((childSnapshot)=>{
-
-
-                    
 
 
                     var nm = childSnapshot.child("Nombre").val()
