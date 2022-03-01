@@ -443,8 +443,10 @@ return (
         <div>    <h1>Calendario General</h1> </div>
 
         <input type="date" value={dateOne} onChange={v=>setDateOne(v.target.value)}></input>
+        <br/>
         <input type="date" value={dateTwo} onChange={v=>setDateTwo(v.target.value)}></input>
 
+        <br/>
        
         <input type="button" class="btn btn-success" value="Change" onClick={obtener} />
 
