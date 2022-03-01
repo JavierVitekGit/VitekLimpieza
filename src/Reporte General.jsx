@@ -272,13 +272,14 @@ const ReporteG = (reporte) => {
 
           personal.forEach((item)=>{
               repeat.forEach((iter)=>{
+                  datos.forEach((dat)=>{
 
                 if(
                     item.nombreC == iter.Cliente && iter.Personal < item.Personal
                 ){
                     datos.push({Cliente:item.nombreC,Nombre:"Vacante",Ingreso:"",Baja:""})
                 }
-
+            })
               })
           })
 
