@@ -270,7 +270,12 @@ const ReporteG = (reporte) => {
 
 
 
+          const repeat = [];
 
+          datos.forEach((item)=>{
+              repeat[item.Cliente] = repeat[item.Cliente] + 1 || 1
+          })
+         
 
 
         //   for (var i=0; i<personal;i++){
@@ -309,11 +314,6 @@ const ReporteG = (reporte) => {
 
     }
 
-    const repeat = [];
-
-    datos.forEach((item)=>{
-        repeat[item.Cliente] = repeat[item.Cliente] + 1 || 1
-    })
    
     console.log("Repeat::",repeat)
 
