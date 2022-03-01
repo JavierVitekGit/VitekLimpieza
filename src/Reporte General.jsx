@@ -290,6 +290,14 @@ const ReporteG = (reporte) => {
 
 
         // })
+
+          for (var i=0; i<personal;i++){
+              if (datos[i] == undefined){
+                  datos.push({Cliente:personal,Nombre:"Vacante",Ingreso:"",Baja:""})
+              }
+          }
+
+
           var indices = [];
 
           indices.fill(0);
