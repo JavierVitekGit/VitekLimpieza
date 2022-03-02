@@ -95,7 +95,7 @@ const ReporteG = (reporte) => {
             
         }
 
-        for (let index = fechaUno; index <= fechaDos; index++) {
+        for (let index = +fechaUno; index <= +fechaDos; index++) {
             fechaD.push(index)
         }
 
