@@ -29,7 +29,19 @@ const Cliente = (clientes) => {
 
 
 
+
     const [supervisor,setSupervisor] = useState('')
+    const [ubicacion,setUbicacion] = useState('')
+
+
+    const [pEncargado,setPEncargado] = useState('')
+    const [pEncargadoL,setPEncargadoL] = useState([]);
+
+    for (let i=0; i<= pEncargado; i++){
+      pEncargadoL.push(i)
+    }
+
+
 
     var arraydc = [];
 
@@ -119,6 +131,8 @@ const Cliente = (clientes) => {
       };
 
 
+      
+
 
 
     const app = initializeApp(firebaseConfig);
@@ -137,14 +151,26 @@ const Cliente = (clientes) => {
       event.preventDefault()
 
 
-    update(ref(db, 'ClienteUbicacion/' + (nombre + domicilio.substr(0,10))), {
+    update(ref(db, 'ClienteUbicacion/' + (nombre + ""+ ubicacion)), {
     Nombre: nombre,
     Domicilio: domicilio,
     Días: arr,
     Estatus: 1,
-    Personal:0,
     Supervisor: supervisor
     });
+    }
+
+    function writePersonalData(event){
+      event.preventDefault()  
+
+      pEncargadoL.forEach((item)=>{
+
+        update(ref(db,'Operador'/ + "Vacante Encargado" + item)),{
+          Nombre:"Vacante ",
+          Cliente:nombre,
+        }
+
+      })
     }
 
 
@@ -191,7 +217,7 @@ const Cliente = (clientes) => {
       show(event)
       writeClienteData(event);
       writeShiftData(event);
-    
+      writePersonalData(event);
     }
 
   }
@@ -279,7 +305,7 @@ const Cliente = (clientes) => {
         
        <input class="form-control" type="text" placeholder="Horario" />
        
-       <input class="form-control" type="number" maxLength="2" placeholder="No. Personal" />
+       <input class="form-control" type="number" value={pEncargado} maxLength="2" placeholder="No. Personal" />
 
        </div>
 
