@@ -315,7 +315,7 @@ const Cliente = (clientes) => {
 
        <br/>
 
-       <div className="asignacion3">
+       <div className="asignacion4">
       
 
       <input class="form-control" type="text" value="Suplencia" />
