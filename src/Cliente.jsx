@@ -286,10 +286,20 @@ const Cliente = (clientes) => {
 
        </div>
 
-
        <br/>
 
+       <div className="asignacion2">
+      
+
        <input class="form-control" type="text" value="Supervisor" />
+          <br/>
+       <input class="form-control" type="text"/>
+          <br/>
+       <input class="form-control" type="number" maxLength="2" />
+
+       </div>
+
+       
 
        <br/>
 
