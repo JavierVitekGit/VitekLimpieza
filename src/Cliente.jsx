@@ -326,15 +326,6 @@ const Cliente = (clientes) => {
 
       </div>
 
-
-       
-
-       
-
-
-       <br/>
-
-
        <label class="form-outline-label" for="form3" id="dil">Supervisor a Asignar</label>
 
        <br></br>
