@@ -95,9 +95,11 @@ const ReporteG = (reporte) => {
             
         }
 
-        for (let index = +fechaUno; index <= +fechaDos; index++) {
+        for (let index = fechaUno; index <= fechaDos; index++) {
             fechaD.push(index)
         }
+
+        console.log("FECHA222$#,", fechaD)
 
 
         get(child(dbRef,'ClienteUbicacion/')).then((snapshot)=>{
