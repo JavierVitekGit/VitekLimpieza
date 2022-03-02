@@ -32,7 +32,15 @@ const ReporteG = (reporte) => {
     var mesOne = dateOne.substring(5,7)
     var anioOne = dateOne.substring(0,4)
     
+
+    var diaTwo = dateTwo.substring(8,10)
+    var mesTwo = dateTwo.substring(5,7)
+    var anioTwo = dateTwo.substring(0,4)
+
+
     const fechaUno = diaOne + "-" + mesOne + "-" + anioOne
+
+    const fechaDos = diaTwo + "-" + mesTwo + "-" + anioTwo
 
     console.log("FechaUno::",fechaUno)
 
@@ -308,12 +316,19 @@ const ReporteG = (reporte) => {
         var days = [];
         for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
             days.push({[index.toString()]:"/"});
-            console.log("Indexxx",index)
+
         }
         return days;
 
     }
 
+
+        var daysIso = [];
+        for (let index = +fechaUno; index <= +fechaDos; index++); 
+        daysIso.push({[index.toString()]:"/"});
+    
+        console.log("DaysIso###",daysIso)
+ 
 
     // const repeat = [];
 
