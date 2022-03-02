@@ -60,9 +60,9 @@ const ReporteG = (reporte) => {
     console.log(arrayD)
 
 
+    const [fechaD,setFechaD] = useState([]);
 
-
-
+    console.log("FECHA D%&$#,", fechaD)
 
     const [show,setShow] = useState([]);
 
@@ -88,14 +88,16 @@ const ReporteG = (reporte) => {
     function obtener () {
 
 
-        getDaysIso();
+       
 
         for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
           arrayD.push(index);
             
         }
 
-        generalData.push({Dias:arrayD})
+        for (let index = +fechaUno; index <= +fechaDos; index++) {
+            fechaD.push(index)
+        }
 
 
         get(child(dbRef,'ClienteUbicacion/')).then((snapshot)=>{
@@ -328,19 +330,19 @@ const ReporteG = (reporte) => {
 
     }
 
-    function getDaysIso() {
+    // function getDaysIso() {
 
-        var daysIso = [];
-        for (let index = +fechaUno; index <= +fechaDos; index++){
-        daysIso.push({[index.toString()]:"/"});
+    //     var daysIso = [];
+    //     for (let index = +fechaUno; index <= +fechaDos; index++){
+    //     daysIso.push({[index.toString()]:"/"});
 
 
-        console.log("DaysIso###",daysIso)
+    //     console.log("DaysIso###",daysIso)
 
-    }
-    return daysIso
+    // }
+    // return daysIso
         
-    }
+    // }
 
     // const repeat = [];
 
