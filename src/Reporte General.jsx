@@ -95,8 +95,8 @@ const ReporteG = (reporte) => {
             
         }
 
-        for (let index = +fechaUno; index <= +fechaDos; index++) {
-            fechaD.push(index)
+        for (let index = +diaOne; index <= +diaTwo; index++) {
+            fechaD.push(index + "-" + mesOne + "-" + anioOne)
         }
 
         console.log("FECHA222$#,", fechaD)
