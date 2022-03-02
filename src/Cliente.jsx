@@ -266,13 +266,35 @@ const Cliente = (clientes) => {
 
          <br/>
 
-       <label class="form-outline-label" for="form3">Asignacion de turnos </label>
+         <label class="form-outline-label" for="form3">Asignacion de turnos </label>
+
+         <br/>
+
+         <div className="asignacion">
+
+       <label class="form-outline-label">Puesto</label>
 
        <br/>
 
        <input type="text" value="Encargado" />
 
        <br/>
+
+       <input type="text" value="Supervisor" />
+
+       <br/>
+
+       <input type="text" value="Operador" />
+
+       <br/>
+
+       <input type="text" value="Suplencia"/>
+
+       </div>
+
+
+       <br/>
+
 
        <label class="form-outline-label" for="form3" id="dil">Supervisor a Asignar</label>
 
