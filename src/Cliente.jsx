@@ -320,9 +320,9 @@ const Cliente = (clientes) => {
 
       <input class="form-control" type="text" value="Suplencia" />
        
-      <input class="form-control" type="text"/>
+      <input class="form-control" type="text" placeholder="Horario" />
          
-      <input class="form-control" type="number" maxLength="2" />
+      <input class="form-control" type="number" maxLength="2" placeholder="Personal" />
 
       </div>
 
