@@ -37,6 +37,8 @@ const Cliente = (clientes) => {
     const [pEncargado,setPEncargado] = useState('')
     const [pEncargadoL,setPEncargadoL] = useState([]);
 
+    const [hEncargado,setHEncargado] = useState('')
+
     for (let i=0; i<= pEncargado; i++){
       pEncargadoL.push(i)
     }
@@ -168,6 +170,7 @@ const Cliente = (clientes) => {
         update(ref(db,'Operador'/ + "Vacante Encargado" + item)),{
           Nombre:"Vacante ",
           Cliente:nombre,
+          Horario:hEncargado
         }
 
       })
@@ -303,9 +306,9 @@ const Cliente = (clientes) => {
 
        <input class="form-control" type="text" value="Encargado" /> 
         
-       <input class="form-control" type="text" placeholder="Horario" />
+       <input class="form-control" type="text" placeholder="Horario" onChange={v=>hEncargado(v.target.value)}/>
        
-       <input class="form-control" type="number" value={pEncargado} maxLength="2" placeholder="No. Personal" />
+       <input class="form-control" type="number" onChange={v=>setPEncargado(v.target.value)} maxLength="2" placeholder="No. Personal" />
 
        </div>
 
