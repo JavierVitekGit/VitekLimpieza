@@ -274,9 +274,17 @@ const Cliente = (clientes) => {
 
        <label class="form-outline-label">Puesto</label> 
 
+       <label class="form-outline-label">Turno</label>
+
        <br/>
 
-       <input class="form-control" type="text" value="Encargado" />
+       <input class="form-control" type="text" value="Encargado" /> 
+
+       <input class="form-comtrol" type="number" maxLength="2" />
+       <input class="form-comtrol" type="number" maxLength="2" />
+
+       </div>
+
 
        <br/>
 
@@ -290,7 +298,7 @@ const Cliente = (clientes) => {
 
        <input class="form-control" type="text" value="Suplencia"/>
 
-       </div>
+       
 
 
        <br/>
