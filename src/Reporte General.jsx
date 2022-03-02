@@ -87,6 +87,9 @@ const ReporteG = (reporte) => {
 
     function obtener () {
 
+
+        getDaysIso();
+
         for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
           arrayD.push(index);
             
@@ -320,15 +323,24 @@ const ReporteG = (reporte) => {
         }
         return days;
 
+
+        
+
     }
 
+    function getDaysIso() {
 
         var daysIso = [];
         for (let index = +fechaUno; index <= +fechaDos; index++){
         daysIso.push({[index.toString()]:"/"});
-    }
+
+
         console.log("DaysIso###",daysIso)
- 
+
+    }
+    return daysIso
+        
+    }
 
     // const repeat = [];
 
