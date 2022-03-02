@@ -280,7 +280,7 @@ const Cliente = (clientes) => {
 
        <input class="form-control" type="text" value="Encargado" /> 
 
-       <input class="form-control" type="number" maxLength="2" />
+       <input class="form-control" type="text"/>
        <input class="form-control" type="number" maxLength="2" />
 
        </div>
