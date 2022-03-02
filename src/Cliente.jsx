@@ -270,9 +270,9 @@ const Cliente = (clientes) => {
 
          <br/>
 
-         <div className="asignacion">
+         <div className="asignacion1">
 
-       <label class="form-outline-label">Puesto</label>
+       <label class="form-outline-label">Puesto</label> 
 
        <br/>
 
