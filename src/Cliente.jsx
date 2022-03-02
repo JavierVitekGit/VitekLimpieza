@@ -427,15 +427,6 @@ const Cliente = (clientes) => {
 
   
 
-       <br></br>
-
-
-
-
-      
-
-       <br></br>
-       <br></br>
 
    <input id="alta" class="btn btn-success" type="submit" value="Dar de Alta" onClick={comprobar}></input>
 
