@@ -28,8 +28,13 @@ const ReporteG = (reporte) => {
     console.log("Dif String:::", dateTwo.substring(8,10) - dateOne.substring(8,10))
 
     
+    var diaOne = dateOne.substring(8,10)
+    var mesOne = dateOne.substring(5,7)
+    var anioOne = dateOne.substring(0,4)
     
-    
+    const fechaUno = diaOne + "-" + mesOne + "-" + anioOne
+
+    console.log("FechaUno::",fechaUno)
 
     const [arrayD,setArrayD] = useState([])
     
@@ -203,7 +208,7 @@ const ReporteG = (reporte) => {
                                                    var index =0;     
 
                                                    item.dias.forEach((dialokobydiego)=>{
-                                                       console.log("DialokobyDiego:::",+Object.keys(dialokobydiego)[0])
+                                                       
 
                                                     // console.log(""+iter.Fecha.substring(0,2) +"=="+ Object.keys(dialokobydiego)[0]  );
                                                     // console.log(dialokobydiego)
