@@ -43,6 +43,7 @@ const Cliente = (clientes) => {
       pEncargadoL.push(i)
     }
 
+    console.log("")
 
 
     var arraydc = [];
@@ -51,7 +52,7 @@ const Cliente = (clientes) => {
 
     var arr = arraydc.filter(Boolean);
 
-    console.log(arraydc)
+
 
 
   var arraycM = [];
