@@ -223,12 +223,14 @@ const ReporteG = (reporte) => {
                                                    var index =0;     
 
                                                    item.dias.forEach((dialokobydiego)=>{
+
+                                                    fechaD.forEach((f)=>{
                                                        
 
                                                     // console.log(""+iter.Fecha.substring(0,2) +"=="+ Object.keys(dialokobydiego)[0]  );
                                                     // console.log(dialokobydiego)
                                                     // console.log(item.Nombre+"=="+iter.Nombre);
-                                                        if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
+                                                        if (item.Nombre == iter.Nombre && +iter.Fecha == f ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion+" "+iter.Suplencia}
                                                         }
@@ -237,7 +239,7 @@ const ReporteG = (reporte) => {
                                                     })
 
                                 
-                                                    
+                                                })
                                 
                                 
                                                 })
