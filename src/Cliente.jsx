@@ -247,14 +247,16 @@ const Cliente = (clientes) => {
          <div className="datosHC">
 
 
-       <label class="form-outline-label" for="form1">Nombre</label>
+       <label class="form-outline-label" for="form1">Nombre del Cliente</label>
        <br/>
        <input type="text" id="d1" class="form-control" value={nombre} onChange={v=> onChange3(v.target.value)} placeholder="Nombre del Cliente" />
        
        </div>
 
 
-
+          <label class="form-outline-label" for="form1">Ubicacion</label>
+            <br/>
+          <input type="text" class="form-control" placeholder="Ubicacion" />  
 
        <label class="form-outline-label" for="form1">Domicilio</label>
        <br/>
@@ -262,7 +264,9 @@ const Cliente = (clientes) => {
 
          <br/>
 
-         
+       <label class="form-outline-label" for="form3">Asignacion de turnos </label>
+
+       <input type="text" value="Encargado" />
 
        <label class="form-outline-label" for="form3" id="dil">Supervisor a Asignar</label>
 
