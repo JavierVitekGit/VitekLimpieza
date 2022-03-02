@@ -324,9 +324,9 @@ const ReporteG = (reporte) => {
 
 
         var daysIso = [];
-        for (let index = +fechaUno; index <= +fechaDos; index++); 
+        for (let index = +fechaUno; index <= +fechaDos; index++){
         daysIso.push({[index.toString()]:"/"});
-    
+    }
         console.log("DaysIso###",daysIso)
  
 
