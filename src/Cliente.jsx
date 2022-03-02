@@ -272,17 +272,14 @@ const Cliente = (clientes) => {
 
          <div className="asignacion1">
 
-       <label class="form-outline-label">Puesto</label> 
-
-       <label class="form-outline-label">Turno</label>
 
        <br/>
 
        <input class="form-control" type="text" value="Encargado" /> 
         
-       <input class="form-control" type="text"/>
+       <input class="form-control" type="text" placeholder="Horario" />
        
-       <input class="form-control" type="number" maxLength="2" />
+       <input class="form-control" type="number" maxLength="2" placeholder="Personal" />
 
        </div>
 
@@ -293,9 +290,9 @@ const Cliente = (clientes) => {
 
        <input class="form-control" type="text" value="Supervisor" />
         
-       <input class="form-control" type="text"/>
+       <input class="form-control" type="text" placeholder="Horario" />
           
-       <input class="form-control" type="number" maxLength="2" />
+       <input class="form-control" type="number" maxLength="2" placeholder="Personal" />
 
        </div>
 
@@ -308,9 +305,9 @@ const Cliente = (clientes) => {
 
        <input class="form-control" type="text" value="Operador" />
         
-       <input class="form-control" type="text"/>
+       <input class="form-control" type="text" placeholder="Horario" />
           
-       <input class="form-control" type="number" maxLength="2" />
+       <input class="form-control" type="number" maxLength="2" placeholder="Personal" />
 
        </div>
 
