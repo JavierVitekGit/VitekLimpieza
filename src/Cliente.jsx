@@ -279,7 +279,7 @@ const Cliente = (clientes) => {
         
        <input class="form-control" type="text" placeholder="Horario" />
        
-       <input class="form-control" type="number" maxLength="2" placeholder="Personal" />
+       <input class="form-control" type="number" maxLength="2" placeholder="No. Personal" />
 
        </div>
 
@@ -292,7 +292,7 @@ const Cliente = (clientes) => {
         
        <input class="form-control" type="text" placeholder="Horario" />
           
-       <input class="form-control" type="number" maxLength="2" placeholder="Personal" />
+       <input class="form-control" type="number" maxLength="2" placeholder="No. Personal" />
 
        </div>
 
@@ -307,7 +307,7 @@ const Cliente = (clientes) => {
         
        <input class="form-control" type="text" placeholder="Horario" />
           
-       <input class="form-control" type="number" maxLength="2" placeholder="Personal" />
+       <input class="form-control" type="number" maxLength="2" placeholder="No. Personal" />
 
        </div>
 
@@ -322,7 +322,7 @@ const Cliente = (clientes) => {
        
       <input class="form-control" type="text" placeholder="Horario" />
          
-      <input class="form-control" type="number" maxLength="2" placeholder="Personal" />
+      <input class="form-control" type="number" maxLength="2" placeholder="No. Personal" />
 
       </div>
 
