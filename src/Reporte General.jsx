@@ -14,7 +14,7 @@ import { CSVLink, CSVDownload } from "react-csv";
 
 const ReporteG = (reporte) => {
 
-    const utf8 = require('utf8')
+
 
     const [dateOne,setDateOne] = useState(new Date().toISOString())
     const [dateTwo,setDateTwo] = useState(new Date().toISOString())
@@ -40,18 +40,6 @@ const ReporteG = (reporte) => {
 
     console.log("Justificaciones", justificaciones)
 
-    function Columnsx() {
-        
-        return (
-            
-                <React.Fragment>
-                  {arrayD.map((day) => {
-                    return <td> / </td>;
-                  })}
-                </React.Fragment>
-        
-        );
-      }
 
 
     
@@ -320,6 +308,7 @@ const ReporteG = (reporte) => {
         return days;
 
     }
+
 
     // const repeat = [];
 
