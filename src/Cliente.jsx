@@ -279,9 +279,9 @@ const Cliente = (clientes) => {
        <br/>
 
        <input class="form-control" type="text" value="Encargado" /> 
-        <br/>
+        
        <input class="form-control" type="text"/>
-       <br/>
+       
        <input class="form-control" type="number" maxLength="2" />
 
        </div>
@@ -292,9 +292,9 @@ const Cliente = (clientes) => {
       
 
        <input class="form-control" type="text" value="Supervisor" />
-          <br/>
+        
        <input class="form-control" type="text"/>
-          <br/>
+          
        <input class="form-control" type="number" maxLength="2" />
 
        </div>
@@ -303,11 +303,34 @@ const Cliente = (clientes) => {
 
        <br/>
 
+       <div className="asignacion3">
+      
+
        <input class="form-control" type="text" value="Operador" />
+        
+       <input class="form-control" type="text"/>
+          
+       <input class="form-control" type="number" maxLength="2" />
+
+       </div>
+
+       
 
        <br/>
 
-       <input class="form-control" type="text" value="Suplencia"/>
+       <div className="asignacion3">
+      
+
+      <input class="form-control" type="text" value="Suplencia" />
+       
+      <input class="form-control" type="text"/>
+         
+      <input class="form-control" type="number" maxLength="2" />
+
+      </div>
+
+
+       
 
        
 
