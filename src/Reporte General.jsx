@@ -320,6 +320,14 @@ const ReporteG = (reporte) => {
 
     }
 
+    datos.forEach((item)=>{
+        personal.forEach((iter)=>{
+        if (item.Cliente == iter.Cliente  ) {
+            datos.push({Cliente:item.Cliente,})
+        }
+    })
+    })
+
     // const repeat = [];
 
     // datos.forEach((item)=>{
