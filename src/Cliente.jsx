@@ -173,7 +173,7 @@ const Cliente = (clientes) => {
 
       for (let i=1; i <= pEncargado; i++ )
       {
-        update(ref(db,'Operador/' + "Vacante Encargado" + pEncargadoL)),{
+        update(ref(db,'Operador/' + "Vacante Encargado" + i.toString())),{
           Nombre: "Vacante",
           Cliente:nombre,
           Horario:hEncargado
