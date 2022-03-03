@@ -182,7 +182,8 @@ const Cliente = (clientes) => {
           Cliente:nombre,
           Ubicacion:ubicacion,
           Horario:hEncargado,
-          Puesto: "Encargado"
+          Puesto: "Encargado",
+          Estatus:1
         })
 
         
