@@ -82,6 +82,8 @@ const Personal = ({personal}) => {
     if (!clientesUnicos.includes(item.Nombre)){
       clientesUnicos.push(item.Nombre)
     }
+
+    clientesUnicos.push("")
   })
 
 
