@@ -40,7 +40,7 @@ const Cliente = (clientes) => {
     const [hEncargado,setHEncargado] = useState('')
 
     function list () {
-      for (let i=0; i<= pEncargado; i++){
+      for (let i=1; i< pEncargado; i++){
         pEncargadoL.push(i)
       }
     }
@@ -172,14 +172,15 @@ const Cliente = (clientes) => {
       event.preventDefault()  
 
  
-      
-        update(ref(db,'Operador/' + "Vacante " + nombre + "Encargado" )),{
-          Nombre: "Vacante",
+      for (let i = 1; i<pEncargado; i++)
+        // update(ref(db,'Operador/' + "Vacante " + nombre + "Encargado" )),{
+         
+
+        update(ref(getDatabase(),'Operador/' + "Vacante" + nombre + "Encargado" + i ),{
+          Nombre:"Vacante",
           Cliente:nombre,
           Horario:hEncargado
-        }
-
-      
+        })
 
         
   
