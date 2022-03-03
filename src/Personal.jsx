@@ -541,7 +541,7 @@ console.log("UBC::",ubc)
 
           <input id="guardarP" class="btn btn-success" type="submit" value="Guardar" onClick={comprobar}></input>
                 <br/>
-          <input type="button" onClick={mostrarClientes} />
+          <input type="submit" class="btn btn-primary" value="Regresar" onClick={mostrarClientes} />
           
           
           </div>
