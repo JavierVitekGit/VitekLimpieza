@@ -264,22 +264,37 @@ const Personal = ({personal}) => {
 
         
             <label class="form-outline-label">Cliente</label>
+            <select>
+
 
           {clientUbic.map((item)=>{ 
-          <select>
-            <option>{item.Nombre}</option>
-          </select>
-          })}
 
+            return(
+          
+            <option>{item.Nombre}</option>
+            )
+          })}
+            </select>
           <br/>
 
           <label class="form-outline-label">Ubicacion del Cliente</label>
 
-          {clientUbic.map((item)=>{ 
+
+
+
           <select>
+          {clientUbic.map((item)=>{ 
+
+            return(
+         
             <option>{item.Ubicacion}</option>
-          </select>
+
+            )
+         
           })}
+
+            </select>
+
 
 
           <br/>
