@@ -263,7 +263,7 @@ const Personal = ({personal}) => {
         <div className="listClient">
 
         
-
+            <label class="form-outline-label">Cliente</label>
 
           {clientUbic.map((item)=>{ 
           <select>
@@ -273,6 +273,8 @@ const Personal = ({personal}) => {
 
           <br/>
 
+          <label class="form-outline-label">Ubicacion del Cliente</label>
+
           {clientUbic.map((item)=>{ 
           <select>
             <option>{item.Ubicacion}</option>
@@ -281,6 +283,8 @@ const Personal = ({personal}) => {
 
 
           <br/>
+
+          <label class="form-outline-label">Puesto</label>
 
           <input type="button" onClick={mostrarPersonal}></input>
 
