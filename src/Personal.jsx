@@ -22,6 +22,11 @@ const Personal = ({personal}) => {
       setShow(true)
     }
 
+    
+    const [clientUbic,setClientUbic] = useState([]);
+
+    console.log("ClientUbic:::",clientUbic)
+
 
   var today = new Date();
   var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
@@ -65,7 +70,7 @@ const Personal = ({personal}) => {
     }
   });
 
-  console.log(unicos.sort())
+
 
 
   const [clientCl,setClientCl] = useState([]);
@@ -138,9 +143,12 @@ const Personal = ({personal}) => {
       if (snapshot.exists()){
         snapshot.forEach((childSnapshot)=>{
           var nombre = childSnapshot.child("Nombre").val()
+          var ubic = childSnapshot.child("Ubicacion").val()
           var sup = childSnapshot.child("Supervisor").val()
 
-
+          if (ubic != null){
+            clientUbic.push({Nombre:nombre,Ubicacion:ubic})
+          }
 
           clientCl.push(nombre)
 
@@ -258,6 +266,10 @@ const Personal = ({personal}) => {
 
 
           <input type="button" onClick={mostrarPersonal}></input>
+
+          <select>
+
+          </select>
 
         </div>
 
