@@ -12,7 +12,7 @@ import SideBar from "./Sidebar";
 const Personal = ({personal}) => {
 
 
-    const [show,setShow] = useState([]);
+    const [showw,setShow] = useState([]);
 
     function mostrarPersonal () {
       setShow(false)
@@ -247,7 +247,7 @@ const Personal = ({personal}) => {
            
         <div className="Usuario">
 
-          {show?
+          {showw?
 
 
             
