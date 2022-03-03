@@ -210,9 +210,10 @@ console.log("UBC::",ubc)
           var client = childSnapshot.child("Cliente").val()
           var ubic = childSnapshot.child("Ubicacion").val()
           var pt = childSnapshot.child("Puesto").val()
+          var nm = childSnapshot.child("Nombre").val()
           var id = childSnapshot.key
 
-          if (ubic != null) {
+          if (ubic != null && nm == "Vacante") {
             opUbic.push({Cliente:client,Ubicacion:ubic,Puesto:pt,Key:id})
           }
 
