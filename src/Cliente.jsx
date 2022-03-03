@@ -168,7 +168,7 @@ const Cliente = (clientes) => {
 
       
 
-        update(ref(db,'Operador'/ + "Vacante Encargado" + pEncargado)),{
+        update(ref(db,'Operador'/ + "Vacante Encargado" + pEncargadoL)),{
           Nombre:"Vacante ",
           Cliente:nombre,
           Horario:hEncargado
