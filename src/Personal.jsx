@@ -349,7 +349,11 @@ console.log("UBC::",ubc)
             
 
         <div className="listClient">
-
+          
+          <div className="adminSide">
+            <SideBar/>
+            
+            </div>
         
             <label class="form-outline-label">Cliente</label>
 
