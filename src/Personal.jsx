@@ -380,6 +380,10 @@ opUbic.forEach((item)=>{
             <SideBar/>
             
             </div>
+
+            <div className="altaOpCl">
+              <h1>Asignacion del Operador</h1>
+            </div>
         
             <label class="form-outline-label">Cliente</label>
 
