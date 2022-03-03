@@ -93,7 +93,8 @@ const Personal = ({personal}) => {
    }
  })
 
-
+console.log("SELECTCLIENTE:",clientSelect)
+console.log("UBC::",ubc)
 
   const [clientCl,setClientCl] = useState([]);
 
