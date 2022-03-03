@@ -35,6 +35,9 @@ const Personal = ({personal}) => {
 
     const [puestSelect,setPuestSelect] = useState('')
 
+    const [turnSelect,setTurnSelect] = useState('')
+
+
     const keId = [];
 
     console.log("keId",keId)
@@ -94,6 +97,9 @@ const Personal = ({personal}) => {
   })
 
 
+  // U B I C A C I O N    D E L   C L I E N T E
+
+
  const ubc = [];
 
  ubc.push("")
@@ -108,6 +114,8 @@ console.log("SELECTCLIENTE:",clientSelect)
 console.log("UBC::",ubc)
 
 
+// P U E S T O  V A C A N T E
+
  const pv = [];
 
  pv.push('')
@@ -118,6 +126,8 @@ console.log("UBC::",ubc)
    }
  })
 
+ // K  E  Y
+
 
  opUbic.forEach((item)=>{
    if (item.Cliente == clientSelect && item.Ubicacion == ubicSelect && item.Puesto == puestSelect){
@@ -125,6 +135,21 @@ console.log("UBC::",ubc)
    }
  })
  console.log("OpUbic:$&/",opUbic)
+
+
+// H O R A R I O 
+
+ const turnArray = [];
+
+ turnArray.push('')
+
+opUbic.forEach((item)=>{
+  if (item.Cliente == clientSelect && item.Ubicacion == ubicSelect && item.Puesto == puestSelect){
+    turnArray.push(item.Horario)
+  }
+})
+
+
 
 
   const [clientCl,setClientCl] = useState([]);
@@ -184,7 +209,7 @@ console.log("UBC::",ubc)
       Puesto:puestSelect,
       Ubicacion:ubicSelect,
       Estatus: 1,
-      Horario: horarioOne + ":" + horarioTwo,
+      Horario: turnSelect,
     });
   
   }
@@ -211,10 +236,11 @@ console.log("UBC::",ubc)
           var ubic = childSnapshot.child("Ubicacion").val()
           var pt = childSnapshot.child("Puesto").val()
           var nm = childSnapshot.child("Nombre").val()
+          var hr = childSnapshot.child("Horario").val()
           var id = childSnapshot.key
 
           if (ubic != null && nm == "Vacante") {
-            opUbic.push({Cliente:client,Ubicacion:ubic,Puesto:pt,Key:id})
+            opUbic.push({Cliente:client,Ubicacion:ubic,Puesto:pt,Horario:hr,Key:id})
           }
 
         })
@@ -406,6 +432,18 @@ console.log("UBC::",ubc)
           </select>
 
           <br/>
+
+          <label class="form-outline-label">Turno</label>
+
+          <br/>
+
+          <select onClick={forceUpdate} onChange ={v=>{setTurnSelect(v.target.value)}} >
+            {turnArray.map((item)=>{
+              return (
+                <option>{item}</option>
+              )
+            })}
+          </select>
 
           <input class="btn btn-primary" type="submit" onClick={mostrarPersonal} value="Siguiente" ></input>
 
