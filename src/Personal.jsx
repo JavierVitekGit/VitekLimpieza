@@ -11,56 +11,16 @@ import SideBar from "./Sidebar";
 
 const Personal = ({personal}) => {
 
-    const [inactive,setInactive] = useState(true)
 
-    const history = useNavigate();
-    
-    const clientee = () => {
-        history("Alta del Cliente");
-    }
-    
-    const bajaCliente = () => {
-        history("/Baja del Cliente");
-    }
-    
-    const turno = () => {
-        history("/Añadir Turno");
-    }
-    
-    const Operador = () => {
-        history("/Alta del Operador");
-    }
-    
-    const bajaOperador = () => {
-        history("/Baja del Operador");
-    }
-    
-    const Reasignacion = () => {
-        history("/Reasignacion");
-    }
-    
-    const Numero = () => {
-        history("/Cambio de Numero");
-    }
-    
-    const Registro = () => {
-        history("/Calendario");
-    }
-    
-    const Inasistencia = () => {
-        history("/Inasistencia");
-    }
-    
-    
-    // document.addEventListener('click', function(event) {
-    //     if(event.target.id != 'botonQueMuestraMenu' && event.target.id != 'menu'){
-    //       document.getElementById('menu').style.display = 'none';
-    //     }
-    //   });
-    
-    
+    const [show,setShow] = useState([]);
 
-    
+    function mostrarPersonal () {
+      setShow(false)
+    }
+
+    function mostrarClientes () {
+      setShow(true)
+    }
 
 
   var today = new Date();
@@ -163,12 +123,7 @@ const Personal = ({personal}) => {
 
 
 
-  function writeClienteData(event) {
-    event.preventDefault()
 
-    update(ref(db,'ClienteUbicacion/'))
-
-  }
 
 
   useLayoutEffect(()=>{
@@ -292,12 +247,30 @@ const Personal = ({personal}) => {
            
         <div className="Usuario">
 
+          {show?
+
+
+            
+
+        <div className="listClient">
+
+          <p>PRUEBA</p>
+
+
+          <input type="button" onClick={mostrarPersonal}></input>
+
+        </div>
+
+
+            :
+
+        <div className="App-header">
+
+          
         <div className="adminSide">
             <SideBar/>
             
             </div>
-
-        <div className="App-header">
             
 
         <div className="altaCH">
@@ -421,12 +394,14 @@ const Personal = ({personal}) => {
 
           <input id="guardarP" class="btn btn-success" type="submit" value="Guardar" onClick={comprobar}></input>
 
-
+          <input type="button" onClick={mostrarClientes} />
           
           
           </div>
           
         </div>
+
+}
 
         <Modal className="modal-container" 
       show={modal}  
