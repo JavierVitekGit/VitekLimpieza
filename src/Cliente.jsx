@@ -316,7 +316,7 @@ const Cliente = (clientes) => {
 
        <input class="form-control" type="text" value="Encargado" /> 
         
-       <input class="form-control" type="text" placeholder="Horario" onChange={v=>hEncargado(v.target.value)}/>
+       <input class="form-control" type="text" placeholder="Horario" onChange={v=>setHEncargado(v.target.value)}/>
        
        <input class="form-control" type="number" onChange={v=>setPEncargado(v.target.value)} maxLength="2" placeholder="No. Personal" />
 
