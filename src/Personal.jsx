@@ -305,7 +305,7 @@ const Personal = ({personal}) => {
 
           <br/>
 
-          <input class="btn btn-primary" type="button" onClick={mostrarPersonal}>Siguiente</input>
+          <input class="btn btn-primary" type="submit" onClick={mostrarPersonal} value="Siguiente" ></input>
 
          
 
