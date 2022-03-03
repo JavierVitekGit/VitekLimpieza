@@ -113,7 +113,7 @@ console.log("UBC::",ubc)
    }
  })
 
-
+ console.log("OpUbic:$&/",opUbic)
 
 
   const [clientCl,setClientCl] = useState([]);
@@ -190,10 +190,10 @@ console.log("UBC::",ubc)
           var client = childSnapshot.child("Cliente").val()
           var ubic = childSnapshot.child("Ubicacion").val()
           var pt = childSnapshot.child("Puesto").val()
-
+          var id = childSnapshot.key
 
           if (ubic != null) {
-            opUbic.push({Cliente:client,Ubicacion:ubic,Puesto:pt})
+            opUbic.push({Cliente:client,Ubicacion:ubic,Puesto:pt,Key:id})
           }
 
         })
