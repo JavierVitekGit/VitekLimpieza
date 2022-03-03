@@ -33,6 +33,11 @@ const Personal = ({personal}) => {
 
     const [ubicSelect,setUbicSelect] = useState('')
 
+    const [puestSelect,setPuestSelect] = useState('')
+
+    const [keId,setKeId] = useState('')
+
+    console.log("keId",keId)
 
 
   var today = new Date();
@@ -113,6 +118,12 @@ console.log("UBC::",ubc)
    }
  })
 
+
+ opUbic.forEach((item)=>{
+   if (item.Cliente == clientSelect && item.Ubicacion == ubicSelect && item.Puesto == puestSelect){
+      setKeId == item.Key
+   }
+ })
  console.log("OpUbic:$&/",opUbic)
 
 
@@ -371,7 +382,7 @@ console.log("UBC::",ubc)
 
           <br/>
 
-          <select onClick={forceUpdate}>
+          <select onClick={forceUpdate} onChange={v=>{setPuestSelect(v.target.value)}}>
             {pv.map((item)=>{
               return(
                 <option>{item}</option>
