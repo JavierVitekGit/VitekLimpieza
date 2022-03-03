@@ -172,7 +172,7 @@ const Cliente = (clientes) => {
       event.preventDefault()  
 
  
-      for (let i = 1; i<pEncargado; i++)
+      for (let i = 1; i<=pEncargado; i++)
         // update(ref(db,'Operador/' + "Vacante " + nombre + "Encargado" )),{
          
 
