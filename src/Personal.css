@@ -133,8 +133,9 @@ text-align: center;
   margin-bottom: 5%;
 }
 
-.SideOlga{
-
+.adminSide{
+  position: sticky;
+  align-self: baseline;
 }
 
 #gen{
