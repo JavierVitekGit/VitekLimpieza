@@ -262,14 +262,29 @@ const Personal = ({personal}) => {
 
         <div className="listClient">
 
-          <p>PRUEBA</p>
+        
 
+
+          {clientUbic.map((item)=>{ 
+          <select>
+            <option>{item.Nombre}</option>
+          </select>
+          })}
+
+          <br/>
+
+          {clientUbic.map((item)=>{ 
+          <select>
+            <option>{item.Ubicacion}</option>
+          </select>
+          })}
+
+
+          <br/>
 
           <input type="button" onClick={mostrarPersonal}></input>
 
-          <select>
-
-          </select>
+         
 
         </div>
 
