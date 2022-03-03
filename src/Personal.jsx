@@ -264,7 +264,9 @@ const Personal = ({personal}) => {
 
         
             <label class="form-outline-label">Cliente</label>
-            <select>
+
+            <br/>
+            <select onClick={forceUpdate} >
 
 
           {clientUbic.map((item)=>{ 
@@ -279,10 +281,10 @@ const Personal = ({personal}) => {
 
           <label class="form-outline-label">Ubicacion del Cliente</label>
 
+          <br/>
 
 
-
-          <select>
+          <select onClick={forceUpdate}  >
           {clientUbic.map((item)=>{ 
 
             return(
