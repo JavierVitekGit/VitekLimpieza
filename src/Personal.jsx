@@ -164,7 +164,7 @@ console.log("UBC::",ubc)
 
   function removeOperadorData (event) {
     event.preventDefault()
-    remove(ref(db,keId[0].toString()))
+    remove(ref(db, 'Operador/' + keId[0].toString()))
   }
   
   
