@@ -177,7 +177,7 @@ const Cliente = (clientes) => {
         // update(ref(db,'Operador/' + "Vacante " + nombre + "Encargado" )),{
          
 
-        update(ref(getDatabase(),'Operador/' + "Vacante" + nombre + "Encargado" + i ),{
+        update(ref(getDatabase(),'Operador/' + "Vacante" + nombre + ubicacion + "Encargado" + i ),{
           Nombre:"Vacante",
           Cliente:nombre,
           Ubicacion:ubicacion,
