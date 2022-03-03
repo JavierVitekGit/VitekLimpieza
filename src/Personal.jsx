@@ -29,7 +29,7 @@ const Personal = ({personal}) => {
 
     const [clientSelect,setClientSelect] = useState('')
 
-
+    const [ubicSelect,setUbicSelect] = useState('')
 
 
 
@@ -99,6 +99,20 @@ const Personal = ({personal}) => {
 
 console.log("SELECTCLIENTE:",clientSelect)
 console.log("UBC::",ubc)
+
+
+ const pv = [];
+
+ pv.push('')
+
+ clientUbic.forEach((item)=>{
+   if(item.Nombre == clientSelect && item.Ubicacion == ubicSelect){
+      pv.push(item.Puesto)
+   }
+ })
+
+
+
 
   const [clientCl,setClientCl] = useState([]);
 
@@ -172,9 +186,11 @@ console.log("UBC::",ubc)
           var nombre = childSnapshot.child("Nombre").val()
           var ubic = childSnapshot.child("Ubicacion").val()
           var sup = childSnapshot.child("Supervisor").val()
+          var puesto = childSnapshot.child("Puesto").val()
+
 
           if (ubic != null){
-            clientUbic.push({Nombre:nombre,Ubicacion:ubic})
+            clientUbic.push({Nombre:nombre,Ubicacion:ubic,Puesto:puesto})
           }
           
 
@@ -312,7 +328,7 @@ console.log("UBC::",ubc)
           <br/>
 
 
-          <select onClick={forceUpdate}  >
+          <select onClick={forceUpdate} onChange={v=>{setUbicSelect(v.target.value)}} >
           {ubc.map((item)=>{ 
 
             return(
@@ -332,6 +348,14 @@ console.log("UBC::",ubc)
           <label class="form-outline-label">Puesto</label>
 
           <br/>
+
+          <select>
+            {pv.map((item)=>{
+              return(
+                <option>{item}</option>
+              )
+            })}
+          </select>
 
           <input class="btn btn-primary" type="submit" onClick={mostrarPersonal} value="Siguiente" ></input>
 
