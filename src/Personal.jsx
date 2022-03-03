@@ -121,7 +121,7 @@ console.log("UBC::",ubc)
 
  opUbic.forEach((item)=>{
    if (item.Cliente == clientSelect && item.Ubicacion == ubicSelect && item.Puesto == puestSelect){
-      setKeId == item.Key
+      keId = item.Key
    }
  })
  console.log("OpUbic:$&/",opUbic)
