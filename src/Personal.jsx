@@ -164,7 +164,7 @@ console.log("UBC::",ubc)
 
   function removeOperadorData (event) {
 
-    var rem = firebase.database().ref(keId[0].toString())
+    var rem = ref(keId[0].toString())
     rem.remove()
   }
   
