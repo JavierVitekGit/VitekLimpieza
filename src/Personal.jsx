@@ -89,6 +89,8 @@ const Personal = ({personal}) => {
 
  const ubc = [];
 
+ ubc.push("")
+
  clientUbic.forEach((item)=>{
    if (item.Nombre == clientSelect){
     ubc.push(item.Ubicacion)
