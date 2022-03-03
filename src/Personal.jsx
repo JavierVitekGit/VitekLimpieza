@@ -25,6 +25,8 @@ const Personal = ({personal}) => {
     
     const [clientUbic,setClientUbic] = useState([]);
 
+    const [opUbic,setOpUbic] = useState([]);
+
     console.log("ClientUbic:::",clientUbic)
 
     const [clientSelect,setClientSelect] = useState('')
@@ -105,8 +107,8 @@ console.log("UBC::",ubc)
 
  pv.push('')
 
- clientUbic.forEach((item)=>{
-   if(item.Nombre == clientSelect && item.Ubicacion == ubicSelect){
+ opUbic.forEach((item)=>{
+   if (item.Cliente == clientSelect && item.Ubicacion == ubicSelect){
       pv.push(item.Puesto)
    }
  })
@@ -180,17 +182,37 @@ console.log("UBC::",ubc)
 
     const dbRef = ref(getDatabase());
 
+
+    get(child(dbRef,'Operador')).then((snapshot)=>{
+      if (snapshot.exists()){
+        snapshot.forEach((childSnapshot)=>{
+
+          var client = childSnapshot.child("Cliente").val()
+          var ubic = childSnapshot.child("Ubicacion").val()
+          var pt = childSnapshot.child("Puesto").val()
+
+
+          if (ubic != null) {
+            opUbic.push({Cliente:client,Ubicacion:ubic,Puesto:pt})
+          }
+
+        })
+      }
+    })
+
+
+
     get(child(dbRef,'ClienteUbicacion')).then((snapshot)=>{
       if (snapshot.exists()){
         snapshot.forEach((childSnapshot)=>{
           var nombre = childSnapshot.child("Nombre").val()
           var ubic = childSnapshot.child("Ubicacion").val()
           var sup = childSnapshot.child("Supervisor").val()
-          var puesto = childSnapshot.child("Puesto").val()
+        
 
 
           if (ubic != null){
-            clientUbic.push({Nombre:nombre,Ubicacion:ubic,Puesto:puesto})
+            clientUbic.push({Nombre:nombre,Ubicacion:ubic})
           }
           
 
