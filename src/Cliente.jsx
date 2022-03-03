@@ -169,7 +169,7 @@ const Cliente = (clientes) => {
     });
     }
 
-    function writePersonalData(event){
+    function writeEncargadolData(event){
       event.preventDefault()  
 
  
@@ -181,7 +181,8 @@ const Cliente = (clientes) => {
           Nombre:"Vacante",
           Cliente:nombre,
           Ubicacion:ubicacion,
-          Horario:hEncargado
+          Horario:hEncargado,
+          Puesto: "Encargado"
         })
 
         
@@ -233,7 +234,7 @@ const Cliente = (clientes) => {
       show(event);
       writeClienteData(event);
       writeShiftData(event);
-      writePersonalData(event);
+      writeEncargadolData(event);
     }
 
   }
