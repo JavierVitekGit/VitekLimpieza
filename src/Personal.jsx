@@ -27,6 +27,11 @@ const Personal = ({personal}) => {
 
     console.log("ClientUbic:::",clientUbic)
 
+    const [clientSelect,setClientSelect] = useState('')
+
+
+
+
 
   var today = new Date();
   var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
@@ -70,6 +75,23 @@ const Personal = ({personal}) => {
     }
   });
 
+
+  const clientesUnicos = [];
+
+  clientUbic.forEach((item)=>{
+    if (!clientesUnicos.includes(item.Nombre)){
+      clientesUnicos.push(item.Nombre)
+    }
+  })
+
+
+ const ubc = [];
+
+ clientUbic.forEach((item)=>{
+   if (item.Nombre == clientSelect){
+    ubc.push(item.Ubicacion)
+   }
+ })
 
 
 
@@ -149,6 +171,7 @@ const Personal = ({personal}) => {
           if (ubic != null){
             clientUbic.push({Nombre:nombre,Ubicacion:ubic})
           }
+          
 
           clientCl.push(nombre)
 
@@ -266,14 +289,14 @@ const Personal = ({personal}) => {
             <label class="form-outline-label">Cliente</label>
 
             <br/>
-            <select onClick={forceUpdate} >
+            <select onClick={forceUpdate} onChange={v=>{setClientSelect(v.target.value)}} >
 
 
-          {clientUbic.map((item)=>{ 
+          {clientesUnicos.map((item)=>{ 
 
             return(
           
-            <option>{item.Nombre}</option>
+            <option>{item}</option>
             )
           })}
             </select>
@@ -285,11 +308,11 @@ const Personal = ({personal}) => {
 
 
           <select onClick={forceUpdate}  >
-          {clientUbic.map((item)=>{ 
+          {ubc.map((item)=>{ 
 
             return(
          
-            <option>{item.Ubicacion}</option>
+            <option>{item}</option>
 
             )
          
