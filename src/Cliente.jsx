@@ -39,9 +39,13 @@ const Cliente = (clientes) => {
 
     const [hEncargado,setHEncargado] = useState('')
 
-    for (let i=0; i<= pEncargado; i++){
-      pEncargadoL.push(i)
+    function list () {
+      for (let i=0; i<= pEncargado; i++){
+        pEncargadoL.push(i)
+      }
     }
+
+    
 
     console.log("pEncargado",pEncargado)
     console.log("EncargadoList::",pEncargadoL)
@@ -222,7 +226,8 @@ const Cliente = (clientes) => {
       
       
     } else{
-      show(event)
+      list(event);
+      show(event);
       writeClienteData(event);
       writeShiftData(event);
       writePersonalData(event);
