@@ -154,7 +154,7 @@ const Cliente = (clientes) => {
       event.preventDefault()
 
 
-    update(ref(db, 'ClienteUbicacion/' + (nombre + ""+ ubicacion)), {
+    update(ref(getDatabase(), 'ClienteUbicacion/' + (nombre + ""+ ubicacion)), {
     Nombre: nombre,
     Domicilio: domicilio,
     Días: arr,
@@ -168,8 +168,8 @@ const Cliente = (clientes) => {
 
       for (let i=1; i <= pEncargado; i++ )
       {
-        update(ref(db,'Operador'/ + "Vacante Encargado" + i)),{
-          Nombre:"Vacante ",
+        update(ref(getDatabase(),'Operador'/ + "Vacante Encargado" + i)),{
+          Nombre: Vacante,
           Cliente:nombre,
           Horario:hEncargado
         }
