@@ -326,8 +326,8 @@ const Cliente = (clientes) => {
        <input class="form-control" type="number" onChange={v=>setPEncargado(v.target.value)} maxLength="2" placeholder="No. Personal" />
 
        </div>
-
-       <br/>
+{/* 
+       <br/> */}
 
        <div className="asignacion2">
       
@@ -342,7 +342,7 @@ const Cliente = (clientes) => {
 
        
 
-       <br/>
+       {/* <br/> */}
 
        <div className="asignacion3">
       
@@ -357,7 +357,7 @@ const Cliente = (clientes) => {
 
        
 
-       <br/>
+       {/* <br/> */}
 
        <div className="asignacion4">
       
