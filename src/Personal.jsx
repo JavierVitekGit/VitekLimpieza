@@ -77,13 +77,13 @@ const Personal = ({personal}) => {
 
 
   const clientesUnicos = [];
-
+  clientesUnicos.push("")
   clientUbic.forEach((item)=>{
     if (!clientesUnicos.includes(item.Nombre)){
       clientesUnicos.push(item.Nombre)
     }
 
-    clientesUnicos.push("")
+   
   })
 
 
