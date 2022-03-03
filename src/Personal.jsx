@@ -349,13 +349,15 @@ console.log("UBC::",ubc)
 
           <br/>
 
-          <select>
+          <select onClick={forceUpdate}>
             {pv.map((item)=>{
               return(
                 <option>{item}</option>
               )
             })}
           </select>
+
+          <br/>
 
           <input class="btn btn-primary" type="submit" onClick={mostrarPersonal} value="Siguiente" ></input>
 
