@@ -166,15 +166,15 @@ const Cliente = (clientes) => {
     function writePersonalData(event){
       event.preventDefault()  
 
-      pEncargadoL.forEach((item)=>{
+      
 
-        update(ref(db,'Operador'/ + "Vacante Encargado" + item)),{
+        update(ref(db,'Operador'/ + "Vacante Encargado" + pEncargado)),{
           Nombre:"Vacante ",
           Cliente:nombre,
           Horario:hEncargado
         }
 
-      })
+  
     }
 
 
