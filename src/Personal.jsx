@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './Personal.css'
 import 'react-infinite-calendar/styles.css';
 import { initializeApp } from 'firebase/app';
-import {child, get, getDatabase,ref,update} from "firebase/database";
+import {child, get, getDatabase,ref,remove,update} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import {BrowserRouter,Link,useNavigate} from "react-router-dom";
@@ -163,9 +163,8 @@ console.log("UBC::",ubc)
 
 
   function removeOperadorData (event) {
-
-    var rem = ref(keId[0].toString())
-    rem.remove()
+    event.preventDefault()
+    remove(ref(db,keId[0].toString()))
   }
   
   
@@ -304,7 +303,7 @@ console.log("UBC::",ubc)
   
 
 
-  if ( nombre == "" || cliente == "") {
+  if ( nombre == "") {
     handleShow(event);
     
   } else{
@@ -487,7 +486,7 @@ console.log("UBC::",ubc)
 
 <br/>
 
-              <label class="form-outline-label" for="form1">Cliente</label>
+              {/* <label class="form-outline-label" for="form1">Cliente</label>
 
                 <br/>
 
@@ -495,7 +494,7 @@ console.log("UBC::",ubc)
                 {clientCl.map((item)=> <option>{item}</option>)}
 
 
-                </select>
+                </select> */}
 
                 <br/>
 
