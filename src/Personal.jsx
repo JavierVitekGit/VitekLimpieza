@@ -35,7 +35,7 @@ const Personal = ({personal}) => {
 
     const [puestSelect,setPuestSelect] = useState('')
 
-    const [keId,setKeId] = useState('')
+    const keId = [];
 
     console.log("keId",keId)
 
@@ -121,7 +121,7 @@ console.log("UBC::",ubc)
 
  opUbic.forEach((item)=>{
    if (item.Cliente == clientSelect && item.Ubicacion == ubicSelect && item.Puesto == puestSelect){
-      setKeId = item.Key
+      keId.push(item.Key)
    }
  })
  console.log("OpUbic:$&/",opUbic)
