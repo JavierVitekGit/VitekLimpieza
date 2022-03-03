@@ -505,30 +505,7 @@ console.log("UBC::",ubc)
 
               
 
-                <br/>
-              
-              <label class="form-outline-label" for="form3">Horario</label> 
-
-                    <br></br>
-
-
-                
-              
-                
-
-                  {/* {sel.map((item)=><option>{item}</option>)} */}
-
-                    
-                  <div className="horInput">
-
-                    <input type="number" value={horarioOne} onChange={v=>setHorarioOne(v.target.value)}></input>:<input type="number" value={horarioTwo} onChange={v=>setHorarioTwo(v.target.value)}></input>
-
-                  </div>
-                    
-
-
-          
-                <br/>
+         
 
 
                 <label class="form-outline-label" for="form3">Teléfono</label>
