@@ -286,6 +286,8 @@ const Personal = ({personal}) => {
 
           <label class="form-outline-label">Puesto</label>
 
+          <br/>
+
           <input type="button" onClick={mostrarPersonal}></input>
 
          
