@@ -393,7 +393,7 @@ const Personal = ({personal}) => {
 
 
           <input id="guardarP" class="btn btn-success" type="submit" value="Guardar" onClick={comprobar}></input>
-
+                <br/>
           <input type="button" onClick={mostrarClientes} />
           
           
