@@ -57,10 +57,10 @@ const Personal = ({personal}) => {
   const [fechaI,onChange3] = useState('')
   const [fechaB,onChange4] = useState('')
   const [fechaN,setFecha] = useState('')
-  const [cliente,onChange5] = useState('')
-  const [hr,setHr] = useState('')
+  // const [cliente,onChange5] = useState('')
+  // const [hr,setHr] = useState('')
 
-  const [supervisor,setSupervisor] = useState('')
+  // const [supervisor,setSupervisor] = useState('')
 
 
   const [genero,setGenero] = useState()
