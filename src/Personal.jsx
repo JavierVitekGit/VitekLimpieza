@@ -160,6 +160,14 @@ console.log("UBC::",ubc)
   console.log("Fecha",fechaN)
 
   console.log("Género:",genero)
+
+
+  function removeOperadorData (event) {
+
+    var rem = firebase.database().ref(keId[0].toString())
+    rem.remove()
+  }
+  
   
   function writeOperadorData(event) {
 
@@ -299,6 +307,7 @@ console.log("UBC::",ubc)
     
   } else{
     show(event)
+    removeOperadorData(event);
     writeOperadorData(event);
 
 
