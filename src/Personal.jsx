@@ -445,6 +445,8 @@ opUbic.forEach((item)=>{
             })}
           </select>
 
+          <br/>
+
           <input class="btn btn-primary" type="submit" onClick={mostrarPersonal} value="Siguiente" ></input>
 
          
