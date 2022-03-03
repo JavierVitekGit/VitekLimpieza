@@ -43,7 +43,8 @@ const Cliente = (clientes) => {
       pEncargadoL.push(i)
     }
 
-    console.log("")
+    console.log("pEncargado",pEncargado)
+    console.log("EncargadoList::",pEncargadoL)
 
 
     var arraydc = [];
@@ -146,7 +147,7 @@ const Cliente = (clientes) => {
     const db = getDatabase();
 
 
-      console.log("Supervisor",supervisor)
+    
 
   
 
