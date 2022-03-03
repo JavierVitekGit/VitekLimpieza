@@ -181,7 +181,9 @@ console.log("UBC::",ubc)
       Nombre: nombre + " " + apellidoP + " " + apellidoM,
       Fecha_Ingreso:fechaI,
       Fecha_Baja:fechaB,
-      Cliente:cliente,
+      Cliente:clientSelect,
+      Puesto:puestSelect,
+      Ubicacion:ubicSelect,
       Estatus: 1,
       Horario: horarioOne + ":" + horarioTwo,
     });
