@@ -161,6 +161,7 @@ const Cliente = (clientes) => {
 
     update(ref(getDatabase(), 'ClienteUbicacion/' + (nombre + ""+ ubicacion)), {
     Nombre: nombre,
+    Ubicacion:ubicacion,
     Domicilio: domicilio,
     Días: arr,
     Estatus: 1,
@@ -179,6 +180,7 @@ const Cliente = (clientes) => {
         update(ref(getDatabase(),'Operador/' + "Vacante" + nombre + "Encargado" + i ),{
           Nombre:"Vacante",
           Cliente:nombre,
+          Ubicacion:ubicacion,
           Horario:hEncargado
         })
 
@@ -296,7 +298,7 @@ const Cliente = (clientes) => {
 
           <label class="form-outline-label" for="form1">Ubicacion</label>
             <br/>
-          <input type="text" class="form-control" placeholder="Ubicacion" />  
+          <input type="text" class="form-control" placeholder="Ubicacion" onChange={v=>setUbicacion(v.target.value)} />  
 
           <br/>
 
