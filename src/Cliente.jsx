@@ -170,7 +170,7 @@ const Cliente = (clientes) => {
       for (let i=1; i <= pEncargado; i++ )
       {
         update(ref(getDatabase(),'Operador'/ + "Vacante Encargado" + i)),{
-          Nombre: Vacante,
+          Nombre: "Vacante",
           Cliente:nombre,
           Horario:hEncargado
         }
