@@ -28,6 +28,9 @@ const BajaCliente = (baja) => {
 
     const [ubicSelect,setUbicSelect] = useState('')
 
+
+    console.log("Cliente:::",value1)
+    console.log("Ubicacion:::", ubicSelect)
     
     var today = new Date()
       var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
