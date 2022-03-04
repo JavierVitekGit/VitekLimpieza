@@ -842,6 +842,8 @@ Ok
           <br/>
           <label class="form-outline-label">Si</label>
 
+          <br/>
+
         <input type="radio" name="supradio" value="Si" onClick={mostrarDiv} onChange={v=>item.radio = v.target.value} ></input> 
         {/* <label class="form-outline-label">Si</label> */}
         <br/>
@@ -860,6 +862,8 @@ Ok
         <br/>
 
         <label class="form-outline-label">No</label>
+
+        <br/>
 
         <input type="radio" name="supradio" value="No" onClick ={ocultarDiv} ></input>
         {/* <label class="form-outline-label">No</label> */}
