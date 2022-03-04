@@ -822,7 +822,7 @@ Ok
         <br/>
                                                                                        {/* v=>{setSeleitect(v.target.value) */}
         <select className="selectName" onClick={forceUpdate}  onChange={v=>item.asis = v.target.value} >
-          {unicos.map((item) => <option>{item}</option>)}
+          {comp.map((item) => <option>{item.name}</option>)}
 
         </select>
 
