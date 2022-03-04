@@ -820,17 +820,23 @@ Ok
    
     <td>
       <div id="hidden">
-    
+      
+          <br/>
+
+        <input type="radio">Si</input>
         <br/>
-                                                                                       {/* v=>{setSeleitect(v.target.value) */}
-        <select className="selectName" onClick={forceUpdate}  onChange={v=>item.asis = v.target.value} >
-          {comp.map((item) => <option>{item.name}</option>)}
+        <input type="radio">No</input>
 
-        </select>
+{/*                                                                              
+          <select className="selectName" onClick={forceUpdate}  onChange={v=>item.asis = v.target.value} >
+            {comp.map((item) => <option>{item.name}</option>)}
 
-        <p>Otro</p>
+          </select>
 
-        <textarea placeholder="Nombre del suplente"  onChange={v=> item.suplencia = (item.suplencia === undefined)? "no se cubrio" : v.target.value}></textarea>
+          <p>Otro</p>
+
+          <textarea placeholder="Nombre del suplente"  onChange={v=> item.suplencia = (item.suplencia === undefined)? "no se cubrio" : v.target.value}></textarea>
+           */}
       </div>
     </td>
 
