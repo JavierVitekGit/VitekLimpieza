@@ -61,6 +61,16 @@ const BajaCliente = (baja) => {
       })
 
       clientU.sort()
+
+      const keyy = [];
+
+      cliente.forEach((item)=>{
+        if (item.Nombre == value1 && item.Ubicacion == ubicSelect){
+          keyy.push(item.Key)
+        }
+      })
+
+      console.log("KEEYY%&&i)", keyy)
       
     // const handlerNombres = function (e) {
     //   const opcion = e.target.value
@@ -133,7 +143,7 @@ useLayoutEffect(()=>{
 
         if (est==1 && ubic != null)
         
-       cliente.push({Nombre:nombreC,Ubicacion:ubic})
+       cliente.push({Nombre:nombreC,Ubicacion:ubic,Key:id})
         
         
       })
