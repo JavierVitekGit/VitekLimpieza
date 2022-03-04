@@ -52,7 +52,7 @@ const BajaCliente = (baja) => {
       clientU.push('')
 
       cliente.forEach((item)=>{
-        if (!clientU.includes(item.Ubicacion)){
+        if (item.Ubicacion == ubicSelect){
           clientU.push(item.Ubicacion)
         }
       })
