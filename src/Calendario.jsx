@@ -274,9 +274,9 @@ const modClose = () => setModClient(false)
 
   function toggle(elemento){
     if(elemento.value=="Si"){
-      document.getElementById("supvisible").style.display == "block";
+      document.getElementById("supvisible").style.display == "block"
     } else {
-      document.getElementById("supvisible").style.display == "none";
+      document.getElementById("supvisible").style.display == "none"
     }
   }
 
