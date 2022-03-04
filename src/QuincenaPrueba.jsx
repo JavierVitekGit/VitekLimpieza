@@ -132,8 +132,9 @@ const QuincenaTest = (quincena) => {
                     var cl = childSnapshot.child("Cliente").val()
                     var fechaI = childSnapshot.child("Fecha_Ingreso").val()
                     var fechaB = childSnapshot.child("Fecha_Baja").val()
+                    var ubic = childSnapshot.child("Ubicacion").val()
 
-                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB, dias:getDays()})
+                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic, dias:getDays()})
                     
                     datos.sort((a,b) => {
                         if (a.Cliente < b.Cliente) return -1;
@@ -537,10 +538,12 @@ return (
                 <thead>
                     
                     <tr>
-                        <th scope="col">Cliente/Ubicación</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Ubicación</th>
                         <th scope="col">Nombre del Operador</th>
                         <th scope="col">Ingreso</th>
                         <th scope="col">Baja</th>
+                        <th scope="col">Reasignación</th>
                        {arrayD.map((item)=>{ return (<th scope="col">{item}</th>)})} 
                     </tr>
                 </thead>
@@ -556,6 +559,10 @@ return (
                                     </td>
 
                                     <td>
+                                        {item.Ubicacion}
+                                    </td>
+
+                                    <td>
                                         {item.Nombre}
                                     </td>
 
@@ -565,6 +572,10 @@ return (
 
                                     <td>
                                         {item.Baja}
+                                    </td>
+
+                                    <td>
+                                        ""
                                     </td>
                                     
                                     {
