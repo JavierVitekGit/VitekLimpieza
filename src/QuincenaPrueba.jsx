@@ -134,8 +134,9 @@ const QuincenaTest = (quincena) => {
                     var fechaB = childSnapshot.child("Fecha_Baja").val()
                     var ubic = childSnapshot.child("Ubicacion").val()
                     var hr = childSnapshot.child("Horario").val()
+                    var puest = childSnapshot.child("Puesto").val()
 
-                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr, dias:getDays()})
+                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Puesto:puest, dias:getDays()})
                     
                     datos.sort((a,b) => {
                         if (a.Cliente < b.Cliente) return -1;
@@ -543,6 +544,7 @@ return (
                         <th scope="col">Ubicación</th>
                         <th scope="col">Nombre del Operador</th>
                         <th scope="col">Turno</th>
+                        <th scope="col">Puesto</th>
                         <th scope="col">Ingreso</th>
                         <th scope="col">Baja</th>
                         <th scope="col">Reasignación</th>
@@ -570,6 +572,10 @@ return (
 
                                     <td>
                                         {item.Horario}
+                                    </td>
+
+                                    <td>
+                                        {item.Puesto}
                                     </td>
 
                                     <td>
