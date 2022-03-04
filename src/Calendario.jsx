@@ -751,7 +751,7 @@ Ok
 <h1 id="head">
   
   <i id="calendarX" class="bi bi-calendar-x"></i>
-  Justificaciones
+  Incidencias
   <h1 className="dateCa">{dia + "-" + mes + "-" + anio}</h1>
   </h1>
 
