@@ -24,7 +24,55 @@ import { CSVLink, CSVDownload } from "react-csv";
 const QuincenaTest = (quincena) => {
 
 
-    const [show,setShow] = useState([])
+    const [dateOne,setDateOne] = useState(new Date().toISOString())
+    const [dateTwo,setDateTwo] = useState(new Date().toISOString())
+
+    console.log("Date One", dateOne)
+    console.log("Date Two", dateTwo)
+
+    console.log("Sub Date One",dateOne.substring(8,10))
+    console.log("Sub Date Two",dateTwo.substring(8,10))
+
+    console.log("Dif String:::", dateTwo.substring(8,10) - dateOne.substring(8,10))
+
+    
+    var diaOne = dateOne.substring(8,10)
+    var mesOne = dateOne.substring(5,7)
+    var anioOne = dateOne.substring(0,4)
+    
+
+    var diaTwo = dateTwo.substring(8,10)
+    var mesTwo = dateTwo.substring(5,7)
+    var anioTwo = dateTwo.substring(0,4)
+
+
+    const fechaUno = diaOne + "-" + mesOne + "-" + anioOne
+
+    const fechaDos = diaTwo + "-" + mesTwo + "-" + anioTwo
+
+    console.log("FechaUno::",fechaUno)
+
+    const [arrayD,setArrayD] = useState([])
+    
+    const [generalData,setGeneralData] = useState([]);
+
+
+    const [justificaciones,setJustificaciones] = useState([]);
+
+    console.log("Justificaciones", justificaciones)
+
+
+
+    
+
+    console.log(arrayD)
+
+
+    const [fechaD,setFechaD] = useState([]);
+
+    console.log("FECHA D%&$#,", fechaD)
+
+    const [show,setShow] = useState([]);
 
     function mostrarReporte () {
         setShow(false)
@@ -34,195 +82,202 @@ const QuincenaTest = (quincena) => {
         setShow(true)
     }
 
-// F I L T R O  T A B L A 
+    console.log("ArrayD::",arrayD)
+
+    const [datos,setDatos] = useState([]);
 
 
+    const [personal,setPersonal] = useState([]);
 
-
-
-// I N F I N I T E   C A L E N D A R
-
-const [infinite,setInfinite] = useState ([])
-
-
-console.log("Infinite:::",infinite)
-
-var today = new Date();
-
-
-var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 15);
-
-// A R R A Y S
-    const trySnapshot = [];
-
-    const ccSnapshotArr = [];
-
-    const cccSnapshotArr = [];
-
-    const stateArray = [];
-
-    const [justificaciones,setJustificaciones] = useState ([]);
-
-
-    const [fechas,setFechas] = useState([]);
-
-
-    const [bajaT,setBajaT] = useState([]);
-
-    const [ingresoT,setIngresoT] = useState([]);
-
-
-    console.log("IngresoT",ingresoT)
-    console.log("BajaT",bajaT)
-   
-
-    const [keyName,setKeyName] = useState ([]);
-
-
-    const [date,setDate] = useState([]);
-
-
-
-
-    // F I R E B A S E
 
     const dbRef = ref(getDatabase());
 
 
-
-    function checking () {
-
+    function obtener () {
 
 
+       
 
-
-        get(child(dbRef,'Justificaciones/')).then((snapshot)=>{
-            if (snapshot.exists()) {
-                snapshot.forEach((childSnapshot)=>{
-
-
-                    var state = childSnapshot.child("estado").val()
-                    var key = childSnapshot.key;
-
-           
-
-
-                    var childName = childSnapshot.val()
-
-    
-                    var snap = snapshot.child("estado").val()
-    
-                    if (trySnapshot.length < 1) {
-    
-                    trySnapshot.push(snapshot.val())
-    
-                } 
-    
-                    childSnapshot.forEach((cSnapshot)=>{
-
-                        var nameKey = cSnapshot.key
-
-                        keyName.push(nameKey)
-    
-                    
-    
-                        var validateOne = cSnapshot.key
-    
-                
-
-
-                        cSnapshot.forEach((ccSnapshot)=>{
-
-
-    
-                                ccSnapshot.forEach((cccSnapshot)=>{
-                                    
-    
-    
-                                    cccSnapshotArr.push(cccSnapshot.val())
-
-                                    var validateTwo = cccSnapshot.child("clienteC").val()
-                                    var nombr = cccSnapshot.child("name").val()
-                                    var turn = cccSnapshot.child("hr").val()
-                                    var incidenci = cccSnapshot.child("estado").val()
-                                    var just = cccSnapshot.child("justi").val()
-                                    var sup = cccSnapshot.child("suplencia").val()
-
-    
-                                    var state = cccSnapshot.child("estado").val()
-    
-    
-                                    if (validateOne == validateTwo && state != null) {
-                                        // date.push(key)
-                                        justificaciones.push({
-                                            Fecha:key,
-                                            Cliente:validateTwo,
-                                            Nombre:nombr,
-                                            Turno:turn,
-                                            Estado:incidenci,
-                                            Justificacion:just,
-                                            Suplencia:sup})
-                                    }
-
-                                    // if (state != null) {
-                                    //     justificaciones.push(cccSnapshot.val())
-    
-                                    // }
-    
-                                    stateArray.push(state)
-    
-                                })
-    
-                                
-    
-                            var state = ccSnapshot.child("estado").val()
-    
-                            ccSnapshotArr.push(ccSnapshot.val())
-    
+        for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
+          arrayD.push(index);
             
-    
-                            
-    
-                        })
-    
-                    })
-    
-                   
-    
+        }
+
+        for (let index = +diaOne; index <= +diaTwo; index++) {
+            fechaD.push(index + "-" + mesOne + "-" + anioOne)
+        }
+
+        console.log("FECHA222$#,", fechaD)
+
+
+        get(child(dbRef,'ClienteUbicacion/')).then((snapshot)=>{
+            if (snapshot.exists()){
+                snapshot.forEach((childSnapshot)=>{
+                    var nombreC = childSnapshot.child("Nombre").val()
+                    var personalC = childSnapshot.child("Personal").val()
+
+                    personal.push({nombreC:nombreC,Personal:personalC})
+
                 })
             }
         })
-        
     
-        
 
         get(child(dbRef,'Operador/')).then((snapshot)=>{
-            if (snapshot.exists()) {
+            if (snapshot.exists()){
                 snapshot.forEach((childSnapshot)=>{
-                    var name = childSnapshot.child("Nombre").val()
+
+
+                    var nm = childSnapshot.child("Nombre").val()
+                    var cl = childSnapshot.child("Cliente").val()
                     var fechaI = childSnapshot.child("Fecha_Ingreso").val()
                     var fechaB = childSnapshot.child("Fecha_Baja").val()
 
-                    fechas.push({Ingreso:fechaI,Baja:fechaB,Nombre:name})
+                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB, dias:getDays()})
+                    
+                    datos.sort((a,b) => {
+                        if (a.Cliente < b.Cliente) return -1;
+                        if (a.Cliente > b.Cliente) return 1
+            
+                        return 0;
+                      })
 
-                })
+
+                    })
+
+                      get(child(dbRef,'Justificaciones/')).then((jsnapshot)=>{
+                        if (jsnapshot.exists()) {
+                            jsnapshot.forEach((jchildSnapshot)=>{
+            
+            
+                                var state = jchildSnapshot.child("estado").val()
+                                var key = jchildSnapshot.key;
+            
+                       
+                                console.log("KEY$$Fecha::",key)
+            
+                        
+                
+                                jchildSnapshot.forEach((cSnapshot)=>{
+            
+                                    var nameKey = cSnapshot.key
+            
+                               
+                
+                                
+                
+                                    var validateOne = cSnapshot.key
+                
+                            
+            
+            
+                                    cSnapshot.forEach((ccSnapshot)=>{
+            
+            
+                
+                                            ccSnapshot.forEach((cccSnapshot)=>{
+                                                
+                
+                
+                                              
+            
+                                                var validateTwo = cccSnapshot.child("clienteC").val()
+                                                var nombr = cccSnapshot.child("name").val()
+                                                var turn = cccSnapshot.child("hr").val()
+                                                var incidenci = cccSnapshot.child("estado").val()
+                                                var just = cccSnapshot.child("justi").val()
+                                                var sup = cccSnapshot.child("suplencia").val()
+            
+                
+                                                var state = cccSnapshot.child("estado").val()
+                
+                
+                                                // if (cl == validateTwo && nm == nombr && state != null) {
+                                                //     // date.push(key)
+                                                //     datos.push({
+                                                //         Cliente:cl,
+                                                //         Nombre:nm,
+                                                //         Ingreso:fechaI,
+                                                //         Baja:fechaB,
+                                                //         Razon:incidenci,
+                                                //         Justificacion:just,
+                                                //         Suplencia:sup})
+                                                // }
+            
+                                                // if (state != null) {
+                                                //     justificaciones.push(cccSnapshot.val())
+                
+                                                // }
+                
+                                                if (validateOne == validateTwo && state != null) {
+                                                    // date.push(key)
+                                                    justificaciones.push({
+                                                        Fecha:key,
+                                                        Cliente:validateTwo,
+                                                        Nombre:nombr,
+                                                        Turno:turn,
+                                                        Estado:incidenci,
+                                                        Justificacion:just,
+                                                        Suplencia:sup})
+                                                }
+                                            
+                
+                                            })
 
 
-                // justificaciones.forEach((item)=>{
+                                            datos.forEach((item)=>{
+                                                justificaciones.forEach((iter)=>{
 
-                //     fechas.forEach((iter)=>{
+                                                    fechaD.forEach((f)=>{
 
-                //         if(item.Nombre == iter.Nombre) {
-                //             bajaT.push(iter.Baja)
-                //             ingresoT.push(iter.Ingreso)
+                                                   var index =0;     
 
-                //             justificaciones.push({Baja:iter.Baja,Ingreso:iter.Ingreso})
+                                                   item.dias.forEach((dialokobydiego)=>{
+                                                       
 
-                //         }
+                                                    // console.log(""+iter.Fecha.substring(0,2) +"=="+ Object.keys(dialokobydiego)[0]  );
+                                                    // console.log(dialokobydiego)
+                                                    // console.log(item.Nombre+"=="+iter.Nombre);
 
-                //     })
 
-                // })
+
+                                                        // if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] )
+
+                                                        if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
+                                                            // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
+                                                            item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion+" "+iter.Suplencia}
+                                                        }
+                                                        index++;
+                                                       
+                                                    })
+
+                                
+                                                    
+                                                })
+                                
+                                                })
+                                            })
+                
+                                            
+                
+                                        var state = ccSnapshot.child("estado").val()
+                
+                   
+                
+                        
+                
+                                        
+                
+                                    })
+                
+                                })
+                
+                               
+                
+                            })
+                        }
+                    })
+
 
 
 
@@ -230,196 +285,315 @@ var nextWeek = new Date(today.getFullYear(),today.getMonth(),today.getDate() + 1
         })
 
 
+        var alpha =  datos.sort((a,b) => {
+            if (a.Cliente < b.Cliente) return -1;
+            if (a.Cliente > b.Cliente) return 1
 
-        // justificaciones.forEach((item)=>{
-        //     justificaciones.push({fecha:date})
-        // })
-
-
-
-        console.log("Justificaciones",justificaciones)
-        console.log("Fecha",date)
+            return 0;
+          })
 
 
-     
+
+        //   personal.forEach((item)=>{
+        //       repeat.forEach((iter)=>{
+        //           datos.forEach((dat)=>{
+
+        //         if(
+        //             item.nombreC == iter.Cliente && iter.Personal < item.Personal
+        //         ){
+        //             datos.push({Cliente:item.nombreC,Nombre:"Vacante",Ingreso:"",Baja:""})
+        //         }
+        //     })
+        //       })
+        //   })
+
+
+        //   for (var i=0; i<personal;i++){
+        //       if (datos[i] == undefined){
+        //           datos.push({Cliente:personal,Nombre:"Vacante",Ingreso:"",Baja:""})
+        //       }
+        //   }
+
+
+        // var  result = {};
+
+        //   for (i = 0; i< personal.length; i++) {
+        //       if (!result[personal[i]])
+        //       result[personal[i]] = 0;
+        //       ++result[personal[i]]
+        //   }
+
+        //   console.log("Resultt::",Object.values(result))
+         
 
         setTimeout(()=>{
             mostrarReporte();
-        },1500);
-        
+        },1000)
 
 
     }
 
+    
+    function getDays(){
+        var days = [];
+        for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
+            days.push({[index.toString()]:"/"});
 
-    const [search,setNewSearch] = useState("");
-
-        const handleSearchChange = (e) => {
-          setNewSearch(e.target.value);
-        };
-        
-        const filtered = !search
-        ?justificaciones
-        :justificaciones.filter((client) =>
-        client.Cliente.toLowerCase().includes(search.toLowerCase()) || client.Nombre.toLowerCase().includes(search.toLowerCase())
-        );
-
+        }
+        return days;
 
 
         
 
-    return(
+    }
 
+    // function getDaysIso() {
+
+    //     var daysIso = [];
+    //     for (let index = +fechaUno; index <= +fechaDos; index++){
+    //     daysIso.push({[index.toString()]:"/"});
+
+
+    //     console.log("DaysIso###",daysIso)
+
+    // }
+    // return daysIso
         
+    // }
 
-        <div className="bodyReport">
+    // const repeat = [];
 
-        { show?
+    // datos.forEach((item)=>{
+    //     repeat[item.Cliente] = repeat.push({Cliente:item.Cliente + 1 || 1})
+    // })
+   
+    // console.log("Repeat::",repeat)
 
-        <div classname="white">
+    //    console.log("Personal::",personal)
+    //    console.log("Datos%%",datos)
+     
 
-            <div className="calQuincenaHeader">
-                <h1>Calendario de Reporte Quincenal</h1>
-            </div>
-            
-            <div className="divCalQuin"> 
 
-            <InfiniteCalendar
-            Component={withRange(Calendar)}
-            selected={false}
-            // selected={{
-            //     start: new Date(2022, 2, 25),
-            //     end: new Date(2022, 3, 12)
-            // }}
-            displayOptions={{
-                showHeader: false
-            }}
-            />
 
-            {/* <InfiniteCalendar
-            Component={withMultipleDates(Calendar)}
-            interpolateSelection={defaultMultipleDateInterpolation}
-            selected={false}
-            displayOptions={{
-                showHeader: false
-            }}
-            /> */}
+    // F U N C I O N   P E R R O N A
+    
+    
+    // function funcionPerrona(){
+    //     var datosReporte=[];
+ 
+    //      datos.map((fila)=>{
+    //          var dataFila = [];
+ 
+    //          dataFila.push({"Nombre":fila.Nombre});
+ 
+    //          var cnt = 0
+    //          fila.dias.map((v)=>{
+    //             dataFila.push({[arrayD[cnt]]:v[""+arrayD[cnt]]})
+    //             cnt ++;
+    //          })
+ 
+    //         datosReporte.push(dataFila);     
+    //      })
+ 
+    //      return datosReporte;
+ 
+ 
+    //  }
+ 
 
-            
+    // E N C O D E
 
-            </div>
-            <br/>
 
-            <input type="button" value="Obtener" onClick={checking}></input>
-        </div>
+      
 
-        :
 
-        <div className="reportShow">
 
+    function fnExcelReport()
+{
+    // var downloadLink;
+    // var dataType = 'application/vnd.ms-excel';
+    var tableSelect = document.getElementById('generate');
+    // var tableHTML = encodeUtf8(tableSelect.outerHTML)
+    // var tableHTML = utf8.encode(tableSelect.outerHTML)
+    // var tableHTML = tableSelect.innerHTML.toString()
+    // var tableHTML = btoa(tableSelect.outerHTML)
+
+    var tableHTML =  tableSelect.outerHTML.replace(/ñ/g, '&ntilde;')
+                     .replace(/Ñ/g, '&Ntilde;')
+                     .replace(/á/g, '&aacute;')
+                     .replace(/Á/g, '&Aacute;')
+                     .replace(/é/g, '&eacute;')
+                     .replace(/É/g, '&Eacute;')
+                     .replace(/í/g, '&iacute;')
+                     .replace(/Í/g, '&Iacute;')
+                     .replace(/ó/g, '&oacute;')
+                     .replace(/Ó/g, '&Oacute;')
+                     .replace(/ú/g, '&uacute;')
+                     .replace(/Ú/g, '&Uacute;')
+                     .replace(/º/g, '&ordm;')
+                     
+
+    // tableHTML.replace(/'á'/g, 'á');
+    // tableHTML.replace(/'é'/g, 'é');
+    // tableHTML.replace(/'í'/g, 'í');
+    // tableHTML.replace(/'ó'/g, '&oacute;');
+    // tableHTML.replace(/'ú'/g, '&uacute;');
+    // tableHTML.replace(/'º'/g, '&ordm;');
+    // tableHTML.replace(/ /g, '%20');
+    // tableHTML.replace(/'Á'/g, '&Aacute;');
+    // tableHTML.replace(/'É'/g, '&Eacute;');
+    // tableHTML.replace(/'Í'/g, '&Iacute;');
+    // tableHTML.replace(/'Ã³'/g, '&Oacute;');
+    // tableHTML.replace(/'Ú'/g, '&Uacute;');
+    // tableHTML.replace(/'ñ'/g, '&ntilde;');
+    // tableHTML.replace(/'Ñ‘'/g, 'Ñ');
+    // var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    
 
     
-            
-            <div className="reportHeader"><h1>Reporte Quincenal</h1></div>
-            
-            
+    // // Specify file name
+    // var filename = 'Reporte.xls';
+    
+    // // Create download link element
+    // downloadLink = document.createElement("a");
+    
+    // document.body.appendChild(downloadLink);
+    
+    // if(navigator.msSaveOrOpenBlob){
+    //     var blob = new Blob(['\ufeff', tableHTML], {
+    //         type: dataType
+    //     });
+    //     navigator.msSaveOrOpenBlob( blob, filename);
+    // }else{
+    //     // Create a link to the file
+    //     downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+    
+        window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tableHTML));
+
+
+        // // Setting the file name
+        // downloadLink.download = filename;
         
+        // //triggering the function
+        // downloadLink.click();
+// }
 
-        <div classname="scrollTab">
+}
 
-            <input type="text" onChange={handleSearchChange}></input>
+function regresar () {
+    setDatos([]);
+    setArrayD([]);
+    mostrarCalendario();
+}
 
-            <table class="table table-striped" id="justTable">
-                <thead class="table-dark">
+
+
+
+
+return (
+
+
+    <div className="bodyReportGB">
+
+       {show? 
+       
+        <div className="reportGB">
+
+    
+
+        <div className="cgHeader">    <h1>Calendario General</h1> </div>
+
+        <br/>
+        <br/>
+
+        <input type="date" value={dateOne} onChange={v=>setDateOne(v.target.value)}></input>
+    
+        <input type="date" value={dateTwo} onChange={v=>setDateTwo(v.target.value)}></input>
+
+
+        <br/>
+        <br/>
+       
+        <input type="button" class="btn btn-success" value="Ver reporte" onClick={obtener} />
+
+
+
+        </div>
+
+: 
+
+        <div className="tabReportGB">
+
+         <div className="reporteGH"> <h1>Reporte General</h1> </div>
+
+        <div className="scrollR">
+
+        <input type="button" class="btn btn-primary" value="Regresar" onClick={regresar} />
+
+
+        <input type="button" class="btn btn-success" value="Generar Reporte" onClick={fnExcelReport} />
+
+            <table class="table table-striped" id="generate">
+                <thead>
+                    
                     <tr>
-                        <th scope="col">Fecha</th>
                         <th scope="col">Cliente/Ubicación</th>
                         <th scope="col">Nombre del Operador</th>
-                        <th scope="col">Turno</th>
-                        <th scope="col">Incidencia</th>
-                        <th scope="col">Justificacion</th>
-                        <th scope="col">Suplencia</th>
-                        <th scope="col">Fecha Ingreso</th>
-                        <th scope="col">Fecha de Baja</th>
-
-
+                        <th scope="col">Ingreso</th>
+                        <th scope="col">Baja</th>
+                       {arrayD.map((item)=>{ return (<th scope="col">{item}</th>)})} 
                     </tr>
                 </thead>
 
-            <tbody>
+                <tbody>
+                    {
+                        datos.map((item)=>{
+                            return(
 
-                {filtered.map((item)=>
-                {
+                                <tr>
+                                    <td>
+                                        {item.Cliente}
+                                    </td>
 
-                    return (
+                                    <td>
+                                        {item.Nombre}
+                                    </td>
 
-                        <tr>
-                            <td>
-                                {item.Fecha}
-                            </td>
+                                    <td>
+                                        {item.Ingreso}
+                                    </td>
 
-                            <td>
-                                {item.Cliente}
-                            </td>
-                            <td>
-                                {item.Nombre}
-                            </td>
-                            <td>
-                                {item.Turno}
-                            </td>
-                            <td>
-                                {item.Estado}
-                            </td>
-                            <td>
-                                {item.Justificacion}
-                            </td>
-                            <td>{item.Suplencia}</td>
-                    
-                            
+                                    <td>
+                                        {item.Baja}
+                                    </td>
+                                    
+                                    {
+                                        item.dias.map((d, inx)=>{
+                                            
 
-                        </tr>
+                                            return(<td>{d[arrayD[inx.toString()]]}</td>)
+                                        })
+                                    }
 
-                    )
-
-                })}
-
-            </tbody>
-
-
+                                </tr>
+                            )
+                        })
+                    }
+                </tbody>
             </table>
-
-
         </div>
-
-        <br/>
-
-        <div classname="btnQuincena">
-
-        <CSVLink data={justificaciones} filename={"Reporte Quincenal.csv"} className="btn btn-success" target="_blank">
-            Generar Reporte
-        </CSVLink>
-
-        <input class="btn btn-primary" type="submit" value="Regresar al Calendario" onClick={mostrarCalendario}></input>
-
-        </div>
-
 
         
-        {/* <input class="btn btn-success" type="button" value="Generar Reporte" onClick={<CSVDownload data={justificaciones} target="ReporteQuincenal" />}></input> */}
+
 
         </div>
-       
+
 
 
 }
 
-
-        </div>
-
-
-
-        
-    )
+    </div>
+)
 
 
 
