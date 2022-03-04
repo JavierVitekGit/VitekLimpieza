@@ -24,6 +24,10 @@ const BajaCliente = (baja) => {
 
 
     const [bajaCl,setBajaCl] = useState('')
+
+
+    const [ubicSelect,setUbicSelect] = useState('')
+
     
     var today = new Date()
       var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
@@ -105,10 +109,11 @@ useLayoutEffect(()=>{
         var hora = childSnapshot.child("Horario").val()
 	      var id = childSnapshot.key;
         var est = childSnapshot.child("Estatus").val()
+        var ubic = childSnapshot.child("Ubicacion").val()
 
         if (est==1)
         
-       lista.push({name:nombreC,dom:domicilio,date:fecha,hr:hora,id:id}) 
+       lista.push({name:nombreC,dom:domicilio,date:fecha,hr:hora,id:id,Ubicacion:ubic}) 
         
         
       })
@@ -192,7 +197,14 @@ return(
         {lista.map((item,i) =>  <option value={item.id} id="list">{item.name}</option> )}
         </select> 
 
-        <br></br>
+        <br/>
+
+        <label class="form-outline-label">Ubicación</label>
+        <br/>
+        <select onClick={forceUpdate} value={ubicSelect} onChange={v=>setUbicSelect(v.target.value)} >
+          {lista.map((item)=> <option>{item.Ubicacion}</option>)}
+        </select>
+
         <br/>
 
 
