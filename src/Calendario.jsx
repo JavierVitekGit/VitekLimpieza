@@ -840,8 +840,9 @@ Ok
       <div id="hidden">
       
           <br/>
+          <label class="form-outline-label">Si</label>
 
-        <input type="radio" name="supradio" value="Si" onClick={mostrarDiv} onChange={v=>item.radio = v.target.value} ></input> Si
+        <input type="radio" name="supradio" value="Si" onClick={mostrarDiv} onChange={v=>item.radio = v.target.value} ></input> 
         {/* <label class="form-outline-label">Si</label> */}
         <br/>
 
@@ -858,7 +859,9 @@ Ok
 
         <br/>
 
-        <input type="radio" name="supradio" value="No" onClick ={ocultarDiv} ></input> No
+        <label class="form-outline-label">No</label>
+
+        <input type="radio" name="supradio" value="No" onClick ={ocultarDiv} ></input>
         {/* <label class="form-outline-label">No</label> */}
 
 {/*                                                                              
