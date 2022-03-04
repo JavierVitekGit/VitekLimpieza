@@ -30,7 +30,7 @@ const Calendario = (calendario) => {
 
   const nameOne = [];
 
-  for (let i = 0; i<= arrayJusti.length; i++) {
+  for (let i = 0; i<= arrayJusti; i++) {
       nameOne.push('supradio' + i)
   }
  
