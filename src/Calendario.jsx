@@ -17,7 +17,7 @@ import SideBar from "./Sidebar";
 
 const Calendario = (calendario) => {
 
-  window.onload = toggle()
+ 
 
   const [datos,setDatos] = useState ([])
 
@@ -272,13 +272,13 @@ const modClose = () => setModClient(false)
   })
 
 
-  function toggle(elemento){
-    if(elemento.value=="Si"){
-      document.getElementById("supvisible").style.display = "block";
-    } else {
-      document.getElementById("supvisible").style.display = "none";
-    }
-  }
+  // function toggle(elemento){
+  //   if(elemento.value=="Si"){
+  //     document.getElementById("supvisible").style.display = "block";
+  //   } else {
+  //     document.getElementById("supvisible").style.display = "none";
+  //   }
+  // }
 
 
 function obtener () {
@@ -832,7 +832,7 @@ Ok
       
           <br/>
 
-        <input type="radio" name="supradio" value="Si" onClick={toggle("Si")}></input>
+        <input type="radio" name="supradio" value="Si"></input>
         <label class="form-outline-label">Si</label>
         <br/>
 
@@ -851,7 +851,7 @@ Ok
 
         <br/>
 
-        <input type="radio" name="supradio" value="No" onClick={toggle("No")} ></input>
+        <input type="radio" name="supradio" value="No"></input>
         <label class="form-outline-label">No</label>
 
 {/*                                                                              
