@@ -17,6 +17,15 @@ import SideBar from "./Sidebar";
 
 const Calendario = (calendario) => {
 
+
+
+  function mostrarDiv (){
+    document.getElementById("supvisible").style.display = "block"
+  }
+
+  function ocultarDiv() {
+    document.getElementById("supvisible").style.display = "none"
+  }
  
 
   const [datos,setDatos] = useState ([])
@@ -832,7 +841,7 @@ Ok
       
           <br/>
 
-        <input type="radio" name="supradio" value="Si"></input>
+        <input type="radio" name="supradio" value="Si" onClick={mostrarDiv}></input>
         <label class="form-outline-label">Si</label>
         <br/>
 
@@ -851,7 +860,7 @@ Ok
 
         <br/>
 
-        <input type="radio" name="supradio" value="No"></input>
+        <input type="radio" name="supradio" value="No" onClick ={ocultarDiv} ></input>
         <label class="form-outline-label">No</label>
 
 {/*                                                                              
