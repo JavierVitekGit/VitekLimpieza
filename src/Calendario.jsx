@@ -823,11 +823,11 @@ Ok
       
           <br/>
 
-        <input type="radio" name="supradio" value="Si"> <label class="form-outline-label">Si</label></input>
-        
+        <input type="radio" name="supradio" value="Si"></input>
+        <label class="form-outline-label">Si</label>
         <br/>
-        <input type="radio" name="supradio" value="No"> <label class="form-outline-label">No</label></input>
-        
+        <input type="radio" name="supradio" value="No"></input>
+        <label class="form-outline-label">No</label>
 
 {/*                                                                              
           <select className="selectName" onClick={forceUpdate}  onChange={v=>item.asis = v.target.value} >
