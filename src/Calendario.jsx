@@ -352,6 +352,8 @@ const firebaseConfig = {
                   var hora = childSnapshot.child("Horario").val()
                   var est = childSnapshot.child("Estatus").val()
 
+                  console.log("NombreOperador",nombreOp)
+
                   if( est == 1 ) 
                   comp.push({clienteC:clienteOp,name:nombreOp,hr:hora,estat:est})
 
