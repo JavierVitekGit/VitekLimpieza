@@ -17,14 +17,7 @@ import SideBar from "./Sidebar";
 
 const Calendario = (calendario) => {
 
-  window.onload = 
-  function toggle(elemento){
-    if(elemento.value=="Si"){
-      document.getElementById("supvisible").style.display = "block";
-    } else {
-      document.getElementById("supvisible").style.display = "none";
-    }
-  }
+  window.onload = toggle()
 
   const [datos,setDatos] = useState ([])
 
@@ -279,13 +272,13 @@ const modClose = () => setModClient(false)
   })
 
 
-  // function toggle(elemento){
-  //   if(elemento.value=="Si"){
-  //     document.getElementById("supvisible").style.display = "block";
-  //   } else {
-  //     document.getElementById("supvisible").style.display = "none";
-  //   }
-  // }
+  function toggle(elemento){
+    if(elemento.value=="Si"){
+      document.getElementById("supvisible").style.display = "block";
+    } else {
+      document.getElementById("supvisible").style.display = "none";
+    }
+  }
 
 
 function obtener () {
