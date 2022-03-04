@@ -130,7 +130,7 @@ useLayoutEffect(()=>{
         var est = childSnapshot.child("Estatus").val()
         var ubic = childSnapshot.child("Ubicacion").val()
 
-        if (est==1)
+        if (est==1 && ubic != null)
         
        cliente.push({Nombre:nombreC,Ubicacion:ubic})
         
