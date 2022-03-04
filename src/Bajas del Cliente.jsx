@@ -115,7 +115,7 @@ const BajaCliente = (baja) => {
     
 useLayoutEffect(()=>{
 
-  lista.push({name:"Seleccionar Cliente",dom:"",date:"",hr:"",id:"Seleccionar Cliente"}) 
+  
 
 
   const dbRef = ref(getDatabase());
