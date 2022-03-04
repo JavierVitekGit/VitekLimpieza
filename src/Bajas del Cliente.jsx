@@ -15,7 +15,7 @@ const BajaCliente = (baja) => {
   const forceUpdate = useCallback(() => updateState({}), []);  
 
   
-    const [lista,onChange] = useState ([])
+    const [cliente,onChange] = useState ([])
     const [value1,onChange2] = useState ('')
     const [Dom,onChange3] = useState ('')
     const [Horario,onChange4] = useState ('')
@@ -35,28 +35,47 @@ const BajaCliente = (baja) => {
 
       var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
       var maxInp = nextWeek.toISOString().split('T')[0]
-      
-    const handlerNombres = function (e) {
-      const opcion = e.target.value
-      onChange2(e.target.value)
-      console.log("### "+ value1)
-      console.log("$$$" + opcion)
 
-      
-      
+      const clientUnic = [];
+      clientUnic.push('')
 
-
-      lista.forEach (v=>{
-        if (v.id == opcion) {
-          console.log(v.id,opcion)
-          onChange3(v.dom)
-          onChange5(v.date) 
-          onChange4(v.hr)
-          onChange6(v.id)
+      cliente.forEach((item)=>{
+        if (!clientUnic.includes(item.Nombre)){
+          clientUnic.push(item.Nombre)
         }
       })
 
-    }
+      clientUnic.sort()
+
+
+      const clientU = [];
+      clientU.push('')
+
+      cliente.forEach((item)=>{
+        if (!clientU.includes(item.Ubicacion)){
+          clientU.push(item.Ubicacion)
+        }
+      })
+
+      clientU.sort()
+      
+    // const handlerNombres = function (e) {
+    //   const opcion = e.target.value
+    //   onChange2(e.target.value)
+    //   console.log("### "+ value1)
+    //   console.log("$$$" + opcion)
+
+    //   lista.forEach (v=>{
+    //     if (v.id == opcion) {
+    //       console.log(v.id,opcion)
+    //       onChange3(v.dom)
+    //       onChange5(v.date) 
+    //       onChange4(v.hr)
+    //       onChange6(v.id)
+    //     }
+    //   })
+
+    // }
 
   
     function writeClienteData(event) {
@@ -113,7 +132,7 @@ useLayoutEffect(()=>{
 
         if (est==1)
         
-       lista.push({name:nombreC,dom:domicilio,date:fecha,hr:hora,id:id,Ubicacion:ubic}) 
+       cliente.push({Nombre:nombreC,Ubicacion:ubic})
         
         
       })
@@ -193,8 +212,8 @@ return(
         <br></br>
 
         
-        <select onClick={forceUpdate}  value={value1} onChange={ handlerNombres } className="test" > 
-        {lista.map((item,i) =>  <option value={item.id} id="list">{item.name}</option> )}
+        <select onClick={forceUpdate}  value={value1} onChange={v=>onChange2(v.target.value)} className="test" > 
+        {clientUnic.map((item,i) =>  <option id="list">{item}</option> )}
         </select> 
 
         <br/>
@@ -202,7 +221,7 @@ return(
         <label class="form-outline-label">Ubicación</label>
         <br/>
         <select onClick={forceUpdate} value={ubicSelect} onChange={v=>setUbicSelect(v.target.value)} >
-          {lista.map((item)=> <option>{item.Ubicacion}</option>)}
+          {clientU.map((item)=> <option>{item}</option>)}
         </select>
 
         <br/>
