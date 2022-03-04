@@ -832,7 +832,7 @@ Ok
       
           <br/>
 
-        <input type="radio" name="supradio" value="Si" onClick="toggle(this)" ></input>
+        <input type="radio" name="supradio" onClick={toggle()} value="Si"></input>
         <label class="form-outline-label">Si</label>
         <br/>
 
@@ -851,7 +851,7 @@ Ok
 
         <br/>
 
-        <input type="radio" name="supradio"  value="No" onClick="toggle(this)"></input>
+        <input type="radio" name="supradio" onClick={toggle()} value="No"></input>
         <label class="form-outline-label">No</label>
 
 {/*                                                                              
