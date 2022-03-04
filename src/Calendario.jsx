@@ -823,9 +823,9 @@ Ok
       
           <br/>
 
-        <input type="radio">Si</input>
+        <input type="radio" value="Si"></input>
         <br/>
-        <input type="radio">No</input>
+        <input type="radio" value="No"></input>
 
 {/*                                                                              
           <select className="selectName" onClick={forceUpdate}  onChange={v=>item.asis = v.target.value} >
