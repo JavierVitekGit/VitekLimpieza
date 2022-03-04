@@ -94,7 +94,7 @@ const BajaCliente = (baja) => {
     function writeClienteData(event) {
       event.preventDefault()
 
-      update(ref(db,'ClienteUbicacion/' + id),{
+      update(ref(db,'ClienteUbicacion/' + keyy[0].toString()),{
         Estatus:0
       })
         close();
