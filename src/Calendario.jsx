@@ -26,7 +26,15 @@ const Calendario = (calendario) => {
   function ocultarDiv() {
     document.getElementById("supvisible").style.display = "none"
   }
+
+
+  const nameOne = [];
+
+  for (let i = 0; i<= arrayJusti.length(); i++) {
+      nameOne.push('supradio' + i)
+  }
  
+  console.log("TryFor",nameOne)
 
   const [datos,setDatos] = useState ([])
 
