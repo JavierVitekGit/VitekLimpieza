@@ -35,20 +35,26 @@ const Cliente = (clientes) => {
 
 
     const [pEncargado,setPEncargado] = useState('')
-    const [pEncargadoL,setPEncargadoL] = useState([]);
+    const [pSupervisor,setPSupervisor] = useState('')
+    const [pOperador,setPOperador] = useState('')
+    const [pSuplencia,setPSuplencia] = useState('')
+
+
 
     const [hEncargado,setHEncargado] = useState('')
+    const [hSupervisor,setHSupervisor] = useState('')
+    const [hOperador,setHOperador] = useState('')
+    const [hSuplencia,setHSuplencia] = useState('')
 
-    function list () {
-      for (let i=1; i< pEncargado; i++){
-        pEncargadoL.push(i)
-      }
-    }
 
+
+
+
+  
     
 
     console.log("pEncargado",pEncargado)
-    console.log("EncargadoList::",pEncargadoL)
+
 
 
     var arraydc = [];
@@ -185,10 +191,59 @@ const Cliente = (clientes) => {
           Puesto: "Encargado",
           Estatus:1
         })
-
-        
-  
     }
+
+
+    function writeSupervisorData(event){
+      event.preventDefault()
+
+      for (let i=1; i<=pSupervisor; i++)
+
+      update(ref(getDatabase(),'Operador/' + "Vacante" + nombre + ubicacion + "Supervisor" + i),{
+        Nombre:"Vacante",
+        Cliente:nombre,
+        Ubicacion:ubicacion,
+        Horario:hSupervisor,
+        Puesto:"Supervisor",
+        Estatus:1
+      })
+
+    }
+
+
+    function writeOperadorData(event){
+      event.preventDefault()
+
+      for (let i=1; i<=pOperador; i++)
+
+      update(ref(getDatabase(),'Operador/' + "Vacante" + nombre + ubicacion + "Operador" + i),{
+        Nombre:"Vacante",
+        Cliente:nombre,
+        Ubicacion:ubicacion,
+        Horario:hOperador,
+        Puesto:"Operador",
+        Estatus:1
+      })
+
+    }
+
+
+    function writeSuplenciaData(event){
+      event.preventDefault()
+
+      for (let i=1; i<=pSuplencia; i++)
+
+      update(ref(getDatabase(),'Operador/' + "Vacante" + nombre + ubicacion + "Suplencia" + i),{
+        Nombre:"Vacante",
+        Cliente:nombre,
+        Ubicacion:ubicacion,
+        Horario:hSuplencia,
+        Puesto:"Suplencia",
+        Estatus:1
+      })
+
+    }
+
 
 
     function writeShiftData(event) {
@@ -226,16 +281,18 @@ const Cliente = (clientes) => {
     
 
 
-    if (nombre == "" || domicilio == "") {
+    if (nombre == "" || domicilio == "" || ubicacion =="") {
       handleShow(event);
       
       
     } else{
-      list(event);
       show(event);
       writeClienteData(event);
       writeShiftData(event);
       writeEncargadolData(event);
+      writeSupervisorData(event);
+      writeOperadorData(event);
+      writeSuplenciaData(event);
     }
 
   }
@@ -334,9 +391,9 @@ const Cliente = (clientes) => {
 
        <input class="form-control" type="text" value="Supervisor" />
         
-       <input class="form-control" type="text" placeholder="Horario" />
+       <input class="form-control" type="text" placeholder="Horario" onChange={v=>setHSupervisor(v.target.value)} />
           
-       <input class="form-control" type="number" maxLength="2" placeholder="No. Personal" />
+       <input class="form-control" type="number"onChange={v=>setPSupervisor(v.target.value)} maxLength="2" placeholder="No. Personal" />
 
        </div>
 
@@ -347,11 +404,11 @@ const Cliente = (clientes) => {
        <div className="asignacion3">
       
 
-       <input class="form-control" type="text" value="Operador" />
+       <input class="form-control" type="text" value="Operador" onChange={v=>setHOperador(v.target.value)} />
         
-       <input class="form-control" type="text" placeholder="Horario" />
+       <input class="form-control" type="text" placeholder="Horario" onChange={v=>setHOperador(v.target.value)} />
           
-       <input class="form-control" type="number" maxLength="2" placeholder="No. Personal" />
+       <input class="form-control" type="number" onChange={v=>setPOperador(v.target.value)} maxLength="2" placeholder="No. Personal" />
 
        </div>
 
@@ -364,9 +421,9 @@ const Cliente = (clientes) => {
 
       <input class="form-control" type="text" value="Suplencia" />
        
-      <input class="form-control" type="text" placeholder="Horario" />
+      <input class="form-control" type="text" placeholder="Horario" onChange={v=>setHSuplencia(v.target.value)} />
          
-      <input class="form-control" type="number" maxLength="2" placeholder="No. Personal" />
+      <input class="form-control" type="number" onChange={v=>setPSuplencia(v.target.value)} maxLength="2" placeholder="No. Personal" />
 
       </div>
 
