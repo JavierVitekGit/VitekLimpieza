@@ -115,8 +115,6 @@ const BajaCliente = (baja) => {
     
 useLayoutEffect(()=>{
 
-  
-
 
   const dbRef = ref(getDatabase());
   get(child(dbRef,'ClienteUbicacion')).then((snapshot) => {
@@ -220,7 +218,7 @@ return(
 
         <label class="form-outline-label">Ubicación</label>
         <br/>
-        <select onClick={forceUpdate} value={ubicSelect} onChange={v=>setUbicSelect(v.target.value)} >
+        <select onClick={forceUpdate}  onChange={v=>setUbicSelect(v.target.value)} >
           {clientU.map((item)=> <option>{item}</option>)}
         </select>
 
@@ -230,7 +228,7 @@ return(
 
         <label class="form-outline-label" id="fbO" for="form1">Fecha de Baja</label>
         <br/>
-        <input type="Date" id="fechaBInp" class="form-control" value={bajaCl} onChange={v=>setBajaCl(v.target.value)} min={minInp} max={maxInp} />
+        <input type="Date" id="fechaBInp" class="form-control" onClick={forceUpdate} value={bajaCl} onChange={v=>setBajaCl(v.target.value)} min={minInp} max={maxInp} />
         
 
         <br/>
