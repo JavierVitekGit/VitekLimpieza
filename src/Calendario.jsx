@@ -841,17 +841,15 @@ Ok
       
           <br/>
 
-        <input type="radio" name="supradio" value="Si" onClick={mostrarDiv}></input> Si
+        <input type="radio" name="supradio" value="Si" onClick={mostrarDiv} onChange={v=>item.radio = v.target.value} ></input> Si
         {/* <label class="form-outline-label">Si</label> */}
         <br/>
 
         <div id="supvisible" style={{display:"none"}} >
 
           <select>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
+        {comp.map((item)=> <option>{item.name}</option>)}
+
           </select>
           <textarea>
 
