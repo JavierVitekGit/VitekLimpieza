@@ -272,13 +272,13 @@ const modClose = () => setModClient(false)
   })
 
 
-  // function toggle(elemento){
-  //   if(elemento.value=="Si"){
-  //     document.getElementById("supvisible").style.display = "block";
-  //   } else {
-  //     document.getElementById("supvisible").style.display = "none";
-  //   }
-  // }
+  function toggle(elemento){
+    if(elemento.value=="Si"){
+      document.getElementById("supvisible").style.display = "block";
+    } else {
+      document.getElementById("supvisible").style.display = "none";
+    }
+  }
 
 
 function obtener () {
@@ -836,7 +836,7 @@ Ok
         <label class="form-outline-label">Si</label>
         <br/>
 
-        <div id="supvisible" style="display:none">
+        <div id="supvisible" style={{display:"none"}} onClick={toggle(this)}>
 
           <select>
             <option>1</option>
