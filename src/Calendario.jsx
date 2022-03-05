@@ -864,7 +864,7 @@ Ok
       <div id="hidden">
       
           <br/>
-          <label class="form-outline-label">Si</label>  {espacio}  <label class="form-outline-label">No</label>
+          <label class="form-outline-label">Si</label>    <label class="form-outline-label">No</label>
           <br/>
 
         <input type="radio" name={nameOne.toString()} value="Si" onChange={v=>item.radio = v.target.value} ></input> 
