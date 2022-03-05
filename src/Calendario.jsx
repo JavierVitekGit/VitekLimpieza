@@ -868,17 +868,8 @@ Ok
 
           <br/>
 
-          {nameOne((item,i) => {
-            return(
-
-        <input type="radio" name={item} value="Si" onClick={mostrarDiv} onChange={v=>item.radio = v.target.value} ></input> 
-
-        )
-      })}
-
+        <input type="radio" name={nameOne.toString()} value="Si" onClick={mostrarDiv} onChange={v=>item.radio = v.target.value} ></input> 
         {/* <label class="form-outline-label">Si</label> */}
-
-        
         <br/>
 
         <div id="supvisible" style={{display:"none"}} >
@@ -898,13 +889,7 @@ Ok
 
         <br/>
 
-          {nameTwo.map((item,i)=>{
-
-         return (
-
-        <input type="radio" name={item}  value="No" onClick ={ocultarDiv} ></input>
-        )
-      })}
+        <input type="radio" name={nameTwo.toString()} value="No" onClick ={ocultarDiv} ></input>
         {/* <label class="form-outline-label">No</label> */}
 
 {/*                                                                              
