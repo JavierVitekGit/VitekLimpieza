@@ -864,7 +864,7 @@ Ok
       <div id="hidden">
       
           <br/>
-          <label class="form-outline-label">Si</label>
+          <label class="form-outline-label">Si</label> ""
           <label class="form-outline-label">No</label>
           <br/>
 
