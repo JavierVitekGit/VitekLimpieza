@@ -28,17 +28,6 @@ const Calendario = (calendario) => {
   }
 
 
-  var size = arrayJusti.length;
-
-  console.log("SIZE:%",size)
-
-  const nameOne = [];
-
-  for (let i = 0; i<= size; i++) {
-      nameOne.push('supradio' + i)
-  }
- 
-  console.log("TryFor",nameOne)
 
   const [datos,setDatos] = useState ([])
 
@@ -70,6 +59,19 @@ const Calendario = (calendario) => {
 
       arrayClientCl.sort()
 
+
+      
+  var size = arrayJusti.length;
+
+  console.log("SIZE:%",size)
+
+  const nameOne = [];
+
+  for (let i = 0; i<= size; i++) {
+      nameOne.push('supradio' + i)
+  }
+ 
+  console.log("TryFor",nameOne)
 
   const [namae,setNamae] = useState([]);
 
