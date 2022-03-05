@@ -884,7 +884,7 @@ Ok
 
         <br/>
 
-        <input type="radio" name="supradio" value="No" onClick ={ocultarDiv} ></input>
+        <input type="radio" name={nameOne.toString()} value="No" onClick ={ocultarDiv} ></input>
         {/* <label class="form-outline-label">No</label> */}
 
 {/*                                                                              
