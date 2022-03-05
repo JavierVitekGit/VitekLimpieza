@@ -28,9 +28,13 @@ const Calendario = (calendario) => {
   }
 
 
+  var size = arrayJusti.length()
+
+  console.log("SIZE:%",size)
+
   const nameOne = [];
 
-  for (let i = 0; i<= arrayJusti; i++) {
+  for (let i = 0; i<= size; i++) {
       nameOne.push('supradio' + i)
   }
  
