@@ -868,8 +868,17 @@ Ok
 
           <br/>
 
-        <input type="radio" name={nameOne.map((item,i)=>{item})} value="Si" onClick={mostrarDiv} onChange={v=>item.radio = v.target.value} ></input> 
+          {nameOne((item,i) => {
+            return(
+
+        <input type="radio" name={item} value="Si" onClick={mostrarDiv} onChange={v=>item.radio = v.target.value} ></input> 
+
+        )
+      })}
+
         {/* <label class="form-outline-label">Si</label> */}
+
+        
         <br/>
 
         <div id="supvisible" style={{display:"none"}} >
@@ -889,7 +898,13 @@ Ok
 
         <br/>
 
-        <input type="radio" name={nameTwo.map((item,i)=>{item})} value="No" onClick ={ocultarDiv} ></input>
+          {nameTwo.map((item,i)=>{
+
+         return (
+
+        <input type="radio" name={item}  value="No" onClick ={ocultarDiv} ></input>
+        )
+      })}
         {/* <label class="form-outline-label">No</label> */}
 
 {/*                                                                              
