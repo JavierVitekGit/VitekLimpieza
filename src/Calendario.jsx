@@ -868,11 +868,11 @@ Ok
 
           <br/>
 
-        <input type="radio" name={nameOne.toString()} value="Si" onClick={mostrarDiv} onChange={v=>item.radio = v.target.value} ></input> 
+        <input type="radio" name={nameOne.toString()} value="Si" onChange={v=>item.radio = v.target.value} ></input> 
         {/* <label class="form-outline-label">Si</label> */}
         <br/>
 
-        <div id="supvisible" style={{display:"none"}} >
+        <div id="supvisible" >
 
           <select>
         {comp.map((item)=> <option>{item.name}</option>)}
@@ -889,7 +889,7 @@ Ok
 
         <br/>
 
-        <input type="radio" name={nameTwo.toString()} value="No" onClick ={ocultarDiv} ></input>
+        <input type="radio" name={nameTwo.toString()} value="No"  ></input>
         {/* <label class="form-outline-label">No</label> */}
 
 {/*                                                                              
