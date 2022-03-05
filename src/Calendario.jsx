@@ -67,7 +67,7 @@ const Calendario = (calendario) => {
 
   const nameOne = [];
 
-  for (let i = 1; i< size; i++) {
+  for (let i = 1; i<= size; i++) {
       nameOne.push('supradio' + i)
   }
  
