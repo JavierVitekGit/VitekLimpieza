@@ -75,8 +75,13 @@ const Calendario = (calendario) => {
 
 
 
+  const nameTwo = [];
 
+  for (let i=1; i <= size; i++){
+    nameTwo.push('supradio' + i)
+  }
 
+  console.log("NameTwo::",nameTwo)
 
   const [namae,setNamae] = useState([]);
 
@@ -884,7 +889,7 @@ Ok
 
         <br/>
 
-        <input type="radio" name="supradio" value="No" onClick ={ocultarDiv} ></input>
+        <input type="radio" name={nameTwo.toString()} value="No" onClick ={ocultarDiv} ></input>
         {/* <label class="form-outline-label">No</label> */}
 
 {/*                                                                              
