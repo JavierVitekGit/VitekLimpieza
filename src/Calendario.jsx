@@ -863,7 +863,7 @@ Ok
 
           <br/>
 
-        <input type="radio" name="supradio" value="Si" onClick={mostrarDiv} onChange={v=>item.radio = v.target.value} ></input> 
+        <input type="radio" name={nameOne.toString()} value="Si" onClick={mostrarDiv} onChange={v=>item.radio = v.target.value} ></input> 
         {/* <label class="form-outline-label">Si</label> */}
         <br/>
 
