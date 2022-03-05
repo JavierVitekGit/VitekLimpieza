@@ -28,7 +28,7 @@ const Calendario = (calendario) => {
   }
 
 
-  var size = arrayJusti.length
+  var size = arrayJusti.length;
 
   console.log("SIZE:%",size)
 
