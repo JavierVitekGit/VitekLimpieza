@@ -868,7 +868,7 @@ Ok
 
           <br/>
 
-        <input type="radio" name={nameOne.toString()} value="Si" onClick={mostrarDiv} onChange={v=>item.radio = v.target.value} ></input> 
+        <input type="radio" name={nameOne.map((d,inx)=>{d[inx.toString()]})} value="Si" onClick={mostrarDiv} onChange={v=>item.radio = v.target.value} ></input> 
         {/* <label class="form-outline-label">Si</label> */}
         <br/>
 
@@ -889,7 +889,7 @@ Ok
 
         <br/>
 
-        <input type="radio" name={nameTwo.toString()} value="No" onClick ={ocultarDiv} ></input>
+        <input type="radio" name={nameTwo.map((d,inx)=>{d[inx.toString()]})} value="No" onClick ={ocultarDiv} ></input>
         {/* <label class="form-outline-label">No</label> */}
 
 {/*                                                                              
