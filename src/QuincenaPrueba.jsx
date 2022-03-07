@@ -587,7 +587,7 @@ return (
                                             
                       
 
-                                            return(<td>{d[fechaD.substring(0,2)[inx.toString()]]}</td>)
+                                            return(<td>{d[fechaD.toString().substring(0,2)[inx.toString()]]}</td>)
                                         })
                                     }
 
