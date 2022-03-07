@@ -242,11 +242,11 @@ const QuincenaTest = (quincena) => {
                                                     // console.log(dialokobydiego)
                                                     // console.log(item.Nombre+"=="+iter.Nombre);
 
-
+                                                        console.log("ObjectKeyDialogo",Object.keys(dialokobydiego)[0])
 
                                                         // if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] )
 
-                                                        if (item.Nombre == iter.Nombre && +iter.Fecha.toString() == +Object.keys(dialokobydiego)[0] ) {
+                                                        if (item.Nombre == iter.Nombre && +iter.Fecha == +Object.keys(dialokobydiego)[0] ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion+" "+iter.Suplencia}
                                                         }
@@ -345,7 +345,7 @@ const QuincenaTest = (quincena) => {
         // }
 
           for (let i = +diaOne; i <= +diaTwo; i++){
-              days.push({[i.toString() + "-" + mesOne + "-" + anioOne]:"/"});
+              days.push({[i + "-" + mesOne + "-" + anioOne]:"/"});
           }
 
 
