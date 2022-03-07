@@ -339,13 +339,21 @@ const QuincenaTest = (quincena) => {
     
     function getDays(){
         var days = [];
-        for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
-            days.push({[index.toString()]:"/"});
+        // for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
+        //     days.push({[index.toString()]:"/"});
 
-        }
+        // }
+
+          for (let i = +diaOne; i <= +diaTwo; i++){
+              days.push({[i.toString() + "-" + mesOne + "-" + anioOne]:"/"});
+          }
+
+
         return days;
 
-
+        // for (let index = +diaOne; index <= +diaTwo; index++) {
+        //     fechaD.push(index + "-" + mesOne + "-" + anioOne)
+        // }
         
 
     }
