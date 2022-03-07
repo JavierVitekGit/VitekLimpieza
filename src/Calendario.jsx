@@ -32,9 +32,9 @@ const Calendario = (calendario) => {
 
 
 
-  const autoCompleteV = document.getElementById('autocomplete Value').innerHTML.toString()
+  // const autoCompleteV = document.getElementById('autocomplete Value').innerHTML.toString()
 
-  console.log("AutoCompleteV|w4",autoCompleteV)
+  // console.log("AutoCompleteV|w4",autoCompleteV)
 
   const [datos,setDatos] = useState ([])
 
