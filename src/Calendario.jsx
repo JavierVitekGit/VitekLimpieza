@@ -884,7 +884,7 @@ Ok
         <div id="supvisible" >
 
 
-        <Autocomplete suggestions={unicos} userInput={v=>{setAutocomplete(v.target.value)}}></Autocomplete>
+        <Autocomplete suggestions={unicos} value={setAutocomplete}></Autocomplete>
 
           {/* <select style={{textAlign:"center"}}>
         {unicos.map((item)=> <option>{item}</option>)}
