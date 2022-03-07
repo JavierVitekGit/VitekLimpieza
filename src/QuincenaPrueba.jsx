@@ -239,36 +239,57 @@ const QuincenaTest = (quincena) => {
 
                                                    var index =0;     
 
-                                                   item.dias.forEach((dialokobydiego)=>{                                                       
+                                                   item.dias.forEach((dialokobydiego)=>{
+                                                       
+
                                                     // console.log(""+iter.Fecha.substring(0,2) +"=="+ Object.keys(dialokobydiego)[0]  );
                                                     // console.log(dialokobydiego)
                                                     // console.log(item.Nombre+"=="+iter.Nombre);
+
+
+
                                                         // if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] )
 
                                                         
 
-                                                        if (item.Nombre == iter.Nombre && +iter.Fecha == +Object.keys(dialokobydiego)[0] ) {
+                                                        if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion+" "+iter.Suplencia}
-
-
-                                                            console.log(item.dias)
-
                                                         }
                                                         index++;
                                                        
                                                     })
-                                                })                                
+
+                                
+                                                    
                                                 })
-                                            })                                                        
+                                
+                                                })
+                                            })
+                
+                                            
                 
                                         var state = ccSnapshot.child("estado").val()
+                
+                   
+                
+                        
+                
+                                        
+                
                                     })
                 
                                 })
+                
+                               
+                
                             })
                         }
                     })
+
+
+
+
             }
         })
 
@@ -324,14 +345,14 @@ const QuincenaTest = (quincena) => {
     
     function getDays(){
         var days = [];
-        // for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
-        //     days.push({[index.toString()]:"/"});
+        for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
+            days.push({[index.toString()]:"/"});
 
-        // }
-
-        for (let i = diaOne; i <= diaTwo; i++ ){
-            days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString()]:"/"})
         }
+
+        // for (let i = diaOne; i <= diaTwo; i++ ){
+        //     days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString()]:"/"})
+        // }
 
         console.log("Days",days)
 
@@ -585,9 +606,9 @@ return (
                                     {
                                         item.dias.map((d, inx)=>{
                                             
-                      
+                                            console.log("RETURNN",d)
 
-                                            return(<td>{d[fechaD.toString().substring(0,2)[inx.toString()]]}</td>)
+                                            return(<td>{d[arrayD[inx.toString()]]}</td>)
                                         })
                                     }
 
