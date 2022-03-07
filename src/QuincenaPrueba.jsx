@@ -252,7 +252,7 @@ const QuincenaTest = (quincena) => {
 
                                                         
 
-                                                        if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
+                                                        if (item.Nombre == iter.Nombre && +iter.Fecha == +Object.keys(dialokobydiego)[0] ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion+" "+iter.Suplencia}
                                                         }
@@ -345,14 +345,14 @@ const QuincenaTest = (quincena) => {
     
     function getDays(){
         var days = [];
-        for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
-            days.push({[index.toString()]:"/"});
+        // for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
+        //     days.push({[index.toString()]:"/"});
 
-        }
-
-        // for (let i = diaOne; i <= diaTwo; i++ ){
-        //     days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString()]:"/"})
         // }
+
+        for (let i = diaOne; i <= diaTwo; i++ ){
+            days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString()]:"/"})
+        }
 
         console.log("Days",days)
 
@@ -608,7 +608,7 @@ return (
                                             
                                             console.log("RETURNN",d)
 
-                                            return(<td>{d[arrayD[inx.toString()]]}</td>)
+                                            return(<td>{d[fechaD[inx.toString()]]}</td>)
                                         })
                                     }
 
