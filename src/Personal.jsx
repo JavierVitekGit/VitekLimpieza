@@ -126,6 +126,16 @@ console.log("UBC::",ubc)
    }
  })
 
+ const [pvUnic,setPvUnic] = useState([]);
+
+ pv.forEach((item)=>{
+   if (!pvUnic.includes(item)) {
+      pvUnic.push(item);
+
+      pvUnic.sort()
+   }
+ })
+
  // K  E  Y
 
 
@@ -428,7 +438,7 @@ opUbic.forEach((item)=>{
           <br/>
 
           <select onClick={forceUpdate} onChange={v=>{setPuestSelect(v.target.value)}}>
-            {pv.map((item)=>{
+            {pvUnic.map((item)=>{
               return(
                 <option>{item}</option>
               )
