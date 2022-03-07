@@ -28,7 +28,13 @@ const Reasignacion = (reasignacion) => {
     // });
 
 
+    var today = new Date().toISOString()
 
+    var fecha = today.substring(8,10) + today.substring(5,7) + today.substring(0,4)
+
+    console.log("today",today)
+
+    console.log("Fecha",fecha)
 
     console.log(filt)
 
@@ -121,7 +127,8 @@ const Reasignacion = (reasignacion) => {
 
         update(ref(db,'Operador/' + nombre),{
             Cliente:cliente,
-            Horario:horario + ":" + horario2
+            Horario:horario + ":" + horario2,
+            Reasignacion: fecha + ":" + cliente
         })
 
         Close();
