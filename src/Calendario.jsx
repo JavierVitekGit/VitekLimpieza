@@ -32,7 +32,7 @@ const Calendario = (calendario) => {
 
 
 
-  const autoCompleteV = document.getElementById('autocomplete Value').value
+  const autoCompleteV = document.getElementById('autocomplete Value').innerHTML.toString()
 
   console.log("AutoCompleteV|w4",autoCompleteV)
 
