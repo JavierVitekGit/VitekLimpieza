@@ -414,10 +414,10 @@ const firebaseConfig = {
             })
 
             comp.forEach((iter)=>{
-              if (iter.clienteC == selClient) {
+           
                 namae.push(iter.name)
                 namae.sort()
-              }
+              
             } )
             
             
@@ -875,7 +875,7 @@ Ok
         <div id="supvisible" >
 
           <select>
-        {comp.map((item)=> <option>{item.name}</option>)}
+        {namae.map((item)=> <option>{item}</option>)}
 
           </select>
           <textarea>
