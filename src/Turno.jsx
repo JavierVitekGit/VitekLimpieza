@@ -279,8 +279,15 @@ const Turno = (turno) =>{
 
                 console.log(nKey)
 
+                if (nombre != "Vacante") {
                   nombreTurno.push(nombre)
                   nombreTurno.sort()
+                }
+
+                  
+
+
+                  
                   clienteTurno.push(cliente)
                   clienteTurno.sort()
 
