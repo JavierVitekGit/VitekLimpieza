@@ -46,7 +46,11 @@ const Calendario = (calendario) => {
   const [arrayPersonal,setArrayPersonal] = useState([]);
 
 
+  const [autoComplete,setAutocomplete] = useState('')
   
+  console.log("AutoComplete Value::",autoComplete)
+
+  console.log("Autocomplete component",Autocomplete)
 
   //Datos Olga
 
