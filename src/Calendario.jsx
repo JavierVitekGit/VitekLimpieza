@@ -14,6 +14,7 @@ import Button from 'react-bootstrap/Button'
 import Login from "./login";
 import {BrowserRouter,Link,useNavigate} from "react-router-dom";
 import SideBar from "./Sidebar";
+import Autocomplete from './Autocomplete'
 
 const Calendario = (calendario) => {
 
@@ -876,10 +877,13 @@ Ok
 
         <div id="supvisible" >
 
-          <select style={{textAlign:"center"}}>
+
+        <Autocomplete suggestions={unicos}></Autocomplete>
+
+          {/* <select style={{textAlign:"center"}}>
         {unicos.map((item)=> <option>{item}</option>)}
 
-          </select>
+          </select> */}
           <textarea>
 
           </textarea>
