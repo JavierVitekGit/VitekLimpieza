@@ -561,7 +561,7 @@ return (
                         <th scope="col">Ingreso</th>
                         <th scope="col">Baja</th>
                         <th scope="col">Reasignación</th>
-                       {arrayD.map((item)=>{ return (<th scope="col">{item.substring(0,2)}</th>)})} 
+                       {arrayD.map((item)=>{ return (<th scope="col">{item}</th>)})} 
                     </tr>
                 </thead>
 
