@@ -15,7 +15,7 @@ import Login from "./login";
 import {BrowserRouter,Link,useNavigate} from "react-router-dom";
 import SideBar from "./Sidebar";
 import Autocomplete from './Autocomplete'
-import './Autocomplete.css'
+
 
 
 const Calendario = (calendario) => {
