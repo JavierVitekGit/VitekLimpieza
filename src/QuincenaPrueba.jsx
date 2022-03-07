@@ -253,7 +253,7 @@ const QuincenaTest = (quincena) => {
                                                         
                                                         
 
-                                                        if (item.Nombre == iter.Nombre && +iter.Fecha == f ) {
+                                                        if (item.Nombre == iter.Nombre && +iter.Fecha == +f ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion+" "+iter.Suplencia}
                                                         }
