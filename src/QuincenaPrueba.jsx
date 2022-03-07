@@ -345,7 +345,7 @@ const QuincenaTest = (quincena) => {
         // }
 
         for (let i = diaOne; i <= diaTwo; i++ ){
-            days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString]:"/"})
+            days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString()]:"/"})
         }
 
         console.log("Days",days)
