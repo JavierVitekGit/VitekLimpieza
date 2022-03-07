@@ -97,6 +97,10 @@ const QuincenaTest = (quincena) => {
 
 
        
+        // for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
+        //     arrayD.push(index);
+              
+        //   }
 
         for (let index = +diaOne; index <= +diaTwo; index++) {
           arrayD.push(index + "-" + mesOne + "-" + anioOne);

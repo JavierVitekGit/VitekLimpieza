@@ -876,7 +876,7 @@ Ok
 
         <div id="supvisible" >
 
-          <select style="text-align: center;">
+          <select style={{textAlign:"center"}}>
         {unicos.map((item)=> <option>{item}</option>)}
 
           </select>
@@ -886,6 +886,7 @@ Ok
 
           <br/>
           <label class="form-outline-label">No</label>
+          <br/>
 
           <input type="radio" name={nameTwo.toString()} value="No"  ></input>
 
