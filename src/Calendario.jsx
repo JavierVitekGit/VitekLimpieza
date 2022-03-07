@@ -414,7 +414,9 @@ const firebaseConfig = {
             })
 
             comp.forEach((iter)=>{
-           
+              
+              if (iter.name != "Vacante")
+
                 namae.push(iter.name)
                 namae.sort()
               
@@ -875,7 +877,7 @@ Ok
         <div id="supvisible" >
 
           <select>
-        {namae.map((item)=> <option>{item}</option>)}
+        {unicos.map((item)=> <option>{item}</option>)}
 
           </select>
           <textarea>
