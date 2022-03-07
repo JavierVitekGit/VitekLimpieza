@@ -36,6 +36,10 @@ const Calendario = (calendario) => {
 
   // console.log("AutoCompleteV|w4",autoCompleteV)
 
+  const [autocompleteV,setAutocompleteV] = useState('')
+
+  console.log("AutoCompleteV",autocompleteV)
+
   const [datos,setDatos] = useState ([])
 
 
@@ -885,7 +889,7 @@ Ok
         <div id="supvisible" >
 
 
-        <Autocomplete suggestions={unicos}></Autocomplete>
+        <Autocomplete suggestions={unicos} onChange={v=>{setAutocompleteV(v.currentTarget.value)}}></Autocomplete>
 
           {/* <select style={{textAlign:"center"}}>
         {unicos.map((item)=> <option>{item}</option>)}
