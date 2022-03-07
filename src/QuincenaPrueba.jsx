@@ -141,15 +141,13 @@ const QuincenaTest = (quincena) => {
                     var puest = childSnapshot.child("Puesto").val()
                     var reasig = childSnapshot.child("Reasignacion").val()
 
-                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Puesto:puest, dias:getDays()})
+                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays()})
 
                     
 
                     
 
-                    if (reasig.substring(0,10) == fechaD ){
-                        datos.push({Reasignacion:reasig})
-                    }
+                    
 
              
                     datos.sort((a,b) => {
