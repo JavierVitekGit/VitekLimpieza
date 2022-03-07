@@ -870,7 +870,7 @@ Ok
           <br/>
 
         <input type="radio" name={nameOne.toString()} value="Si" onChange={v=>item.radio = v.target.value} ></input> 
-        <input type="radio" name={nameTwo.toString()} value="No"  ></input>
+       
         {/* <label class="form-outline-label">Si</label> */}
         <br/>
 
@@ -883,6 +883,11 @@ Ok
           <textarea>
 
           </textarea>
+
+          <br/>
+
+          <input type="radio" name={nameTwo.toString()} value="No"  ></input>
+          
         </div>
 
         
