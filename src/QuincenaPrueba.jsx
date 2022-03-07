@@ -603,7 +603,7 @@ return (
                                         item.dias.map((d, inx)=>{
                                             
 
-                                            return(<td>{d[arrayD[inx.toString()]]}</td>)
+                                            return(<td>{d[[inx.toString()]]}</td>)
                                         })
                                     }
 
