@@ -876,7 +876,7 @@ Ok
 
         <div id="supvisible" >
 
-          <select>
+          <select style="text-align: center;">
         {unicos.map((item)=> <option>{item}</option>)}
 
           </select>
