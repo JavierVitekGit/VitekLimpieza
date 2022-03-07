@@ -30,7 +30,7 @@ const Reasignacion = (reasignacion) => {
 
     var today = new Date().toISOString()
 
-    var fecha = today.substring(8,10) + "/" +  today.substring(5,7) + "/" + today.substring(0,4)
+    var fecha = today.substring(8,10) + "-" +  today.substring(5,7) + "-" + today.substring(0,4)
 
     console.log("today",today)
 
