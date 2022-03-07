@@ -606,7 +606,7 @@ return (
                                     {
                                         item.dias.map((d, inx)=>{
                                             
-                                            console.log("RETURNN",inx.toString())
+                                            console.log("RETURNN",d)
 
                                             return(<td>{d[arrayD[inx.toString()]]}</td>)
                                         })
