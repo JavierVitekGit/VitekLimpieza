@@ -296,7 +296,7 @@ const QuincenaTest = (quincena) => {
           })
 
 
-
+        console.log("DATOSS,",datos)
         //   personal.forEach((item)=>{
         //       repeat.forEach((iter)=>{
         //           datos.forEach((dat)=>{
