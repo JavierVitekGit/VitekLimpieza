@@ -20,17 +20,21 @@ import Autocomplete from './Autocomplete'
 
 const Calendario = (calendario) => {
 
-  var espacio = document.createTextNode("\u00a0");
+  // var espacio = document.createTextNode("\u00a0");
 
-  function mostrarDiv (){
-    document.getElementById("supvisible").style.display = "block"
-  }
+  // function mostrarDiv (){
+  //   document.getElementById("supvisible").style.display = "block"
+  // }
 
-  function ocultarDiv() {
-    document.getElementById("supvisible").style.display = "none"
-  }
+  // function ocultarDiv() {
+  //   document.getElementById("supvisible").style.display = "none"
+  // }
 
 
+
+  const autoCompleteV = document.getElementById('autocomplete Value').value
+
+  console.log("AutoCompleteV|w4",autoCompleteV)
 
   const [datos,setDatos] = useState ([])
 
@@ -46,11 +50,8 @@ const Calendario = (calendario) => {
   const [arrayPersonal,setArrayPersonal] = useState([]);
 
 
-  const [autoComplete,setAutocomplete] = useState('')
-  
-  console.log("AutoComplete Value::",autoComplete)
 
-  console.log("Autocomplete component",Autocomplete)
+
 
   //Datos Olga
 
@@ -884,7 +885,7 @@ Ok
         <div id="supvisible" >
 
 
-        <Autocomplete suggestions={unicos} value={setAutocomplete}></Autocomplete>
+        <Autocomplete suggestions={unicos}></Autocomplete>
 
           {/* <select style={{textAlign:"center"}}>
         {unicos.map((item)=> <option>{item}</option>)}
