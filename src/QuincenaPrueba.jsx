@@ -348,6 +348,8 @@ const QuincenaTest = (quincena) => {
             days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString]:"/"})
         }
 
+        console.log("Days",days)
+
         return days;
 
 
