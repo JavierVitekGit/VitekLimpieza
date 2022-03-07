@@ -98,8 +98,8 @@ const QuincenaTest = (quincena) => {
 
        
 
-        for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
-          arrayD.push(index);
+        for (let index = +diaOne; index <= +diaTwo; index++) {
+          arrayD.push(index + "-" + mesOne + "-" + anioOne);
             
         }
 
@@ -557,7 +557,7 @@ return (
                         <th scope="col">Ingreso</th>
                         <th scope="col">Baja</th>
                         <th scope="col">Reasignación</th>
-                       {arrayD.map((item)=>{ return (<th scope="col">{item}</th>)})} 
+                       {arrayD.map((item)=>{ return (<th scope="col">{item.substring(0,2)}</th>)})} 
                     </tr>
                 </thead>
 
