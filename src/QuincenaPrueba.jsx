@@ -242,7 +242,6 @@ const QuincenaTest = (quincena) => {
                                                     // console.log(dialokobydiego)
                                                     // console.log(item.Nombre+"=="+iter.Nombre);
 
-                                                        console.log("ObjectKeyDialogo",Object.keys(dialokobydiego)[0])
 
                                                         // if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] )
 
