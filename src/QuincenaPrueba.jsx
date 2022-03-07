@@ -243,9 +243,10 @@ const QuincenaTest = (quincena) => {
                                                     // console.log(item.Nombre+"=="+iter.Nombre);
 
 
+
                                                         // if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] )
 
-                                                        if (item.Nombre == iter.Nombre && iter.Fecha == Object.keys(dialokobydiego)[0] ) {
+                                                        if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion+" "+iter.Suplencia}
                                                         }
@@ -295,7 +296,7 @@ const QuincenaTest = (quincena) => {
           })
 
 
-       
+
         //   personal.forEach((item)=>{
         //       repeat.forEach((iter)=>{
         //           datos.forEach((dat)=>{
@@ -338,21 +339,13 @@ const QuincenaTest = (quincena) => {
     
     function getDays(){
         var days = [];
-        // for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
-        //     days.push({[index.toString()]:"/"});
+        for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
+            days.push({[index.toString()]:"/"});
 
-        // }
-
-          for (let i = +diaOne; i <= +diaTwo; i++){
-              days.push({[i + "-" + mesOne + "-" + anioOne]:"/"});
-          }
-
-
+        }
         return days;
 
-        // for (let index = +diaOne; index <= +diaTwo; index++) {
-        //     fechaD.push(index + "-" + mesOne + "-" + anioOne)
-        // }
+
         
 
     }
@@ -415,7 +408,7 @@ const QuincenaTest = (quincena) => {
 
 
       
-    console.log("DATOSS,",datos)
+
 
 
     function fnExcelReport()
