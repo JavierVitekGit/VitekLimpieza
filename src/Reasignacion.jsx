@@ -56,7 +56,7 @@ const Reasignacion = (reasignacion) => {
 
 
     const unicos = [];
-
+  
     shift.forEach((item)=>{
       if (!unicos.includes(item.cli)){
         unicos.push(item.cli)
