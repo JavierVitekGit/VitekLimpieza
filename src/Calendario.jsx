@@ -895,7 +895,7 @@ Ok
         {unicos.map((item)=> <option>{item}</option>)}
 
           </select> */}
-          <textarea>
+          <textarea placeholder="Observaciones" onChange={v=>item.suplencia = v.target.value}>
 
           </textarea>
 
