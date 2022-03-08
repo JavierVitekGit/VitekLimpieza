@@ -328,7 +328,7 @@ const QuincenaTest = (quincena) => {
                     reasig.forEach((item)=>{
                         datos.forEach((iter)=>{
                             if (item.Nombre == iter.Nombre){
-                                    iter.Reasignacion == item.Fecha
+                                    iter.Reasignacion = item.Fecha + ":" + item.Cliente
                             }
                         })
                     })
