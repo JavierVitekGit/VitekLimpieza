@@ -33,7 +33,7 @@ const Calendario = (calendario) => {
   // }
 
 
-  const [porfa,setPorfa] = useState('')
+  const [porfa,setPorfa] = useState(null)
 
   console.log("Ya Jala???",porfa)
 
@@ -891,7 +891,10 @@ Ok
           options={unicos}
           sx={{width:200}} 
           renderInput={(params) => <TextField {...params} label="Personal" />}
-          onChange={v=>{setPorfa(v.target.value)}}
+          value={porfa}
+          onChange={(_event,value)=>{
+            setPorfa(value)
+          }}
           id="AutocompletePersonal"
           />
 
