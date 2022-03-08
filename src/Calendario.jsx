@@ -889,7 +889,7 @@ Ok
         <div id="supvisible" >
 
 
-        <Autocomplete suggestions={unicos} onChange={v=>{setAutocompleteV(v.currentTarget.value)}}></Autocomplete>
+        <Autocomplete suggestions={unicos} onChange={(event, value) => console.log(value)}></Autocomplete>
 
           {/* <select style={{textAlign:"center"}}>
         {unicos.map((item)=> <option>{item}</option>)}
