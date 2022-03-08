@@ -14,7 +14,9 @@ import Button from 'react-bootstrap/Button'
 import Login from "./login";
 import {BrowserRouter,Link,useNavigate} from "react-router-dom";
 import SideBar from "./Sidebar";
-import Autocomplete from './Autocomplete'
+// import Autocomplete from './Autocomplete'
+
+import Autocomplete from '@mui/material/Autocomplete';
 
 
 
@@ -889,12 +891,17 @@ Ok
         <div id="supvisible" >
 
 
-        <Autocomplete suggestions={unicos} onChange={(event, value) => console.log(value)}></Autocomplete>
+          <Autocomplete
+          options={unicos}
+          sx={{width:300}}
+          >
 
-          {/* <select style={{textAlign:"center"}}>
-        {unicos.map((item)=> <option>{item}</option>)}
+          </Autocomplete>
 
-          </select> */}
+        {/* <Autocomplete suggestions={unicos} onChange={(event, value) => console.log(value)}></Autocomplete> */}
+
+ 
+
           <textarea placeholder="Observaciones" onChange={v=>item.observaciones = v.target.value}>
 
           </textarea>
