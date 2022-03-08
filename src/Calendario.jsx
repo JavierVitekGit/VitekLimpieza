@@ -482,10 +482,10 @@ function writeJustiData(event) {
   event.preventDefault()
 
 
-  arrayJusti.forEach(a =>{
-    console.log(a.suplencia)
-    a.suplencia = (a.suplencia== undefined || a.suplencia==null || a.suplencia == "")? "no se cubrio":a.suplencia
-  })
+  // arrayJusti.forEach(a =>{
+  //   console.log(a.suplencia)
+  //   a.suplencia = (a.suplencia== undefined || a.suplencia==null || a.suplencia == "")? "no se cubrio":a.suplencia
+  // })
 
 
 console.log('Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient)
