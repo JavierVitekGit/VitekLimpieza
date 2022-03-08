@@ -894,6 +894,7 @@ Ok
           value={porfa}
           onChange={(_event,value)=>{setPorfa(value)}}
           id="AutocompletePersonal"
+          noOptionsText="Sin coincidencias"
           />
 
        
