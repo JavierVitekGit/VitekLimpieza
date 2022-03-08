@@ -18,6 +18,7 @@ import './Quincena.css'
 
 
 import { CSVLink, CSVDownload } from "react-csv";
+import Reasignacion from "./Reasignacion.jsx";
 
 
 
@@ -62,7 +63,7 @@ const QuincenaTest = (quincena) => {
     console.log("Justificaciones", justificaciones)
 
 
-
+    const [reasig,setReasig] = useState([]);
     
 
     console.log(arrayD)
@@ -125,7 +126,23 @@ const QuincenaTest = (quincena) => {
                 })
             }
         })
+        
     
+        get(child(dbRef,'Reasignacion/')).then((snapshot)=>{
+            if (snapshot.exists()){
+                snapshot.forEach((childSnapshot)=>{
+                    var cliente = childSnapshot.child("Cliente").val()
+                    var nombre = childSnapshot.child("Nombre").val()
+                    var fecha = childSnapshot.key
+                    
+                    reasig.push({Cliente:cliente,Nombre:nombre,Fecha:fecha})
+                })
+
+                
+
+
+            }
+        })
 
         get(child(dbRef,'Operador/')).then((snapshot)=>{
             if (snapshot.exists()){
@@ -156,6 +173,9 @@ const QuincenaTest = (quincena) => {
             
                         return 0;
                       })
+
+
+
 
 
                     })
@@ -305,7 +325,13 @@ const QuincenaTest = (quincena) => {
                         }
                     })
 
-
+                    reasig.forEach((item)=>{
+                        datos.forEach((iter)=>{
+                            if (item.Nombre == iter.Nombre){
+                                    iter.Reasignacion == item.Fecha
+                            }
+                        })
+                    })
 
 
             }
