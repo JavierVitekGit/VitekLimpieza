@@ -325,7 +325,7 @@ const QuincenaTest = (quincena) => {
                         datos.forEach((iter)=>{
                             fechaD((f)=>{
                             if (item.Nombre == iter.Nombre && item.Fecha.substring(0,2) == f){
-                                    iter.Reasignacion = item.Fecha
+                                    iter.Reasignacion = item.Fecha + ":" + item.Cliente
                             }
                         })
                         })
