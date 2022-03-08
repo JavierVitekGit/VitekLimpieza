@@ -108,7 +108,7 @@ const QuincenaTest = (quincena) => {
             
         // }
 
-        for (let index = +diaOne; index <= +diaTwo; index++) {
+        for (let index = diaOne; index <= +diaTwo; index++) {
             fechaD.push(index + "-" + mesOne + "-" + anioOne)
         }
 
@@ -159,10 +159,6 @@ const QuincenaTest = (quincena) => {
                     var reasig = childSnapshot.child("Reasignacion").val()
 
                     datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays()})
-
-                    
-
-                    
 
                     
 
