@@ -125,7 +125,8 @@ const Reasignacion = (reasignacion) => {
     function writeReasignacionData(event) {
         event.preventDefault()
 
-        update(ref(db,'Operador/' + nombre),{
+        update(ref(db,'Reasignacion/'),{
+            Nombre: nombre,
             Cliente:cliente,
             Horario:horario + ":" + horario2,
             Reasignacion: fecha + ":" + cliente
