@@ -327,9 +327,11 @@ const QuincenaTest = (quincena) => {
 
                     reasig.forEach((item)=>{
                         datos.forEach((iter)=>{
-                            if (item.Nombre == iter.Nombre){
+                            fechaD((f)=>{
+                            if (item.Nombre == iter.Nombre && item.Fecha.substring(0,2) == f){
                                     iter.Reasignacion = item.Fecha + ":" + item.Cliente
                             }
+                        })
                         })
                     })
 
