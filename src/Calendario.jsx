@@ -891,7 +891,7 @@ Ok
           options={unicos}
           sx={{width:"auto"}} 
           renderInput={(params) => <TextField {...params} label="Personal" />}
-          value={porfa}
+          value={v=>v.target.value}
           // onChange={(_event,value)=>{setPorfa(value)}}
           onChange={v=>item.suplencia = v.target.value}
           id="AutocompletePersonal"
