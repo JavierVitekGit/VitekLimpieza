@@ -33,11 +33,9 @@ const Calendario = (calendario) => {
   // }
 
 
+  const [porfa,setPorfa] = useState('')
 
-  // const autoCompleteV = document.getElementById('autocomplete Value').innerHTML.toString()
-
-  // console.log("AutoCompleteV|w4",autoCompleteV)
-
+  console.log("Ya Jala???",porfa)
 
 
   const [datos,setDatos] = useState ([])
@@ -893,6 +891,7 @@ Ok
           options={unicos}
           sx={{width:200}} 
           renderInput={(params) => <TextField {...params} label="Personal" />}
+          inputValue={setPorfa}
           />
 
        
