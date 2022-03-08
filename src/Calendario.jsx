@@ -891,8 +891,8 @@ Ok
 
           <Autocomplete
           options={unicos}
-          sx={{width:300}} 
-          renderInput={(params) => <TextField {...params} label="Movie" />}
+          sx={{width:200}} 
+          renderInput={(params) => <TextField {...params} label="Personal" />}
           />
 
        
