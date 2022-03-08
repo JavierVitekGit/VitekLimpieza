@@ -892,7 +892,7 @@ Ok
           sx={{width:"auto"}} 
           renderInput={(params) => <TextField {...params} label="Personal" />}
           value={porfa}
-          onChange={(_event,value)=>{setPorfa(value)}}
+          onChange={(_event,value)=>{item.suplencia}}
           id="AutocompletePersonal"
           noOptionsText="Sin coincidencias"
           />
