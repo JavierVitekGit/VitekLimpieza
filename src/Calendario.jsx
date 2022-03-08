@@ -889,7 +889,7 @@ Ok
 
           <Autocomplete
           options={unicos}
-          sx={{width:auto}} 
+          sx={{width:"auto"}} 
           renderInput={(params) => <TextField {...params} label="Personal" />}
           value={porfa}
           onChange={(_event,value)=>{setPorfa(value)}}
