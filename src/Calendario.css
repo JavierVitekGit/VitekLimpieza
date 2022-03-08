@@ -150,3 +150,8 @@
 @-ms-viewport{
   width: device-width;
 }
+
+#autocompletePersonal{
+  text-align: center;
+  width: auto;
+}

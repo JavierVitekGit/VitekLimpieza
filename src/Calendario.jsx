@@ -892,6 +892,7 @@ Ok
           sx={{width:200}} 
           renderInput={(params) => <TextField {...params} label="Personal" />}
           inputValue={setPorfa}
+          id="AutocompletePersonal"
           />
 
        
