@@ -119,20 +119,35 @@ const Reasignacion = (reasignacion) => {
 
     }
 
+    function finish (event){
+      event.preventDefault()
+
+      writeReasignacionData(event);
+      writeReasignacionOpData(event);
+      Close();
+    }
+
 
 
 
     function writeReasignacionData(event) {
         event.preventDefault()
 
-        update(ref(db,'Reasignacion/'),{
-            Nombre: nombre,
+        update(ref(db,'Reasignacion/' + fecha),{
+            Nombre: tel,
             Cliente:cliente,
             Horario:horario + ":" + horario2,
-            Reasignacion: fecha + ":" + cliente
         })
 
         Close();
+    }
+
+    function writeReasignacionOpData(event){
+        update(ref(db,'Operador' + nombre),{
+          Cliente:cliente,
+          Horario:horario + ":" + horario2,
+
+        })
     }
 
 
@@ -379,7 +394,7 @@ Ok
 
 <Modal.Footer>
 
-<Button variant="success" onClick={writeReasignacionData}>
+<Button variant="success" onClick={finish}>
 Si
   </Button>
 
