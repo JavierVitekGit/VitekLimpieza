@@ -270,7 +270,7 @@ const QuincenaTest = (quincena) => {
                                                     // console.log(dialokobydiego)
                                                     // console.log(item.Nombre+"=="+iter.Nombre);
 
-                                                        console.log("dialokobyDiego",item.Baja.substring(8,10))
+                                                        // console.log("dialokobyDiego",item.Baja.substring(8,10))
 
                                                         // if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] )
 
@@ -282,7 +282,7 @@ const QuincenaTest = (quincena) => {
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion+" "+iter.Suplencia}
                                                         }
 
-                                                        else if (item.Nombre == "Vacante" && +iter.Fecha.substring(0,2) != +Object.keys(dialokobydiego)[0]){
+                                                        else if (item.Nombre == "Vacante" && +iter.Fecha.substring(0,2) != +Object.keys(dialokobydiego)[0] && item.Baja < +Object.keys(dialokobydiego)[0]){
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]: ""}
                                                         }
 
@@ -292,9 +292,7 @@ const QuincenaTest = (quincena) => {
                                                         //     +item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]) {
                                                         //         item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                                         //     }
-                                                        // else if (iter.Nombre == "Vacante" || +iter.Fecha.substring(0,2) != +Object.keys(dialokobydiego)[0] ){
-                                                        //     item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
-                                                        // }
+                                                       
 
                                                         index++;
 
