@@ -585,7 +585,7 @@ displayOptions={{
           value={selClient}
           onChange={(_event,value)=>{setSelCliente(value)}}
           // onChange={v=>item.suplencia = v.target.value}
-          id="AutocompletePersonal"
+          id="autocompleteCl"
           noOptionsText="Sin coincidencias"
           />
 
