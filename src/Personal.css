@@ -159,3 +159,12 @@ text-align: center;
 .btnPersonalGroup{
   display: inline-block;
 }
+
+.datosOperadorAlta{
+  text-align: center;
+  background-color: white;
+  margin-top: 2vh;
+  width: 90vw;
+  height: 90vh;
+  margin-left: 12vh;
+}
