@@ -578,8 +578,9 @@ displayOptions={{
 <br/>
 
 <Autocomplete
+          onClick={forceUpdate}
           options={unicoss}
-          sx={{width:"auto"}} 
+          sx={{width:300}} 
           renderInput={(params) => <TextField {...params} label="Lista de Clientes" />}
           value={selClient}
           onChange={(_event,value)=>{setSelCliente(value)}}
