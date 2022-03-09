@@ -159,3 +159,7 @@ text-align: center;
   text-align: center;
   height: 5vh;
 }
+
+.btnPersonalGroup{
+  display: inline-block;
+}
