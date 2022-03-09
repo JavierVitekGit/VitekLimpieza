@@ -353,7 +353,7 @@ const Cliente = (clientes) => {
        <input type="text" id="d1" class="form-control" value={nombre} onChange={v=> onChange3(v.target.value)} placeholder="Nombre del Cliente" />
        
       
-
+          <br/>
 
           <label class="form-outline-label" for="form1">Ubicacion</label>
             <br/>
@@ -368,7 +368,7 @@ const Cliente = (clientes) => {
 
          </div>
 
-         
+
          <br/>
 
          <label class="form-outline-label" for="form3">Asignacion de turnos </label>
