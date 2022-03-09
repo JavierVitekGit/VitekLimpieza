@@ -270,7 +270,7 @@ const QuincenaTest = (quincena) => {
                                                     // console.log(dialokobydiego)
                                                     // console.log(item.Nombre+"=="+iter.Nombre);
 
-
+                                                        console.log("dialokobyDiego",+Object.keys(dialokobydiego)[0])
 
                                                         // if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] )
 
@@ -287,9 +287,7 @@ const QuincenaTest = (quincena) => {
                                                         }
 
                                                         else if (
-                                                            item.Nombre == iter.Nombre 
-                                                            && 
-                                                            +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] 
+                                                            item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] 
                                                             && 
                                                             item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]) {
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
@@ -654,9 +652,9 @@ return (
                                     {
                                         item.dias.map((d, inx)=>{
                                             
-                                            console.log("RETURNN",d)
+                                            // console.log("RETURNN",d)
                                             
-                                            console.log("INX",inx.toString())
+                                            // console.log("INX",inx.toString())
 
                                             return(<td>{d[arrayD[inx.toString()]]}</td>)
                                         })
