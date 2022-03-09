@@ -577,9 +577,16 @@ displayOptions={{
 <br/>
 <br/>
 
-<select onClick={forceUpdate} id="selClient" onChange={v=>{setSelCliente(v.target.value)}}>
-  {unicoss.map((item)=> <option>{item}</option>)}
-</select>
+<Autocomplete
+          options={unicoss}
+          sx={{width:"auto"}} 
+          renderInput={(params) => <TextField {...params} label="Lista de Clientes" />}
+          value={selClient}
+          onChange={(_event,value)=>{setSelCliente(value)}}
+          // onChange={v=>item.suplencia = v.target.value}
+          id="AutocompletePersonal"
+          noOptionsText="Sin coincidencias"
+          />
 
 <br/>
 
