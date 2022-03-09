@@ -285,6 +285,15 @@ const QuincenaTest = (quincena) => {
                                                         else if (item.Nombre == "Vacante" && +iter.Fecha.substring(0,2) != +Object.keys(dialokobydiego)[0]){
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]: ""}
                                                         }
+
+                                                        else if (
+                                                            item.Nombre == iter.Nombre 
+                                                            && 
+                                                            +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] 
+                                                            && 
+                                                            item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]) {
+                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
+                                                            }
                                                         // else if (iter.Nombre == "Vacante" || +iter.Fecha.substring(0,2) != +Object.keys(dialokobydiego)[0] ){
                                                         //     item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                                         // }
