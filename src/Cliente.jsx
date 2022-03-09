@@ -371,6 +371,8 @@ const Cliente = (clientes) => {
 
          <br/>
 
+          <div className="asigTurnos">
+
          <label class="form-outline-label" for="form3">Asignacion de turnos </label>
 
          <br/>
@@ -443,6 +445,8 @@ const Cliente = (clientes) => {
                   <option>Olga</option>
                 </select>
 <br/>
+
+</div>
        
 {/*           
        <div className="diass">
