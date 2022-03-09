@@ -117,9 +117,9 @@ const Calendario = (calendario) => {
   unicoss.push("");
 
   arrayClientCl.forEach((item)=> {
-    if (!unicoss.includes(item) && !unicosTable.includes(item)){
+    if (!unicoss.includes(item)){
       unicoss.push(item)
-      unicosTable.push(item)
+
     }
   })
 
