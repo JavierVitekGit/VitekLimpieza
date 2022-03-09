@@ -318,20 +318,20 @@ const QuincenaTest = (quincena) => {
                         }
                     })
 
-                    reasig.forEach((item)=>{
-                        datos.forEach((iter)=>{
-                            fechaD((f)=>{
-                            if (item.Nombre == iter.Nombre){
-                                    iter.Reasignacion = item.Fecha 
-                            }
-                        })
-                        })
-                    })
+                   
 
 
             }
         })
-
+        reasig.forEach((item)=>{
+            datos.forEach((iter)=>{
+                fechaD((f)=>{
+                if (item.Nombre == iter.Nombre){
+                        iter.Reasignacion = item.Fecha 
+                }
+            })
+            })
+        })
 
         var alpha =  datos.sort((a,b) => {
             if (a.Cliente < b.Cliente) return -1;
