@@ -270,7 +270,7 @@ const QuincenaTest = (quincena) => {
                                                     // console.log(dialokobydiego)
                                                     // console.log(item.Nombre+"=="+iter.Nombre);
 
-                                                        console.log("dialokobyDiego",item.dias[index])
+                                                        console.log("dialokobyDiego",item.Baja.substring(8,10))
 
                                                         // if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] )
 
