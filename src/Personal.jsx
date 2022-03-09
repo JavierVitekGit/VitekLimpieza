@@ -395,75 +395,79 @@ opUbic.forEach((item)=>{
               <h1>Asignacion del Operador</h1>
             </div>
         
+            <div className="datosOperadorAlta">
             <label class="form-outline-label">Cliente</label>
 
-            <br/>
-            <select onClick={forceUpdate} onChange={v=>{setClientSelect(v.target.value)}} >
+<br/>
+<select onClick={forceUpdate} onChange={v=>{setClientSelect(v.target.value)}} >
 
 
-          {clientesUnicos.map((item)=>{ 
+{clientesUnicos.map((item)=>{ 
 
-            return(
-          
-            <option>{item}</option>
-            )
-          })}
-            </select>
-          <br/>
+return(
 
-          <label class="form-outline-label">Ubicacion del Cliente</label>
+<option>{item}</option>
+)
+})}
+</select>
+<br/>
 
-          <br/>
+<label class="form-outline-label">Ubicacion del Cliente</label>
 
-
-          <select onClick={forceUpdate} onChange={v=>{setUbicSelect(v.target.value)}} >
-          {ubc.map((item)=>{ 
-
-            return(
-         
-            <option>{item}</option>
-
-            )
-         
-          })}
-
-            </select>
+<br/>
 
 
+<select onClick={forceUpdate} onChange={v=>{setUbicSelect(v.target.value)}} >
+{ubc.map((item)=>{ 
 
-          <br/>
+return(
 
-          <label class="form-outline-label">Puesto</label>
+<option>{item}</option>
 
-          <br/>
+)
 
-          <select onClick={forceUpdate} onChange={v=>{setPuestSelect(v.target.value)}}>
-            {pvUnic.map((item)=>{
-              return(
-                <option>{item}</option>
-              )
-            })}
-          </select>
+})}
 
-          <br/>
+</select>
 
-          <label class="form-outline-label">Turno</label>
 
-          <br/>
 
-          <select onClick={forceUpdate} onChange ={v=>{setTurnSelect(v.target.value)}} >
-            {turnArray.map((item)=>{
-              return (
-                <option>{item}</option>
-              )
-            })}
-          </select>
+<br/>
 
-          <br/>
+<label class="form-outline-label">Puesto</label>
 
-          <input class="btn btn-primary" type="submit" onClick={mostrarPersonal} value="Siguiente" ></input>
+<br/>
 
-         
+<select onClick={forceUpdate} onChange={v=>{setPuestSelect(v.target.value)}}>
+{pvUnic.map((item)=>{
+  return(
+    <option>{item}</option>
+  )
+})}
+</select>
+
+<br/>
+
+<label class="form-outline-label">Turno</label>
+
+<br/>
+
+<select onClick={forceUpdate} onChange ={v=>{setTurnSelect(v.target.value)}} >
+{turnArray.map((item)=>{
+  return (
+    <option>{item}</option>
+  )
+})}
+</select>
+
+<br/>
+
+<input class="btn btn-primary" type="submit" onClick={mostrarPersonal} value="Siguiente" ></input>
+
+
+            </div>
+
+           
 
         </div>
 
