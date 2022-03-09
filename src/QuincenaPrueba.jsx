@@ -282,7 +282,7 @@ const QuincenaTest = (quincena) => {
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion+" "+iter.Suplencia}
                                                         }
 
-                                                        else if (item.Nombre == "Vacante" && +iter.Fecha.substring(0,2) != +Object.keys(dialokobydiego && item.Cliente == iter.Cliente)[0] ){
+                                                        else if (item.Nombre == "Vacante" && +iter.Fecha.substring(0,2) != +Object.keys(dialokobydiego)[0] && item.Cliente == iter.Cliente ){
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]: ""}
                                                         }
                                                         // else if (iter.Nombre == "Vacante" || +iter.Fecha.substring(0,2) != +Object.keys(dialokobydiego)[0] ){
@@ -321,7 +321,7 @@ const QuincenaTest = (quincena) => {
                     reasig.forEach((item)=>{
                         datos.forEach((iter)=>{
                             fechaD((f)=>{
-                            if (item.Nombre == iter.Nombre ){
+                            if (item.Nombre == iter.Nombre && item.Fecha.substring(0,2) == f){
                                     iter.Reasignacion = item.Fecha 
                             }
                         })
