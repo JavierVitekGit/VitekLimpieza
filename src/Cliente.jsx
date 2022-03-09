@@ -375,8 +375,6 @@ const Cliente = (clientes) => {
 
          <label class="form-outline-label" for="form3">Asignacion de turnos </label>
 
-         <br/>
-
          <div className="asignacion1">
 
 
