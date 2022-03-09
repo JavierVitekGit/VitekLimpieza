@@ -270,7 +270,12 @@ const Turno = (turno) =>{
                   var nombre = childSnapshot.child("Nombre").val()
                   var cliente = childSnapshot.child("Cliente").val()
                   var rfc = childSnapshot.key
+                  var id = childSnapshot.child("ID").val()
+
+                  if (id != null) {
+
                   operador.push({nm:nombre,cl:cliente,key:rfc})
+                }
 
                   if (name == nombre) {
                     nKey.push(rfc)
