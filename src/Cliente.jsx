@@ -352,7 +352,7 @@ const Cliente = (clientes) => {
        <br/>
        <input type="text" id="d1" class="form-control" value={nombre} onChange={v=> onChange3(v.target.value)} placeholder="Nombre del Cliente" />
        
-       </div>
+      
 
 
           <label class="form-outline-label" for="form1">Ubicacion</label>
@@ -365,6 +365,10 @@ const Cliente = (clientes) => {
        <br/>
          <input type="text" id="d2" class="form-control" value={domicilio} onChange={v=>onChange4(v.target.value)} placeholder="Domicilio del Cliente" />
 
+
+         </div>
+
+         
          <br/>
 
          <label class="form-outline-label" for="form3">Asignacion de turnos </label>
