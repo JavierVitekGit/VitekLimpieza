@@ -219,6 +219,7 @@
   
     .datosHC{
       margin-top: 20px;
+      display: -webkit-box;
     }
   
     .adminSide{
