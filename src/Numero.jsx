@@ -152,12 +152,14 @@ const Numero = (numero) => {
                   var nombre = childSnapshot.child("Nombre").val()
                   var num = childSnapshot.child("ID").val()
 
+                  if (num != null) {
+
                   datnum.push({rfc:rf,nombre:nombre,numero:num})
                   arrayRfc.push(nombre)
                   
                   arrayRfc.sort()
 
-
+                }
                 
               })
 
