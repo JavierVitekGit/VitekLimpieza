@@ -378,8 +378,6 @@ const Cliente = (clientes) => {
          <div className="asignacion1">
 
 
-       <br/>
-
        <input class="form-control" type="text" value="Encargado" /> 
         
        <input class="form-control" type="text" placeholder="Horario" onChange={v=>setHEncargado(v.target.value)}/>
