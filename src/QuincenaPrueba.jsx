@@ -87,6 +87,7 @@ const QuincenaTest = (quincena) => {
 
     const [datos,setDatos] = useState([]);
 
+    console.log("DATOSFJDIOFDS,",datos)
 
     const [personal,setPersonal] = useState([]);
 
@@ -161,7 +162,7 @@ const QuincenaTest = (quincena) => {
                     datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays()})
 
                     
-
+                    
              
                     datos.sort((a,b) => {
                         if (a.Cliente < b.Cliente) return -1;
@@ -398,7 +399,7 @@ const QuincenaTest = (quincena) => {
         //     days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString()]:"/"})
         // }
 
-        console.log("Days",days)
+        // console.log("Days",days)
 
         return days;
 
