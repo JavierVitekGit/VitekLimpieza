@@ -97,20 +97,7 @@ const QuincenaTest = (quincena) => {
     const dbRef = ref(getDatabase());
 
 
-    const diasSemana = fecha => [
-        "D",
-        "L",
-        "Mar",
-        "Mier",
-        "J",
-        "V",
-        "S"
-    ][new Date(fecha).getDay()];
-
-    fechaD.forEach((fecha=>{
-        console.log(`En ${fecha} fue ${diasSemana(fecha)}`)
-    }))
-
+  
     function obtener () {
 
 
@@ -135,7 +122,20 @@ const QuincenaTest = (quincena) => {
 
 
 
-
+        const diasSemana = fecha => [
+            "D",
+            "L",
+            "Mar",
+            "Mier",
+            "J",
+            "V",
+            "S"
+        ][new Date(fecha).getDay()];
+    
+        fechaD.forEach((fecha=>{
+            console.log(`En ${fecha} fue ${diasSemana(fecha)}`)
+        }))
+    
 
 
 
