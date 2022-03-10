@@ -97,7 +97,7 @@ const QuincenaTest = (quincena) => {
     const dbRef = ref(getDatabase());
 
 
-    const diasSemana = [
+    const diasSemana = fecha => [
         "D",
         "L",
         "Mar",
@@ -105,9 +105,11 @@ const QuincenaTest = (quincena) => {
         "J",
         "V",
         "S"
-    ];
+    ][new Date(fecha).getDay()];
 
-
+    fechaD.forEach((fecha=>{
+        console.log(`En ${fecha} fue ${diasSemana(fecha)}`)
+    }))
 
     function obtener () {
 
@@ -124,7 +126,7 @@ const QuincenaTest = (quincena) => {
         // }
 
         for (let index = diaOne; index <= +diaTwo; index++) {
-            fechaD.push(anioOne+' '+mesOne+', '+index+' 12:00:00')
+            fechaD.push(anioOne+' - '+mesOne+' - '+index+' 12:00:00')
         }
 
         // fechaD.push(index + "-" + mesOne + "-" + anioOne +"11:00:00")
@@ -132,9 +134,7 @@ const QuincenaTest = (quincena) => {
         console.log("FECHA222$#,", fechaD)
 
 
-        const numeroDia = new Date(arrayD).getDay();
-        const nombreDia = diasSemana[numeroDia];
-        console.log("Nombre Dia de la Semana",nombreDia)
+
 
 
 
