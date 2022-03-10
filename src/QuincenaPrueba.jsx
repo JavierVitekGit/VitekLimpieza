@@ -51,8 +51,6 @@ const QuincenaTest = (quincena) => {
 
     const fechaDos = diaTwo + "-" + mesTwo + "-" + anioTwo
 
-    const fechaComp = anioOne + mesOne + diaOne
-
     console.log("FechaUno::",fechaUno)
 
     const [arrayD,setArrayD] = useState([])
@@ -85,11 +83,10 @@ const QuincenaTest = (quincena) => {
         setShow(true)
     }
 
-    console.log("ArrayD::",arrayD)
 
     const [datos,setDatos] = useState([]);
 
-    console.log("DATOSFJDIOFDS,",datos)
+
 
     const [personal,setPersonal] = useState([]);
 
@@ -97,7 +94,7 @@ const QuincenaTest = (quincena) => {
     const dbRef = ref(getDatabase());
 
     
-    const [semanaArray,setSemanaArray] = useState([]);
+    const [diaSemanaArray,setSemanaArray] = useState([]);
   
     function obtener () {
 
@@ -131,11 +128,11 @@ const QuincenaTest = (quincena) => {
             "S"
         ][new Date(fecha).getDay()];
 
-        const diaSemanaArray = [];
+        
     
         fechaD.forEach(fecha=>{
             console.log(`En ${fecha} fue ${diasSemana(fecha)}`)
-            diaSemanaArray.push(diasSemana(fecha))
+            diaSemanaArray.push(diasSemana(fecha) + "/" +fecha.substring(8,10))
             console.log("Guachate esta",diasSemana(fecha) + "/" +fecha.substring(8,10))
         })
     
@@ -647,7 +644,7 @@ return (
                         <th scope="col">Ingreso</th>
                         <th scope="col">Baja</th>
                         <th scope="col">Reasignación</th>
-                       {arrayD.map((item)=>{ return (<th scope="col">{item}</th>)})} 
+                       {diaSemanaArray.map((item)=>{ return (<th scope="col">{item}</th>)})} 
 
                     </tr>
                 </thead>
