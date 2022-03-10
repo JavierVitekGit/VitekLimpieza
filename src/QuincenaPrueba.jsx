@@ -168,7 +168,7 @@ const QuincenaTest = (quincena) => {
                         datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays()})
                     // }
            
-                        
+                        console.log("fechaB",fechaB)
                    
              
                     datos.sort((a,b) => {
