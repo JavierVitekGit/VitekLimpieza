@@ -386,38 +386,6 @@ const QuincenaTest = (quincena) => {
 
 
 
-        //   personal.forEach((item)=>{
-        //       repeat.forEach((iter)=>{
-        //           datos.forEach((dat)=>{
-
-        //         if(
-        //             item.nombreC == iter.Cliente && iter.Personal < item.Personal
-        //         ){
-        //             datos.push({Cliente:item.nombreC,Nombre:"Vacante",Ingreso:"",Baja:""})
-        //         }
-        //     })
-        //       })
-        //   })
-
-
-        //   for (var i=0; i<personal;i++){
-        //       if (datos[i] == undefined){
-        //           datos.push({Cliente:personal,Nombre:"Vacante",Ingreso:"",Baja:""})
-        //       }
-        //   }
-
-
-        // var  result = {};
-
-        //   for (i = 0; i< personal.length; i++) {
-        //       if (!result[personal[i]])
-        //       result[personal[i]] = 0;
-        //       ++result[personal[i]]
-        //   }
-
-        //   console.log("Resultt::",Object.values(result))
-         
-
         setTimeout(()=>{
             mostrarReporte();
         },1000)
@@ -428,16 +396,16 @@ const QuincenaTest = (quincena) => {
     
     function getDays(){
         var days = [];
-        for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
-            days.push({[index.toString()]:"/"});
+        // for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
+        //     days.push({[index.toString()]:"/"});
 
-        }
-
-        // for (let i = diaOne; i <= diaTwo; i++ ){
-        //     days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString()]:"/"})
         // }
 
-        // console.log("Days",days)
+        for (let i = diaOne; i <= diaTwo; i++ ){
+            days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString()]:"/"})
+        }
+
+        console.log("Days",days)
 
         return days;
 
@@ -445,33 +413,6 @@ const QuincenaTest = (quincena) => {
         
 
     }
-
-    // function getDaysIso() {
-
-    //     var daysIso = [];
-    //     for (let index = +fechaUno; index <= +fechaDos; index++){
-    //     daysIso.push({[index.toString()]:"/"});
-
-
-    //     console.log("DaysIso###",daysIso)
-
-    // }
-    // return daysIso
-        
-    // }
-
-    // const repeat = [];
-
-    // datos.forEach((item)=>{
-    //     repeat[item.Cliente] = repeat.push({Cliente:item.Cliente + 1 || 1})
-    // })
-   
-    // console.log("Repeat::",repeat)
-
-    //    console.log("Personal::",personal)
-    //    console.log("Datos%%",datos)
-     
-
 
 
     // F U N C I O N   P E R R O N A
@@ -532,50 +473,9 @@ const QuincenaTest = (quincena) => {
                      .replace(/º/g, '&ordm;')
                      
 
-    // tableHTML.replace(/'á'/g, 'á');
-    // tableHTML.replace(/'é'/g, 'é');
-    // tableHTML.replace(/'í'/g, 'í');
-    // tableHTML.replace(/'ó'/g, '&oacute;');
-    // tableHTML.replace(/'ú'/g, '&uacute;');
-    // tableHTML.replace(/'º'/g, '&ordm;');
-    // tableHTML.replace(/ /g, '%20');
-    // tableHTML.replace(/'Á'/g, '&Aacute;');
-    // tableHTML.replace(/'É'/g, '&Eacute;');
-    // tableHTML.replace(/'Í'/g, '&Iacute;');
-    // tableHTML.replace(/'Ã³'/g, '&Oacute;');
-    // tableHTML.replace(/'Ú'/g, '&Uacute;');
-    // tableHTML.replace(/'ñ'/g, '&ntilde;');
-    // tableHTML.replace(/'Ñ‘'/g, 'Ñ');
-    // var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
-    
-
-    
-    // // Specify file name
-    // var filename = 'Reporte.xls';
-    
-    // // Create download link element
-    // downloadLink = document.createElement("a");
-    
-    // document.body.appendChild(downloadLink);
-    
-    // if(navigator.msSaveOrOpenBlob){
-    //     var blob = new Blob(['\ufeff', tableHTML], {
-    //         type: dataType
-    //     });
-    //     navigator.msSaveOrOpenBlob( blob, filename);
-    // }else{
-    //     // Create a link to the file
-    //     downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
     
         window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tableHTML));
 
-
-        // // Setting the file name
-        // downloadLink.download = filename;
-        
-        // //triggering the function
-        // downloadLink.click();
-// }
 
 }
 
