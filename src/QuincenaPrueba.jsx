@@ -501,7 +501,7 @@ return (
 
     
 
-        <div className="cgHeader">    <h1>Calendario General</h1> </div>
+        <div className="cgHeader">    <h1>Reporte Nomina</h1> </div>
 
         <br/>
         <br/>
