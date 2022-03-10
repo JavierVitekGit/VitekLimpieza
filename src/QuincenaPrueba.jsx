@@ -591,7 +591,7 @@ return (
                                     {
                                         item.dias.map((d, inx)=>{
                                             
-                                            
+                                            console.log("QueCarajosEsEsto:::",d[fechaC[inx.toString()]])
 
                                             // return(<td>{d[arrayD[inx.toString()]]}</td>)
                                             return (<td>{d[fechaC[inx.toString()]]}</td>)
