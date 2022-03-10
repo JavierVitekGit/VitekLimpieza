@@ -140,8 +140,8 @@ const QuincenaTest = (quincena) => {
     
         
         
-        fechaD.forEach((item)=>{
-            arrayD.forEach((iter)=>{
+        arrayD.forEach((item)=>{
+            diaSemanaArray.forEach((iter)=>{
                 semanaArray.push(iter + "/" + item)
             })
         })
