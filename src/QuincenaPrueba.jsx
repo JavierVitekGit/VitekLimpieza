@@ -108,6 +108,7 @@ const QuincenaTest = (quincena) => {
     ];
 
 
+
     function obtener () {
 
 
@@ -123,10 +124,19 @@ const QuincenaTest = (quincena) => {
         // }
 
         for (let index = diaOne; index <= +diaTwo; index++) {
-            fechaD.push(index + "-" + mesOne + "-" + anioOne + "" +"11:00:00")
+            fechaD.push(anioOne+' '+mesOne+', '+index+' 12:00:00')
         }
 
+        // fechaD.push(index + "-" + mesOne + "-" + anioOne +"11:00:00")
+
         console.log("FECHA222$#,", fechaD)
+
+
+        const numeroDia = newDate(arrayD).getDay();
+        const nombreDia = diasSemana[numeroDia];
+        console.log("Nombre Dia de la Semana",nombreDia)
+
+
 
 
         get(child(dbRef,'ClienteUbicacion/')).then((snapshot)=>{
