@@ -31,9 +31,6 @@ const QuincenaTest = (quincena) => {
     console.log("Date One", dateOne)
     console.log("Date Two", dateTwo)
 
-    console.log("Sub Date One",dateOne.substring(8,10))
-    console.log("Sub Date Two",dateTwo.substring(8,10))
-
     console.log("Dif String:::", dateTwo.substring(8,10) - dateOne.substring(8,10))
 
     
@@ -112,7 +109,7 @@ const QuincenaTest = (quincena) => {
         // }
 
         for (let index = diaOne; index <= +diaTwo; index++) {
-            fechaD.push(index + "-" + mesOne + "-" + anioOne)
+            fechaD.push(index + "-" + mesOne + "-" + anioOne + "" +"11:00:00")
         }
 
         console.log("FECHA222$#,", fechaD)
@@ -614,6 +611,7 @@ return (
                         <th scope="col">Baja</th>
                         <th scope="col">Reasignación</th>
                        {arrayD.map((item)=>{ return (<th scope="col">{item}</th>)})} 
+
                     </tr>
                 </thead>
 
