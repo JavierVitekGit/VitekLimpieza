@@ -142,6 +142,7 @@ const QuincenaTest = (quincena) => {
         
         arrayD.forEach((item)=>{
             diaSemanaArray.forEach((iter)=>{
+                if(!semanaArray.includes(iter + "/" + item))
                 semanaArray.push(iter + "/" + item)
             })
         })
