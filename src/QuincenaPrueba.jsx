@@ -164,7 +164,7 @@ const QuincenaTest = (quincena) => {
 
                     // console.log("FechaBComp",fechaB.split("-"))
 
-                    if ( fechaB.replace(/-/g,"") >= fechaComp){
+                    if ( fechaB != null || fechaB.replace(/-/g,"") >= fechaComp){
                         datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays()})
                     }
            
