@@ -132,9 +132,9 @@ const QuincenaTest = (quincena) => {
             "S"
         ][new Date(fecha).getDay()];
     
-        fechaD.forEach((fecha=>{
+        fechaD.forEach(fecha=>{
             console.log(`En ${fecha} fue ${diasSemana(fecha)}`)
-        }))
+        })
     
 
 
