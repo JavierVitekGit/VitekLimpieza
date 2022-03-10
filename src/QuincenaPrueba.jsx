@@ -162,11 +162,11 @@ const QuincenaTest = (quincena) => {
                     var reasig = childSnapshot.child("Reasignacion").val()
                     var est = childSnapshot.child("Estatus").val()
 
-                
+                    console.log("FechaBComp",fechaB.split("-"))
 
-                    if ( fechaB >= fechaComp){
+                    // if ( fechaB >= fechaComp){
                         datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays()})
-                    }
+                    // }
            
                         
                    
