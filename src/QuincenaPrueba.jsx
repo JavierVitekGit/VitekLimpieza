@@ -141,7 +141,7 @@ const QuincenaTest = (quincena) => {
         
         
         fechaD.forEach((item)=>{
-            diaSemanaArray.forEach((iter)=>{
+            arrayD.forEach((iter)=>{
                 semanaArray.push(iter + "/" + item)
             })
         })
