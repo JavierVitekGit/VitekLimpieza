@@ -899,9 +899,10 @@ Ok
           options={unicos}
           sx={{width:"auto"}} 
           renderInput={(params) => <TextField {...params} label="Personal" />}
-          value={item.suplencia}
+          // value={item.suplencia}
+          // onChange={v=>item.suplencia = v.target.value}
+          inputValue={v=>item.suplencia = v.target.value}
           // onChange={(_event,value)=>{setPorfa(value)}}
-          onChange={v=>item.suplencia = v.target.value}
           id="AutocompletePersonal"
           noOptionsText="Sin coincidencias"
           />
