@@ -132,7 +132,7 @@ const QuincenaTest = (quincena) => {
         console.log("FECHA222$#,", fechaD)
 
 
-        const numeroDia = newDate(arrayD).getDay();
+        const numeroDia = new Date(arrayD).getDay();
         const nombreDia = diasSemana[numeroDia];
         console.log("Nombre Dia de la Semana",nombreDia)
 
