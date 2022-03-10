@@ -163,9 +163,9 @@ const QuincenaTest = (quincena) => {
                 
 
                     
-                    if (est == 1 && (est == 0 ||fechaB != "")) {
-                        datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays()})
-                    }
+                    // if (est == 1 && (est == 0 ||fechaB != "")) {
+                    //     datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays()})
+                    // }
              
                     datos.sort((a,b) => {
                         if (a.Cliente < b.Cliente) return -1;
