@@ -94,7 +94,7 @@ const QuincenaTest = (quincena) => {
     const dbRef = ref(getDatabase());
 
     
-    const [diaSemanaArray,setSemanaArray] = useState([]);
+    const [diaSemanaArray,setDiaSemanaArray] = useState([]);
   
     function obtener () {
 
@@ -583,6 +583,7 @@ function regresar () {
     setDatos([]);
     setArrayD([]);
     mostrarCalendario();
+    setDiaSemanaArray([]);
 }
 
 
