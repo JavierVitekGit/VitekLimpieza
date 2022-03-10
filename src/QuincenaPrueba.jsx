@@ -328,7 +328,7 @@ const QuincenaTest = (quincena) => {
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion+" "+iter.Suplencia}
                                                         }
 
-                                                        else if (item.Nombre == "Vacante" && +iter.Fecha != +Object.keys(dialokobydiego)[0]){
+                                                        else if (item.Nombre == "Vacante" && +iter.Fecha.substring(0,2) != +Object.keys(dialokobydiego)[0]){
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]: ""}
                                                         }
 
@@ -396,14 +396,14 @@ const QuincenaTest = (quincena) => {
     
     function getDays(){
         var days = [];
-        // for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
-        //     days.push({[index.toString()]:"/"});
+        for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
+            days.push({[index.toString()]:"/"});
 
-        // }
-
-        for (let i = diaOne; i <= diaTwo; i++ ){
-            days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString()]:"/"})
         }
+
+        // for (let i = diaOne; i <= diaTwo; i++ ){
+        //     days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString()]:"/"})
+        // }
 
         console.log("Days",days)
 
