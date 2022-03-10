@@ -96,7 +96,8 @@ const QuincenaTest = (quincena) => {
 
     const dbRef = ref(getDatabase());
 
-
+    
+    const [semanaArray,setSemanaArray] = useState([]);
   
     function obtener () {
 
@@ -137,7 +138,7 @@ const QuincenaTest = (quincena) => {
             diaSemanaArray.push(diasSemana(fecha))
         })
     
-        const [semanaArray,setSemanaArray] = useState([]);
+        
         
         fechaD.forEach((item)=>{
             diaSemanaArray.forEach((iter)=>{
