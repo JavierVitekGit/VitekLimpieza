@@ -96,8 +96,12 @@ const QuincenaTest = (quincena) => {
 
     const dbRef = ref(getDatabase());
 
-    
+
     const [semanaArray,setSemanaArray] = useState([]);
+
+    const [final,setFinal] = useState([]);
+
+    
   
     function obtener () {
 
@@ -141,13 +145,19 @@ const QuincenaTest = (quincena) => {
         
         
         fechaD.forEach((item)=>{
-            diaSemanaArray.forEach((iter)=>{
+            arrayD.forEach((iter)=>{
                 semanaArray.push(iter + "/" + item)
             })
         })
 
         console.log("FinalFecha",semanaArray)
 
+
+        semanaArray.forEach((item)=>{
+            if (!final.includes(item)){
+                final.push(item)
+            }
+        })
 
 
         get(child(dbRef,'ClienteUbicacion/')).then((snapshot)=>{
@@ -645,7 +655,7 @@ return (
                         <th scope="col">Ingreso</th>
                         <th scope="col">Baja</th>
                         <th scope="col">Reasignación</th>
-                       {arrayD.map((item)=>{ return (<th scope="col">{item}</th>)})} 
+                       {final.map((item)=>{ return (<th scope="col">{item}</th>)})} 
 
                     </tr>
                 </thead>
