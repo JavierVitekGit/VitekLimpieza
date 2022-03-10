@@ -51,7 +51,7 @@ const QuincenaTest = (quincena) => {
 
     const fechaDos = diaTwo + "-" + mesTwo + "-" + anioTwo
 
-    const fechaComp = anioOne + "-" + mesOne + "-" + diaOne
+    const fechaComp = anioOne + mesOne + diaOne
 
     console.log("FechaUno::",fechaUno)
 
@@ -164,9 +164,9 @@ const QuincenaTest = (quincena) => {
 
                     // console.log("FechaBComp",fechaB.split("-"))
 
-                    // if ( fechaB >= fechaComp){
+                    if ( fechaB.replace(/-/g,"") >= fechaComp){
                         datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays()})
-                    // }
+                    }
            
                        
                    
