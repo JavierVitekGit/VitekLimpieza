@@ -164,7 +164,7 @@ const QuincenaTest = (quincena) => {
 
                 
 
-                    if (fechaB != null && fechaB <= fechaComp){
+                    if ( fechaB >= fechaComp){
                         datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays()})
                     }
            
