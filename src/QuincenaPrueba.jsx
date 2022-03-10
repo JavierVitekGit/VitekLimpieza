@@ -113,7 +113,7 @@ const QuincenaTest = (quincena) => {
         // }
 
         for (let index = diaOne; index <= +diaTwo; index++) {
-            fechaD.push(anioOne+' - '+mesOne+' - '+index+' 12:00:00')
+            fechaD.push(anioOne+ "-"+mesOne+"-"+index+' 12:00:00')
         }
 
         // fechaD.push(index + "-" + mesOne + "-" + anioOne +"11:00:00")
