@@ -901,7 +901,8 @@ Ok
           renderInput={(params) => <TextField {...params} label="Personal" />}
           value={item.suplencia}
           // onChange={(_event,value)=>{setPorfa(value)}}
-          onChange={v=>item.suplencia = v.target.value}
+          // onChange={v=>item.suplencia = v.target.value}
+          onChange={(_event,value)=>{value=item.suplencia}}
           id="AutocompletePersonal"
           noOptionsText="Sin coincidencias"
           />
