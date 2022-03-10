@@ -25,6 +25,9 @@ import Reasignacion from "./Reasignacion.jsx";
 const QuincenaTest = (quincena) => {
 
 
+    const [fechaC,setFechaC] = useState([]);
+
+
     const [dateOne,setDateOne] = useState(new Date().toISOString())
     const [dateTwo,setDateTwo] = useState(new Date().toISOString())
 
@@ -112,6 +115,10 @@ const QuincenaTest = (quincena) => {
 
         for (let index = diaOne; index <= +diaTwo; index++) {
             fechaD.push(anioOne+ "-"+mesOne+"-"+index+' 12:00:00')
+        }
+
+        for (let i = diaOne; i <= diaTwo; i++){
+            fechaC.push(i + "-" + mesOne + "-" + anioOne)
         }
 
         // fechaD.push(index + "-" + mesOne + "-" + anioOne +"11:00:00")
@@ -584,11 +591,10 @@ return (
                                     {
                                         item.dias.map((d, inx)=>{
                                             
-                                            // console.log("RETURNN",d)
                                             
-                                            // console.log("INX",inx.toString())
 
-                                            return(<td>{d[arrayD[inx.toString()]]}</td>)
+                                            // return(<td>{d[arrayD[inx.toString()]]}</td>)
+                                            return (<td>{d[fechaC[inx.toString()]]}</td>)
                                         })
                                     }
 
