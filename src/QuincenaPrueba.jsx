@@ -33,7 +33,10 @@ const QuincenaTest = (quincena) => {
 
     console.log("Dif String:::", dateTwo.substring(8,10) - dateOne.substring(8,10))
 
-    
+    const today = new Date()
+
+    console.log("Today",today)
+
     var diaOne = dateOne.substring(8,10)
     var mesOne = dateOne.substring(5,7)
     var anioOne = dateOne.substring(0,4)
@@ -92,6 +95,17 @@ const QuincenaTest = (quincena) => {
 
 
     const dbRef = ref(getDatabase());
+
+
+    const diasSemana = [
+        "D",
+        "L",
+        "Mar",
+        "Mier",
+        "J",
+        "V",
+        "S"
+    ];
 
 
     function obtener () {
@@ -283,7 +297,7 @@ const QuincenaTest = (quincena) => {
                                                         
 
                                                         if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
-                                                            console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
+                                                            // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion+" "+iter.Suplencia}
                                                         }
 
