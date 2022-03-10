@@ -120,8 +120,6 @@ const QuincenaTest = (quincena) => {
 
         console.log("FECHA222$#,", fechaD)
 
-
-
         const diasSemana = fecha => [
             "D",
             "L",
@@ -131,11 +129,23 @@ const QuincenaTest = (quincena) => {
             "V",
             "S"
         ][new Date(fecha).getDay()];
+
+        const diaSemanaArray = [];
     
         fechaD.forEach(fecha=>{
             console.log(`En ${fecha} fue ${diasSemana(fecha)}`)
+            diaSemanaArray.push(diasSemana(fecha))
         })
     
+        const [semanaArray,setSemanaArray] = useState([]);
+        
+        fechaD.forEach((item)=>{
+            diaSemanaArray.forEach((iter)=>{
+                semanaArray.push(iter + "/" + item)
+            })
+        })
+
+        console.log("FinalFecha",semanaArray)
 
 
 
@@ -214,7 +224,7 @@ const QuincenaTest = (quincena) => {
                                 var key = jchildSnapshot.key;
             
                        
-                                console.log("KEY$$Fecha::",key)
+                                // console.log("KEY$$Fecha::",key)
             
                         
                 
