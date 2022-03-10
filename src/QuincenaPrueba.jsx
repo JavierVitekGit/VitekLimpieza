@@ -135,19 +135,20 @@ const QuincenaTest = (quincena) => {
     
         fechaD.forEach(fecha=>{
             console.log(`En ${fecha} fue ${diasSemana(fecha)}`)
-            diaSemanaArray.push(fecha+"/"+ diasSemana)
+            diaSemanaArray.push(diasSemana(fecha))
+            console.log("Guachate esta",diaSemanaArray.push(diasSemana(fecha)))
         })
     
         
         
-        arrayD.forEach((item)=>{
-            diaSemanaArray.forEach((iter)=>{
-                if(!semanaArray.includes(iter + "/" + item))
-                semanaArray.push(iter + "/" + item)
-            })
-        })
+        // arrayD.forEach((item)=>{
+        //     diaSemanaArray.forEach((iter)=>{
+        //         if(!semanaArray.includes(iter + "/" + item))
+        //         semanaArray.push(iter + "/" + item)
+        //     })
+        // })
 
-        console.log("FinalFecha",semanaArray)
+        // console.log("FinalFecha",semanaArray)
 
 
 
