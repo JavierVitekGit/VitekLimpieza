@@ -51,6 +51,8 @@ const QuincenaTest = (quincena) => {
 
     const fechaDos = diaTwo + "-" + mesTwo + "-" + anioTwo
 
+    const fechaComp = anioOne + "-" + mesOne + "-" + diaOne
+
     console.log("FechaUno::",fechaUno)
 
     const [arrayD,setArrayD] = useState([])
@@ -162,10 +164,12 @@ const QuincenaTest = (quincena) => {
 
                 
 
-                    
-                    // if (est == 1 && (est == 0 ||fechaB != "")) {
+                    if (fechaB != null && fechaB <= fechaComp){
                         datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays()})
-                    // }
+                    }
+           
+                        
+                   
              
                     datos.sort((a,b) => {
                         if (a.Cliente < b.Cliente) return -1;
