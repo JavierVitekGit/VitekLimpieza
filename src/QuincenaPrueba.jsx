@@ -117,6 +117,14 @@ console.log("Datossd asda",datos)
             fechaD.push(anioOne+ "-"+mesOne+"-"+index+' 12:00:00')
         }
 
+
+        const fBaja = [];
+
+        for (let index = diaOne; index <= +diaTwo; index++) {
+            fBaja.push(anioOne+ "-"+mesOne+"-"+index)
+        }
+        
+
         for (let i = diaOne; i <= diaTwo; i++){
             fechaC.push(i + "-" + mesOne + "-" + anioOne)
         }
@@ -371,6 +379,15 @@ console.log("Datossd asda",datos)
                                     iter.Reasignacion = item.Fecha.substring(0,2) + "/" + item.Cliente
                             }
                      
+                        })
+                    })
+
+
+                    fBaja.forEach((item)=>{
+                        datos.forEach((iter)=>{
+                            if (iter.Ingreso != item ) {
+                                    iter.Ingreso = ""
+                            }
                         })
                     })
 
