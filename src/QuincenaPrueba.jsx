@@ -206,7 +206,7 @@ console.log("Datossd asda",datos)
                         datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays()})
                    
            
-                       
+                       console.log("Pruebitasdad asdadassfgd::",nm.substring(0,7))
                    
              
                     datos.sort((a,b) => {
