@@ -329,7 +329,6 @@ const QuincenaTest = (quincena) => {
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]: ""}
                                                         }
 
-                                       
                                                         index++;
 
                                                     })
@@ -342,12 +341,6 @@ const QuincenaTest = (quincena) => {
                                             
                 
                                         var state = ccSnapshot.child("estado").val()
-                
-                   
-                
-                        
-                
-                                        
                 
                                     })
                 
