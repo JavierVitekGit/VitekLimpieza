@@ -120,7 +120,7 @@ console.log("Datossd asda",datos)
 
         const fBaja = [];
 
-        for (let index = diaOne; index <= +diaTwo; index++) {
+        for (let index = diaOne.toFixed(); index <= +diaTwo; index++) {
             fBaja.push(anioOne + "-" + mesOne + "-" + index)
         }
         
