@@ -193,7 +193,7 @@ console.log("Datossd asda",datos)
                     var nm = childSnapshot.child("Nombre").val()
                     var cl = childSnapshot.child("Cliente").val()
                     var fechaI = childSnapshot.child("Fecha_Ingreso").val()
-                    var fechaB = childSnapshot.child("Fecha_Baja").val() !== null
+                    var fechaB = childSnapshot.child("Fecha_Baja").val()
                     var ubic = childSnapshot.child("Ubicacion").val()
                     var hr = childSnapshot.child("Horario").val()
                     var puest = childSnapshot.child("Puesto").val()
