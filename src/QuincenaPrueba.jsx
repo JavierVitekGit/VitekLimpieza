@@ -228,7 +228,7 @@ console.log("Datossd asda",datos)
                                 var key = jchildSnapshot.key;
             
                        
-                                // console.log("KEY$$Fecha::",key)
+                                console.log("KEY$$Fecha::",key)
             
                         
                 
@@ -354,8 +354,6 @@ console.log("Datossd asda",datos)
                                     })
                 
                                 })
-                
-                               
                 
                             })
                         }
