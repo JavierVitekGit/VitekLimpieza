@@ -284,8 +284,11 @@ console.log("Datossd asda",datos)
                                                 //     justificaciones.push(cccSnapshot.val())
                 
                                                 // }
+
+                                                fechaC.forEach((c)=>{
+
                 
-                                                if (validateOne == validateTwo && state != null) {
+                                                if (validateOne == validateTwo && state != null && key == c) {
                                                     // date.push(key)
                                                     justificaciones.push({
                                                         Fecha:key,
@@ -296,7 +299,7 @@ console.log("Datossd asda",datos)
                                                         Justificacion:just,
                                                         Suplencia:sup})
                                                 }
-                                            
+                                            })
                 
                                             })
 
