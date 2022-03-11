@@ -89,7 +89,7 @@ const QuincenaTest = (quincena) => {
 
     const [datos,setDatos] = useState([]);
 
-
+console.log("Datossd asda",datos)
 
     const [personal,setPersonal] = useState([]);
 
