@@ -121,6 +121,8 @@ console.log("Datossd asda",datos)
             fechaC.push(i + "-" + mesOne + "-" + anioOne)
         }
 
+        console.log("FECHACC::",fechaC)
+
         // fechaD.push(index + "-" + mesOne + "-" + anioOne +"11:00:00")
 
         console.log("FECHA222$#,", fechaD)
