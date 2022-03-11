@@ -329,7 +329,7 @@ const QuincenaTest = (quincena) => {
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]: ""}
                                                         } 
                                                         
-                                                        else if (item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0] && item.Nombre == iter.Nombre  ) {
+                                                        else if (item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0] && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]){
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                                         }
                                                         
@@ -361,7 +361,7 @@ const QuincenaTest = (quincena) => {
                         datos.forEach((iter)=>{
                         
                             if (item.Nombre == iter.Nombre ){
-                                    iter.Reasignacion = item.Fecha + "" + item.Cliente
+                                    iter.Reasignacion = item.Fecha + "/" + item.Cliente
                             }
                      
                         })
