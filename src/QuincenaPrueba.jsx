@@ -217,9 +217,6 @@ const QuincenaTest = (quincena) => {
                       })
 
 
-
-
-
                     })
 
                       get(child(dbRef,'Justificaciones/')).then((jsnapshot)=>{
