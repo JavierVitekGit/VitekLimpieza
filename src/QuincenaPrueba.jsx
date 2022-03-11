@@ -148,9 +148,9 @@ console.log("Datossd asda",datos)
         
     
         fechaD.forEach(fecha=>{
-            console.log(`En ${fecha} fue ${diasSemana(fecha)}`)
+            // console.log(`En ${fecha} fue ${diasSemana(fecha)}`)
             diaSemanaArray.push(diasSemana(fecha) + "/" +fecha.substring(8,10))
-            console.log("Guachate esta",diasSemana(fecha) + "/" +fecha.substring(8,10))
+            // console.log("Guachate esta",diasSemana(fecha) + "/" +fecha.substring(8,10))
         })
     
         
