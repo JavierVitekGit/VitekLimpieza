@@ -383,13 +383,13 @@ console.log("Datossd asda",datos)
                     })
 
 
-                    fBaja.forEach((item)=>{
-                        datos.forEach((iter)=>{
-                            if (iter.Ingreso != item ) {
-                                    iter.Ingreso = ""
-                            }
-                        })
-                    })
+                    // fBaja.forEach((item)=>{
+                    //     datos.forEach((iter)=>{
+                    //         if (iter.Ingreso != item ) {
+                    //                 iter.Ingreso = ""
+                    //         }
+                    //     })
+                    // })
 
 
             }
