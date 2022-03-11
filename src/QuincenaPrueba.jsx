@@ -327,6 +327,8 @@ const QuincenaTest = (quincena) => {
 
                                                         else if (item.Nombre == "Vacante" && +iter.Fecha.substring(0,2) != +Object.keys(dialokobydiego)[0]){
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]: ""}
+                                                        } else if (item.Baja <= +Object.keys(dialokobydiego)[0]) {
+                                                            item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                                         }
 
                                                         index++;
