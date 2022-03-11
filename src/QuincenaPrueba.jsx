@@ -473,6 +473,7 @@ console.log("Datossd asda",datos)
                      .replace(/ú/g, '&uacute;')
                      .replace(/Ú/g, '&Uacute;')
                      .replace(/º/g, '&ordm;')
+                     .replace(/null/g, '')
                      
 
     
