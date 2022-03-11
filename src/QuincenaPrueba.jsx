@@ -302,7 +302,7 @@ console.log("Datossd asda",datos)
                                             datos.forEach((item)=>{
                                                 justificaciones.forEach((iter)=>{
 
-                                                    fechaD.forEach((f)=>{
+                                                    
 
                                                    var index =0;     
 
@@ -342,7 +342,7 @@ console.log("Datossd asda",datos)
 
                                                     })
     
-                                                })
+                                                
                                 
                                                 })
                                             })
