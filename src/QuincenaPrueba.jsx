@@ -121,7 +121,7 @@ console.log("Datossd asda",datos)
         const fBaja = [];
 
         for (let index = diaOne; index <= +diaTwo; index++) {
-            fBaja.push(anioOne+ "-"+mesOne+"-"+index)
+            fBaja.push(anioOne + "-" + mesOne + "-" + index)
         }
         
 
@@ -129,7 +129,7 @@ console.log("Datossd asda",datos)
             fechaC.push(i + "-" + mesOne + "-" + anioOne)
         }
 
-        console.log("FECHACC::",fechaC)
+        console.log("FECHABB::",fBaja)
 
         // fechaD.push(index + "-" + mesOne + "-" + anioOne +"11:00:00")
 
