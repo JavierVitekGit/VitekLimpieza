@@ -184,7 +184,7 @@ const Cliente = (clientes) => {
          
 
         update(ref(getDatabase(),'Operador/' + "Vacante" + nombre + ubicacion + "Encargado" + i ),{
-          Nombre:"Vacante" + i,
+          Nombre:"Vacante",
           Cliente:nombre,
           Ubicacion:ubicacion,
           Horario:hEncargado,
@@ -200,7 +200,7 @@ const Cliente = (clientes) => {
       for (let i=1; i<=pSupervisor; i++)
 
       update(ref(getDatabase(),'Operador/' + "Vacante" + nombre + ubicacion + "Supervisor" + i),{
-        Nombre:"Vacante" + i,
+        Nombre:"Vacante",
         Cliente:nombre,
         Ubicacion:ubicacion,
         Horario:hSupervisor,
@@ -217,7 +217,7 @@ const Cliente = (clientes) => {
       for (let i=1; i<=pOperador; i++)
 
       update(ref(getDatabase(),'Operador/' + "Vacante" + nombre + ubicacion + "Operador" + i),{
-        Nombre:"Vacante" + i,
+        Nombre:"Vacante",
         Cliente:nombre,
         Ubicacion:ubicacion,
         Horario:hOperador,
@@ -234,7 +234,7 @@ const Cliente = (clientes) => {
       for (let i=1; i<=pSuplencia; i++)
 
       update(ref(getDatabase(),'Operador/' + "Vacante" + nombre + ubicacion + "Suplencia" + i),{
-        Nombre:"Vacante" + i,
+        Nombre:"Vacante",
         Cliente:nombre,
         Ubicacion:ubicacion,
         Horario:hSuplencia,
