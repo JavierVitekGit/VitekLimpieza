@@ -329,7 +329,11 @@ const QuincenaTest = (quincena) => {
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]: ""}
                                                         } 
                                                         
-                                                        else if (item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]){
+                                                        else if ( item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]){
+                                                            item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
+                                                        }
+
+                                                        else if (item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0] && item.Baja == null && item.Baja == "") {
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                                         }
                                                         
