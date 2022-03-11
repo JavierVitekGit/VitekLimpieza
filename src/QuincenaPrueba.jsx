@@ -365,7 +365,7 @@ console.log("Datossd asda",datos)
                         datos.forEach((iter)=>{
                         
                             if (item.Nombre == iter.Nombre ){
-                                    iter.Reasignacion = item.Fecha.substring(0,5) + "/" + item.Cliente
+                                    iter.Reasignacion = item.Fecha.substring(0,2) + "/" + item.Cliente
                             }
                      
                         })
