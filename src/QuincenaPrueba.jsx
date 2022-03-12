@@ -407,8 +407,9 @@ console.log("Datossd asda",datos)
 
         setTimeout(()=>{
             mostrarReporte();
+            setDiaSemanaArray([]);
             fBaja = [];
-            diasSemana([])
+         
         },1000)
 
 
