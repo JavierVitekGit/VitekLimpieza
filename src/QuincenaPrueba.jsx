@@ -407,6 +407,7 @@ console.log("Datossd asda",datos)
 
         setTimeout(()=>{
             mostrarReporte();
+            fBaja = [];
         },1000)
 
 
