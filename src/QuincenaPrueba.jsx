@@ -347,26 +347,16 @@ console.log("Datossd asda",datos)
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                                             }
                                                         
-                                                        // else if ( item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]){
-                                                        //     item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
-                                                        // }
-
-                                                        // else if (item.Baja.exists() == null && item.Baja == "" && item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]  ) {
-                                                        //     item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
-                                                        // }
                                                         
 
                                                         index++;
 
                                                     })
     
-                                                
-                                
+
                                                 })
                                             })
-                
-                                            
-                
+
                                         var state = ccSnapshot.child("estado").val()
                 
                                     })
@@ -380,7 +370,7 @@ console.log("Datossd asda",datos)
                     reasig.forEach((item)=>{
                         datos.forEach((iter)=>{
                         
-                            if (item.Nombre == iter.Nombre ){
+                            if (item.Nombre == iter.Nombre){
                                     iter.Reasignacion = item.Fecha.substring(0,2) + "/" + item.Cliente
                             }
                      
