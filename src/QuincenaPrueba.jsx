@@ -380,7 +380,7 @@ console.log("Datossd asda",datos)
 
                     fBaja.forEach((item)=>{
                         datos.forEach((iter)=>{
-                            if (item.includes(iter.Ingreso) ) {
+                            if (!item.includes(iter.Ingreso) ) {
                                     iter.Ingreso = ""
                             }
                         })
