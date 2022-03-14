@@ -297,6 +297,7 @@ opUbic.forEach((item)=>{
       Ubicacion:ubicSelect,
       Estatus: 1,
       Horario: turnSelect,
+      Dias: arrayc
     });
   
   }
