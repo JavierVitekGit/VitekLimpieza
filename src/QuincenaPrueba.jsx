@@ -209,6 +209,9 @@ console.log("Datossd asda",datos)
                     var puest = childSnapshot.child("Puesto").val()
                     var reasig = childSnapshot.child("Reasignacion").val()
                     var est = childSnapshot.child("Estatus").val()
+                    var dias = childSnapshot.child("Dias").val()
+
+                    console.log("DIASDDHGFDMKGDFL",dias)
 
                     // console.log("FechaBComp",fechaB.split("-"))
 
