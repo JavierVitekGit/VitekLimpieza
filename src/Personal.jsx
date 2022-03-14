@@ -416,7 +416,7 @@ opUbic.forEach((item)=>{
   const close = () => setMod(false)
   
   function comprobarTwo () {
-    if (clientSelect == ""  && ubicSelect == "" && puestSelect == "" && turnSelect == ""){
+    if (clientSelect == ""  || ubicSelect == "" || puestSelect == "" || turnSelect == ""){
       
     } else {
       mostrarPersonal()
