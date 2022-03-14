@@ -339,7 +339,7 @@ console.log("Datossd asda",datos)
 
                                                         if (item.Horario == iter.Turno && item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
-                                                            item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion+" "+iter.Suplencia}
+                                                            item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion}
                                                         }
 
                                                         else if (item.Nombre == "Vacante" && +iter.Fecha.substring(0,2) != +Object.keys(dialokobydiego)[0]){
@@ -349,6 +349,10 @@ console.log("Datossd asda",datos)
 
                                                             else if (item.Baja != null && item.Baja != "" && item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]){
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
+                                                            }
+
+                                                            else if (item.Nombre == iter.Suplencia && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]){
+                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Suplencia}
                                                             }
 
                                                             // else if(item.week != null && item.week != "" && item.week.substring(0,1) !=  nyx.substring(0,1)){
