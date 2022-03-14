@@ -56,6 +56,7 @@ import QuincenaTest from './QuincenaPrueba';
 
 
 import ReporteG from './Reporte General';
+import Factura from './Reporte Factura';
 
 const App = (app) => {
 
@@ -137,6 +138,7 @@ const App = (app) => {
 
       <Route path ="/ReporteG" element={<ReporteG/>} />
 
+      <Route path ="/ReporteM" element={<Factura/>} />
 
       </Routes>
 
