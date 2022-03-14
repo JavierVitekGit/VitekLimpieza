@@ -14,6 +14,13 @@ import { CSVLink, CSVDownload } from "react-csv";
 
 const ReporteG = (reporte) => {
 
+    const [cesar,setCesar] = useState('')
+
+    const [pastilla,setPastilla] = useState('')
+
+    function calculaC (){
+        (cesar / 100) = pastilla
+    }
 
 
     const [dateOne,setDateOne] = useState(new Date().toISOString())
@@ -504,6 +511,11 @@ return (
 
 
         <br/>
+        
+        <input type="number" onChange={v=>setCesar(v.target.value)}></input>
+
+        <input type="number" value={pastilla}></input>
+
         <br/>
        
         <input type="button" class="btn btn-success" value="Ver reporte" onClick={obtener} />
