@@ -502,6 +502,7 @@ function regresar () {
     setArrayD([]);
     mostrarCalendario();
     setDiaSemanaArray([]);
+    diaSemanaArray([])
 }
 
 
