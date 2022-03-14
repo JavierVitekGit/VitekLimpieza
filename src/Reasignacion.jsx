@@ -288,7 +288,7 @@ return(
         <label class="form-outline-label" >Nuevo horario</label>
         <br/>
 
-        <div className="horInput">
+        <div className="horInputTurn">
         <input type="number" id="select" onChange={v=>{setHorario(v.target.value)}}>
         </input>
             :

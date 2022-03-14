@@ -570,7 +570,7 @@ return(
 
               <br/>
 
-              <input type="number" onChange={v=>onChange1(v.target.value)}></input>
+              <input type="number" id="telInpP" onChange={v=>onChange1(v.target.value)}></input>
 
                 </div>
 
