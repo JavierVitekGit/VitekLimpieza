@@ -7,6 +7,9 @@ import Button from 'react-bootstrap/Button'
 import './Turno.css'
 import SideBar from './Sidebar'
 
+import Autocomplete from '@mui/material/Autocomplete';
+import TextField from '@mui/material/TextField';
+
 
 const Turno = (turno) =>{
 
@@ -357,11 +360,28 @@ return(
 
 
     <div className="container-turn">
-        <label class="form-outline-label">Nombre del Operador</label>
-        <br/>
-        <select onClick={forceUpdate} value={name}  onChange={handlerEvent}> 
+        {/* <label class="form-outline-label">Nombre del Operador</label>
+        <br/> */}
+
+
+        {/* <select onClick={forceUpdate} value={name}  onChange={handlerEvent}> 
          {unicName.map((item)=> <option>{item}</option>)}
-        </select>
+        </select> */}
+
+
+          <Autocomplete
+          onClick={forceUpdate}
+          options={unicName}
+          sx={{width:300}} 
+          renderInput={(params) => <TextField {...params} label="Lista de Operadores" />}
+          value={name}
+          onChange={(_event,value)=>{handlerEvent(value)}}
+          // onChange={v=>item.suplencia = v.target.value}
+          autoSelect={true}
+          id="autocompleteCl"
+          noOptionsText="Sin coincidencias"
+          />
+
 
         <br/>
 
@@ -370,11 +390,26 @@ return(
 
         <br/>
 
-        <label class="form-outline-label">Nombre del Cliente</label>
+        {/* <label class="form-outline-label">Nombre del Cliente</label>
         <br></br>
         <select onClick={forceUpdate} value={client} onChange={v=> setClient(v.target.value)} id="sLTCas">
         {clientesUnicos.map((item,i)=> <option>{item}</option>)}
-        </select>
+        </select> */}
+
+          <Autocomplete
+          onClick={forceUpdate}
+          options={clientesUnicos}
+          sx={{width:300}} 
+          renderInput={(params) => <TextField {...params} label="Lista de Clientes" />}
+          value={client}
+          onChange={(_event,value)=>{setClient(value)}}
+          // onChange={v=>item.suplencia = v.target.value}
+          autoSelect={true}
+          id="autocompleteCl"
+          noOptionsText="Sin coincidencias"
+          />
+
+
 
 <br/>
 
