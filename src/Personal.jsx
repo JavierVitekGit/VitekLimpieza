@@ -21,6 +21,67 @@ const Personal = ({personal}) => {
     const [dom,setDom] = useState('')
 
 
+    function checkboxval () {
+      if (document.getElementById("LTC").checked ==true) {
+        document.getElementById("LTC").value = "Lunes";
+        document.getElementById("LTC").value = document.getElementById("LTC").value;
+      } else {
+        document.getElementById("LTC").value = ""
+        document.getElementById("LTC").value = document.getElementById("LTC").value;
+      }
+
+      if (document.getElementById("MTC").checked==true) {
+        document.getElementById("MTC").value = "Martes";
+        document.getElementById("MTC").value = document.getElementById("MTC").value
+      } else {
+        document.getElementById("MTC"). value =""
+        document.getElementById("MTC").value = document.getElementById("MTC").value
+      }
+
+      if (document.getElementById("MITC").checked==true) {
+        document.getElementById("MITC").value = "Miércoles";
+        document.getElementById("MITC").value = document.getElementById("MITC").value
+      } else {
+        document.getElementById("MITC"). value =""
+        document.getElementById("MITC").value = document.getElementById("MITC").value
+      }
+
+      if (document.getElementById("JTC").checked==true) {
+        document.getElementById("JTC").value = "Jueves";
+        document.getElementById("JTC").value = document.getElementById("JTC").value
+      } else {
+        document.getElementById("JTC"). value =""
+        document.getElementById("JTC").value = document.getElementById("JTC").value
+      }
+
+      if (document.getElementById("VTC").checked==true) {
+        document.getElementById("VTC").value = "Viernes";
+        document.getElementById("VTC").value = document.getElementById("VTC").value
+      } else {
+        document.getElementById("VTC"). value =""
+        document.getElementById("VTC").value = document.getElementById("VTC").value
+      }
+
+      if (document.getElementById("STC").checked==true) {
+        document.getElementById("STC").value = "Sábado";
+        document.getElementById("STC").value = document.getElementById("STC").value
+      } else {
+        document.getElementById("STC"). value =""
+        document.getElementById("STC").value = document.getElementById("STC").value
+      }
+
+      if (document.getElementById("DTC").checked==true) {
+        document.getElementById("DTC").value = "Domingo";
+        document.getElementById("DTC").value = document.getElementById("DTC").value
+      } else {
+        document.getElementById("DTC"). value =""
+        document.getElementById("DTC").value = document.getElementById("DTC").value
+      }
+
+    }
+
+
+
 
     const [showw,setShow] = useState([]);
 
