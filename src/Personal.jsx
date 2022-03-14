@@ -115,6 +115,9 @@ const Personal = ({personal}) => {
     const [turnSelect,setTurnSelect] = useState('')
 
 
+    
+
+
     const keId = [];
 
     console.log("keId",keId)
@@ -412,6 +415,12 @@ opUbic.forEach((item)=>{
   const show = () => setMod(true)
   const close = () => setMod(false)
   
+  function comprobarTwo () {
+    if (clientSelect == ""  && ubicSelect == "" && puestSelect == "" && turnSelect == ""){
+      mostrarPersonal()
+    }
+  }
+  
 
   function comprobar (event) {
     event.preventDefault()
@@ -540,7 +549,7 @@ return(
 
 <br/>
 
-<input class="btn btn-primary" type="submit" onClick={mostrarPersonal} value="Siguiente" ></input>
+<input class="btn btn-primary" type="submit" onClick={comprobarTwo} value="Siguiente" ></input>
 
 
             </div>
