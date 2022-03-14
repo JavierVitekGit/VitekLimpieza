@@ -172,3 +172,38 @@ margin-left: 5vh;
 #telInpP{
   width: 20vh;
 }
+
+.diasPersonal{
+  display: inline-block;
+    margin-top: 24vh;
+    margin-left: -111vh;
+}
+
+.marttP{
+  margin-top: -100px;
+  margin-left: 30vh;
+}
+
+.mierctP{
+  margin-left: 65vh;
+  margin-top: -100px;
+}
+
+.juevtP{
+  margin-left: 105vh;
+  margin-top: -100px;
+}
+
+.viertP{
+  margin-left: 138vh;
+  margin-top: -100px;
+}
+
+.sabtP{
+  margin-left: 60vh
+}
+
+.domtP {
+  margin-left: 110vh;
+  margin-top: -100px;
+}

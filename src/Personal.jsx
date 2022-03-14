@@ -645,32 +645,32 @@ return(
 
               <br/>
 
-              <div className="dias">
+              <div className="diasPersonal">
 
         
               <input type="checkbox" id="LTC" onClick={checkboxval}  onChange={v=> setLun(v.target.value)} /> <h1 id="luntcheck">Lunes</h1> 
 
-              <div className="martt">
+              <div className="marttP">
               <input type="checkbox" id="MTC" onClick={checkboxval} onChange={v=>setMar(v.target.value)} /> <h1 id="martcheck">Martes</h1> 
               </div>
 
-              <div className="mierct">
+              <div className="mierctP">
               <input type="checkbox" id="MITC" onClick={checkboxval} onChange={v=>setMier(v.target.value)} /> <h1 id="miertcheck">Miércoles</h1> 
               </div>
 
-              <div className="juevt">
+              <div className="juevtP">
               <input type="checkbox" id="JTC" onClick={checkboxval} onChange={v=>setJuev(v.target.value)} /> <h1 id="juevtcheck">Jueves</h1> 
               </div>
 
-              <div className="viert">
+              <div className="viertP">
               <input type="checkbox" id="VTC" onClick={checkboxval} onChange={v=>setVier(v.target.value)} /> <h1 id="viertcheck">Viernes</h1>
               </div>
 
-              <div className="sabt">
+              <div className="sabtP">
               <input type="checkbox" id="STC" onClick={checkboxval} onChange={v=>setSab(v.target.value)} /> <h1 id="sabtcheck">Sábado</h1>
               </div>
 
-              <div className="domt">
+              <div className="domtP">
               <input type="checkbox" id="DTC" onClick={checkboxval} onChange={v=>setDom(v.target.value)} /> <h1 id="domtcheck">Domingo</h1>
               </div>
 
