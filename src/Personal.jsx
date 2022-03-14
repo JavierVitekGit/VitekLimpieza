@@ -692,7 +692,7 @@ return(
 
           <input id="guardarP" class="btn btn-success" type="submit" value="Guardar" onClick={comprobar}></input>
         
-          <input type="submit" class="btn btn-primary" value="Regresar" onClick={mostrarClientes} />
+          <input type="submit" class="btn btn-primary" id="idk" value="Regresar" onClick={mostrarClientes} />
           
           </div>
 
