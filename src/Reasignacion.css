@@ -41,6 +41,10 @@
   height: 80%;
 }
 
+#number{
+  width: auto;
+}
+
 .roH{
 
   background-color: black;
@@ -60,3 +64,6 @@
   margin-right: 15px;
 }
 
+.horInputTurn{
+  width: 10vh;
+}
