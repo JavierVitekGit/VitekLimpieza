@@ -153,8 +153,8 @@ console.log("Datossd asda",datos)
             // console.log("Guachate esta",diasSemana(fecha) + "/" +fecha.substring(8,10))
         })
     
-        
-        
+
+            console.log("DIASEMANAARRAY::",diaSemanaArray)
         // arrayD.forEach((item)=>{
         //     diaSemanaArray.forEach((iter)=>{
         //         if(!semanaArray.includes(iter + "/" + item))
@@ -211,12 +211,11 @@ console.log("Datossd asda",datos)
                     var est = childSnapshot.child("Estatus").val()
                     var dias = childSnapshot.child("Dias").val()
 
-                    console.log("DIASDDHGFDMKGDFL",dias)
 
                     // console.log("FechaBComp",fechaB.split("-"))
 
                     
-                        datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays()})
+                        datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),week:dias})
                    
            
                        console.log("Pruebitasdad asdadassfgd::",nm.substring(0,7))
