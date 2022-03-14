@@ -580,7 +580,7 @@ return(
                 <div className="btnPersonalGroup"> 
 
           <input id="guardarP" class="btn btn-success" type="submit" value="Guardar" onClick={comprobar}></input>
-                <br/>
+        
           <input type="submit" class="btn btn-primary" value="Regresar" onClick={mostrarClientes} />
           
           </div>
