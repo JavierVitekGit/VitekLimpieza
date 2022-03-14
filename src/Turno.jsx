@@ -243,7 +243,7 @@ const Turno = (turno) =>{
  
       
 
-    useEffect(()=>{
+    // useEffect(()=>{
 
 
 
@@ -317,7 +317,7 @@ const Turno = (turno) =>{
 
 
 
-    },[])
+    // },[])
 
     const unicName = [];
 
