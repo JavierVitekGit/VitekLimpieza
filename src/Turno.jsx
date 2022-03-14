@@ -243,7 +243,7 @@ const Turno = (turno) =>{
  
       
 
-    // useEffect(()=>{
+    useEffect(()=>{
 
 
 
@@ -317,7 +317,7 @@ const Turno = (turno) =>{
 
 
 
-    // },[])
+    },[])
 
     const unicName = [];
 
@@ -360,16 +360,16 @@ return(
 
 
     <div className="container-turn">
-        {/* <label class="form-outline-label">Nombre del Operador</label>
-        <br/> */}
+        <label class="form-outline-label">Nombre del Operador</label>
+        <br/>
 
 
-        {/* <select onClick={forceUpdate} value={name}  onChange={handlerEvent}> 
+        <select onClick={forceUpdate} value={name}  onChange={handlerEvent}> 
          {unicName.map((item)=> <option>{item}</option>)}
-        </select> */}
+        </select>
 
 
-          <Autocomplete
+          {/* <Autocomplete
           onClick={forceUpdate}
           options={unicName}
           sx={{width:300}} 
@@ -380,7 +380,7 @@ return(
           autoSelect={true}
           id="autocompleteCl"
           noOptionsText="Sin coincidencias"
-          />
+          /> */}
 
 
         <br/>
@@ -390,13 +390,13 @@ return(
 
         <br/>
 
-        {/* <label class="form-outline-label">Nombre del Cliente</label>
+        <label class="form-outline-label">Nombre del Cliente</label>
         <br></br>
         <select onClick={forceUpdate} value={client} onChange={v=> setClient(v.target.value)} id="sLTCas">
         {clientesUnicos.map((item,i)=> <option>{item}</option>)}
-        </select> */}
+        </select>
 
-          <Autocomplete
+          {/* <Autocomplete
           onClick={forceUpdate}
           options={clientesUnicos}
           sx={{width:300}} 
@@ -408,7 +408,7 @@ return(
           id="autocompleteCl"
           noOptionsText="Sin coincidencias"
           />
-
+ */}
 
 
 <br/>
