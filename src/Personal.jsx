@@ -12,6 +12,16 @@ import SideBar from "./Sidebar";
 const Personal = ({personal}) => {
 
 
+    const [lun,setLun] = useState ('')
+    const [mar,setMar] = useState('')
+    const [mier,setMier] = useState('')
+    const [juev,setJuev] = useState('')
+    const [vier,setVier] = useState('')
+    const [sab,setSab] = useState('')
+    const [dom,setDom] = useState('')
+
+
+
     const [showw,setShow] = useState([]);
 
     function mostrarPersonal () {
@@ -571,6 +581,39 @@ return(
               <br/>
 
               <input type="number" id="telInpP" onChange={v=>onChange1(v.target.value)}></input>
+
+              <br/>
+
+              <div className="dias">
+
+        
+              <input type="checkbox" id="LTC" onClick={checkboxval}  onChange={v=> setLun(v.target.value)} /> <h1 id="luntcheck">Lunes</h1> 
+
+              <div className="martt">
+              <input type="checkbox" id="MTC" onClick={checkboxval} onChange={v=>setMar(v.target.value)} /> <h1 id="martcheck">Martes</h1> 
+              </div>
+
+              <div className="mierct">
+              <input type="checkbox" id="MITC" onClick={checkboxval} onChange={v=>setMier(v.target.value)} /> <h1 id="miertcheck">Miércoles</h1> 
+              </div>
+
+              <div className="juevt">
+              <input type="checkbox" id="JTC" onClick={checkboxval} onChange={v=>setJuev(v.target.value)} /> <h1 id="juevtcheck">Jueves</h1> 
+              </div>
+
+              <div className="viert">
+              <input type="checkbox" id="VTC" onClick={checkboxval} onChange={v=>setVier(v.target.value)} /> <h1 id="viertcheck">Viernes</h1>
+              </div>
+
+              <div className="sabt">
+              <input type="checkbox" id="STC" onClick={checkboxval} onChange={v=>setSab(v.target.value)} /> <h1 id="sabtcheck">Sábado</h1>
+              </div>
+
+              <div className="domt">
+              <input type="checkbox" id="DTC" onClick={checkboxval} onChange={v=>setDom(v.target.value)} /> <h1 id="domtcheck">Domingo</h1>
+              </div>
+
+              </div>
 
                 </div>
 
