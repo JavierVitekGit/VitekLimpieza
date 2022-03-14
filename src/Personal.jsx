@@ -80,7 +80,13 @@ const Personal = ({personal}) => {
 
     }
 
+    var arrayd = [];
 
+    arrayd.push(lun,mar,mier,juev,vier,sab,dom)
+
+    var arrayc = arrayd.filter(Boolean);
+
+    console.log("ArrayC::",arrayc)
 
 
     const [showw,setShow] = useState([]);
