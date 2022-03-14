@@ -316,7 +316,9 @@ console.log("Datossd asda",datos)
 
                                             datos.forEach((item)=>{
                                                 justificaciones.forEach((iter)=>{
+                                                    diaSemanaArray.forEach((nyx)=>{
 
+                                                    
                                                     
 
                                                    var index =0;     
@@ -348,13 +350,18 @@ console.log("Datossd asda",datos)
                                                             else if (item.Baja != null && item.Baja != "" && item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]){
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                                             }
-                                                        
+
+                                                            else if(item.week != null && item.week != "" && item.week.substring(0,1) !=  nyx.substring(0,1)){
+                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
+                                                            }
+
+                                  
                                                         
 
                                                         index++;
 
                                                     })
-    
+                                                })
 
                                                 })
                                             })
@@ -389,6 +396,14 @@ console.log("Datossd asda",datos)
                             }
                         })
                     })
+
+                    // diaSemanaArray.forEach((item)=>{
+                    //     datos.forEach((iter)=>{
+                    //         if (iter.week != null & iter.week != "" && iter.week.substring(0,1) != item.substring(0,1)){
+                                
+                    //         }
+                    //     })
+                    // })
 
 
             }
