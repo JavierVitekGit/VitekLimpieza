@@ -567,7 +567,7 @@ return (
         <input type="button" class="btn btn-primary" value="Regresar" onClick={regresar} />
 
 
-        <input type="button" class="btn btn-success" value="Generar Reporte" onClick={fnExcelReport} />
+        <input type="button" id="quincenaBtn" class="btn btn-success" value="Generar Reporte" onClick={fnExcelReport} />
 
             <table class="table table-striped" id="generate">
                 <thead>
