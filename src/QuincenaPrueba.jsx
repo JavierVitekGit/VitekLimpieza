@@ -273,7 +273,7 @@ console.log("Datossd asda",datos)
                                                 var incidenci = cccSnapshot.child("estado").val()
                                                 var just = cccSnapshot.child("justi").val()
                                                 var sup = cccSnapshot.child("suplencia").val()
-            
+                                                var obs = cccSnapshot.child("observaciones").val()
                 
                                                 var state = cccSnapshot.child("estado").val()
                 
@@ -307,7 +307,8 @@ console.log("Datossd asda",datos)
                                                         Turno:turn,
                                                         Estado:incidenci,
                                                         Justificacion:just,
-                                                        Suplencia:sup})
+                                                        Suplencia:sup,
+                                                        Observaciones:obser})
                                                 }
                                             })
                 
@@ -352,7 +353,7 @@ console.log("Datossd asda",datos)
                                                             }
 
                                                             else if (item.Nombre == iter.Suplencia && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]){
-                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Suplencia}
+                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.observaciones}
                                                             }
 
                                                             // else if(item.week != null && item.week != "" && item.week.substring(0,1) !=  nyx.substring(0,1)){
