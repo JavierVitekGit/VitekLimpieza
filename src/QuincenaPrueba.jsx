@@ -393,8 +393,6 @@ console.log("Datossd asda",datos)
                         datos.forEach((iter)=>{
                             if (item == iter.Ingreso ) {
                                     iter.Ingreso = iter.Ingreso
-                            } else {
-                                iter.Ingreso = ""
                             }
                         })
                     })
