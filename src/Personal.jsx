@@ -417,6 +417,8 @@ opUbic.forEach((item)=>{
   
   function comprobarTwo () {
     if (clientSelect == ""  && ubicSelect == "" && puestSelect == "" && turnSelect == ""){
+      
+    } else {
       mostrarPersonal()
     }
   }
