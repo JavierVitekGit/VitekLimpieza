@@ -219,3 +219,7 @@ text-align: center;
 .modal-header{
   justify-content: center !important
 }
+
+.modal-body{
+  text-align: center !important
+}
