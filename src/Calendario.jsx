@@ -925,7 +925,7 @@ Ok
           sx={{width:"auto"}} 
           renderInput={(params) => <TextField {...params} label="Personal" />}
           value={item.suplencia}
-          onChange={v=>item.suplencia = v.target.value}
+          onClose={v=>item.suplencia = v.target.value}
 
           // inputValue={v=>item.suplencia = v.target.value}
           // inputValue={item.suplencia}
