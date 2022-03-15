@@ -217,10 +217,14 @@ console.log("Datossd asda",datos)
 
                     // console.log("FechaBComp",fechaB.split("-"))0
 
-                        
-
+                            if (fechaB <= fffBaja){
+                                fechaB = null
+                            }
+                                if (fechaB != null){
+                                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),week:dias})
+                                }
          
-                                datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),week:dias})
+                                
                             
                               
                     
