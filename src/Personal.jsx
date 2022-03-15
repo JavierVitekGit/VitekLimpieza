@@ -420,10 +420,15 @@ opUbic.forEach((item)=>{
   const [mod,setMod] = useState(false)
   const show = () => setMod(true)
   const close = () => setMod(false)
+
+
+  const [modP,setModP] = useState(false)
+  const showPersonal = () => setModP(true)
+  const closePersonal = () => setModP(false)
   
   function comprobarTwo () {
     if (clientSelect == ""  || ubicSelect == "" || puestSelect == "" || turnSelect == ""){
-      
+      showPersonal()
     } else {
       mostrarPersonal()
     }
@@ -817,6 +822,52 @@ Ok
 
 </Modal>
 
+<Modal className="registroP" 
+      show={modP}  
+      onHide={closePersonal } 
+      animation={true} 
+      backdrop="static" 
+      keyboard={false}   
+      {...personal}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered>
+
+
+<Modal.Header>
+
+
+<Modal.Title>Campos Incompletos</Modal.Title>
+
+
+</Modal.Header>
+
+
+<Modal.Body>
+
+
+<p>Falta completar algunos campos </p>
+
+
+</Modal.Body>
+
+
+<Modal.Footer>
+
+
+  <Button variant="success" onClick={closePersonal}>
+
+
+Ok
+
+
+  </Button>
+
+
+</Modal.Footer>
+
+
+</Modal>
 
 
       </div>
