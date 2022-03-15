@@ -420,13 +420,13 @@ console.log("Datossd asda",datos)
 
 //      !item.includes(iter.Ingreso)
 
-                    fBaja.forEach((item)=>{
+                
                         datos.forEach((iter)=>{
-                            if (iter.Ingreso != null && iter.Ingreso != "" && item <= fffBaja  ) {
+                            if (iter.Ingreso != null && iter.Ingreso != "" && iter.Ingreso <= fffBaja  ) {
                                     iter.Ingreso = ""
                             }
                         })
-                    })
+                
 
                     // diaSemanaArray.forEach((item)=>{
                     //     datos.forEach((iter)=>{
