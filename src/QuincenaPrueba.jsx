@@ -217,11 +217,25 @@ console.log("Datossd asda",datos)
 
                     // console.log("FechaBComp",fechaB.split("-"))0
 
-                            if (fechaB >= fffBaja){
+                            
                                 datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),week:dias})
-                            }
+                                datos.forEach((asereje)=>{
+                                    
+                                
+                                if (fechaB <= fffBaja){
+                             asereje.Cliente = null
+                             asereje.Nombre = null
+                             asereje.Ingreso = null
+                             asereje.Baja = null
+                             asereje.Ubicacion = null
+                             asereje.Horario = null
+                             asereje.Reasignacion = null
+                             asereje.Puesto = null
+                             asereje.dias = null
+                             asereje.week = null
+                                }
                     
-                           
+                            })
                  
 
 
