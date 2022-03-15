@@ -39,7 +39,7 @@ const QuincenaTest = (quincena) => {
 
     const today = new Date()
 
-    const min = new Date(2022,02,15)
+    const min = new Date(2022,02,15);
 
     console.log("Today",today)
 
