@@ -346,10 +346,10 @@ opUbic.forEach((item)=>{
           var nombre = childSnapshot.child("Nombre").val()
           var ubic = childSnapshot.child("Ubicacion").val()
           var sup = childSnapshot.child("Supervisor").val()
-        
+          var estate = childSnapshot.child("Estatus").val()
 
 
-          if (ubic != null){
+          if (ubic != null && estate != 0 ){
             clientUbic.push({Nombre:nombre,Ubicacion:ubic})
           }
           
