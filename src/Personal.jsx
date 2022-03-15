@@ -239,7 +239,13 @@ opUbic.forEach((item)=>{
   }
 })
 
+  const turnUnic = [];
 
+  turnArray.forEach((item)=>{
+    if (!turnUnic.includes(item)) {
+        turnUnic.push(item)
+    }
+  })
 
 
   const [clientCl,setClientCl] = useState([]);
@@ -542,7 +548,7 @@ return(
 <br/>
 
 <select onClick={forceUpdate} onChange ={v=>{setTurnSelect(v.target.value)}} >
-{turnArray.map((item)=>{
+{turnUnic.map((item)=>{
   return (
     <option>{item}</option>
   )
