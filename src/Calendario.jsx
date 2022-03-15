@@ -282,10 +282,24 @@ const modClose = () => setModClient(false)
     } else {
       obtener();
     }
-
-    
-
   }
+
+  function validate(event){
+    event.preventDefault()
+    
+    arrayJusti.forEach((item)=>{
+      if (item.estado != "") {
+        if (item.justi ==  null){
+          handleShow(event);
+        } else {
+          show(event)
+          writeJustiData(event)
+        }
+
+      }
+    })
+  }
+
 
   function regresar () {
     setSelCliente("")
@@ -1091,7 +1105,7 @@ Ok
 
 
 
-<input class="btn btn-success" type="submit" value="Guardar" onClick={writeJustiData}  id="btt"></input>
+<input class="btn btn-success" type="submit" value="Guardar" onClick={validate}  id="btt"></input>
 
 <input class="btn btn-secondary"  type="submit" value="Regresar al Calendario" onClick={regresar} id="bt2"></input>
 
