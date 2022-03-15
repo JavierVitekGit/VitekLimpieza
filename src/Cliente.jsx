@@ -435,6 +435,22 @@ const Cliente = (clientes) => {
 
       </div>
 
+      <div className="asignacion5">
+      
+
+      <select>
+        <option>Encargado</option>
+        <option>Supervisor</option>
+        <option>Operador</option>
+        <option>Suplencia</option>
+      </select>
+       
+      <input class="form-control" type="text" placeholder="Horario" onChange={v=>setHSuplencia(v.target.value)} />
+         
+      <input class="form-control" type="number" onChange={v=>setPSuplencia(v.target.value)} maxLength="2" placeholder="No. Personal" />
+
+      </div>
+
        <label class="form-outline-label" for="form3" id="dil">Supervisor a Asignar</label>
 
        <br></br>
@@ -445,7 +461,9 @@ const Cliente = (clientes) => {
                   <option>Lourdes</option>
                   <option>Mario</option>
                   <option>Olga</option>
-                </select>
+        </select>
+
+        <input class="form-control" type="text"></input>
 <br/>
 
 </div>
