@@ -27,6 +27,7 @@ const QuincenaTest = (quincena) => {
 
     const [fechaC,setFechaC] = useState([]);
 
+    console.log("#FECHACC$&%:",fechaC)
 
     const [dateOne,setDateOne] = useState(new Date().toISOString())
     const [dateTwo,setDateTwo] = useState(new Date().toISOString())
