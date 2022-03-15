@@ -56,6 +56,7 @@ const QuincenaTest = (quincena) => {
     const fechaDos = diaTwo + "-" + mesTwo + "-" + anioTwo
 
     const fffBaja = anioOne + "-" + mesOne + "-" + diaOne
+    const fffTwo= anioTwo + "-" + mesTwo + "-" + diaTwo
 
     console.log("FechaUno::",fechaUno)
 
@@ -422,7 +423,7 @@ console.log("Datossd asda",datos)
 
                 
                         datos.forEach((iter)=>{
-                            if (iter.Ingreso != null && iter.Ingreso != "" && iter.Ingreso <= fffBaja  ) {
+                            if (iter.Ingreso != null && iter.Ingreso != "" && iter.Ingreso <= fffBaja && iter.Ingreso <= fffTwo ) {
                                     iter.Ingreso = ""
                             }
                         })
