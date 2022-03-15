@@ -517,7 +517,7 @@ return (
 
         <div className="tabReportGB">
 
-         <div className="reporteGH"> <h1>Reporte General</h1> </div>
+         <div className="reporteGH"> <h1>Reporte General {fechaUno + "-" + fechaDos}</h1> </div>
 
         <div className="scrollR">
 
