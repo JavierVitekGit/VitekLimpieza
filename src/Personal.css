@@ -211,3 +211,11 @@ margin-left: 5vh;
 #idk{
   margin-left: 10vh;
 }
+
+.registroP .mod-container{
+text-align: center;
+}
+
+.modal-header{
+  justify-content: center !important
+}
