@@ -55,7 +55,7 @@ const QuincenaTest = (quincena) => {
 
     const fechaDos = diaTwo + "-" + mesTwo + "-" + anioTwo
 
-    const fBaja = anioOne + "-" + mesOne + "-" + diaOne
+    const fffBaja = anioOne + "-" + mesOne + "-" + diaOne
 
     console.log("FechaUno::",fechaUno)
 
@@ -217,8 +217,11 @@ console.log("Datossd asda",datos)
 
                     // console.log("FechaBComp",fechaB.split("-"))0
 
-                      
-                            datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),week:dias})
+                            if (fechaB >= fffBaja){
+                                datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),week:dias})
+                            }
+                    
+                           
                  
 
 
