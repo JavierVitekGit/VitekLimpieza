@@ -422,7 +422,7 @@ console.log("Datossd asda",datos)
 
                     fBaja.forEach((item)=>{
                         datos.forEach((iter)=>{
-                            if (iter.Ingreso != null && iter.Ingreso != "" && item == iter.Ingreso   ) {
+                            if (iter.Ingreso != null && iter.Ingreso != "" && item <= fffBaja  ) {
                                     iter.Ingreso = ""
                             }
                         })
