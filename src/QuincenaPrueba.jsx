@@ -39,6 +39,8 @@ const QuincenaTest = (quincena) => {
 
     const today = new Date()
 
+    const min = new Date("2022-02-15")
+
     console.log("Today",today)
 
     var diaOne = dateOne.substring(8,10)
@@ -578,7 +580,7 @@ return (
         <br/>
         <br/>
 
-        <input type="date" value={dateOne} onChange={v=>setDateOne(v.target.value)}></input>
+        <input type="date" value={dateOne} onChange={v=>setDateOne(v.target.value)} min={min}></input>
     
         <input type="date" value={dateTwo} onChange={v=>setDateTwo(v.target.value)}></input>
 

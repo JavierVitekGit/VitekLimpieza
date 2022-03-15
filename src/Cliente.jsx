@@ -435,7 +435,7 @@ const Cliente = (clientes) => {
 
       </div>
 
-      <div className="asignacion5">
+      {/* <div className="asignacion5">
       
 
       <select>
@@ -449,7 +449,7 @@ const Cliente = (clientes) => {
          
       <input class="form-control" type="number" onChange={v=>setPSuplencia(v.target.value)} maxLength="2" placeholder="No. Personal" />
 
-      </div>
+      </div> */}
 
        <label class="form-outline-label" for="form3" id="dil">Supervisor a Asignar</label>
 
