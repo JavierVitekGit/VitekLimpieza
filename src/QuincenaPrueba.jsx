@@ -391,11 +391,13 @@ console.log("Datossd asda",datos)
 
                     reasig.forEach((item)=>{
                         datos.forEach((iter)=>{
+                        fechaC.forEach((efe)=>{
+
                         
-                            if (item.Nombre == iter.Nombre){
+                            if (item.Nombre == iter.Nombre && efe == item.Fecha){
                                     iter.Reasignacion = item.Fecha.substring(0,2) + "/" + item.Cliente
                             }
-                     
+                            })
                         })
                     })
 
