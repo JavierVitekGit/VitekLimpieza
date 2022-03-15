@@ -54,6 +54,8 @@ const QuincenaTest = (quincena) => {
 
     const fechaDos = diaTwo + "-" + mesTwo + "-" + anioTwo
 
+    const fBaja = anioOne + "-" + mesOne + "-" + diaOne
+
     console.log("FechaUno::",fechaUno)
 
     const [arrayD,setArrayD] = useState([])
@@ -212,10 +214,15 @@ console.log("Datossd asda",datos)
                     var dias = childSnapshot.child("Dias").val()
 
 
-                    // console.log("FechaBComp",fechaB.split("-"))
+                    // console.log("FechaBComp",fechaB.split("-"))0
+
+
+                        if (fechaB >= fBaja){
+                            datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),week:dias})
+                        }
 
                     
-                        datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),week:dias})
+                        
                    
            
                        console.log("Pruebitasdad asdadassfgd::",nm.substring(0,7))
