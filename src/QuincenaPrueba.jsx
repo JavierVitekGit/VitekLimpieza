@@ -396,6 +396,8 @@ console.log("Datossd asda",datos)
                         
                             if (item.Nombre == iter.Nombre && efe == item.Fecha){
                                     iter.Reasignacion = item.Fecha.substring(0,2) + "/" + item.Cliente
+                            } else {
+                                iter.Reasignacion = ""
                             }
                             })
                         })
