@@ -27,6 +27,7 @@ const Factura = (factura) => {
 
     const [fechaC,setFechaC] = useState([]);
 
+    console.log("#FECHACC$&%:",fechaC)
 
     const [dateOne,setDateOne] = useState(new Date().toISOString())
     const [dateTwo,setDateTwo] = useState(new Date().toISOString())
@@ -37,6 +38,9 @@ const Factura = (factura) => {
     console.log("Dif String:::", dateTwo.substring(8,10) - dateOne.substring(8,10))
 
     const today = new Date()
+
+    const min = new Date(2022, 1,15);
+    const minInput = min.toISOString().split('T')[0]
 
     console.log("Today",today)
 
@@ -53,6 +57,9 @@ const Factura = (factura) => {
     const fechaUno = diaOne + "-" + mesOne + "-" + anioOne
 
     const fechaDos = diaTwo + "-" + mesTwo + "-" + anioTwo
+
+    const fffBaja = anioOne + "-" + mesOne + "-" + diaOne
+    const fffTwo= anioTwo + "-" + mesTwo + "-" + diaTwo
 
     console.log("FechaUno::",fechaUno)
 
@@ -212,10 +219,29 @@ console.log("Datossd asda",datos)
                     var dias = childSnapshot.child("Dias").val()
 
 
-                    // console.log("FechaBComp",fechaB.split("-"))
+                    // console.log("FechaBComp",fechaB.split("-"))0
+
+                            if (fechaB != "" && fechaB <= fffBaja){
+                                fechaB = null
+                            }
+                                if (fechaB != null){
+                                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),week:dias})
+                                }
+         
+                                
+                            
+                              
+                    
+                       
+                 
+
+
+                        //  if (Date(fechaB) <= Date(fBaja[0]).getTime()){
+                        //     datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),week:dias})
+                        //  }
 
                     
-                        datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),week:dias})
+                        
                    
            
                        console.log("Pruebitasdad asdadassfgd::",nm.substring(0,7))
@@ -273,7 +299,7 @@ console.log("Datossd asda",datos)
                                                 var incidenci = cccSnapshot.child("estado").val()
                                                 var just = cccSnapshot.child("justi").val()
                                                 var sup = cccSnapshot.child("suplencia").val()
-            
+                                                var obser = cccSnapshot.child("observaciones").val()
                 
                                                 var state = cccSnapshot.child("estado").val()
                 
@@ -307,7 +333,8 @@ console.log("Datossd asda",datos)
                                                         Turno:turn,
                                                         Estado:incidenci,
                                                         Justificacion:just,
-                                                        Suplencia:sup})
+                                                        Suplencia:sup,
+                                                        Observaciones:obser})
                                                 }
                                             })
                 
@@ -351,6 +378,14 @@ console.log("Datossd asda",datos)
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                                             }
 
+                                                            else if(item.Ingreso != null && item.Ingreso != "" && item.Ingreso.substring(8,10) > +Object.keys(dialokobydiego)[0]) {
+                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
+                                                            }
+
+                                                            else if (item.Nombre == iter.Suplencia && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]){
+                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Observaciones}
+                                                            }
+
                                                             // else if(item.week != null && item.week != "" && item.week.substring(0,1) !=  nyx.substring(0,1)){
                                                             //     item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                                             // }
@@ -378,24 +413,28 @@ console.log("Datossd asda",datos)
 
                     reasig.forEach((item)=>{
                         datos.forEach((iter)=>{
+                        fechaC.forEach((efe)=>{
+
                         
-                            if (item.Nombre == iter.Nombre){
+                            if (item.Nombre == iter.Nombre && efe == item.Fecha){
                                     iter.Reasignacion = item.Fecha.substring(0,2) + "/" + item.Cliente
+                            } else {
+                                iter.Reasignacion = ""
                             }
-                     
+                            })
                         })
                     })
 
 
 //      !item.includes(iter.Ingreso)
 
-                    fBaja.forEach((item)=>{
+                
                         datos.forEach((iter)=>{
-                            if (item != iter.Ingreso ) {
+                            if (iter.Ingreso != null && iter.Ingreso != "" && iter.Ingreso <= fffBaja  ) {
                                     iter.Ingreso = ""
                             }
                         })
-                    })
+                
 
                     // diaSemanaArray.forEach((item)=>{
                     //     datos.forEach((iter)=>{
@@ -542,9 +581,9 @@ return (
         <br/>
         <br/>
 
-        <input type="date" value={dateOne} onChange={v=>setDateOne(v.target.value)}></input>
+        <input type="date" value={dateOne} onChange={v=>setDateOne(v.target.value)} min={minInput}></input>
     
-        <input type="date" value={dateTwo} onChange={v=>setDateTwo(v.target.value)}></input>
+        <input type="date" value={dateTwo} onChange={v=>setDateTwo(v.target.value)} min={minInput} ></input>
 
 
         <br/>
@@ -560,14 +599,18 @@ return (
 
         <div className="tabReportGB">
 
-         <div className="reporteGH"> <h1>Reporte General</h1> </div>
+         <div className="reporteGH"> 
+         <h1>Reporte </h1> 
+         <h1>{fechaUno + "/" + fechaDos}</h1>
+         
+         </div>
 
         <div className="scrollR">
 
         <input type="button" class="btn btn-primary" value="Regresar" onClick={regresar} />
 
 
-        <input type="button" class="btn btn-success" value="Generar Reporte" onClick={fnExcelReport} />
+        <input type="button" id="quincenaBtn" class="btn btn-success" value="Generar Reporte" onClick={fnExcelReport} />
 
             <table class="table table-striped" id="generate">
                 <thead>
