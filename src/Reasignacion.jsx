@@ -128,7 +128,7 @@ const Reasignacion = (reasignacion) => {
     }
 
 
-
+    const oldClient = [];
 
     function writeReasignacionData(event) {
         event.preventDefault()
@@ -165,7 +165,7 @@ const Reasignacion = (reasignacion) => {
         appId: "1:180537252076:web:278e4849024501aaa52dc9",
       };
 
-      const oldClient = [];
+  
       
 
       useLayoutEffect(()=>{
