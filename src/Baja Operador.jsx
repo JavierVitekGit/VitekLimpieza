@@ -98,7 +98,7 @@ const BajaOperador = (baja) => {
 
       datos.forEach((item)=>{
         if (item.key == nombre) {
-        if(nvalidate.includes({Cliente:item.cl,Horario:item.horario,Puesto:item.puesto,Ubicacion:item.ubicacion})){
+        if(!nvalidate.includes({Cliente:item.cl,Horario:item.horario,Puesto:item.puesto,Ubicacion:item.ubicacion})){
           nvalidate.push({Cliente:item.cl,Horario:item.horario,Puesto:item.puesto,Ubicacion:item.ubicacion})
         }  
         }
