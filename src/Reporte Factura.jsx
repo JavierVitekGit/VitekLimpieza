@@ -242,23 +242,16 @@ console.log("Datossd asda",datos)
                                     var nameKey = cSnapshot.key
             
                                
-                
-                                
-                
                                     var validateOne = cSnapshot.key
                 
                             
-            
-            
                                     cSnapshot.forEach((ccSnapshot)=>{
             
             
                 
                                             ccSnapshot.forEach((cccSnapshot)=>{
                                                 
-                
-                
-                                              
+  
             
                                                 var validateTwo = cccSnapshot.child("clienteC").val()
                                                 var nombr = cccSnapshot.child("name").val()
