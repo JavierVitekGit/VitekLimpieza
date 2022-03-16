@@ -920,7 +920,7 @@ Ok
         <div id="supvisible" >
 
 
-          <Autocomplete
+          {/* <Autocomplete
           options={unicos}
           sx={{width:"auto"}} 
           renderInput={(params) => <TextField {...params} label="Personal" />}
@@ -934,7 +934,7 @@ Ok
           // onChange={(_event,value)=>{setPorfa(value)}}
           id="AutocompletePersonal"
           noOptionsText="Sin coincidencias"
-          />
+          /> */}
 
         <select className="selectName" onClick={forceUpdate}  onChange={v=>item.suplencia = v.target.value} >
           {unicos.map((item) => <option>{item}</option>)}
