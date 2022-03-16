@@ -137,6 +137,7 @@ const Reasignacion = (reasignacion) => {
             Nombre: tel,
             Cliente:cliente,
             Horario:horario + ":" + horario2,
+            ClienteA:oldClient
         })
 
         Close();
@@ -148,7 +149,6 @@ const Reasignacion = (reasignacion) => {
         update(ref(db,'Operador/' + nombre),{
           Cliente:cliente,
           Horario:horario + ":" + horario2,
-
         })
     }
 
