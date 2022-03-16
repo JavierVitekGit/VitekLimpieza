@@ -583,7 +583,7 @@ return (
 
         <input type="date" value={dateOne} onChange={v=>setDateOne(v.target.value)} min={minInput}></input>
     
-        <input type="date" value={dateTwo} onChange={v=>setDateTwo(v.target.value)}></input>
+        <input type="date" value={dateTwo} onChange={v=>setDateTwo(v.target.value)} min={minInput} ></input>
 
 
         <br/>
