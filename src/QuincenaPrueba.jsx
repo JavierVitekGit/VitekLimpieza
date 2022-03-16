@@ -39,7 +39,7 @@ const QuincenaTest = (quincena) => {
 
     const today = new Date()
 
-    const min = new Date(2022, 2,15);
+    const min = new Date(2022, 1,15);
     const minInput = min.toISOString().split('T')[0]
 
     console.log("Today",today)
