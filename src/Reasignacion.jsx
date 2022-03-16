@@ -50,7 +50,7 @@ const Reasignacion = (reasignacion) => {
     const [nombre,setNombre] = useState('')
     const [datos,setDatos] = useState([])
 
-    const oldClient = [];
+    const oldClient = ("")
 
     console.log("oldClient",oldClient)
 
