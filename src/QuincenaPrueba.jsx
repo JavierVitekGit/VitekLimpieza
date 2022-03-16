@@ -223,8 +223,6 @@ console.log("Datossd asda",datos)
 
                             if (fechaB != "" && fechaB <= fffBaja){
                                 fechaB = null
-                            }  else if (fechaB !="" && fechaI >=fffBaja) {
-                                fechaB = null
                             }
                                 if (fechaB != null){
                                     datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),week:dias})
