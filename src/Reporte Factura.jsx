@@ -115,10 +115,6 @@ console.log("Datossd asda",datos)
               
           }
 
-        // for (let index = +diaOne; index <= +diaTwo; index++) {
-        //   arrayD.push(index + "-" + mesOne + "-" + anioOne);
-            
-        // }
 
         for (let index = diaOne; index <= +diaTwo; index++) {
             fechaD.push(anioOne+ "-"+mesOne+"-"+index+' 12:00:00')
@@ -155,21 +151,11 @@ console.log("Datossd asda",datos)
         
     
         fechaD.forEach(fecha=>{
-            // console.log(`En ${fecha} fue ${diasSemana(fecha)}`)
+
             diaSemanaArray.push(diasSemana(fecha) + "/" +fecha.substring(8,10))
-            // console.log("Guachate esta",diasSemana(fecha) + "/" +fecha.substring(8,10))
+
         })
-    
 
-            console.log("DIASEMANAARRAY::",diaSemanaArray)
-        // arrayD.forEach((item)=>{
-        //     diaSemanaArray.forEach((iter)=>{
-        //         if(!semanaArray.includes(iter + "/" + item))
-        //         semanaArray.push(iter + "/" + item)
-        //     })
-        // })
-
-        // console.log("FinalFecha",semanaArray)
 
 
 
@@ -219,36 +205,15 @@ console.log("Datossd asda",datos)
                     var dias = childSnapshot.child("Dias").val()
 
 
-                    // console.log("FechaBComp",fechaB.split("-"))0
 
                             if (fechaB != "" && fechaB <= fffBaja){
-                                fechaB = null
-                            } else if (fechaI !="" && fechaI >=fffBaja) {
                                 fechaB = null
                             }
                                 if (fechaB != null){
                                     datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),week:dias})
                                 }
          
-                                
-                            
-                              
-                    
-                       
-                 
 
-
-                        //  if (Date(fechaB) <= Date(fBaja[0]).getTime()){
-                        //     datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),week:dias})
-                        //  }
-
-                    
-                        
-                   
-           
-                       console.log("Pruebitasdad asdadassfgd::",nm.substring(0,7))
-                   
-             
                     datos.sort((a,b) => {
                         if (a.Cliente < b.Cliente) return -1;
                         if (a.Cliente > b.Cliente) return 1
