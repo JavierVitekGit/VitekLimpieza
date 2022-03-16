@@ -440,7 +440,7 @@ opUbic.forEach((item)=>{
   
 
 
-  if ( nombre == "") {
+  if ( nombre == "" && fechaN =="" && fechaI == "") {
     handleShow(event);
     
   } else{
