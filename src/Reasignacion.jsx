@@ -42,6 +42,15 @@ const Reasignacion = (reasignacion) => {
      
     // console.log(arrayC)
 
+    const oldClient = [];
+
+    console.log("oldClient",oldClient)
+
+    datos.forEach((item)=>{
+      if (item.id == nombre){
+        oldClient.push(item.cliente)
+      }
+    })
 
 
     const [tel,setTel] = useState();
@@ -128,7 +137,7 @@ const Reasignacion = (reasignacion) => {
     }
 
 
-    const oldClient = [];
+
 
     function writeReasignacionData(event) {
         event.preventDefault()
@@ -180,9 +189,7 @@ const Reasignacion = (reasignacion) => {
               var cliente = childSnapshot.child("Cliente").val()
               var id = childSnapshot.key;
               
-              if (id == nombre) {
-                oldClient.push(nombre)
-              }
+              
               
               nombrecitos.push(nombre)
 
