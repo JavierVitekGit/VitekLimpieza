@@ -50,7 +50,7 @@ const Reasignacion = (reasignacion) => {
     const [nombre,setNombre] = useState('')
     const [datos,setDatos] = useState([])
 
-    const [oldClient,setOldClient] = useState('')
+    const oldClient = [];
 
     console.log("oldClient",oldClient)
 
@@ -149,7 +149,7 @@ const Reasignacion = (reasignacion) => {
             Nombre: tel,
             Cliente:cliente,
             Horario:horario + ":" + horario2,
-            ClienteA:oldClient
+            ClienteA:oldClient[0]
         })
 
         Close();
