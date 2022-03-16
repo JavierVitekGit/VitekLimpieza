@@ -165,6 +165,7 @@ const Reasignacion = (reasignacion) => {
         appId: "1:180537252076:web:278e4849024501aaa52dc9",
       };
 
+      const oldClient = [];
       
 
       useLayoutEffect(()=>{
@@ -179,6 +180,9 @@ const Reasignacion = (reasignacion) => {
               var cliente = childSnapshot.child("Cliente").val()
               var id = childSnapshot.key;
               
+              if (id == nombre) {
+                oldClient.push(nombre)
+              }
               
               nombrecitos.push(nombre)
 
