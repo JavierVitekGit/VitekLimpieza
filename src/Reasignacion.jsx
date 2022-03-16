@@ -42,6 +42,14 @@ const Reasignacion = (reasignacion) => {
      
     // console.log(arrayC)
 
+   
+
+
+    const [tel,setTel] = useState();
+    const [cliente,setCliente] = useState ('')
+    const [nombre,setNombre] = useState('')
+    const [datos,setDatos] = useState([])
+
     const oldClient = [];
 
     console.log("oldClient",oldClient)
@@ -52,11 +60,6 @@ const Reasignacion = (reasignacion) => {
       }
     })
 
-
-    const [tel,setTel] = useState();
-    const [cliente,setCliente] = useState ('')
-    const [nombre,setNombre] = useState('')
-    const [datos,setDatos] = useState([])
 
     const [nombrecitos,setNombrecitos] = useState([]);
 
