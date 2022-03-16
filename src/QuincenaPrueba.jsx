@@ -40,6 +40,7 @@ const QuincenaTest = (quincena) => {
     const today = new Date()
 
     const min = new Date(2022, 2,15);
+    const minInput = min.toISOString().split('T')[0]
 
     console.log("Today",today)
 
@@ -580,7 +581,7 @@ return (
         <br/>
         <br/>
 
-        <input type="date" value={dateOne} onChange={v=>setDateOne(v.target.value)} min={min}></input>
+        <input type="date" value={dateOne} onChange={v=>setDateOne(v.target.value)} min={minInput}></input>
     
         <input type="date" value={dateTwo} onChange={v=>setDateTwo(v.target.value)}></input>
 
