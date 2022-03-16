@@ -56,7 +56,7 @@ const Reasignacion = (reasignacion) => {
 
     datos.forEach((item)=>{
       if (item.id == nombre){
-        oldClient.push(item.cliente)
+        oldClient.push(item.cl)
       }
     })
 
