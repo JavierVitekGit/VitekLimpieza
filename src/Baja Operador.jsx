@@ -11,7 +11,9 @@ import SideBar from './Sidebar.jsx'
 const BajaOperador = (baja) => {
 
 
+  const [nvalidate,setNValidate] = useState([])
   
+  console.log("NVALIDATE",nvalidate)
 
     const [, updateState] = useState();
     const forceUpdate = useCallback(() => updateState({}), []);  
@@ -94,6 +96,14 @@ const BajaOperador = (baja) => {
       console.log(firebaseConfig)
 
 
+      datos.forEach((item)=>{
+        if (item.key == nombre) {
+          nvalidate.push({Cliente:item.cl,Horario:item.horario,Puesto:item.puesto,Ubicacion:item.ubicacion})
+        }
+      })
+
+
+
       useLayoutEffect(()=>{
 
         datos.push({tel:"Seleccionar Teléfono",name:"",fi:"",fb:"",cl:""})
@@ -106,9 +116,12 @@ const BajaOperador = (baja) => {
               var nombre = childSnapshot.child("Nombre").val()
               var fechaIngreso = childSnapshot.child("Fecha_Ingreso").val()
               var cliente = childSnapshot.child("Cliente").val()
+              var puest = childSnapshot.child("Puesto").val()
+              var ubic = childSnapshot.child("Ubicacion").val()
+              var hor = childSnapshot.child("Horario").val()
               var id = childSnapshot.key;
               
-             datos.push({tel:telefono,name:nombre,fi:fechaIngreso,key:id,cl:cliente}) 
+             datos.push({tel:telefono,name:nombre,fi:fechaIngreso,key:id,cl:cliente,puesto:puest,ubicacion:ubic,horario:hor}) 
               
              datos.sort()
 
