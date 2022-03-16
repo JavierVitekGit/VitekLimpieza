@@ -392,7 +392,7 @@ Ok
 <Modal.Body>
 
 
-<p>¿Está seguro que desea continuar con la baja del operador "{tel}"?</p>
+<p>¿Está seguro que desea continuar con la reasignacion del operador "{tel}" a "{cliente}"?</p>
 
 
 </Modal.Body>
