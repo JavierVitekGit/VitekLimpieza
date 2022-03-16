@@ -300,9 +300,9 @@ const modClose = () => setModClient(false)
     // })
 
       arrayJusti.forEach((item)=>{
-        if (item.estado != "") {if (item.justi == null){
+        if (item.estado != "" && item.justi == null ){
           handleShow(event);
-        }}   else {
+        } else {
           show(event)
           writeJustiData(event)
         }
