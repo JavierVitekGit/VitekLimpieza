@@ -223,7 +223,7 @@ console.log("Datossd asda",datos)
 
                             if (fechaB != "" && fechaB <= fffBaja){
                                 fechaB = null
-                            } else if (fechaI != "" && fechaI <= fffTwo) {
+                            } else if (fechaI != "" && fechaI >= fffTwo) {
                                 fechaI = null
                             }
                                 if (fechaB != null || fechaI != null){
