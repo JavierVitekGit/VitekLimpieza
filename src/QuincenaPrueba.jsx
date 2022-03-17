@@ -194,6 +194,9 @@ console.log("Datossd asda",datos)
                     var fecha = childSnapshot.key
                     
                     reasig.push({Cliente:cliente,Nombre:nombre,Fecha:fecha})
+
+                    console.log("Reasginaciones&/&%$%",reasig)
+
                 })
 
                 
