@@ -458,6 +458,7 @@ const Cliente = (clientes) => {
        <select value={supervisor} onChange={v=>setSupervisor(v.target.value)}>
                   <option></option>
                   <option>Fatima</option>
+                  <option>Felipe</option>
                   <option>Lourdes</option>
                   <option>Mario</option>
                   <option>Olga</option>
