@@ -249,7 +249,7 @@ console.log("Datossd asda",datos)
                         
                    
            
-                       console.log("Pruebitasdad asdadassfgd::",nm.substring(0,7))
+     
                    
              
                     datos.sort((a,b) => {
