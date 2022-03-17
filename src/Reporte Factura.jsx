@@ -342,9 +342,7 @@ console.log("Datossd asda",datos)
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                                             }
 
-                                                            else if (item.Nombre == iter.Suplencia && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]){
-                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Observaciones}
-                                                            }
+                                              
 
                                                             // else if(item.week != null && item.week != "" && item.week.substring(0,1) !=  nyx.substring(0,1)){
                                                             //     item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
