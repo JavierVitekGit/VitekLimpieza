@@ -463,7 +463,7 @@ const Cliente = (clientes) => {
                   <option>Olga</option>
         </select>
 
-        <input class="form-control" type="text"></input>
+
 <br/>
 
 </div>
