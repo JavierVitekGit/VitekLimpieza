@@ -100,20 +100,7 @@ const Personal = ({personal}) => {
     }
 
 
-    function back () {
-      ID = useState(''),
-      nombre = useState(''),
-      apellidoP = useState(''),
-      apellidoM = useState(''),
-      fechaI = useState(''),
-      fechaB = useState(''),
-      clientSelect = useState(''),
-      puestSelect = useState(''),
-      ubicSelect = useState(''),
-      turnSelect = useState(''),
-      arrayc = [],
-      mostrarClientes();
-    }
+    
     
     const [clientUbic,setClientUbic] = useState([]);
 
@@ -472,7 +459,20 @@ opUbic.forEach((item)=>{
 }
 
 
-
+function back () {
+  ID = useState(''),
+  nombre = useState(''),
+  apellidoP = useState(''),
+  apellidoM = useState(''),
+  fechaI = useState(''),
+  fechaB = useState(''),
+  clientSelect = useState(''),
+  puestSelect = useState(''),
+  ubicSelect = useState(''),
+  turnSelect = useState(''),
+  arrayc = [],
+  mostrarClientes();
+}
 
 
 /*
