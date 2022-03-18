@@ -404,7 +404,11 @@ const firebaseConfig = {
             var personal = childSnapshot.child("Personal").val()
             var ubic = childSnapshot.child("Ubicacion").val()
 
-            ubicArray.push(ubic)
+
+            if (name==selClient){
+              ubicArray.push(ubic)
+            }
+            
 
             if (name == selClient && ubic == selUbic){
               arrayPersonal.push(personal)
