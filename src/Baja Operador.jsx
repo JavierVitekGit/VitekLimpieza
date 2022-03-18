@@ -15,6 +15,9 @@ const BajaOperador = (baja) => {
   
   console.log("NVALIDATE",nvalidate)
 
+
+  const [vacanteB,setVacanteB] = useState([])
+
     const [, updateState] = useState();
     const forceUpdate = useCallback(() => updateState({}), []);  
 
@@ -74,6 +77,15 @@ const BajaOperador = (baja) => {
       function writeBajaData(event) {
         event.preventDefault()
 
+
+        
+
+        update(ref,db,'Operador/' + "VacanteB" + nombre ),{
+         Nombre:""
+        }
+
+     
+
         update(ref(db,'Operador/' + nombre),{
           Estatus:0,
           Fecha_Baja:bajaOp
@@ -99,14 +111,14 @@ const BajaOperador = (baja) => {
       datos.forEach((item)=>{
         if (item.key == nombre) {
         if(!nvalidate.includes({Cliente:item.cl,Horario:item.horario,Puesto:item.puesto,Ubicacion:item.ubicacion})){
-          if (nvalidate.length < 1){
-          nvalidate.push({Cliente:item.cl,Horario:item.horario,Puesto:item.puesto,Ubicacion:item.ubicacion})
-        }
+          nvalidate.push({Cliente:item.cl,Estatus:1,Fecha_Baja:"",Fecha_Ingreso:"",Horario:item.horario,Puesto:item.puesto,Ubicacion:item.ubicacion})       
         }  
         }
       })
 
+      vacanteB.push(nvalidate[nvalidate.length-1])
 
+      console.log("VERIFICA%&%$&;",vacanteB)
 
       useLayoutEffect(()=>{
 
