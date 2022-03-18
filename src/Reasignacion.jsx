@@ -222,31 +222,16 @@ const Reasignacion = (reasignacion) => {
              shift.push(name)
 
 
-              if (name == cliente){
-                ubicArray.push(ubic)
-              }
+          
+              ubicArray.push(ubic)
+         
              
             })
 
           }
         })
 
-        
-        get(child(dbRef,'ClienteUbicacion/')).then((snapshot)=>{
-          if(snapshot.exists()){
-            snapshot.forEach((childSnapshot)=>{
-              var name = childSnapshot.child("Nombre").val()
-
-
-              
-              
-
-            })
-
-            
-
-          }
-        })
+      
 
 
 
