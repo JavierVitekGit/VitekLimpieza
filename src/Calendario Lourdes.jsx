@@ -352,7 +352,7 @@ const modClose = () => setModClient(false)
     
           arrayClientCl.push(cliente)
           
-          if (cliente==selClient){
+          if (cliente==selClient && sup == "Lourdes"){
             ubicArray.push(ubic)
           }
 

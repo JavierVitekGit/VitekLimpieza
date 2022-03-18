@@ -353,7 +353,7 @@ const modClose = () => setModClient(false)
     
           arrayClientCl.push(cliente)
           
-          if (cliente==selClient){
+          if (cliente==selClient && sup == "Fatima"){
             ubicArray.push(ubic)
           }
 
