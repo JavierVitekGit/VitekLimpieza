@@ -99,6 +99,8 @@ const Personal = ({personal}) => {
       setShow(true)
     }
 
+
+    
     
     const [clientUbic,setClientUbic] = useState([]);
 
@@ -124,7 +126,7 @@ const Personal = ({personal}) => {
 
 
   var today = new Date();
-  var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
+  var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 30);
   var minInp = lastWeek.toISOString().split('T')[0]
   
     console.log(lastWeek.toISOString().split('T'[0]))
@@ -457,7 +459,20 @@ opUbic.forEach((item)=>{
 }
 
 
-
+// function back () {
+//   ID = (''),
+//   nombre = (''),
+//   apellidoP = (''),
+//   apellidoM = (''),
+//   fechaI = (''),
+//   fechaB = (''),
+//   clientSelect = (''),
+//   puestSelect = (''),
+//   ubicSelect = (''),
+//   turnSelect = (''),
+//   arrayc = [],
+//   mostrarClientes();
+// }
 
 
 /*
