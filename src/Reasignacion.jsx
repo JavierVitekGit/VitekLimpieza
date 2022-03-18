@@ -221,7 +221,11 @@ const Reasignacion = (reasignacion) => {
 
              shift.push(name)
 
-             ubicArray.push(ubic)
+
+              if (cliente == name){
+                ubicArray.push(ubic)
+              }
+             
             })
 
           }
