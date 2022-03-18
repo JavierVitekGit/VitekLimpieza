@@ -91,7 +91,9 @@ const BajaOperador = (baja) => {
             Ubicacion:item.Ubicacion,
             Horario:item.Horario,
             Puesto:item.Puesto,
-            Estatus:1
+            Estatus:1,
+            Fecha_Baja:"",
+            Fecha_Ingreso:""
           })
         })
      
