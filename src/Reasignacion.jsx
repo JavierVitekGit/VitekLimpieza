@@ -201,8 +201,10 @@ const Reasignacion = (reasignacion) => {
               var id = childSnapshot.key;
               
               
+              if (nombre != "Vacante"){
+                nombrecitos.push(nombre)
+              }
               
-              nombrecitos.push(nombre)
 
               nombrecitos.sort()
 
