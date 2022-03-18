@@ -477,7 +477,7 @@ const firebaseConfig = {
 
             comp.forEach((iter)=> {
               if (iter.clienteC == selClient && iter.Ubicacion == selUbic) {
-                arrayJusti.push({clienteC:iter.clienteC,name:iter.name,hr:iter.hr,estatus:iter.estat,ubicacion:iter.Ubicacion})
+                arrayJusti.push({clienteC:iter.clienteC,name:iter.name,hr:iter.hr,estatus:iter.estat,Ubicacion:iter.Ubicacion})
                 arrayJusti.sort();
 
                 console.log("Justi",arrayJusti.length)
