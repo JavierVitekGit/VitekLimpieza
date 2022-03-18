@@ -321,10 +321,12 @@ const modClose = () => setModClient(false)
       arrayJusti.forEach((item)=>{
         if (item.estado != "" && item.justi == null ){
           handleShow(event);
-        } else if (item.name == "Vacante" && item.estado == "" && item.justi == "" && item.suplencia != "" && item.observaciones != ""){
-          show(event)
-          writeJustiData(event)
-        } else {
+        } 
+        // else if (item.name == "Vacante" && item.estado == "" && item.justi == "" && item.suplencia != "" && item.observaciones != ""){
+        //   show(event)
+        //   writeJustiData(event)
+        // } 
+        else {
           show(event)
           writeJustiData(event)
         }
