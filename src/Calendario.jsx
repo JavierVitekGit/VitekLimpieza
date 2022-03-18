@@ -130,6 +130,8 @@ const Calendario = (calendario) => {
 
   const ubicArray = [];
 
+  console.log("UBICARRAY",ubicArray)
+
   const unicUbicArray = [];
 
   ubicArray.forEach((item)=>{
