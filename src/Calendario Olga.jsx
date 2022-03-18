@@ -19,20 +19,23 @@ import {BrowserRouter,Link,useNavigate} from "react-router-dom";
 
 const CalendarioO = (calendario) => {
 
-  
-  const firebaseConfig = {
-    apiKey: "AIzaSyBmZRACI4lPavlz-2N0NyIvTIW9j2DOJhY",
-    authDomain: "androidbrinsk.firebaseapp.com",
-    databaseURL: "https://androidbrinsk-default-rtdb.firebaseio.com",
-    projectId: "androidbrinsk",
-    storageBucket: "androidbrinsk.appspot.com",
-    messagingSenderId: "1038423598895",
-    appId: "1:1038423598895:web:ddfe2d9c575506d192a3da"
-  };
+
+  // var espacio = document.createTextNode("\u00a0");
+
+  // function mostrarDiv (){
+  //   document.getElementById("supvisible").style.display = "block"
+  // }
+
+  // function ocultarDiv() {
+  //   document.getElementById("supvisible").style.display = "none"
+  // }
 
 
-  const app = initializeApp(firebaseConfig);
-  console.log(app)
+  const [porfa,setPorfa] = useState(null)
+
+  console.log("Ya Jala???",porfa)
+
+  const [selUbic,setSelUbic] = useState([])
 
 
   const [datos,setDatos] = useState ([])
@@ -49,7 +52,14 @@ const CalendarioO = (calendario) => {
   const [arrayPersonal,setArrayPersonal] = useState([]);
 
 
+
+
+
   //Datos Olga
+
+  const [suplencia,setSuplencia] = useState('No se cubrio')
+
+
 
   const [arrayClientCl,setArrayClientCl] = useState([]);
 
@@ -59,6 +69,29 @@ const CalendarioO = (calendario) => {
 
       arrayClientCl.sort()
 
+
+      
+  var size = arrayJusti.length;
+
+  console.log("SIZE:%",size)
+
+  const nameOne = [];
+
+  for (let i = 1; i<= size; i++) {
+      nameOne.push('supradio' + i)
+  }
+ 
+  console.log("TryFor",nameOne)
+
+
+
+  const nameTwo = [];
+
+  for (let i=1; i <= size; i++){
+    nameTwo.push('supradio' + i)
+  }
+
+  console.log("NameTwo::",nameTwo)
 
   const [namae,setNamae] = useState([]);
 
@@ -84,13 +117,30 @@ const CalendarioO = (calendario) => {
   unicoss.push("");
 
   arrayClientCl.forEach((item)=> {
-    if (!unicoss.includes(item) && !unicosTable.includes(item)){
+    if (!unicoss.includes(item)){
       unicoss.push(item)
-      unicosTable.push(item)
+
     }
   })
 
   unicoss.sort()
+
+
+  const ubicArray = [];
+
+  console.log("UBICARRAY",ubicArray)
+
+  const unicUbicArray = [];
+
+  ubicArray.forEach((item)=>{
+    if (!unicUbicArray.includes(item)){
+      unicUbicArray.push(item)
+    }
+  })
+
+
+
+
 
   const [selClient,setSelCliente] = useState("")
 
@@ -115,6 +165,7 @@ arrayJusti.forEach((item)=> {
 
 
 
+
 // F I L T E R 
 
   const [search,setNewSearch] = useState("");
@@ -126,7 +177,7 @@ arrayJusti.forEach((item)=> {
   const filtered = !search
   ?unicoss
   :unicoss.filter((client) =>
-  client.toLowerCase().includes(search.toLowerCase()) 
+  client.toLowerCase().includes(search.toLowerCase())
   );
 
 // M O D A L
@@ -174,7 +225,7 @@ const modClose = () => setModClient(false)
     var hora = today.getHours() 
 
 
-    var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 3);
+    var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 30);
     formatRelative(subDays(new Date(), 3), new Date(), { locale: es })
 
 
@@ -248,10 +299,36 @@ const modClose = () => setModClient(false)
     } else {
       obtener();
     }
+  }
 
+  function validate(event){
+    event.preventDefault()
     
+    // arrayJusti.forEach((item)=>{
+    //   if (item.estado != "") {
+    //     if (item.justi ==  null){
+    //       handleShow(event);
+    //     } else {
+    //       show(event)
+    //       writeJustiData(event)
+    //     }
+
+    //   }
+    // })
+
+      arrayJusti.forEach((item)=>{
+        if (item.estado != "" && item.justi == null ){
+          handleShow(event);
+        } else {
+          show(event)
+          writeJustiData(event)
+        }
+      })
 
   }
+
+
+
 
   function regresar () {
     setSelCliente("")
@@ -266,24 +343,51 @@ const modClose = () => setModClient(false)
   get(child(dbRef,'ClienteUbicacion/')).then((snapshot)=>{
     if(snapshot.exists()){
       snapshot.forEach((childSnapshot)=>{
-        var sup = childSnapshot.child("Supervisor").val()
+        
         var cliente = childSnapshot.child("Nombre").val()
+        var est = childSnapshot.child("Estatus").val()
+        var ubic = childSnapshot.child("Ubicacion").val()
+        var sup = childSnapshot.child("Supervisor").val()
 
-        if (sup == "Olga") {
+        
+        if (est == 1 && sup =="Olga")
+    
           arrayClientCl.push(cliente)
           
-        }
+          if (cliente==selClient){
+            ubicArray.push(ubic)
+          }
 
       })
     }
   })
 
 
+  // function toggle(elemento){
+  //   if(elemento.value=="Si"){
+  //     document.getElementById("supvisible").style.display = "block";
+  //   } else {
+  //     document.getElementById("supvisible").style.display = "none";
+  //   }
+  // }
+
+
 function obtener () {
 
 
  
+  
+const firebaseConfig = {
+  apiKey: "AIzaSyBmZRACI4lPavlz-2N0NyIvTIW9j2DOJhY",
+  authDomain: "androidbrinsk.firebaseapp.com",
+  databaseURL: "https://androidbrinsk-default-rtdb.firebaseio.com",
+  projectId: "androidbrinsk",
+  storageBucket: "androidbrinsk.appspot.com",
+  messagingSenderId: "1038423598895",
+  appId: "1:1038423598895:web:ddfe2d9c575506d192a3da"
+};
 
+    
   
     
       const db = getDatabase();
@@ -305,10 +409,21 @@ function obtener () {
           snapshot.forEach((childSnapshot)=> {
             var name = childSnapshot.child("Nombre").val()
             var personal = childSnapshot.child("Personal").val()
+            var ubic = childSnapshot.child("Ubicacion").val()
 
-            if(name==selClient){
+
+            
+            
+
+            if (name == selClient && ubic == selUbic){
               arrayPersonal.push(personal)
             }
+
+            
+
+            // if(name==selClient){
+            //   arrayPersonal.push(personal)
+            // }
 
           })
 
@@ -347,17 +462,21 @@ function obtener () {
                   var nombreOp = childSnapshot.child("Nombre").val()
                   var hora = childSnapshot.child("Horario").val()
                   var est = childSnapshot.child("Estatus").val()
+                  var ubic = childSnapshot.child("Ubicacion").val()
 
-                  if (est == 1)
-                  comp.push({clienteC:clienteOp,name:nombreOp,hr:hora,estatus:est})
+
+                  console.log("NombreOperador",nombreOp)
+
+                  if( est == 1 ) 
+                  comp.push({clienteC:clienteOp,name:nombreOp,hr:hora,estat:est,Ubicacion:ubic})
 
                 
 
               })
 
             comp.forEach((iter)=> {
-              if (iter.clienteC == selClient) {
-                arrayJusti.push({clienteC:iter.clienteC,name:iter.name,hr:iter.hr,estatus:iter.estatus})
+              if (iter.clienteC == selClient && iter.Ubicacion == selUbic) {
+                arrayJusti.push({clienteC:iter.clienteC,name:iter.name,hr:iter.hr,estatus:iter.estat})
                 arrayJusti.sort();
 
                 console.log("Justi",arrayJusti.length)
@@ -366,10 +485,12 @@ function obtener () {
             })
 
             comp.forEach((iter)=>{
-              if (iter.clienteC == selClient) {
+              
+              if (iter.name != "Vacante")
+
                 namae.push(iter.name)
                 namae.sort()
-              }
+              
             } )
             
             
@@ -421,17 +542,23 @@ function obtener () {
 function writeJustiData(event) {
   event.preventDefault()
 
+
   arrayJusti.forEach(a =>{
     console.log(a.suplencia)
     a.suplencia = (a.suplencia== undefined || a.suplencia==null || a.suplencia == "")? "no se cubrio":a.suplencia
   })
 
+
+console.log('Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient)
   update(ref(getDatabase(),'Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient),{
-    
     Datos:arrayJusti
   });
 
 }
+
+
+  console.log("ArrayJusti",arrayJusti)
+
 
 // },[])
 
@@ -461,10 +588,10 @@ mostrar?
 
 <div className="Calendario" id="inf">
   
-{/* <div className="SideOlgaBb">
-            <SideBarO/>
+<div className="adminSide">
+            <SideBar/>
             
-            </div> */}
+            </div>
 
   <div className="calH">
 
@@ -507,11 +634,39 @@ displayOptions={{
 <br></br>
 
 
+
 <br/>
 
-<select onClick={forceUpdate} id="selClient" onChange={v=>{setSelCliente(v.target.value)}}>
-  {unicoss.map((item)=> <option>{item}</option>)}
-</select>
+<Autocomplete
+          onClick={forceUpdate}
+          options={unicoss}
+          sx={{width:300}} 
+          renderInput={(params) => <TextField {...params} label="Clientes" />}
+          value={selClient}
+          onChange={(_event,value)=>{setSelCliente(value)}}
+          // onChange={v=>item.suplencia = v.target.value}
+          autoSelect={true}
+          id="autocompleteCl"
+          noOptionsText="Sin coincidencias"
+          />
+
+  <br/>
+
+<Autocomplete
+          onClick={forceUpdate}
+          options={ubicArray}
+          sx={{width:300}} 
+          renderInput={(params) => <TextField {...params} label="Ubicaciones" />}
+          value={selUbic}
+          onChange={(_event,value)=>{setSelUbic(value)}}
+          // onChange={v=>item.suplencia = v.target.value}
+          autoSelect={true}
+          noOptionsText="Sin coincidencias"
+          />
+          
+          {/* <select onClick={forceUpdate}>
+            {unicUbicArray.map((item)=> <option>{item}</option>)}
+          </select> */}
 
 <br/>
 
@@ -727,6 +882,11 @@ Ok
             
             </div> */}
 
+<div className="adminSide">
+            <SideBar/>
+            
+            </div>
+
 
   <div className="regIH">
 
@@ -734,7 +894,7 @@ Ok
 <h1 id="head">
   
   <i id="calendarX" class="bi bi-calendar-x"></i>
-  Justificaciones
+  Incidencias
   <h1 className="dateCa">{dia + "-" + mes + "-" + anio}</h1>
   </h1>
 
@@ -769,7 +929,7 @@ Ok
   
   // if (hora >= item.hr.substr(0,2)  ) {
     
-   
+  
 
     return (
 
@@ -801,17 +961,74 @@ Ok
    
     <td>
       <div id="hidden">
-    
+      
+          <br/>
+          {/* <label class="form-outline-label">Si</label>   
+          <br/> */}
+
+        {/* <input type="radio" name={nameOne.toString()} value="Si" onChange={v=>item.radio = v.target.value} ></input>  */}
+       
+        {/* <label class="form-outline-label">Si</label> */}
         <br/>
-                                                                                       {/* v=>{setSeleitect(v.target.value) */}
-        <select className="selectName" onClick={forceUpdate}  onChange={v=>item.asis = v.target.value} >
+
+        <div id="supvisible" >
+
+
+          {/* <Autocomplete
+          options={unicos}
+          sx={{width:"auto"}} 
+          renderInput={(params) => <TextField {...params} label="Personal" />}
+          autoSelect={true}
+          inputValue={item.suplencia}
+          value={item.suplencia}
+          onInputChange={v=>item.suplencia = v.target.value}
+
+          // inputValue={v=>item.suplencia = v.target.value}
+          // inputValue={item.suplencia}
+          // onChange={(_event,value)=>{setPorfa(value)}}
+          id="AutocompletePersonal"
+          noOptionsText="Sin coincidencias"
+          /> */}
+
+        <select className="selectName" onClick={forceUpdate}  onChange={v=>item.suplencia = v.target.value} >
           {unicos.map((item) => <option>{item}</option>)}
 
         </select>
+       
 
-        <p>Otro</p>
+        {/* <Autocomplete suggestions={unicos} onChange={(event, value) => console.log(value)}></Autocomplete> */}
 
-        <textarea placeholder="Nombre del suplente" onChange={v=>item.suplencia = v.target.value}></textarea>
+ 
+
+          <textarea placeholder="Observaciones" onChange={v=>item.observaciones = v.target.value}>
+
+          </textarea>
+
+          <br/>
+          {/* <label class="form-outline-label">No</label>
+          <br/>
+
+          <input type="radio" name={nameTwo.toString()} value="No"  ></input> */}
+
+        </div>
+
+        
+
+        <br/>
+
+        
+        {/* <label class="form-outline-label">No</label> */}
+
+{/*                                                                              
+          <select className="selectName" onClick={forceUpdate}  onChange={v=>item.asis = v.target.value} >
+            {comp.map((item) => <option>{item.name}</option>)}
+
+          </select>
+
+          <p>Otro</p>
+
+          <textarea placeholder="Nombre del suplente"  onChange={v=> item.suplencia = (item.suplencia === undefined)? "no se cubrio" : v.target.value}></textarea>
+           */}
       </div>
     </td>
 
@@ -823,14 +1040,18 @@ Ok
     </tr>
     )
 
+
   }
-// } 
+
+
+
+
 // else {
 
 
 // }
 
-
+// }
  )}
  
 </tbody>
@@ -950,7 +1171,7 @@ Ok
 
 
 
-<input class="btn btn-success" type="submit" value="Guardar" onClick={writeJustiData}  id="btt"></input>
+<input class="btn btn-success" type="submit" value="Guardar" onClick={validate}  id="btt"></input>
 
 <input class="btn btn-secondary"  type="submit" value="Regresar al Calendario" onClick={regresar} id="bt2"></input>
 
@@ -976,7 +1197,6 @@ Ok
 
     )
     
-
 }
 
 
