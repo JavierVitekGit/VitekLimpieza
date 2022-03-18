@@ -640,6 +640,7 @@ displayOptions={{
           noOptionsText="Sin coincidencias"
           />
 
+  <br/>
 
 <Autocomplete
           onClick={forceUpdate}
