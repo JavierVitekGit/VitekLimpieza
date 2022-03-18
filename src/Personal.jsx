@@ -101,16 +101,16 @@ const Personal = ({personal}) => {
 
 
     function back () {
-      ID = (''),
-      nombre = (''),
-      apellidoP = (''),
-      apellidoM = (''),
-      fechaI = (''),
-      fechaB = (''),
-      clientSelect = (''),
-      puestSelect = (''),
-      ubicSelect = (''),
-      turnSelect = (''),
+      ID = useState(''),
+      nombre = useState(''),
+      apellidoP = useState(''),
+      apellidoM = useState(''),
+      fechaI = useState(''),
+      fechaB = useState(''),
+      clientSelect = useState(''),
+      puestSelect = useState(''),
+      ubicSelect = useState(''),
+      turnSelect = useState(''),
       arrayc = [],
       mostrarClientes();
     }
