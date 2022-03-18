@@ -657,6 +657,10 @@ displayOptions={{
           autoSelect={true}
           noOptionsText="Sin coincidencias"
           />
+          
+          <select>
+            {unicUbicArray.map((item)=> <option>{item}</option>)}
+          </select>
 
 <br/>
 
