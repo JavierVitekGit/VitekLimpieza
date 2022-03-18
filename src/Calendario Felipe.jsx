@@ -350,11 +350,13 @@ const modClose = () => setModClient(false)
         var sup = childSnapshot.child("Supervisor").val()
 
 
-        if (est == 1 && sup =="Felipe")
+        if (est == 1 && sup =="Felipe"){
+            arrayClientCl.push(cliente)
+        }
     
-          arrayClientCl.push(cliente)
           
-          if (cliente==selClient && ubic == selUbic){
+          
+          if (cliente==selClient && sup == "Felipe"){
             ubicArray.push(ubic)
           }
 
