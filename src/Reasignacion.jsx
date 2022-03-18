@@ -15,6 +15,7 @@ const Reasignacion = (reasignacion) => {
     const [, updateState] = useState();
     const forceUpdate = useCallback(() => updateState({}), []);  
 
+    const ubicArray = [];
 
     const [shift,setShift] = useState([])
 
@@ -219,6 +220,8 @@ const Reasignacion = (reasignacion) => {
 
 
              shift.push(name)
+
+             ubicArray.push(ubic)
             })
 
           }
@@ -297,6 +300,13 @@ return(
         </select>
 
         <br/>
+
+        <label class="form-otline-label">Ubicación a reasignar</label>
+        <br/>
+        <select onClick={forceUpdate} >
+            {ubicArray.map((item)=><option>{item}</option>)}
+        </select>
+
         <br/>
 
         <label class="form-outline-label" >Nuevo horario</label>
