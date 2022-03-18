@@ -71,6 +71,8 @@ const Reasignacion = (reasignacion) => {
 
 
     const unicos = [];
+
+    unicos.push('')
   
     shift.forEach((item)=>{
       if (!unicos.includes(item)){
@@ -242,6 +244,8 @@ const Reasignacion = (reasignacion) => {
       const db = getDatabase();
 
       const ubicA = []
+
+      ubicA.push('')
 
       ubicArray.forEach((item)=>{
         if (item.Nombre == cliente){
