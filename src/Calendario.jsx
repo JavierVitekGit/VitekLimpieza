@@ -37,6 +37,8 @@ const Calendario = (calendario) => {
 
   console.log("Ya Jala???",porfa)
 
+  const [selUbic,setSelUbic] = useState([])
+
 
   const [datos,setDatos] = useState ([])
 
@@ -124,6 +126,21 @@ const Calendario = (calendario) => {
   })
 
   unicoss.sort()
+
+
+  const ubicArray = [];
+
+  const unicUbicArray = [];
+
+  ubicArray.forEach((item)=>{
+    if (!unicUbicArray.includes(item)){
+      unicUbicArray.push(item)
+    }
+  })
+
+
+
+
 
   const [selClient,setSelCliente] = useState("")
 
@@ -385,10 +402,17 @@ const firebaseConfig = {
           snapshot.forEach((childSnapshot)=> {
             var name = childSnapshot.child("Nombre").val()
             var personal = childSnapshot.child("Personal").val()
+            var ubic = childSnapshot.child("Ubicacion").val()
 
-            if(name==selClient){
+            if (name == selClient && ubic == selUbic){
               arrayPersonal.push(personal)
             }
+
+            ubicArray.push(ubic)
+
+            // if(name==selClient){
+            //   arrayPersonal.push(personal)
+            // }
 
           })
 
@@ -608,6 +632,20 @@ displayOptions={{
           renderInput={(params) => <TextField {...params} label="Lista de Clientes" />}
           value={selClient}
           onChange={(_event,value)=>{setSelCliente(value)}}
+          // onChange={v=>item.suplencia = v.target.value}
+          autoSelect={true}
+          id="autocompleteCl"
+          noOptionsText="Sin coincidencias"
+          />
+
+
+<Autocomplete
+          onClick={forceUpdate}
+          options={unicUbicArray}
+          sx={{width:300}} 
+          renderInput={(params) => <TextField {...params} label="Lista de Clientes" />}
+          value={selUbic}
+          onChange={(_event,value)=>{setSelUbic(value)}}
           // onChange={v=>item.suplencia = v.target.value}
           autoSelect={true}
           id="autocompleteCl"
