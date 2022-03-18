@@ -15,7 +15,7 @@ const Reasignacion = (reasignacion) => {
     const [, updateState] = useState();
     const forceUpdate = useCallback(() => updateState({}), []);  
 
-    const ubicArray = [];
+    const [ubicArray,setUbicArray] = useState([])
 
     const [shift,setShift] = useState([])
 
