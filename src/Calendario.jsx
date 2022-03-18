@@ -346,12 +346,15 @@ const modClose = () => setModClient(false)
         
         var cliente = childSnapshot.child("Nombre").val()
         var est = childSnapshot.child("Estatus").val()
+       
 
         if (est == 1)
     
           arrayClientCl.push(cliente)
           
-     
+          if (cliente==selClient){
+            ubicArray.push(ubic)
+          }
 
       })
     }
@@ -407,9 +410,7 @@ const firebaseConfig = {
             var ubic = childSnapshot.child("Ubicacion").val()
 
 
-            if (name==selClient){
-              ubicArray.push(ubic)
-            }
+            
             
 
             if (name == selClient && ubic == selUbic){
