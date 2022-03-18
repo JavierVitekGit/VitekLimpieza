@@ -124,7 +124,7 @@ const Personal = ({personal}) => {
 
 
   var today = new Date();
-  var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
+  var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 30);
   var minInp = lastWeek.toISOString().split('T')[0]
   
     console.log(lastWeek.toISOString().split('T'[0]))
