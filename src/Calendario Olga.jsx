@@ -589,10 +589,7 @@ mostrar?
 
 <div className="Calendario" id="inf">
   
-<div className="adminSide">
-            <SideBar/>
-            
-            </div>
+
 
   <div className="calH">
 
