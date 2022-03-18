@@ -650,12 +650,11 @@ displayOptions={{
           onClick={forceUpdate}
           options={unicUbicArray}
           sx={{width:300}} 
-          renderInput={(params) => <TextField {...params} label="Clientes Ubicaciones" />}
+          renderInput={(params) => <TextField {...params} label="Ubicaciones" />}
           value={selUbic}
           onChange={(_event,value)=>{setSelUbic(value)}}
           // onChange={v=>item.suplencia = v.target.value}
           autoSelect={true}
-          id="autocompleteCl"
           noOptionsText="Sin coincidencias"
           />
 
