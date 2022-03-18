@@ -634,7 +634,6 @@ displayOptions={{
 
 
 <br/>
-<br/>
 
 <Autocomplete
           onClick={forceUpdate}
