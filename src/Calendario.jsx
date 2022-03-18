@@ -346,7 +346,7 @@ const modClose = () => setModClient(false)
         
         var cliente = childSnapshot.child("Nombre").val()
         var est = childSnapshot.child("Estatus").val()
-       
+        var ubic = childSnapshot.child("Ubicacion").val()
 
         if (est == 1)
     
