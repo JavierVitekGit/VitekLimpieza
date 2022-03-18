@@ -629,8 +629,6 @@ displayOptions={{
 
 
 
-<br></br>
-
 
 
 <br/>
@@ -648,6 +646,7 @@ displayOptions={{
           noOptionsText="Sin coincidencias"
           />
 
+  <br/>
   <br/>
 
 <Autocomplete
