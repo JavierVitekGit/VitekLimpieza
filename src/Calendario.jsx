@@ -651,7 +651,7 @@ displayOptions={{
 
 <Autocomplete
           onClick={forceUpdate}
-          options={unicUbicArray}
+          options={ubicArray}
           sx={{width:300}} 
           renderInput={(params) => <TextField {...params} label="Ubicaciones" />}
           value={selUbic}
@@ -661,7 +661,7 @@ displayOptions={{
           noOptionsText="Sin coincidencias"
           />
           
-          <select>
+          <select onClick={forceUpdate}>
             {unicUbicArray.map((item)=> <option>{item}</option>)}
           </select>
 
