@@ -77,13 +77,23 @@ const BajaOperador = (baja) => {
       function writeBajaData(event) {
         event.preventDefault()
 
-
+        vacanteB.push(nvalidate[nvalidate.length-1])
         
 
         // update(ref,db,'Operador/' + "VacanteB" + nombre ),{
         //  Nombre:""
         // }
 
+        vacanteB.forEach((item)=>{
+          update(ref(db,'Operador/' + "Vacante" + nombre),{
+            Nombre:"Vacante",
+            Cliente:item.Cliente,
+            Ubicacion:item.Ubicacion,
+            Horario:item.Horario,
+            Puesto:item.Puesto,
+            Estatus:1
+          })
+        })
      
 
         update(ref(db,'Operador/' + nombre),{
@@ -116,7 +126,7 @@ const BajaOperador = (baja) => {
         }
       })
 
-      vacanteB.push(nvalidate[nvalidate.length-1])
+      
 
       console.log("VERIFICA%&%$&;",vacanteB)
 
