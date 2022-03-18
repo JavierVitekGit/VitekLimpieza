@@ -15,7 +15,8 @@ import SideBarO from "./SideBarO";
 import Login from "./login";
 import {BrowserRouter,Link,useNavigate} from "react-router-dom";
 
-
+import Autocomplete from '@mui/material/Autocomplete';
+import TextField from '@mui/material/TextField';
 
 const CalendarioO = (calendario) => {
 
@@ -349,7 +350,7 @@ const modClose = () => setModClient(false)
         var ubic = childSnapshot.child("Ubicacion").val()
         var sup = childSnapshot.child("Supervisor").val()
 
-        
+
         if (est == 1 && sup =="Olga")
     
           arrayClientCl.push(cliente)
@@ -882,10 +883,6 @@ Ok
             
             </div> */}
 
-<div className="adminSide">
-            <SideBar/>
-            
-            </div>
 
 
   <div className="regIH">
