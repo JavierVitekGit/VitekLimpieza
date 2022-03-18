@@ -17,6 +17,14 @@ const Reasignacion = (reasignacion) => {
 
     const [ubicArray,setUbicArray] = useState([])
 
+    const ubicA = []
+
+    ubicArray.forEach((item)=>{
+      if (item.Nombre == cliente){
+          ubicA.push(item.Ubicacion)
+      }
+    })
+
     const [shift,setShift] = useState([])
 
     const [filt,setFilt] = useState([])
@@ -223,7 +231,7 @@ const Reasignacion = (reasignacion) => {
 
 
           
-              ubicArray.push(ubic)
+              ubicArray.push({Ubicacion:ubic,Nombre:name})
          
              
             })
@@ -293,7 +301,7 @@ return(
         <label class="form-otline-label">Ubicación a reasignar</label>
         <br/>
         <select onClick={forceUpdate} >
-            {ubicArray.map((item)=><option>{item}</option>)}
+            {ubicA.map((item)=><option>{item}</option>)}
         </select>
 
         <br/>
