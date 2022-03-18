@@ -476,7 +476,7 @@ const firebaseConfig = {
 
             comp.forEach((iter)=> {
               if (iter.clienteC == selClient && iter.Ubicacion == selUbic) {
-                arrayJusti.push({clienteC:iter.clienteC,name:iter.name,hr:iter.hr,estatus:iter.estat})
+                arrayJusti.push({clienteC:iter.clienteC,name:iter.name,hr:iter.hr,estatus:iter.estat,Ubicacion:iter.Ubicacion})
                 arrayJusti.sort();
 
                 console.log("Justi",arrayJusti.length)
@@ -901,7 +901,8 @@ Ok
   
 <thead class="table-dark">
 <tr id="headertab">
-  <th scope="col">Cliente/Ubicación</th>
+  <th scope="col">Cliente</th>
+  <th scope="col">Ubicacion</th>
   <th scope="col">Nombre Operador</th>
   <th scope="col">Turno</th>
   <th scope="col">Suplencia</th>
@@ -928,9 +929,10 @@ Ok
     <tr>
 
     <td id="testSelect" onChange={v=>{setClient(v.target.value)}}>
-      
        {item.clienteC}
-      
+    </td>
+    <td>
+      {item.Ubicacion}
     </td>
     <td>{item.name}</td> 
     <td>{item.hr}
