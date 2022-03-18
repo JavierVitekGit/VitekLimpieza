@@ -70,8 +70,8 @@ const Reasignacion = (reasignacion) => {
     const unicos = [];
   
     shift.forEach((item)=>{
-      if (!unicos.includes(item.cli)){
-        unicos.push(item.cli)
+      if (!unicos.includes(item)){
+        unicos.push(item)
       }
     });
 
@@ -214,23 +214,23 @@ const Reasignacion = (reasignacion) => {
         get(child(dbRef,'ClienteUbicacion')).then((snapshot)=>{
           if(snapshot.exists()){
             snapshot.forEach((childSnapshot)=>{
-              var clientes = childSnapshot.key;
+             var name = childSnapshot.child("Nombre").val()
+             var ubic = childSnapshot.child("Ubicacion").val()
 
-              cl.push({clientes:clientes})
 
+             shift.push(name)
             })
 
           }
         })
 
         
-        get(child(dbRef,'shift/')).then((snapshot)=>{
+        get(child(dbRef,'ClienteUbicacion/')).then((snapshot)=>{
           if(snapshot.exists()){
             snapshot.forEach((childSnapshot)=>{
-              var hora = childSnapshot.child("horaInicio").val()
-              var cliente  = childSnapshot.child("cliente").val()
+              var name = childSnapshot.child("Nombre").val()
 
-              shift.push({hora:hora,cli:cliente})
+
               
               
 
