@@ -307,7 +307,7 @@ return(
 
         <label class="form-otline-label">Ubicación a reasignar</label>
         <br/>
-        <select onClick={forceUpdate} onChange={v=>{setUbic(v.target.value)}} >
+        <select onClick={forceUpdate} value={ubic} onChange={v=>{setUbic(v.target.value)}} >
             {ubicA.map((item)=><option>{item}</option>)}
         </select>
 
