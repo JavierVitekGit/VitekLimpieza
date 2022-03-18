@@ -373,7 +373,7 @@ console.log("Datossd asda",datos)
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion}
                                                         }
-
+//                                                                item.Nombre == "Vacante" && +iter.Fecha.substring(0,2) != +Object.keys(dialokobydiego)[0]
                                                         else if (item.Nombre == "Vacante"){
 
                                                              item.dias[index] = {[Object.keys(dialokobydiego)[0]]: ""}
