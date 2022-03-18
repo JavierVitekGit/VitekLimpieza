@@ -631,7 +631,7 @@ displayOptions={{
           onClick={forceUpdate}
           options={unicoss}
           sx={{width:300}} 
-          renderInput={(params) => <TextField {...params} label="Lista de Clientes" />}
+          renderInput={(params) => <TextField {...params} label="Clientes" />}
           value={selClient}
           onChange={(_event,value)=>{setSelCliente(value)}}
           // onChange={v=>item.suplencia = v.target.value}
@@ -645,7 +645,7 @@ displayOptions={{
           onClick={forceUpdate}
           options={unicUbicArray}
           sx={{width:300}} 
-          renderInput={(params) => <TextField {...params} label="Lista de Clientes" />}
+          renderInput={(params) => <TextField {...params} label="Clientes Ubicaciones" />}
           value={selUbic}
           onChange={(_event,value)=>{setSelUbic(value)}}
           // onChange={v=>item.suplencia = v.target.value}
