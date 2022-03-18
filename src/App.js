@@ -57,6 +57,7 @@ import QuincenaTest from './QuincenaPrueba';
 
 import ReporteG from './Reporte General';
 import Factura from './Reporte Factura';
+import CalendarioFel from './Calendario Felipe';
 
 const App = (app) => {
 
@@ -131,6 +132,9 @@ const App = (app) => {
       <Route path="Inasistencia%20F" element={<InasistenciaF/>}/>
       <Route path="/Anadir%20Turno%20F" element={<TurnoF/>}/>
       <Route path="/Calendario%20F" element={<CalendarioF/>}/> 
+
+      <Route path ="/Calendario%20Fe" element={<CalendarioFel/>}/>
+
 
       <Route path="/Quincena" element={<Quincena/>}/> 
 

@@ -115,6 +115,10 @@ function comprobar() {
      showLogin()
    }
 
+   if (usuario=="Felipe" && password == "1234 "){
+     history("/Calendario Fe")
+   }
+
 
     //
 
