@@ -331,7 +331,7 @@ console.log("Datossd asda",datos)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Suplencia}
                                                         }
 
-                                                        else if (item.Nombre == "Vacante" && +iter.Fecha.substring(0,2) != +Object.keys(dialokobydiego)[0]){
+                                                        else if (item.Nombre == "Vacante"){
 
                                                              item.dias[index] = {[Object.keys(dialokobydiego)[0]]: ""}
                                                         } 
