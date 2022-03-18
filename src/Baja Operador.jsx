@@ -80,9 +80,9 @@ const BajaOperador = (baja) => {
 
         
 
-        update(ref,db,'Operador/' + "VacanteB" + nombre ),{
-         Nombre:""
-        }
+        // update(ref,db,'Operador/' + "VacanteB" + nombre ),{
+        //  Nombre:""
+        // }
 
      
 
