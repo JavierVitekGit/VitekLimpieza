@@ -17,7 +17,9 @@ const Reasignacion = (reasignacion) => {
 
     const [ubicArray,setUbicArray] = useState([])
 
-  const [ubic,setUbic] = useState('')
+    const [ubic,setUbic] = useState('')
+
+      console.log("UbicSelect",ubic)
 
     const [shift,setShift] = useState([])
 
