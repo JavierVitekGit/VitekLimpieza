@@ -115,7 +115,7 @@ function comprobar() {
      showLogin()
    }
 
-   if (usuario=="Felipe" && password == "1234 "){
+   if (usuario=="Felipe" && password == "1234"){
      history("/Calendario Fe")
    } else {
      showLogin()
