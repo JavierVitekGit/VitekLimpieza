@@ -17,7 +17,7 @@ const Reasignacion = (reasignacion) => {
 
     const [ubicArray,setUbicArray] = useState([])
 
-  
+  const [ubic,setUbic] = useState('')
 
     const [shift,setShift] = useState([])
 
@@ -166,6 +166,7 @@ const Reasignacion = (reasignacion) => {
         update(ref(db,'Operador/' + nombre),{
           Cliente:cliente,
           Horario:horario + ":" + horario2,
+          Ubicacion:ubic
         })
     }
 
@@ -304,7 +305,7 @@ return(
 
         <label class="form-otline-label">Ubicación a reasignar</label>
         <br/>
-        <select onClick={forceUpdate} >
+        <select onClick={forceUpdate} onChange={v=>{setUbic(v.target.value)}} >
             {ubicA.map((item)=><option>{item}</option>)}
         </select>
 
