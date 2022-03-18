@@ -17,13 +17,7 @@ const Reasignacion = (reasignacion) => {
 
     const [ubicArray,setUbicArray] = useState([])
 
-    const ubicA = []
-
-    ubicArray.forEach((item)=>{
-      if (item.Nombre == cliente){
-          ubicA.push(item.Ubicacion)
-      }
-    })
+  
 
     const [shift,setShift] = useState([])
 
@@ -247,7 +241,13 @@ const Reasignacion = (reasignacion) => {
       },[])
       const db = getDatabase();
 
+      const ubicA = []
 
+      ubicArray.forEach((item)=>{
+        if (item.Nombre == cliente){
+            ubicA.push(item.Ubicacion)
+        }
+      })
 
 
 return(
