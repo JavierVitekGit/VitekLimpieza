@@ -460,18 +460,20 @@ const firebaseConfig = {
                   var nombreOp = childSnapshot.child("Nombre").val()
                   var hora = childSnapshot.child("Horario").val()
                   var est = childSnapshot.child("Estatus").val()
+                  var ubic = childSnapshot.child("Ubicacion").val()
+
 
                   console.log("NombreOperador",nombreOp)
 
                   if( est == 1 ) 
-                  comp.push({clienteC:clienteOp,name:nombreOp,hr:hora,estat:est})
+                  comp.push({clienteC:clienteOp,name:nombreOp,hr:hora,estat:est,Ubicacion:ubic})
 
                 
 
               })
 
             comp.forEach((iter)=> {
-              if (iter.clienteC == selClient) {
+              if (iter.clienteC == selClient && iter.Ubicacion == selUbic) {
                 arrayJusti.push({clienteC:iter.clienteC,name:iter.name,hr:iter.hr,estatus:iter.estat})
                 arrayJusti.sort();
 
@@ -661,9 +663,9 @@ displayOptions={{
           noOptionsText="Sin coincidencias"
           />
           
-          <select onClick={forceUpdate}>
+          {/* <select onClick={forceUpdate}>
             {unicUbicArray.map((item)=> <option>{item}</option>)}
-          </select>
+          </select> */}
 
 <br/>
 
