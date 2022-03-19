@@ -138,7 +138,7 @@ const App = (app) => {
 
       <Route path="/Quincena" element={<Quincena/>}/> 
 
-      <Route path="/Test" element={<QuincenaTest/>}/>
+      <Route path="/Reporte%20Quincenal" element={<QuincenaTest/>}/>
 
       <Route path ="/ReporteG" element={<ReporteG/>} />
 

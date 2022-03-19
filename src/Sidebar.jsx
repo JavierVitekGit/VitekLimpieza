@@ -119,7 +119,7 @@ return (
 
         <div className="calendario"> 
         <Link to="/Calendario"> <p className="registro" >Justificaciones</p> </Link>    
-
+        <Link to="/Reporte Quincenal"><p className='reporteQ'>Reporte Q</p> </Link>
 
                 </div>
         
