@@ -16,6 +16,7 @@ import {es} from 'date-fns/locale'
 import './Firebase init'
 import './Quincena.css'
 
+import SideBar from "./Sidebar";
 
 import { CSVLink, CSVDownload } from "react-csv";
 import Reasignacion from "./Reasignacion.jsx";
@@ -580,7 +581,10 @@ return (
         <div className="reportGB">
             
 
-
+            <div className="adminSide">
+            <SideBar></SideBar>
+            
+            </div>
 
         <div className="cgHeader">    <h1>Reporte Nomina</h1> </div>
 
