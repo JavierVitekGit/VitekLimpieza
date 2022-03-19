@@ -114,6 +114,10 @@
     font-size: 2vh;
     padding-left: 60px;
   }
+  .side-menu .lista .calendario .reporteM{
+    font-size: 2vh;
+    padding-left: 60px;
+  }
   
   .side-menu .Inasistencias .registroIn{
     font-size: 20px;
@@ -265,6 +269,10 @@
     transform: scale(0);
   }
   
+  .side-menu.inactive .calendario .reporteM{
+    transform: scale(0);
+  }
+
   .side-menu.inactive .lista .Inasistencias .registroIn{
     transform: scale(0);
   }
