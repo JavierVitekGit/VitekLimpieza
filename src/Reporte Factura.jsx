@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import {get, getDatabase,ref,child,update} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
-import SideBar from './Sidebar.jsx'
+import SideBar from './Sidebar'
 import InfiniteCalendar, {withRange,Calendar} from 'react-infinite-calendar';
 // import InfiniteCalendar, {
 //     Calendar,
@@ -534,7 +534,10 @@ return (
        
         <div className="reportGB">
 
-    
+            <div className="adminSide">
+            <SideBar></SideBar>
+            
+            </div>
 
         <div className="cgHeader">    <h1>Reporte Mensual</h1> </div>
 
