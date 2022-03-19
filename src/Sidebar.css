@@ -109,6 +109,11 @@
     margin-top: -40px;
     transition: none ;
   }
+
+  .side-menu .lista .calendario .reporteQ{
+    font-size: 2vh;
+    padding-left: 60px;
+  }
   
   .side-menu .Inasistencias .registroIn{
     font-size: 20px;
@@ -254,6 +259,10 @@
   .side-menu.inactive .lista .calendario .registro{
     transform: scale(0); 
     
+  }
+
+  .side-menu.inactive .calendario .reporteQ{
+    transform: scale(0);
   }
   
   .side-menu.inactive .lista .Inasistencias .registroIn{
