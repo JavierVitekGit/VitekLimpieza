@@ -482,13 +482,7 @@ console.log("Datossd asda",datos)
         //     days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString()]:"/"})
         // }
 
-        console.log("Days",days)
-
         return days;
-
-
-        
-
     }
 
 
