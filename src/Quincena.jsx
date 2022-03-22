@@ -337,9 +337,7 @@ console.log("Datossd asda",datos)
                                                 justificaciones.forEach((iter)=>{
                                                     diaSemanaArray.forEach((nyx)=>{
 
-                                                    
-                                                    
-
+                                            
                                                    var index =0;     
                                                    item.week.forEach((n)=>{
 
@@ -378,6 +376,10 @@ console.log("Datossd asda",datos)
 
                                                             else if (item.Nombre == iter.Suplencia && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]){
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Observaciones}
+                                                            }
+
+                                                            else if (n.substring(0,2)!= nyx.substring(0,2)){
+                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                                             }
 
                                                             // else if(item.week != null && item.week != "" && item.week.substring(0,1) !=  nyx.substring(0,1)){
