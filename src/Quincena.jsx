@@ -356,7 +356,7 @@ console.log("Datossd asda",datos)
                                                         
                                                        
 
-                                                        if (item.Horario == iter.Turno && item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0].toString().length(-2) ) {
+                                                        if (item.Horario == iter.Turno && item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion}
                                                         }
@@ -467,26 +467,26 @@ console.log("Datossd asda",datos)
     
     function getDays(){
         var days = [];
-        // for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
-        //     days.push({[index.toString()]:"/"});
+        for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
+            days.push({[index.toString()]:"/"});
 
-        // }
+        }
 
-        const diasSemana = fecha => [
-            "D",
-            "L",
-            "Mar",
-            "Mier",
-            "J",
-            "V",
-            "S"
-        ][new Date(fecha).getDay()];
+        // const diasSemana = fecha => [
+        //     "D",
+        //     "L",
+        //     "Mar",
+        //     "Mier",
+        //     "J",
+        //     "V",
+        //     "S"
+        // ][new Date(fecha).getDay()];
 
-        fechaD.forEach(fecha=>{
-            // console.log(`En ${fecha} fue ${diasSemana(fecha)}`)
-            days.push(diasSemana(fecha) + "/" +fecha.substring(8,10))
-            // console.log("Guachate esta",diasSemana(fecha) + "/" +fecha.substring(8,10))
-        })
+        // fechaD.forEach(fecha=>{
+        //     // console.log(`En ${fecha} fue ${diasSemana(fecha)}`)
+        //     days.push(diasSemana(fecha) + "/" +fecha.substring(8,10))
+        //     // console.log("Guachate esta",diasSemana(fecha) + "/" +fecha.substring(8,10))
+        // })
 
         // for (let i = diaOne; i <= diaTwo; i++ ){
         //     days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString()]:"/"})
