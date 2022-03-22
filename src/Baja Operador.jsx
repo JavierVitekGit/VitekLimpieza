@@ -148,12 +148,17 @@ const BajaOperador = (baja) => {
               var ubic = childSnapshot.child("Ubicacion").val()
               var hor = childSnapshot.child("Horario").val()
               var id = childSnapshot.key;
-              
-             datos.push({tel:telefono,name:nombre,fi:fechaIngreso,key:id,cl:cliente,puesto:puest,ubicacion:ubic,horario:hor}) 
-              
-             datos.sort()
+              var est = childSnapshot.child("Estatus").val()
 
-             arrayName.push(nombre)
+              if (est == 1) {
+                datos.push({tel:telefono,name:nombre,fi:fechaIngreso,key:id,cl:cliente,puesto:puest,ubicacion:ubic,horario:hor}) 
+              
+                datos.sort()
+   
+                arrayName.push(nombre)
+              }
+              
+            
               
             })
             
