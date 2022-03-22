@@ -318,12 +318,12 @@ const modClose = () => setModClient(false)
     // })
 
       arrayJusti.forEach((item)=>{
-        if (item.name =="vacante" && item.justi == null && item.estado == ""){
-          show(event)
-          writeJustiData(event)
-        }
+        // if (item.name =="vacante" && item.justi == null && item.estado == ""){
+        //   show(event)
+        //   writeJustiData(event)
+        // }
 
-        else if (item.estado != "" && item.justi == null ){
+        if (item.estado != "" && item.justi == null ){
           handleShow(event);
         } else {
           show(event)
