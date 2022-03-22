@@ -468,14 +468,22 @@ console.log("Datossd asda",datos)
     
     function getDays(){
         var days = [];
-        for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
-            days.push({[index.toString()]:"/"});
+        // for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
+        //     days.push({[index.toString()]:"/"});
 
-        }
+        // }
+
+        fechaD.forEach(fecha=>{
+            // console.log(`En ${fecha} fue ${diasSemana(fecha)}`)
+            days.push(diasSemana(fecha) + "/" +fecha.substring(8,10))
+            // console.log("Guachate esta",diasSemana(fecha) + "/" +fecha.substring(8,10))
+        })
 
         // for (let i = diaOne; i <= diaTwo; i++ ){
         //     days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString()]:"/"})
         // }
+
+        console.log("Dayss",days)
 
         return days;
     }
