@@ -579,11 +579,6 @@ return (
         <div className="reportGB">
             
 
-            <div className="adminSide">
-            <SideBar></SideBar>
-            
-            </div>
-
         <div className="cgHeader">    <h1>Reporte Nomina</h1> </div>
 
         <br/>
