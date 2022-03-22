@@ -353,7 +353,7 @@ console.log("Datossd asda",datos)
 
                                                         // if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] )
 
-                                                        
+                                                            console.log("QuePinolasEsEsto???",dialokobydiego)
                                                        
 
                                                         if (item.Horario == iter.Turno && item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == dialokobydiego[0] ) {
