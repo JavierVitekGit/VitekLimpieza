@@ -110,7 +110,7 @@ console.log("Datossd asda",datos)
 
        
         for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
-            arrayD.push(index);
+            
               
           }
 
@@ -369,15 +369,15 @@ console.log("Datossd asda",datos)
                                                              item.dias[index] = {[Object.keys(dialokobydiego)[0]]: ""}
                                                         } 
 
-                                                            else if (item.Baja != null && item.Baja != "" && item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0].split("/")[1]){
+                                                            else if (item.Baja != null && item.Baja != "" && item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]){
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                                             }
 
-                                                            else if(item.Ingreso != null && item.Ingreso != "" && item.Ingreso.substring(8,10) > +Object.keys(dialokobydiego)[0].split("/")[1]) {
+                                                            else if(item.Ingreso != null && item.Ingreso != "" && item.Ingreso.substring(8,10) > +Object.keys(dialokobydiego)[0]) {
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                                             }
 
-                                                            else if (item.Nombre == iter.Suplencia && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0].split("/")[1]){
+                                                            else if (item.Nombre == iter.Suplencia && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]){
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Observaciones}
                                                             }
 
@@ -489,7 +489,7 @@ console.log("Datossd asda",datos)
         fechaD.forEach(fecha=>{
             // days.push(diasSemana(fecha) + "/" +fecha.substring(8,10))
             days.push({[diasSemana(fecha) + "/" +fecha.substring(8,10)]:"/"})
-   
+            arrayD.push(diasSemana(fecha) + "/" +fecha.substring(8,10))
         })
 
        
