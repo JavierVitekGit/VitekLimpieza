@@ -360,7 +360,7 @@ console.log("Datossd asda",datos)
 
                                                         if (item.Horario == iter.Turno && item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0].split("/")[1] ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
-                                                            item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion}
+                                                            item.dias[index] = {[Object.keys(dialokobydiego)[0].split("/")[1]]:iter.Estado+" "+iter.Justificacion}
                                                      
                                                         }
 //                                                                item.Nombre == "Vacante" && +iter.Fecha.substring(0,2) != +Object.keys(dialokobydiego)[0]
