@@ -339,7 +339,7 @@ console.log("Datossd asda",datos)
 
                                             
                                                    var index =0;     
-                                                   item.week.forEach((n)=>{
+                                                  
 
                                                    
                                                    item.dias.forEach((dialokobydiego)=>{
@@ -395,7 +395,7 @@ console.log("Datossd asda",datos)
                                                     })
                                                 })
 
-                                            })
+                                            
 
                                                 })
                                             })
