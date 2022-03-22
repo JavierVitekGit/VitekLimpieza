@@ -473,6 +473,16 @@ console.log("Datossd asda",datos)
 
         // }
 
+        const diasSemana = fecha => [
+            "D",
+            "L",
+            "Mar",
+            "Mier",
+            "J",
+            "V",
+            "S"
+        ][new Date(fecha).getDay()];
+
         fechaD.forEach(fecha=>{
             // console.log(`En ${fecha} fue ${diasSemana(fecha)}`)
             days.push(diasSemana(fecha) + "/" +fecha.substring(8,10))
