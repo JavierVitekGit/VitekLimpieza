@@ -160,18 +160,6 @@ console.log("Datossd asda",datos)
         })
     
 
-            console.log("DIASEMANAARRAY::",diaSemanaArray)
-        // arrayD.forEach((item)=>{
-        //     diaSemanaArray.forEach((iter)=>{
-        //         if(!semanaArray.includes(iter + "/" + item))
-        //         semanaArray.push(iter + "/" + item)
-        //     })
-        // })
-
-        // console.log("FinalFecha",semanaArray)
-
-
-
         get(child(dbRef,'ClienteUbicacion/')).then((snapshot)=>{
             if (snapshot.exists()){
                 snapshot.forEach((childSnapshot)=>{
@@ -347,13 +335,15 @@ console.log("Datossd asda",datos)
 
                                             datos.forEach((item)=>{
                                                 justificaciones.forEach((iter)=>{
-                                                    diaSemanaArray.forEach((nyx)=>{
+                                                    
 
                                                     
                                                     
 
                                                    var index =0;     
+                                                    item.week.forEach((wek)=>{
 
+                                                    
                                                    item.dias.forEach((dialokobydiego)=>{
                                                        
 
@@ -400,6 +390,7 @@ console.log("Datossd asda",datos)
                                                         index++;
 
                                                     })
+                                                    
                                                 })
 
                                                 })
