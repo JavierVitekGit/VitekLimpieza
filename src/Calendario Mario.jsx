@@ -303,6 +303,10 @@ const modClose = () => setModClient(false)
 
   function validate(event){
     event.preventDefault()
+
+
+    show(event)
+          writeJustiData(event)
     
     // arrayJusti.forEach((item)=>{
     //   if (item.estado != "") {
@@ -316,14 +320,14 @@ const modClose = () => setModClient(false)
     //   }
     // })
 
-      arrayJusti.forEach((item)=>{
-        if (item.estado != "" && item.justi == null ){
-          handleShow(event);
-        } else {
-          show(event)
-          writeJustiData(event)
-        }
-      })
+      // arrayJusti.forEach((item)=>{
+      //   if (item.estado != "" && item.justi == null ){
+      //     handleShow(event);
+      //   } else {
+      //     show(event)
+      //     writeJustiData(event)
+      //   }
+      // })
 
   }
 
