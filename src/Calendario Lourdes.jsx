@@ -299,31 +299,7 @@ const modClose = () => setModClient(false)
     }
   }
 
-  function validate(event){
-    event.preventDefault()
-    
-    // arrayJusti.forEach((item)=>{
-    //   if (item.estado != "") {
-    //     if (item.justi ==  null){
-    //       handleShow(event);
-    //     } else {
-    //       show(event)
-    //       writeJustiData(event)
-    //     }
-
-    //   }
-    // })
-
-      arrayJusti.forEach((item)=>{
-        if (item.estado != "" && item.justi == null ){
-          handleShow(event);
-        } else {
-          show(event)
-          writeJustiData(event)
-        }
-      })
-
-  }
+  
 
 
 
@@ -535,6 +511,33 @@ const firebaseConfig = {
 //     item.suplencia == "No se cubrio"
 //   }
 // })
+
+function validate(event){
+  event.preventDefault()
+  
+  // arrayJusti.forEach((item)=>{
+  //   if (item.estado != "") {
+  //     if (item.justi ==  null){
+  //       handleShow(event);
+  //     } else {
+  //       show(event)
+  //       writeJustiData(event)
+  //     }
+
+  //   }
+  // })
+
+    arrayJusti.forEach((item)=>{
+      if (item.estado != "" && item.justi == null ){
+        handleShow(event);
+      } else {
+        show(event)
+        writeJustiData(event)
+      }
+    })
+
+}
+
 
 
 function writeJustiData(event) {
