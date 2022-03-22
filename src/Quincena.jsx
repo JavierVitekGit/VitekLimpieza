@@ -335,15 +335,13 @@ console.log("Datossd asda",datos)
 
                                             datos.forEach((item)=>{
                                                 justificaciones.forEach((iter)=>{
-                                                    
+                                                    diaSemanaArray.forEach((nyx)=>{
 
                                                     
                                                     
 
                                                    var index =0;     
-                                                    item.week.forEach((wek)=>{
 
-                                                    
                                                    item.dias.forEach((dialokobydiego)=>{
                                                        
 
@@ -390,7 +388,6 @@ console.log("Datossd asda",datos)
                                                         index++;
 
                                                     })
-                                                    
                                                 })
 
                                                 })
