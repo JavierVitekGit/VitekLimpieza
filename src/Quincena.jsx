@@ -338,12 +338,12 @@ console.log("Datossd asda",datos)
                                                     diaSemanaArray.forEach((nyx)=>{
 
                                             
-                                                   var index =0;     
+                                                   
                                                   
 
                                                    
                                                    item.dias.forEach((dialokobydiego)=>{
-                                                       
+                                                    var index =0;     
 
                                                     // console.log(""+iter.Fecha.substring(0,2) +"=="+ Object.keys(dialokobydiego)[0]  );
                                                     // console.log(dialokobydiego)
