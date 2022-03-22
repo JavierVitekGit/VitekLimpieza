@@ -515,17 +515,22 @@ const firebaseConfig = {
 function validate(event){
   event.preventDefault()
   
-  arrayJusti.forEach((item)=>{
-    if (item.estado != "") {
-      if (item.justi ==  null){
-        handleShow(event);
-      } else {
-        show(event)
-        writeJustiData(event)
-      }
+  show(event)
+  writeJustiData(event)
 
-    }
-  })
+  // J A L A  A  M E D I A S
+
+  // arrayJusti.forEach((item)=>{
+  //   if (item.estado != "") {
+  //     if (item.justi ==  null){
+  //       handleShow(event);
+  //     } else {
+  //       show(event)
+  //       writeJustiData(event)
+  //     }
+
+  //   }
+  // })
 
     // arrayJusti.forEach((item)=>{
     //   if (item.estado != "" && item.justi == null ){
