@@ -237,7 +237,7 @@ console.log("Datossd asda",datos)
                             
                               
                                   const fechaComoCadena = fechaD
-                                  const dias = [
+                                  const diass = [
                                       "Lunes",
                                       "Martes",
                                       "Miércoles",
@@ -248,7 +248,7 @@ console.log("Datossd asda",datos)
                                   ]
 
                                   const numeroDia = new Date(fechaComoCadena).getDay()
-                                  const nombreDia = dias[numeroDia]
+                                  const nombreDia = diass[numeroDia]
                                   console.log("Nombre del Dia:",nombreDia)
                             
                     
