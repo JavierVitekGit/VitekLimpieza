@@ -67,6 +67,15 @@ const Quincena = (quincena) => {
     
     const [sem,setSem] = useState([])
 
+    sem.push(
+    "Lunes",
+    "Martes",
+    "Miércoles",
+    "Jueves",
+    "Viernes",
+    "Sábado",
+    "Domingo")
+
 
     const [justificaciones,setJustificaciones] = useState([]);
 
@@ -209,6 +218,15 @@ console.log("Datossd asda",datos)
             if (snapshot.exists()){
                 snapshot.forEach((childSnapshot)=>{
 
+                    const diass = [
+                        "Lunes",
+                        "Martes",
+                        "Miércoles",
+                        "Jueves",
+                        "Viernes",
+                        "Sábado",
+                        "Domingo"
+                    ]
 
                     var nm = childSnapshot.child("Nombre").val()
                     var cl = childSnapshot.child("Cliente").val()
@@ -221,6 +239,13 @@ console.log("Datossd asda",datos)
                     var est = childSnapshot.child("Estatus").val()
                     var dias = childSnapshot.child("Dias").val()
 
+                    // const trya = [];
+
+                    // if (dias != null && dias != "" && diass != dias ){
+                    //     trya.push(dias)
+                    // }
+
+                    // console.log("kmno::",trya)
 
                     // console.log("FechaBComp",fechaB.split("-"))0
 
@@ -229,8 +254,8 @@ console.log("Datossd asda",datos)
                             } else if (fechaI != "" && fechaI >= fffTwo) {
                                 fechaI = null
                             }
-                                if (fechaB != null && fechaI != null){
-                                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),week:dias})
+                                if (fechaB != null && fechaI != null && dias != null){
+                                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),descanso:dias})
                                 }
          
                                 
@@ -251,13 +276,12 @@ console.log("Datossd asda",datos)
 
                                   const numeroDia = new Date(fechaComoCadena).getDay()
                                   const nombreDia = diass[numeroDia]
-                                  sem.push(diass[numeroDia])
-                                //   console.log("Nombre del Dia:",nombreDia)
-                                console.log("SEM",sem)
+                                  sem.push(nombreDia)
+                                  console.log("Nombre del Dia:",nombreDia)
                             
                                 })
                        
-                 
+                                // days.push({[index.toString()]:"/"});
 
 
                         //  if (Date(fechaB) <= Date(fBaja[0]).getTime()){
@@ -283,6 +307,20 @@ console.log("Datossd asda",datos)
 
                       get(child(dbRef,'Justificaciones/')).then((jsnapshot)=>{
                         if (jsnapshot.exists()) {
+
+                            const diass = [
+                                "Lunes",
+                                "Martes",
+                                "Miércoles",
+                                "Jueves",
+                                "Viernes",
+                                "Sábado",
+                                "Domingo"
+                            ]
+
+                            var tangamandapio = new Date()
+
+
                             jsnapshot.forEach((jchildSnapshot)=>{
             
             
@@ -367,9 +405,9 @@ console.log("Datossd asda",datos)
 
                                             datos.forEach((item)=>{
                                                 justificaciones.forEach((iter)=>{
-                                                    sem.forEach((nyx)=>{
+                                                    sem.forEach((x)=>{
 
-                                                    
+                                                   
                                                     
 
                                                    var index =0;     
@@ -385,8 +423,17 @@ console.log("Datossd asda",datos)
 
                                                         // if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] )
 
-                                                        
-                                                        
+                                                    //if(index==0){
+
+                                                    //    console.log(diass[(new Date(fechaD[index])).getDay()] +"  ===   ",item.descanso)
+                                                   //}
+    
+                                                        tangamandapio=(new Date(fechaD[index])).getDay()
+
+                                                        if(!item.descanso.includes(diass[tangamandapio])){
+                                                            item.dias[index]= {[Object.keys(dialokobydiego)[0]]:"descansa este sujete "}
+                                                        }  
+                                                
 
                                                         if (item.Horario == iter.Turno && item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
@@ -408,15 +455,16 @@ console.log("Datossd asda",datos)
 
                                                             else if (item.Nombre == iter.Suplencia && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]){
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Observaciones}
-                                                            }
+                                                            } 
                                                             
-                                                            else if(item.Horario == iter.Turno
-                                                                 && item.Nombre == iter.Nombre
-                                                                  && item.Cliente == iter.Cliente 
-                                                                  && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]
-                                                                  && nyx != item.week){
-                                                                      item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
-                                                                  }
+                                                            
+
+                                                            
+
+                                                            
+                                                            
+                                                            
+                                                            
 
                                                             // else if(item.week != null && item.week != "" && item.week.substring(0,1) !=  nyx.substring(0,1)){
                                                             //     item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
