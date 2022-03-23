@@ -430,7 +430,7 @@ console.log("Datossd asda",datos)
     
                                                         tangamandapio=(new Date(fechaD[index])).getDay()
 
-                                                        if(!item.descanso.includes(diass[tangamandapio])){
+                                                        if(!item.descanso == diass[tangamandapio]){
                                                             item.dias[index]= {[Object.keys(dialokobydiego)[0]]:"descansa este sujete "}
                                                         }  
                                                 
