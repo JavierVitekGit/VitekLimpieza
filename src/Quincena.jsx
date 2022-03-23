@@ -236,7 +236,7 @@ console.log("Datossd asda",datos)
                                 
                             
                               
-                                  const fechaComoCadena = fechaD
+                                  const fechaComoCadena = dias
                                   const diass = [
                                       "Lunes",
                                       "Martes",
