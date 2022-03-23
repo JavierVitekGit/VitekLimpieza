@@ -234,9 +234,11 @@ console.log("Datossd asda",datos)
                                 }
          
                                 
+                            fechaD.forEach((x)=>{
+
                             
                               
-                                  const fechaComoCadena = dias
+                                  const fechaComoCadena = x
                                   const diass = [
                                       "Lunes",
                                       "Martes",
@@ -251,7 +253,7 @@ console.log("Datossd asda",datos)
                                   const nombreDia = diass[numeroDia]
                                   console.log("Nombre del Dia:",nombreDia)
                             
-                    
+                                })
                        
                  
 
