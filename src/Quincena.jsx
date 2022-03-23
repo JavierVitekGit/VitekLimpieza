@@ -24,6 +24,7 @@ import Reasignacion from "./Reasignacion.jsx";
 
 const Quincena = (quincena) => {
 
+
     const [fechaC,setFechaC] = useState([]);
 
     console.log("#FECHACC$&%:",fechaC)
@@ -105,15 +106,13 @@ console.log("Datossd asda",datos)
     
     const [diaSemanaArray,setDiaSemanaArray] = useState([]);
   
-    const [jala,setJala] = useState([])
-
     function obtener () {
 
 
        
         for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
-            jala.push(index)
-              console.log("Jala::",jala)
+            arrayD.push(index);
+              
           }
 
         // for (let index = +diaOne; index <= +diaTwo; index++) {
@@ -161,6 +160,18 @@ console.log("Datossd asda",datos)
             // console.log("Guachate esta",diasSemana(fecha) + "/" +fecha.substring(8,10))
         })
     
+
+            console.log("DIASEMANAARRAY::",diaSemanaArray)
+        // arrayD.forEach((item)=>{
+        //     diaSemanaArray.forEach((iter)=>{
+        //         if(!semanaArray.includes(iter + "/" + item))
+        //         semanaArray.push(iter + "/" + item)
+        //     })
+        // })
+
+        // console.log("FinalFecha",semanaArray)
+
+
 
         get(child(dbRef,'ClienteUbicacion/')).then((snapshot)=>{
             if (snapshot.exists()){
@@ -339,13 +350,13 @@ console.log("Datossd asda",datos)
                                                 justificaciones.forEach((iter)=>{
                                                     diaSemanaArray.forEach((nyx)=>{
 
-                                            
-                                                   
-                                                  
+                                                    
+                                                    
 
-                                                   
+                                                   var index =0;     
+
                                                    item.dias.forEach((dialokobydiego)=>{
-                                                    var index =0;     
+                                                       
 
                                                     // console.log(""+iter.Fecha.substring(0,2) +"=="+ Object.keys(dialokobydiego)[0]  );
                                                     // console.log(dialokobydiego)
@@ -355,17 +366,12 @@ console.log("Datossd asda",datos)
 
                                                         // if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] )
 
-                                                      
-                                                       
-                                                       
-                                                        // console.log("juasjuas",Object.keys(dialokobydiego)[0])
-                                                         
+                                                        
+                                                        
 
-
-                                                        if (item.Horario == iter.Turno && item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0].split("/")[1] ) {
+                                                        if (item.Horario == iter.Turno && item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion}
-                                                            console.log("xD",item.dias[index])
                                                         }
 //                                                                item.Nombre == "Vacante" && +iter.Fecha.substring(0,2) != +Object.keys(dialokobydiego)[0]
                                                         else if (item.Nombre == "Vacante"){
@@ -373,21 +379,17 @@ console.log("Datossd asda",datos)
                                                              item.dias[index] = {[Object.keys(dialokobydiego)[0]]: ""}
                                                         } 
 
-                                                            else if (item.Baja != null && item.Baja != "" && item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0].split("/")[1]){
+                                                            else if (item.Baja != null && item.Baja != "" && item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]){
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                                             }
 
-                                                            else if(item.Ingreso != null && item.Ingreso != "" && item.Ingreso.substring(8,10) > +Object.keys(dialokobydiego)[0].split("/")[1]) {
+                                                            else if(item.Ingreso != null && item.Ingreso != "" && item.Ingreso.substring(8,10) > +Object.keys(dialokobydiego)[0]) {
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                                             }
 
-                                                            else if (item.Nombre == iter.Suplencia && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0].split("/")[1]){
+                                                            else if (item.Nombre == iter.Suplencia && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]){
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Observaciones}
                                                             }
-
-                                                            // else if (n.substring(0,1)!= nyx.substring(0,1)){
-                                                            //     item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
-                                                            // }
 
                                                             // else if(item.week != null && item.week != "" && item.week.substring(0,1) !=  nyx.substring(0,1)){
                                                             //     item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
@@ -401,10 +403,7 @@ console.log("Datossd asda",datos)
                                                     })
                                                 })
 
-                                            
-
                                                 })
-                                                console.log("asereje::",item.dias)
                                             })
 
                                         var state = ccSnapshot.child("estado").val()
@@ -431,6 +430,8 @@ console.log("Datossd asda",datos)
                         })
                     })
 
+
+//      !item.includes(iter.Ingreso)
 
                 
                         datos.forEach((iter)=>{
@@ -473,32 +474,22 @@ console.log("Datossd asda",datos)
     
     function getDays(){
         var days = [];
-        // for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
-        //     days.push({[index.toString()]:"/"});
+        for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
+            days.push({[index.toString()]:"/"});
 
+        }
+
+        // for (let i = diaOne; i <= diaTwo; i++ ){
+        //     days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString()]:"/"})
         // }
 
-        const diasSemana = fecha => [
-            "D",
-            "L",
-            "Mar",
-            "Mier",
-            "J",
-            "V",
-            "S"
-        ][new Date(fecha).getDay()];
-
-        fechaD.forEach(fecha=>{
-            // days.push(diasSemana(fecha) + "/" +fecha.substring(8,10))
-            days.push({[diasSemana(fecha) + "/" +fecha.substring(8,10)]:"/"})
-            arrayD.push(diasSemana(fecha) + "/" +fecha.substring(8,10))
-        })
-
-       
-
-        console.log("Dayss",days)
+        console.log("Days",days)
 
         return days;
+
+
+        
+
     }
 
 
@@ -588,6 +579,11 @@ return (
        
         <div className="reportGB">
             
+
+            <div className="adminSide">
+            <SideBar></SideBar>
+            
+            </div>
 
         <div className="cgHeader">    <h1>Reporte Nomina</h1> </div>
 
@@ -682,10 +678,8 @@ return (
                                     
                                     {
                                         item.dias.map((d, inx)=>{
-
-                                            console.log("QuePinolas?",inx.toString())
                       
-                                            return (<td>{d[jala[inx.toString()]]}</td>)
+                                            return (<td>{d[arrayD[inx.toString()]]}</td>)
                                         })
                                     }
 
@@ -708,7 +702,6 @@ return (
 
     </div>
 )
-
 
 
 
