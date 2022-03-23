@@ -335,7 +335,7 @@ console.log("Datossd asda",datos)
 
                                             datos.forEach((item)=>{
                                                 justificaciones.forEach((iter)=>{
-                                        
+                                                    diaSemanaArray.forEach((nyx)=>{
 
                                             
                                                    
@@ -397,7 +397,7 @@ console.log("Datossd asda",datos)
                                                         index++;
 
                                                     })
-                                                
+                                                })
 
                                             
 
@@ -682,6 +682,8 @@ return (
                                     
                                     {
                                         item.dias.map((d, inx)=>{
+
+                                            console.log("QuePinolas?",d[arrayD[inx.toString()]])
                       
                                             return (<td>{d[arrayD[inx.toString()]]}</td>)
                                         })
