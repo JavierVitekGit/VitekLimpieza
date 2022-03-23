@@ -683,7 +683,7 @@ return (
                                     {
                                         item.dias.map((d, inx)=>{
 
-                                            console.log("QuePinolas?",d[arrayD[inx.toString()]])
+                                            console.log("QuePinolas?",inx.toString())
                       
                                             return (<td>{d[arrayD[inx.toString()]]}</td>)
                                         })
