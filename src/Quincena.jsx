@@ -105,12 +105,14 @@ console.log("Datossd asda",datos)
     
     const [diaSemanaArray,setDiaSemanaArray] = useState([]);
   
+    const [jala,setJala] = useState([])
+
     function obtener () {
 
 
        
         for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
-            
+            jala.push(index)
               
           }
 
@@ -685,7 +687,7 @@ return (
 
                                             console.log("QuePinolas?",inx.toString())
                       
-                                            return (<td>{d[arrayD[inx.toString()]]}</td>)
+                                            return (<td>{d[jala[inx.toString()]]}</td>)
                                         })
                                     }
 
