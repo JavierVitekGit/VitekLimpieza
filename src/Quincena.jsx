@@ -355,15 +355,15 @@ console.log("Datossd asda",datos)
 
                                                       
                                                        
-                                                        console.log("xD",item.dias[index])
-                                                        console.log("juasjuas",Object.keys(dialokobydiego)[0])
+                                                       
+                                                        // console.log("juasjuas",Object.keys(dialokobydiego)[0])
                                                          
 
 
                                                         if (item.Horario == iter.Turno && item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0].split("/")[1] ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion}
-                                                     
+                                                            console.log("xD",item.dias[index])
                                                         }
 //                                                                item.Nombre == "Vacante" && +iter.Fecha.substring(0,2) != +Object.keys(dialokobydiego)[0]
                                                         else if (item.Nombre == "Vacante"){
