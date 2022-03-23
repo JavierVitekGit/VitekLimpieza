@@ -685,7 +685,7 @@ return (
 
                                             console.log("QuePinolas?",inx.toString())
                       
-                                            return (<td>{d[arrayD[d.toString()]]}</td>)
+                                            return (<td>{d[arrayD[inx.toString()]]}</td>)
                                         })
                                     }
 
