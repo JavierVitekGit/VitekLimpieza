@@ -252,7 +252,8 @@ console.log("Datossd asda",datos)
                                   const numeroDia = new Date(fechaComoCadena).getDay()
                                   const nombreDia = diass[numeroDia]
                                   sem.push(diass[numeroDia])
-                                  console.log("Nombre del Dia:",nombreDia)
+                                //   console.log("Nombre del Dia:",nombreDia)
+                                console.log("SEM",sem)
                             
                                 })
                        
