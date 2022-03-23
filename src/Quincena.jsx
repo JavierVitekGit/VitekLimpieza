@@ -19,7 +19,7 @@ import SideBar from "./Sidebar";
 
 import { CSVLink, CSVDownload } from "react-csv";
 import Reasignacion from "./Reasignacion.jsx";
-
+import cj from "./nito.mp3"
 
 
 const Quincena = (quincena) => {
@@ -407,7 +407,7 @@ const Quincena = (quincena) => {
                 
                                             })
 
-
+                                            
                                             datos.forEach((item)=>{
                                                 justificaciones.forEach((iter)=>{
                                                     sem.forEach((x)=>{
@@ -544,10 +544,13 @@ const Quincena = (quincena) => {
 
             return 0;
           })
-
+          var audio = new Audio(cj);
+          audio.loop = true;
+          audio.play();
 
 
         setTimeout(()=>{
+
             mostrarReporte();
          
         },1000)
