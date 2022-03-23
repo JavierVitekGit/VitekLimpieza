@@ -432,8 +432,6 @@ console.log("Datossd asda",datos)
                     })
 
 
-//      !item.includes(iter.Ingreso)
-
                 
                         datos.forEach((iter)=>{
                             if (iter.Ingreso != null && iter.Ingreso != "" && iter.Ingreso <= fffBaja  ) {
@@ -687,7 +685,7 @@ return (
 
                                             console.log("QuePinolas?",inx.toString())
                       
-                                            return (<td>{d[jala[inx.toString()]]}</td>)
+                                            return (<td>{d[arrayD[inx.toString()]]}</td>)
                                         })
                                     }
 
