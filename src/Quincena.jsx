@@ -430,9 +430,9 @@ console.log("Datossd asda",datos)
     
                                                         tangamandapio=(new Date(fechaD[index])).getDay()
 
-                                                        if(!item.descanso == diass[tangamandapio]){
-                                                            item.dias[index]= {[Object.keys(dialokobydiego)[0]]:"descansa este sujete "}
-                                                        }  
+                                                        // if(!item.descanso.includes(diass[tangamandapio])){
+                                                        //     item.dias[index]= {[Object.keys(dialokobydiego)[0]]:"descansa este sujete "}
+                                                        // }  
                                                 
 
                                                         if (item.Horario == iter.Turno && item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
@@ -455,7 +455,11 @@ console.log("Datossd asda",datos)
 
                                                             else if (item.Nombre == iter.Suplencia && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]){
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Observaciones}
-                                                            } 
+                                                            }
+
+                                                            else if (!item.descanso.includes(diass[tangamandapio])){
+                                                                item.dias[index]= {[Object.keys(dialokobydiego)[0]]:""}
+                                                            }
                                                             
                                                             
 

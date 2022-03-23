@@ -349,7 +349,7 @@ const modClose = () => setModClient(false)
         var est = childSnapshot.child("Estatus").val()
         var ubic = childSnapshot.child("Ubicacion").val()
 
-        // if (est == 1)
+        if (est == 1)
     
           arrayClientCl.push(cliente)
           
@@ -466,7 +466,7 @@ const firebaseConfig = {
 
                   console.log("NombreOperador",nombreOp)
 
-                  if( est == 1 ) 
+                  // if( est == 1 ) 
                   comp.push({clienteC:clienteOp,name:nombreOp,hr:hora,estat:est,Ubicacion:ubic})
 
                 
