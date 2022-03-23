@@ -335,7 +335,7 @@ console.log("Datossd asda",datos)
 
                                             datos.forEach((item)=>{
                                                 justificaciones.forEach((iter)=>{
-                                                    diaSemanaArray.forEach((nyx)=>{
+                                        
 
                                             
                                                    
@@ -397,7 +397,7 @@ console.log("Datossd asda",datos)
                                                         index++;
 
                                                     })
-                                                })
+                                                
 
                                             
 
