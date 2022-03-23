@@ -235,8 +235,8 @@ console.log("Datossd asda",datos)
          
                                 
                             
-                              diaSemanaArray.forEach((item)=>{
-                                  const fechaComoCadena = item
+                              
+                                  const fechaComoCadena = fechaD
                                   const dias = [
                                       "Lunes",
                                       "Martes",
@@ -250,7 +250,7 @@ console.log("Datossd asda",datos)
                                   const numeroDia = new Date(fechaComoCadena).getDay()
                                   const nombreDia = dias[numeroDia]
                                   console.log("Nombre del Dia:",nombreDia)
-                              })
+                            
                     
                        
                  
