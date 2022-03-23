@@ -113,7 +113,7 @@ console.log("Datossd asda",datos)
        
         for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
             jala.push(index)
-              
+              console.log("Jala::",jala)
           }
 
         // for (let index = +diaOne; index <= +diaTwo; index++) {
@@ -685,7 +685,7 @@ return (
 
                                             console.log("QuePinolas?",inx.toString())
                       
-                                            return (<td>{d[arrayD[inx.toString()]]}</td>)
+                                            return (<td>{d[jala[inx.toString()]]}</td>)
                                         })
                                     }
 
