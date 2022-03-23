@@ -489,7 +489,7 @@ console.log("Datossd asda",datos)
 
         fechaD.forEach(fecha=>{
             // days.push(diasSemana(fecha) + "/" +fecha.substring(8,10))
-            days.push({[diasSemana(fecha) + "/" +fecha.substring(8,10)]:"/"})
+            days.push({[diasSemana(fecha) + "/" +fecha.substring(8,10)]:"nyx"})
             arrayD.push(diasSemana(fecha) + "/" +fecha.substring(8,10))
         })
 
