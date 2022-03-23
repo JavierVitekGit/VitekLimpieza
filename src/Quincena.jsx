@@ -685,7 +685,7 @@ return (
 
                                             console.log("QuePinolas?",inx.toString())
                       
-                                            return (<td>{d[diaSemanaArray[inx.toString()]]}</td>)
+                                            return (<td>{inx[arrayD[d.toString()]]}</td>)
                                         })
                                     }
 
