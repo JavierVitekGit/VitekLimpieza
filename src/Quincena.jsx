@@ -65,7 +65,7 @@ const Quincena = (quincena) => {
 
     const [arrayD,setArrayD] = useState([])
     
-    const [generalData,setGeneralData] = useState([]);
+    const [sem,setSem] = useState([])
 
 
     const [justificaciones,setJustificaciones] = useState([]);
@@ -234,7 +234,7 @@ console.log("Datossd asda",datos)
                                 }
          
                                 
-                            fechaD.forEach((x)=>{
+                            fechaD.map((x)=>{
 
                             
                               
@@ -251,6 +251,7 @@ console.log("Datossd asda",datos)
 
                                   const numeroDia = new Date(fechaComoCadena).getDay()
                                   const nombreDia = diass[numeroDia]
+                                  sem.push(diass[numeroDia])
                                   console.log("Nombre del Dia:",nombreDia)
                             
                                 })
@@ -365,7 +366,7 @@ console.log("Datossd asda",datos)
 
                                             datos.forEach((item)=>{
                                                 justificaciones.forEach((iter)=>{
-                                                    diaSemanaArray.forEach((nyx)=>{
+                                                    sem.forEach((nyx)=>{
 
                                                     
                                                     
@@ -407,6 +408,14 @@ console.log("Datossd asda",datos)
                                                             else if (item.Nombre == iter.Suplencia && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]){
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Observaciones}
                                                             }
+                                                            
+                                                            else if(item.Horario == iter.Turno
+                                                                 && item.Nombre == iter.Nombre
+                                                                  && item.Cliente == iter.Cliente 
+                                                                  && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]
+                                                                  && nyx != item.week){
+                                                                      item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
+                                                                  }
 
                                                             // else if(item.week != null && item.week != "" && item.week.substring(0,1) !=  nyx.substring(0,1)){
                                                             //     item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
