@@ -24,25 +24,26 @@ import Reasignacion from "./Reasignacion.jsx";
 
 const Quincena = (quincena) => {
 
+    
 
     const [fechaC,setFechaC] = useState([]);
 
-    console.log("#FECHACC$&%:",fechaC)
+    // console.log("#FECHACC$&%:",fechaC)
 
     const [dateOne,setDateOne] = useState(new Date().toISOString())
     const [dateTwo,setDateTwo] = useState(new Date().toISOString())
 
-    console.log("Date One", dateOne)
-    console.log("Date Two", dateTwo)
+    // console.log("Date One", dateOne)
+    // console.log("Date Two", dateTwo)
 
-    console.log("Dif String:::", dateTwo.substring(8,10) - dateOne.substring(8,10))
+    // console.log("Dif String:::", dateTwo.substring(8,10) - dateOne.substring(8,10))
 
     const today = new Date()
 
     const min = new Date(2022, 1,15);
     const minInput = min.toISOString().split('T')[0]
 
-    console.log("Today",today)
+    // console.log("Today",today)
 
     var diaOne = dateOne.substring(8,10)
     var mesOne = dateOne.substring(5,7)
@@ -61,7 +62,7 @@ const Quincena = (quincena) => {
     const fffBaja = anioOne + "-" + mesOne + "-" + diaOne
     const fffTwo= anioTwo + "-" + mesTwo + "-" + diaTwo
 
-    console.log("FechaUno::",fechaUno)
+    // console.log("FechaUno::",fechaUno)
 
     const [arrayD,setArrayD] = useState([])
     
@@ -79,18 +80,18 @@ const Quincena = (quincena) => {
 
     const [justificaciones,setJustificaciones] = useState([]);
 
-    console.log("Justificaciones", justificaciones)
+    // console.log("Justificaciones", justificaciones)
 
 
     const [reasig,setReasig] = useState([]);
     
 
-    console.log(arrayD)
+    // console.log(arrayD)
 
 
     const [fechaD,setFechaD] = useState([]);
 
-    console.log("FECHA D%&$#,", fechaD)
+    // console.log("FECHA D%&$#,", fechaD)
 
     const [show,setShow] = useState([]);
 
@@ -105,7 +106,7 @@ const Quincena = (quincena) => {
 
     const [datos,setDatos] = useState([]);
 
-console.log("Datossd asda",datos)
+// console.log("Datossd asda",datos)
 
     const [personal,setPersonal] = useState([]);
 
@@ -117,6 +118,8 @@ console.log("Datossd asda",datos)
   
     function obtener () {
 
+
+        
 
        
         for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
@@ -144,12 +147,12 @@ console.log("Datossd asda",datos)
         for (let i = diaOne; i <= diaTwo; i++){
             fechaC.push(i + "-" + mesOne + "-" + anioOne)
         }
-
-        console.log("FECHABB::",fBaja)
+// 
+        // console.log("FECHABB::",fBaja)
 
         // fechaD.push(index + "-" + mesOne + "-" + anioOne +"11:00:00")
 
-        console.log("FECHA222$#,", fechaD)
+        // console.log("FECHA222$#,", fechaD)
 
         const diasSemana = fecha => [
             "D",
@@ -170,7 +173,9 @@ console.log("Datossd asda",datos)
         })
     
 
-            console.log("DIASEMANAARRAY::",diaSemanaArray)
+            // console.log("DIASEMANAARRAY::",diaSemanaArray)
+
+
         // arrayD.forEach((item)=>{
         //     diaSemanaArray.forEach((iter)=>{
         //         if(!semanaArray.includes(iter + "/" + item))
@@ -204,7 +209,7 @@ console.log("Datossd asda",datos)
                     
                     reasig.push({Cliente:cliente,Nombre:nombre,Fecha:fecha})
 
-                    console.log("Reasginaciones&/&%$%",reasig)
+                    // console.log("Reasginaciones&/&%$%",reasig)
 
                 })
 
@@ -277,7 +282,7 @@ console.log("Datossd asda",datos)
                                   const numeroDia = new Date(fechaComoCadena).getDay()
                                   const nombreDia = diass[numeroDia]
                                   sem.push(nombreDia)
-                                  console.log("Nombre del Dia:",nombreDia)
+                                //   console.log("Nombre del Dia:",nombreDia)
                             
                                 })
                        
@@ -328,7 +333,7 @@ console.log("Datossd asda",datos)
                                 var key = jchildSnapshot.key;
             
                        
-                                console.log("KEY$$Fecha::",key)
+                                // console.log("KEY$$Fecha::",key)
             
                         
                 
@@ -563,7 +568,7 @@ console.log("Datossd asda",datos)
         //     days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString()]:"/"})
         // }
 
-        console.log("Days",days)
+        // console.log("Days",days)
 
         return days;
 
