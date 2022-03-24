@@ -28,7 +28,7 @@ const Quincena = (quincena) => {
 
     const [fechaC,setFechaC] = useState([]);
 
-    // console.log("#FECHACC$&%:",fechaC)
+    console.log("#FECHACC$&%:",fechaC)
 
     const [dateOne,setDateOne] = useState(new Date().toISOString())
     const [dateTwo,setDateTwo] = useState(new Date().toISOString())
@@ -144,9 +144,9 @@ const Quincena = (quincena) => {
         }
         
 
-        for (let i = diaOne; i <= diaTwo; i++){
+        for (let i = +diaOne; i <= diaTwo; i++){
             
-            fechaC.push(i + "-" + mesOne + "-" + anioOne)
+            fechaC.push( ((i<10)? "0"+i : i) + "-" + mesOne + "-" + anioOne)
         }
 // 
         // console.log("FECHABB::",fBaja)
@@ -414,15 +414,23 @@ const Quincena = (quincena) => {
                 
                                             })
 
+                                            for (const item of datos) {
+                                                
                                             
-                                            datos.forEach((item)=>{
-                                                justificaciones.forEach((iter)=>{
-                                                    sem.forEach((x)=>{
+                                            for (const iter of justificaciones) {
+                                                
+                                            
+                                                for (const x of sem) {
+                                                    
+                                                
+                                                    
 
                                                    
                                                     
 
                                                    var index =0;     
+
+                                                    
 
                                                    item.dias.forEach((dialokobydiego)=>{
                                                        
@@ -492,10 +500,10 @@ const Quincena = (quincena) => {
                                                         index++;
 
                                                     })
-                                                })
+                                                    }
 
-                                                })
-                                            })
+                                            }
+                                            }
 
                                         var state = ccSnapshot.child("estado").val()
                 
