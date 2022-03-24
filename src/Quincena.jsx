@@ -414,13 +414,21 @@ const Quincena = (quincena) => {
                 
                                             })
 
-                                            for (const item of datos) {
+                                            datos.forEach((item)=>{
                                                 
                                             
-                                            for (const iter of justificaciones) {
+
+                                           
+                                                justificaciones.forEach((iter)=>{
+                                                    
                                                 
                                             
-                                                for (const x of sem) {
+                                  
+                                                sem.forEach((x)=>{
+
+                                                
+                                            
+                                                
                                                     
                                                 
                                                     
@@ -500,13 +508,15 @@ const Quincena = (quincena) => {
                                                         index++;
 
                                                     })
-                                                    }
+                                                    
 
-                                            }
-                                            }
+                                            
+                                        })
+                                            
 
                                         var state = ccSnapshot.child("estado").val()
-                
+                                    })
+                                    })
                                     })
                 
                                 })
