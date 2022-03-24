@@ -144,7 +144,7 @@ const Quincena = (quincena) => {
         }
         
 
-        for (let i = diaOne; i <= diaTwo; i++){
+        for (let i = +diaOne; i <= diaTwo; i++){
             fechaC.push( ((i<10)? "0"+i : i) + "-" + mesOne + "-" + anioOne)
         }
 // 
@@ -370,7 +370,13 @@ const Quincena = (quincena) => {
                 
                                                 var state = cccSnapshot.child("estado").val()
                 
-                
+                                                if (just == null){
+                                                    just = ""
+                                                }
+
+                                                if (obser == null){
+                                                    obser = ""
+                                                }
                                                 // if (cl == validateTwo && nm == nombr && state != null) {
                                                 //     // date.push(key)
                                                 //     datos.push({
@@ -544,9 +550,9 @@ const Quincena = (quincena) => {
 
             return 0;
           })
-          var audio = new Audio(cj);
-          audio.loop = true;
-          audio.play();
+        //   var audio = new Audio(cj);
+        //   audio.loop = true;
+        //   audio.play();
 
 
         setTimeout(()=>{
