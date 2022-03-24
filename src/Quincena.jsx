@@ -145,6 +145,7 @@ const Quincena = (quincena) => {
         
 
         for (let i = diaOne; i <= diaTwo; i++){
+            
             fechaC.push(i + "-" + mesOne + "-" + anioOne)
         }
 // 
@@ -410,7 +411,7 @@ const Quincena = (quincena) => {
                                             
                                             datos.forEach((item)=>{
                                                 justificaciones.forEach((iter)=>{
-                                                  
+                                                    sem.forEach((x)=>{
 
                                                    
                                                     
@@ -433,7 +434,7 @@ const Quincena = (quincena) => {
                                                     //    console.log(diass[(new Date(fechaD[index])).getDay()] +"  ===   ",item.descanso)
                                                    //}
     
-                                                        tangamandapio=(new Date(fechaD[index])).getDay()
+                                                        // tangamandapio=(new Date(fechaD[index])).getDay()
 
                                                         // if(!item.descanso.includes(diass[tangamandapio])){
                                                         //     item.dias[index]= {[Object.keys(dialokobydiego)[0]]:"descansa este sujete "}
@@ -462,9 +463,9 @@ const Quincena = (quincena) => {
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Observaciones}
                                                             }
 
-                                                            else if (!item.descanso.includes(diass[tangamandapio])){
-                                                                item.dias[index]= {[Object.keys(dialokobydiego)[0]]:""}
-                                                            }
+                                                            // else if (!item.descanso.includes(diass[tangamandapio])){
+                                                            //     item.dias[index]= {[Object.keys(dialokobydiego)[0]]:""}
+                                                            // }
                                                             
                                                             
 
@@ -485,7 +486,7 @@ const Quincena = (quincena) => {
                                                         index++;
 
                                                     })
-                                               
+                                                })
 
                                                 })
                                             })

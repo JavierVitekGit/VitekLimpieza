@@ -308,7 +308,14 @@ console.log("Datossd asda",datos)
                 
                                                 var state = cccSnapshot.child("estado").val()
                 
-                
+                                                if (just == null){
+                                                    just = ""
+                                                }
+
+                                                if (obser == null){
+                                                    obser = ""
+                                                }
+
                                                 // if (cl == validateTwo && nm == nombr && state != null) {
                                                 //     // date.push(key)
                                                 //     datos.push({
