@@ -133,7 +133,7 @@ console.log("Datossd asda",datos)
         
 
         for (let i = +diaOne; i <= diaTwo; i++){
-            fechaC.push( (i<10)? "0"+i : i+ "-" + mesOne + "-" + anioOne)
+            fechaC.push( ((i<10)? "0"+i : i) + "-" + mesOne + "-" + anioOne)
         }
 
         console.log("FECHABB::",fBaja)
