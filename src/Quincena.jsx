@@ -28,7 +28,7 @@ const Quincena = (quincena) => {
 
     const [fechaC,setFechaC] = useState([]);
 
-    console.log("#FECHACC$&%:",fechaC)
+    // console.log("#FECHACC$&%:",fechaC)
 
     const [dateOne,setDateOne] = useState(new Date().toISOString())
     const [dateTwo,setDateTwo] = useState(new Date().toISOString())
@@ -144,8 +144,7 @@ const Quincena = (quincena) => {
         }
         
 
-        for (let i = +diaOne; i <= diaTwo; i++){
-            
+        for (let i = diaOne; i <= diaTwo; i++){
             fechaC.push( ((i<10)? "0"+i : i) + "-" + mesOne + "-" + anioOne)
         }
 // 
@@ -371,13 +370,7 @@ const Quincena = (quincena) => {
                 
                                                 var state = cccSnapshot.child("estado").val()
                 
-                                                if (just == null){
-                                                    just = ""
-                                                }
-
-                                                if (obser == null){
-                                                    obser = ""
-                                                }
+                
                                                 // if (cl == validateTwo && nm == nombr && state != null) {
                                                 //     // date.push(key)
                                                 //     datos.push({
@@ -414,31 +407,15 @@ const Quincena = (quincena) => {
                 
                                             })
 
+                                            
                                             datos.forEach((item)=>{
-                                                
-                                            
-
-                                           
                                                 justificaciones.forEach((iter)=>{
-                                                    
-                                                
-                                            
-                                  
-                                                sem.forEach((x)=>{
-
-                                                
-                                            
-                                                
-                                                    
-                                                
-                                                    
+                                                    sem.forEach((x)=>{
 
                                                    
                                                     
 
                                                    var index =0;     
-
-                                                    
 
                                                    item.dias.forEach((dialokobydiego)=>{
                                                        
@@ -508,15 +485,13 @@ const Quincena = (quincena) => {
                                                         index++;
 
                                                     })
-                                                    
+                                                })
 
-                                            
-                                        })
-                                            
+                                                })
+                                            })
 
                                         var state = ccSnapshot.child("estado").val()
-                                    })
-                                    })
+                
                                     })
                 
                                 })
@@ -569,9 +544,9 @@ const Quincena = (quincena) => {
 
             return 0;
           })
-        //   var audio = new Audio(cj);
-        //   audio.loop = true;
-        //   audio.play();
+          var audio = new Audio(cj);
+          audio.loop = true;
+          audio.play();
 
 
         setTimeout(()=>{
