@@ -410,7 +410,7 @@ const Quincena = (quincena) => {
                                             
                                             datos.forEach((item)=>{
                                                 justificaciones.forEach((iter)=>{
-                                                    sem.forEach((x)=>{
+                                                  
 
                                                    
                                                     
@@ -485,7 +485,7 @@ const Quincena = (quincena) => {
                                                         index++;
 
                                                     })
-                                                })
+                                               
 
                                                 })
                                             })
@@ -544,9 +544,9 @@ const Quincena = (quincena) => {
 
             return 0;
           })
-          var audio = new Audio(cj);
-          audio.loop = true;
-          audio.play();
+        //   var audio = new Audio(cj);
+        //   audio.loop = true;
+        //   audio.play();
 
 
         setTimeout(()=>{
