@@ -218,7 +218,7 @@ console.log("Datossd asda",datos)
 
                     // console.log("FechaBComp",fechaB.split("-"))0
 
-                            if (fechaB != "" && fechaB <= fffBaja){
+                            if (fechaB != "" && fechaB < fffBaja){
                                 fechaB = null
                             } else if (fechaI != "" && fechaI >= fffTwo) {
                                 fechaI = null
@@ -442,7 +442,7 @@ console.log("Datossd asda",datos)
                         })
                 
                         datos.forEach((x)=>{
-                            if (x.Baja != null && x.Baja != "" && x.Baja <= fffBaja){
+                            if (x.Baja != null && x.Baja != "" && x.Baja < fffBaja){
                                 x.Baja = ""
                             }
                         })

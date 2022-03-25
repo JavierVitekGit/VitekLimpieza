@@ -65,6 +65,14 @@ const Reasignacion = (reasignacion) => {
       }
     })
 
+    const oldUbic = [];
+
+    datos.forEach((x)=>{
+      if (x.id == nombre){
+        oldUbic.push(x.Ubicacion)
+      }
+    })
+
 
     const [nombrecitos,setNombrecitos] = useState([]);
 
@@ -156,7 +164,8 @@ const Reasignacion = (reasignacion) => {
             Nombre: tel,
             Cliente:cliente,
             Horario:horario + ":" + horario2,
-            ClienteA:oldClient[0]
+            ClienteA:oldClient[0],
+            UbicacionA:oldUbic[0]
         })
 
         Close();
@@ -198,6 +207,7 @@ const Reasignacion = (reasignacion) => {
               var telefono= childSnapshot.child("ID").val()
               var nombre = childSnapshot.child("Nombre").val()
               var cliente = childSnapshot.child("Cliente").val()
+              var ubic = childSnapshot.child("Ubicacion").val()
               var id = childSnapshot.key;
               
               
@@ -211,7 +221,7 @@ const Reasignacion = (reasignacion) => {
               clean.push({id:id})
               
 
-             datos.push({tel:telefono,cl:cliente,nm:nombre,id:id}) 
+             datos.push({tel:telefono,cl:cliente,nm:nombre,id:id,Ubicacion:ubic}) 
               
              datos.sort()
              
