@@ -212,7 +212,7 @@ console.log("Datossd asda",datos)
                                 fechaI = null
                             }
                                 if (fechaB != null && fechaI != null){
-                                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),week:dias})
+                                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),descanso:dias})
                                 }
          
 
@@ -228,6 +228,20 @@ console.log("Datossd asda",datos)
 
                       get(child(dbRef,'Justificaciones/')).then((jsnapshot)=>{
                         if (jsnapshot.exists()) {
+
+                            const diass = [
+                                "Domingo",
+                                "Lunes",
+                                "Martes",
+                                "Miércoles",
+                                "Jueves",
+                                "Viernes",
+                                "Sábado"
+                                
+                            ]
+
+                            var tangamandapio = new Date()
+
                             jsnapshot.forEach((jchildSnapshot)=>{
             
             
@@ -312,7 +326,7 @@ console.log("Datossd asda",datos)
 
                                             datos.forEach((item)=>{
                                                 justificaciones.forEach((iter)=>{
-                                                    diaSemanaArray.forEach((nyx)=>{
+                                                
 
                                                     
                                                     
@@ -330,14 +344,16 @@ console.log("Datossd asda",datos)
 
                                                         // if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] )
                                            
+                                                        tangamandapio=(new Date(fechaD[index])).getDay()
 
-                                                        item.dias[index] = {[Object.keys(dialokobydiego)[0]]:item.Nombre}
+                                                        // item.dias[index] = {[Object.keys(dialokobydiego)[0]]:item.Nombre}
                                                         
                                                         if (item.Nombre == iter.Nombre && item.Horario == iter.Turno  && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Suplencia}
                                                             
                                                         }
+                                                        
                                                         
                                                         
 
@@ -352,8 +368,18 @@ console.log("Datossd asda",datos)
 
                                                             else if(item.Ingreso != null && item.Ingreso != "" && item.Ingreso.substring(8,10) > +Object.keys(dialokobydiego)[0]) {
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
+                                                            } 
+                                                            
+
+                                                            else if (!item.descanso.includes(diass[tangamandapio])){
+                                                                item.dias[index]= {[Object.keys(dialokobydiego)[0]]:""}
                                                             }
 
+                                                            
+
+                                                        
+                                                                
+                                                            
                                                             
 
                                                             // else if(item.week != null && item.week != "" && item.week.substring(0,1) !=  nyx.substring(0,1)){
@@ -366,7 +392,7 @@ console.log("Datossd asda",datos)
                                                         index++;
 
                                                     })
-                                                })
+                                                
 
                                                 })
                                             })

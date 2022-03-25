@@ -19,6 +19,8 @@ import SideBar from "./Sidebar";
 
 
 const BajaReporte = (quincena) => {
+
+
     const [fechaC,setFechaC] = useState([]);
 
     console.log("#FECHACC$&%:",fechaC)
@@ -218,12 +220,13 @@ console.log("Datossd asda",datos)
 
                     // console.log("FechaBComp",fechaB.split("-"))0
 
-                            if (fechaB != "" && fechaB < fffBaja){
-                                fechaB = null
-                            } else if (fechaI != "" && fechaI >= fffTwo) {
-                                fechaI = null
-                            }
-                                if (fechaB != null && fechaB != "" && fechaB <= fffTwo ){ 
+                                if (fechaB != "" && fechaB < fffBaja){
+                                    fechaB = null
+                                }
+
+                                
+
+                                if (fechaB != null && fechaB != "" && fechaB <= fffTwo){ 
                                     datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),week:dias})
                                 }
          
@@ -286,126 +289,10 @@ console.log("Datossd asda",datos)
             
             
                 
-                                            ccSnapshot.forEach((cccSnapshot)=>{
-                                                
-                
-                
-                                              
-            
-                                                var validateTwo = cccSnapshot.child("clienteC").val()
-                                                var nombr = cccSnapshot.child("name").val()
-                                                var turn = cccSnapshot.child("hr").val()
-                                                var incidenci = cccSnapshot.child("estado").val()
-                                                var just = cccSnapshot.child("justi").val()
-                                                var sup = cccSnapshot.child("suplencia").val()
-                                                var obser = cccSnapshot.child("observaciones").val()
-                
-                                                var state = cccSnapshot.child("estado").val()
-                
-                                                if (just == null){
-                                                    just = ""
-                                                }
-
-                                                if (obser == null){
-                                                    obser = ""
-                                                }
-
-                                                // if (cl == validateTwo && nm == nombr && state != null) {
-                                                //     // date.push(key)
-                                                //     datos.push({
-                                                //         Cliente:cl,
-                                                //         Nombre:nm,
-                                                //         Ingreso:fechaI,
-                                                //         Baja:fechaB,
-                                                //         Razon:incidenci,
-                                                //         Justificacion:just,
-                                                //         Suplencia:sup})
-                                                // }
-            
-                                                // if (state != null) {
-                                                //     justificaciones.push(cccSnapshot.val())
-                
-                                                // }
-
-                                                fechaC.forEach((c)=>{
-
-                
-                                                if (validateOne == validateTwo && state != null && key == c) {
-                                                    // date.push(key)
-                                                    justificaciones.push({
-                                                        Fecha:key,
-                                                        Cliente:validateTwo,
-                                                        Nombre:nombr,
-                                                        Turno:turn,
-                                                        Estado:incidenci,
-                                                        Justificacion:just,
-                                                        Suplencia:sup,
-                                                        Observaciones:obser})
-                                                }
-                                            })
-                
-                                            })
+                                            
 
 
-                                            datos.forEach((item)=>{
-                                                justificaciones.forEach((iter)=>{
-                                                    diaSemanaArray.forEach((nyx)=>{
-
-                                                    
-                                                    
-
-                                                   var index =0;     
-
-                                                   item.dias.forEach((dialokobydiego)=>{
-                                                       
-
-                                                    // console.log(""+iter.Fecha.substring(0,2) +"=="+ Object.keys(dialokobydiego)[0]  );
-                                                    // console.log(dialokobydiego)
-                                                    // console.log(item.Nombre+"=="+iter.Nombre);
-
-                                                        // console.log("dialokobyDiego",item.Baja.substring(8,10))
-
-                                                        // if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] )
-
-                                                        
-                                                        //test
-
-                                                        if (item.Horario == iter.Turno && item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
-                                                            // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
-                                                            item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion}
-                                                        }
-//                                                                item.Nombre == "Vacante" && +iter.Fecha.substring(0,2) != +Object.keys(dialokobydiego)[0]
-                                                        else if (item.Nombre == "Vacante"){
-
-                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]: ""}
-                                                        } 
-
-                                                            else if (item.Baja != null && item.Baja != "" && item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]){
-                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
-                                                            }
-
-                                                            else if(item.Ingreso != null && item.Ingreso != "" && item.Ingreso.substring(8,10) > +Object.keys(dialokobydiego)[0]) {
-                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
-                                                            }
-
-                                                            else if (item.Nombre == iter.Suplencia && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]){
-                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Observaciones}
-                                                            }
-
-                                                            // else if(item.week != null && item.week != "" && item.week.substring(0,1) !=  nyx.substring(0,1)){
-                                                            //     item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
-                                                            // }
-
-                                  
-                                                        
-
-                                                        index++;
-
-                                                    })
-                                                })
-
-                                                })
-                                            })
+                                         
 
                                         var state = ccSnapshot.child("estado").val()
                 
@@ -417,19 +304,7 @@ console.log("Datossd asda",datos)
                         }
                     })
 
-                    reasig.forEach((item)=>{
-                        datos.forEach((iter)=>{
-                        fechaC.forEach((efe)=>{
-
-                        
-                            if (item.Nombre == iter.Nombre && efe == item.Fecha){
-                                    iter.Reasignacion = item.Fecha.substring(0,2) + "/" + item.Cliente
-                            } else {
-                                iter.Reasignacion = ""
-                            }
-                            })
-                        })
-                    })
+                   
 
 
 //      !item.includes(iter.Ingreso)
@@ -472,7 +347,7 @@ console.log("Datossd asda",datos)
         setTimeout(()=>{
             mostrarReporte();
          
-        },1000)
+        },300)
 
 
     }
@@ -637,8 +512,9 @@ return (
                         <th scope="col">Turno</th>
                         <th scope="col">Puesto</th>
                        
+                        <th scope="col">Ingreso</th>
                         <th scope="col">Baja</th>
-               
+                        
                       
 
                     </tr>
@@ -670,6 +546,9 @@ return (
                                         {item.Puesto}
                                     </td>
 
+                                    <td>
+                                        {item.Ingreso}
+                                    </td>
        
                                     <td>
                                         {item.Baja}
