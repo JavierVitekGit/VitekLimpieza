@@ -80,7 +80,7 @@ const Quincena = (quincena) => {
 
     const [justificaciones,setJustificaciones] = useState([]);
 
-    // console.log("Justificaciones", justificaciones)
+    console.log("Justificaciones", justificaciones)
 
 
     const [reasig,setReasig] = useState([]);
@@ -254,7 +254,7 @@ const Quincena = (quincena) => {
 
                     // console.log("FechaBComp",fechaB.split("-"))0
 
-                            if (fechaB != "" && fechaB <= fffBaja){
+                            if ( fechaB != "" && fechaB <= fffBaja){
                                 fechaB = null
                             } else if (fechaI != "" && fechaI >= fffTwo) {
                                 fechaI = null
@@ -270,13 +270,14 @@ const Quincena = (quincena) => {
                               
                                   const fechaComoCadena = x
                                   const diass = [
+                                     "Domingo",
                                       "Lunes",
                                       "Martes",
                                       "Miércoles",
                                       "Jueves",
                                       "Viernes",
-                                      "Sábado",
-                                      "Domingo"
+                                      "Sábado"
+                                      
                                   ]
 
                                   const numeroDia = new Date(fechaComoCadena).getDay()
@@ -369,7 +370,7 @@ const Quincena = (quincena) => {
                                                 var sup = cccSnapshot.child("suplencia").val()
                                                 var obser = cccSnapshot.child("observaciones").val()
                                                 var ubic =  cccSnapshot.child("Ubicacion").val()
-                                                var state = cccSnapshot.child("estado").val()
+                                          
                 
                                                 if (just == null){
                                                     just = ""
@@ -377,6 +378,10 @@ const Quincena = (quincena) => {
 
                                                 if (obser == null){
                                                     obser = ""
+                                                }
+
+                                                if (incidenci == null) {
+                                                    incidenci = "/"
                                                 }
                                                 // if (cl == validateTwo && nm == nombr && state != null) {
                                                 //     // date.push(key)
@@ -398,7 +403,7 @@ const Quincena = (quincena) => {
                                                 fechaC.forEach((c)=>{
 
                 
-                                                if (validateOne == validateTwo && state != null && key == c) {
+                                                if (validateOne == validateTwo   && key == c) {
                                                     // date.push(key)
                                                     justificaciones.push({
                                                         Fecha:key,
@@ -447,8 +452,10 @@ const Quincena = (quincena) => {
                                                         //     item.dias[index]= {[Object.keys(dialokobydiego)[0]]:"descansa este sujete "}
                                                         // }  
                                                 
-
-                                                        if (item.Horario == iter.Turno && item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && item.Ubicacion == iter.Ubicacion && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
+                                                        if(item.dias[index] == null) {
+                                                            item.dias[index] = "/"
+                                                        }
+                                                        else if (item.Horario == iter.Turno && item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && item.Ubicacion == iter.Ubicacion && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion}
                                                         }
@@ -469,10 +476,14 @@ const Quincena = (quincena) => {
                                                             else if (item.Nombre == iter.Suplencia && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]){
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Observaciones}
                                                             }
-
+                                                            
                                                             else if (!item.descanso.includes(diass[tangamandapio])){
                                                                 item.dias[index]= {[Object.keys(dialokobydiego)[0]]:""}
                                                             }
+
+                                                            
+
+                                                            
                                                             
                                                             
 
