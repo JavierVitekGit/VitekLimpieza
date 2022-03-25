@@ -121,6 +121,12 @@ function comprobar() {
      showLogin()
    }
 
+   if (usuario == "rb" && password == "123") {
+     history('/ReporteBaja')
+   } else {
+     showLogin()
+   }
+
 
     //
 
