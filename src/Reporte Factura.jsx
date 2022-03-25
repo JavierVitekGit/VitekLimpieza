@@ -329,15 +329,16 @@ console.log("Datossd asda",datos)
                                                         // console.log("dialokobyDiego",item.Baja.substring(8,10))
 
                                                         // if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] )
+                                           
 
                                                         item.dias[index] = {[Object.keys(dialokobydiego)[0]]:item.Nombre}
                                                         
-
                                                         if (item.Nombre == iter.Nombre && item.Horario == iter.Turno  && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Suplencia}
+                                                            
                                                         }
-
+                                                        
                                                         
 
                                                         else if (item.Nombre == "Vacante"){
@@ -353,7 +354,7 @@ console.log("Datossd asda",datos)
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                                             }
 
-                                              
+                                                            
 
                                                             // else if(item.week != null && item.week != "" && item.week.substring(0,1) !=  nyx.substring(0,1)){
                                                             //     item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
