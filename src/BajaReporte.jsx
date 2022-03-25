@@ -591,7 +591,7 @@ return (
             
             </div>
 
-        <div className="cgHeader">    <h1>Reporte Nomina</h1> </div>
+        <div className="cgHeader">    <h1>Reporte de Bajas</h1> </div>
 
         <br/>
         <br/>
