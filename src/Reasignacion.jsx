@@ -73,6 +73,21 @@ const Reasignacion = (reasignacion) => {
       }
     })
 
+    const oldHr = []
+    datos.forEach((y)=>{
+      if(y.id == nombre){
+        oldHr.push(y.Horario)
+      }
+    })
+
+    const oldP = []
+
+    datos.forEach((n)=>{
+      if(n.id == nombre){
+        oldP.push(n.Puesto)
+      }
+    })
+
 
     const [nombrecitos,setNombrecitos] = useState([]);
 
@@ -151,6 +166,7 @@ const Reasignacion = (reasignacion) => {
 
       writeReasignacionData(event);
       writeReasignacionOpData(event);
+      newVacant(event)
       Close();
     }
 
@@ -181,6 +197,21 @@ const Reasignacion = (reasignacion) => {
         })
     }
 
+    function newVacant(event){
+      event.preventDefault()
+
+      update(ref(db,'Operador/' + "Vacante" + nombre + oldClient[0]),{
+        Cliente:oldClient[0],
+        Estatus: 1,
+        Fecha_Baja:"",
+        Fecha_Ingreso:"",
+        Horario:oldHr[0],
+        Nombre: "Vacante",
+        Puesto: oldP[0],
+        Ubicacion: oldUbic[0]
+      })
+    }
+
 
 
 
@@ -208,6 +239,8 @@ const Reasignacion = (reasignacion) => {
               var nombre = childSnapshot.child("Nombre").val()
               var cliente = childSnapshot.child("Cliente").val()
               var ubic = childSnapshot.child("Ubicacion").val()
+              var hr = childSnapshot.child("Horario").val()
+              var puest = childSnapshot.child("Puesto").val()
               var id = childSnapshot.key;
               
               
@@ -221,7 +254,7 @@ const Reasignacion = (reasignacion) => {
               clean.push({id:id})
               
 
-             datos.push({tel:telefono,cl:cliente,nm:nombre,id:id,Ubicacion:ubic}) 
+             datos.push({tel:telefono,cl:cliente,nm:nombre,id:id,Ubicacion:ubic,Horario:hr,Puesto:puest}) 
               
              datos.sort()
              
