@@ -314,13 +314,14 @@ const Quincena = (quincena) => {
                         if (jsnapshot.exists()) {
 
                             const diass = [
+                                "Domingo",
                                 "Lunes",
                                 "Martes",
                                 "Miércoles",
                                 "Jueves",
                                 "Viernes",
-                                "Sábado",
-                                "Domingo"
+                                "Sábado"
+                                
                             ]
 
                             var tangamandapio = new Date()

@@ -24,25 +24,26 @@ import Reasignacion from "./Reasignacion.jsx";
 
 const QuincenaTest = (quincena) => {
 
+ 
 
     const [fechaC,setFechaC] = useState([]);
 
-    console.log("#FECHACC$&%:",fechaC)
+    // console.log("#FECHACC$&%:",fechaC)
 
     const [dateOne,setDateOne] = useState(new Date().toISOString())
     const [dateTwo,setDateTwo] = useState(new Date().toISOString())
 
-    console.log("Date One", dateOne)
-    console.log("Date Two", dateTwo)
+    // console.log("Date One", dateOne)
+    // console.log("Date Two", dateTwo)
 
-    console.log("Dif String:::", dateTwo.substring(8,10) - dateOne.substring(8,10))
+    // console.log("Dif String:::", dateTwo.substring(8,10) - dateOne.substring(8,10))
 
     const today = new Date()
 
     const min = new Date(2022, 1,15);
     const minInput = min.toISOString().split('T')[0]
 
-    console.log("Today",today)
+    // console.log("Today",today)
 
     var diaOne = dateOne.substring(8,10)
     var mesOne = dateOne.substring(5,7)
@@ -61,27 +62,36 @@ const QuincenaTest = (quincena) => {
     const fffBaja = anioOne + "-" + mesOne + "-" + diaOne
     const fffTwo= anioTwo + "-" + mesTwo + "-" + diaTwo
 
-    console.log("FechaUno::",fechaUno)
+    // console.log("FechaUno::",fechaUno)
 
     const [arrayD,setArrayD] = useState([])
     
-    const [generalData,setGeneralData] = useState([]);
+    const [sem,setSem] = useState([])
+
+    sem.push(
+    "Lunes",
+    "Martes",
+    "Miércoles",
+    "Jueves",
+    "Viernes",
+    "Sábado",
+    "Domingo")
 
 
     const [justificaciones,setJustificaciones] = useState([]);
 
-    console.log("Justificaciones", justificaciones)
+    // console.log("Justificaciones", justificaciones)
 
 
     const [reasig,setReasig] = useState([]);
     
 
-    console.log(arrayD)
+    // console.log(arrayD)
 
 
     const [fechaD,setFechaD] = useState([]);
 
-    console.log("FECHA D%&$#,", fechaD)
+    // console.log("FECHA D%&$#,", fechaD)
 
     const [show,setShow] = useState([]);
 
@@ -96,7 +106,7 @@ const QuincenaTest = (quincena) => {
 
     const [datos,setDatos] = useState([]);
 
-console.log("Datossd asda",datos)
+// console.log("Datossd asda",datos)
 
     const [personal,setPersonal] = useState([]);
 
@@ -108,6 +118,8 @@ console.log("Datossd asda",datos)
   
     function obtener () {
 
+
+        
 
        
         for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
@@ -135,12 +147,12 @@ console.log("Datossd asda",datos)
         for (let i = +diaOne; i <= diaTwo; i++){
             fechaC.push( ((i<10)? "0"+i : i) + "-" + mesOne + "-" + anioOne)
         }
-
-        console.log("FECHABB::",fBaja)
+// 
+        // console.log("FECHABB::",fBaja)
 
         // fechaD.push(index + "-" + mesOne + "-" + anioOne +"11:00:00")
 
-        console.log("FECHA222$#,", fechaD)
+        // console.log("FECHA222$#,", fechaD)
 
         const diasSemana = fecha => [
             "D",
@@ -161,7 +173,9 @@ console.log("Datossd asda",datos)
         })
     
 
-            console.log("DIASEMANAARRAY::",diaSemanaArray)
+            // console.log("DIASEMANAARRAY::",diaSemanaArray)
+
+
         // arrayD.forEach((item)=>{
         //     diaSemanaArray.forEach((iter)=>{
         //         if(!semanaArray.includes(iter + "/" + item))
@@ -195,7 +209,7 @@ console.log("Datossd asda",datos)
                     
                     reasig.push({Cliente:cliente,Nombre:nombre,Fecha:fecha})
 
-                    console.log("Reasginaciones&/&%$%",reasig)
+                    // console.log("Reasginaciones&/&%$%",reasig)
 
                 })
 
@@ -209,6 +223,15 @@ console.log("Datossd asda",datos)
             if (snapshot.exists()){
                 snapshot.forEach((childSnapshot)=>{
 
+                    const diass = [
+                        "Lunes",
+                        "Martes",
+                        "Miércoles",
+                        "Jueves",
+                        "Viernes",
+                        "Sábado",
+                        "Domingo"
+                    ]
 
                     var nm = childSnapshot.child("Nombre").val()
                     var cl = childSnapshot.child("Cliente").val()
@@ -221,6 +244,13 @@ console.log("Datossd asda",datos)
                     var est = childSnapshot.child("Estatus").val()
                     var dias = childSnapshot.child("Dias").val()
 
+                    // const trya = [];
+
+                    // if (dias != null && dias != "" && diass != dias ){
+                    //     trya.push(dias)
+                    // }
+
+                    // console.log("kmno::",trya)
 
                     // console.log("FechaBComp",fechaB.split("-"))0
 
@@ -229,16 +259,34 @@ console.log("Datossd asda",datos)
                             } else if (fechaI != "" && fechaI >= fffTwo) {
                                 fechaI = null
                             }
-                                if (fechaB != null && fechaI != null){
-                                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),week:dias})
+                                if (fechaB != null && fechaI != null && dias != null){
+                                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),descanso:dias})
                                 }
          
                                 
+                            fechaD.map((x)=>{
+
                             
                               
-                    
+                                  const fechaComoCadena = x
+                                  const diass = [
+                                      "Lunes",
+                                      "Martes",
+                                      "Miércoles",
+                                      "Jueves",
+                                      "Viernes",
+                                      "Sábado",
+                                      "Domingo"
+                                  ]
+
+                                  const numeroDia = new Date(fechaComoCadena).getDay()
+                                  const nombreDia = diass[numeroDia]
+                                  sem.push(nombreDia)
+                                //   console.log("Nombre del Dia:",nombreDia)
+                            
+                                })
                        
-                 
+                                // days.push({[index.toString()]:"/"});
 
 
                         //  if (Date(fechaB) <= Date(fBaja[0]).getTime()){
@@ -264,6 +312,21 @@ console.log("Datossd asda",datos)
 
                       get(child(dbRef,'Justificaciones/')).then((jsnapshot)=>{
                         if (jsnapshot.exists()) {
+
+                            const diass = [
+                                "Domingo",
+                                "Lunes",
+                                "Martes",
+                                "Miércoles",
+                                "Jueves",
+                                "Viernes",
+                                "Sábado"
+                                
+                            ]
+
+                            var tangamandapio = new Date()
+
+
                             jsnapshot.forEach((jchildSnapshot)=>{
             
             
@@ -271,7 +334,7 @@ console.log("Datossd asda",datos)
                                 var key = jchildSnapshot.key;
             
                        
-                                console.log("KEY$$Fecha::",key)
+                                // console.log("KEY$$Fecha::",key)
             
                         
                 
@@ -305,7 +368,7 @@ console.log("Datossd asda",datos)
                                                 var just = cccSnapshot.child("justi").val()
                                                 var sup = cccSnapshot.child("suplencia").val()
                                                 var obser = cccSnapshot.child("observaciones").val()
-                
+                                                var ubic =  cccSnapshot.child("Ubicacion").val()
                                                 var state = cccSnapshot.child("estado").val()
                 
                                                 if (just == null){
@@ -315,7 +378,6 @@ console.log("Datossd asda",datos)
                                                 if (obser == null){
                                                     obser = ""
                                                 }
-
                                                 // if (cl == validateTwo && nm == nombr && state != null) {
                                                 //     // date.push(key)
                                                 //     datos.push({
@@ -346,18 +408,19 @@ console.log("Datossd asda",datos)
                                                         Estado:incidenci,
                                                         Justificacion:just,
                                                         Suplencia:sup,
-                                                        Observaciones:obser})
+                                                        Observaciones:obser,
+                                                        Ubicacion:ubic})
                                                 }
                                             })
                 
                                             })
 
-
+                                            
                                             datos.forEach((item)=>{
                                                 justificaciones.forEach((iter)=>{
-                                                    diaSemanaArray.forEach((nyx)=>{
+                                           
 
-                                                    
+                                                   
                                                     
 
                                                    var index =0;     
@@ -373,10 +436,19 @@ console.log("Datossd asda",datos)
 
                                                         // if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] )
 
-                                                        
-                                                        //test
+                                                    //if(index==0){
 
-                                                        if (item.Horario == iter.Turno && item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
+                                                    //    console.log(diass[(new Date(fechaD[index])).getDay()] +"  ===   ",item.descanso)
+                                                   //}
+    
+                                                        tangamandapio=(new Date(fechaD[index])).getDay()
+
+                                                        // if(!item.descanso.includes(diass[tangamandapio])){
+                                                        //     item.dias[index]= {[Object.keys(dialokobydiego)[0]]:"descansa este sujete "}
+                                                        // }  
+                                                
+
+                                                        if (item.Horario == iter.Turno && item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && item.Ubicacion == iter.Ubicacion && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion}
                                                         }
@@ -398,6 +470,19 @@ console.log("Datossd asda",datos)
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Observaciones}
                                                             }
 
+                                                            else if (!item.descanso.includes(diass[tangamandapio])){
+                                                                item.dias[index]= {[Object.keys(dialokobydiego)[0]]:""}
+                                                            }
+                                                            
+                                                            
+
+                                                            
+
+                                                            
+                                                            
+                                                            
+                                                            
+
                                                             // else if(item.week != null && item.week != "" && item.week.substring(0,1) !=  nyx.substring(0,1)){
                                                             //     item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                                             // }
@@ -408,7 +493,7 @@ console.log("Datossd asda",datos)
                                                         index++;
 
                                                     })
-                                                })
+                                               
 
                                                 })
                                             })
@@ -428,7 +513,7 @@ console.log("Datossd asda",datos)
                         fechaC.forEach((efe)=>{
 
                         
-                            if (item.Nombre == iter.Nombre && efe == item.Fecha.substring(0,10)){
+                            if (item.Nombre == iter.Nombre && efe == item.Fecha){
                                     iter.Reasignacion = item.Fecha.substring(0,2) + "/" + item.Cliente
                             } else {
                                 iter.Reasignacion = ""
@@ -467,16 +552,20 @@ console.log("Datossd asda",datos)
 
             return 0;
           })
-
+        //   var audio = new Audio(cj);
+        //   audio.loop = true;
+        //   audio.play();
 
 
         setTimeout(()=>{
+
             mostrarReporte();
          
         },1000)
 
 
     }
+    
 
     
     function getDays(){
@@ -490,7 +579,7 @@ console.log("Datossd asda",datos)
         //     days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString()]:"/"})
         // }
 
-        console.log("Days",days)
+        // console.log("Days",days)
 
         return days;
 
@@ -709,6 +798,7 @@ return (
 
     </div>
 )
+
 
 
 
