@@ -367,7 +367,7 @@ const Quincena = (quincena) => {
                                                 var just = cccSnapshot.child("justi").val()
                                                 var sup = cccSnapshot.child("suplencia").val()
                                                 var obser = cccSnapshot.child("observaciones").val()
-                
+                                                var ubic =  cccSnapshot.child("Ubicacion").val()
                                                 var state = cccSnapshot.child("estado").val()
                 
                                                 if (just == null){
@@ -407,7 +407,8 @@ const Quincena = (quincena) => {
                                                         Estado:incidenci,
                                                         Justificacion:just,
                                                         Suplencia:sup,
-                                                        Observaciones:obser})
+                                                        Observaciones:obser,
+                                                        Ubicacion:ubic})
                                                 }
                                             })
                 
@@ -416,7 +417,7 @@ const Quincena = (quincena) => {
                                             
                                             datos.forEach((item)=>{
                                                 justificaciones.forEach((iter)=>{
-                                                    sem.forEach((x)=>{
+                                           
 
                                                    
                                                     
@@ -446,7 +447,7 @@ const Quincena = (quincena) => {
                                                         // }  
                                                 
 
-                                                        if (item.Horario == iter.Turno && item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
+                                                        if (item.Horario == iter.Turno && item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && item.Ubicacion == iter.Ubicacion && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion}
                                                         }
@@ -491,7 +492,7 @@ const Quincena = (quincena) => {
                                                         index++;
 
                                                     })
-                                                })
+                                               
 
                                                 })
                                             })
