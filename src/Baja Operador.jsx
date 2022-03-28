@@ -88,6 +88,7 @@ const BajaOperador = (baja) => {
         vacanteB.forEach((item)=>{
           update(ref(db,'Operador/' + "Vacante" + nombre),{
             Nombre:"Vacante",
+            Dias:[ "", "", "", "", "", "" ],
             Cliente:item.Cliente,
             Ubicacion:item.Ubicacion,
             Horario:item.Horario,

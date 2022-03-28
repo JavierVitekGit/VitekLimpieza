@@ -249,7 +249,7 @@ console.log("Datossd asda",datos)
                                 var key = jchildSnapshot.key;
             
                        
-                                console.log("KEY$$Fecha::",key)
+                                // console.log("KEY$$Fecha::",key)
             
                         
                 
@@ -346,21 +346,20 @@ console.log("Datossd asda",datos)
                                            
                                                         tangamandapio=(new Date(fechaD[index])).getDay()
 
+                                                        
                                                         // item.dias[index] = {[Object.keys(dialokobydiego)[0]]:item.Nombre}
                                                         
-                                                        if (item.Nombre == iter.Nombre && item.Horario == iter.Turno  && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
+                                                        
+                                                         if (item.Nombre == iter.Nombre && item.Horario == iter.Turno  && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Suplencia}
                                                             
                                                         }
-                                                        
-                                                        
-                                                        
+        
+                                                            else if (item.Nombre == "Vacante"){
 
-                                                        else if (item.Nombre == "Vacante"){
-
-                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]: ""}
-                                                        } 
+                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]: ""}
+                                                            } 
 
                                                             else if (item.Baja != null && item.Baja != "" && item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]){
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
@@ -370,14 +369,33 @@ console.log("Datossd asda",datos)
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                                             } 
                                                             
-
                                                             else if (!item.descanso.includes(diass[tangamandapio])){
                                                                 item.dias[index]= {[Object.keys(dialokobydiego)[0]]:""}
                                                             }
 
+                                                            // else if (iter.Suplencia == "no se cubrio"){
+                                                            //     iter.Suplencia = "F"
+                                                            // }
+
+                                                            // else if (iter.Suplencia == "F" & iter.Estado == "Vacaciones") {
+                                                            //     iter.Suplencia = "V"
+                                                            // }
+
+                                                            // else if(item.Nombre == iter.Nombre) {
+                                                            //     item.dias[index] = {[Object.keys(dialokobydiego)[0]]:item.Nombre}    
+                                                            // }
+
+                                                            // else if (item.Nombre == iter.Nombre 
+                                                            //             && item.Horario == iter.Turno  
+                                                            //             && item.Cliente == iter.Cliente 
+                                                            //             && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]
+                                                            //             ){
+                                                            //                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:item.Nombre}
+                                                            //             }
+
                                                             
 
-                                                        
+                                                            
                                                                 
                                                             
                                                             
@@ -452,11 +470,12 @@ console.log("Datossd asda",datos)
             return 0;
           })
 
-
+          
 
         setTimeout(()=>{
             mostrarReporte();
          
+            
         },1000)
 
 
@@ -474,7 +493,7 @@ console.log("Datossd asda",datos)
         //     days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString()]:"/"})
         // }
 
-        console.log("Days",days)
+        // console.log("Days",days)
 
         return days;
 
@@ -630,7 +649,15 @@ return (
 
                 <tbody>
                     {
+
+                        
                         datos.map((item)=>{
+                            // var x = document.getElementById("generate").textContent
+                            // if (x == "no se cubrio") {
+                            //     document.getElementById("testColor").style.backgroundColor("#df2828a8");
+                            // }
+                            
+
                             return(
 
                                 <tr>
@@ -672,7 +699,7 @@ return (
                                        
 
                                             // return(<td>{d[arrayD[inx.toString()]]}</td>)
-                                            return (<td>{d[arrayD[inx.toString()]]}</td>)
+                                            return (<td id="testColor">{d[arrayD[inx.toString()]]}</td>)
                                         })
                                     }
 
