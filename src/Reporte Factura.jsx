@@ -19,6 +19,7 @@ import './Quincena.css'
 
 import { CSVLink, CSVDownload } from "react-csv";
 import Reasignacion from "./Reasignacion.jsx";
+import { instrument } from "redux-devtools";
 
 
 
@@ -325,16 +326,14 @@ console.log("Datossd asda",datos)
 
 
                                             datos.forEach((item)=>{
-                                                justificaciones.forEach((iter)=>{
                                                 
 
+                                                   item.dias.forEach((dialokobydiego, index)=>{
+                                                    item.dias[index] = {[Object.keys(dialokobydiego)[0]]:item.Nombre}
                                                     
-                                                    
-
-                                                   var index =0;     
-
-                                                   item.dias.forEach((dialokobydiego)=>{
-                                                       
+                                                    justificaciones.forEach((iter)=>{
+                                                     
+                                                 
 
                                                     // console.log(""+iter.Fecha.substring(0,2) +"=="+ Object.keys(dialokobydiego)[0]  );
                                                     // console.log(dialokobydiego)
@@ -343,13 +342,15 @@ console.log("Datossd asda",datos)
                                                         // console.log("dialokobyDiego",item.Baja.substring(8,10))
 
                                                         // if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] )
-                                           
+                                                        
+
                                                         tangamandapio=(new Date(fechaD[index])).getDay()
 
                                                         
-                                                        // item.dias[index] = {[Object.keys(dialokobydiego)[0]]:item.Nombre}
-                                                        
-                                                        
+                                                       
+                                                      
+                                                       
+                                                         
                                                          if (item.Nombre == iter.Nombre && item.Horario == iter.Turno  && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Suplencia}
@@ -371,7 +372,10 @@ console.log("Datossd asda",datos)
                                                             
                                                             else if (!item.descanso.includes(diass[tangamandapio])){
                                                                 item.dias[index]= {[Object.keys(dialokobydiego)[0]]:""}
-                                                            }
+                                                            } 
+
+                                                            
+                                                            
 
                                                             // else if (iter.Suplencia == "no se cubrio"){
                                                             //     iter.Suplencia = "F"
@@ -405,17 +409,18 @@ console.log("Datossd asda",datos)
                                                             // }
 
                                   
-                                                        
-
-                                                        index++;
 
                                                     })
-                                                
+                                                   
 
                                                 })
+                                            
+
+
                                             })
 
                                         var state = ccSnapshot.child("estado").val()
+                                       
                 
                                     })
                 
