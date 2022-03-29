@@ -421,15 +421,16 @@ const QuincenaTest = (quincena) => {
 
                                             
                                             datos.forEach((item)=>{
+                                                item.dias.forEach((dialokobydiego,index)=>{
                                                 justificaciones.forEach((iter)=>{
                                            
 
                                                    
                                                     
 
-                                                   var index =0;     
+                                               
 
-                                                   item.dias.forEach((dialokobydiego)=>{
+                                                   
                                                        
 
                                                     // console.log(""+iter.Fecha.substring(0,2) +"=="+ Object.keys(dialokobydiego)[0]  );
@@ -500,7 +501,7 @@ const QuincenaTest = (quincena) => {
                                   
                                                         
 
-                                                        index++;
+                                              
 
                                                     })
                                                
