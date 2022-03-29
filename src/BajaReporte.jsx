@@ -23,22 +23,20 @@ const BajaReporte = (quincena) => {
 
     const [fechaC,setFechaC] = useState([]);
 
-    console.log("#FECHACC$&%:",fechaC)
+
 
     const [dateOne,setDateOne] = useState(new Date().toISOString())
     const [dateTwo,setDateTwo] = useState(new Date().toISOString())
 
-    console.log("Date One", dateOne)
-    console.log("Date Two", dateTwo)
 
-    console.log("Dif String:::", dateTwo.substring(8,10) - dateOne.substring(8,10))
+   
 
     const today = new Date()
 
     const min = new Date(2022, 1,15);
     const minInput = min.toISOString().split('T')[0]
 
-    console.log("Today",today)
+  
 
     var diaOne = dateOne.substring(8,10)
     var mesOne = dateOne.substring(5,7)
@@ -57,27 +55,22 @@ const BajaReporte = (quincena) => {
     const fffBaja = anioOne + "-" + mesOne + "-" + diaOne
     const fffTwo= anioTwo + "-" + mesTwo + "-" + diaTwo
 
-    console.log("FechaUno::",fechaUno)
+    
 
     const [arrayD,setArrayD] = useState([])
-    
-    const [generalData,setGeneralData] = useState([]);
 
-
-    const [justificaciones,setJustificaciones] = useState([]);
-
-    console.log("Justificaciones", justificaciones)
+   
 
 
     const [reasig,setReasig] = useState([]);
     
 
-    console.log(arrayD)
+   
 
 
     const [fechaD,setFechaD] = useState([]);
 
-    console.log("FECHA D%&$#,", fechaD)
+   
 
     const [show,setShow] = useState([]);
 
@@ -92,7 +85,10 @@ const BajaReporte = (quincena) => {
 
     const [datos,setDatos] = useState([]);
 
-console.log("Datossd asda",datos)
+    const [dataI,setDataI] = useState([]);
+
+    const [dataB,setDataB] = useState([])
+
 
     const [personal,setPersonal] = useState([]);
 
@@ -132,11 +128,11 @@ console.log("Datossd asda",datos)
             fechaC.push( ((i<10)? "0"+i : i) + "-" + mesOne + "-" + anioOne)
         }
 
-        console.log("FECHABB::",fBaja)
+ 
 
         // fechaD.push(index + "-" + mesOne + "-" + anioOne +"11:00:00")
 
-        console.log("FECHA222$#,", fechaD)
+
 
         const diasSemana = fecha => [
             "D",
@@ -157,7 +153,7 @@ console.log("Datossd asda",datos)
         })
     
 
-            console.log("DIASEMANAARRAY::",diaSemanaArray)
+
         // arrayD.forEach((item)=>{
         //     diaSemanaArray.forEach((iter)=>{
         //         if(!semanaArray.includes(iter + "/" + item))
@@ -219,17 +215,25 @@ console.log("Datossd asda",datos)
 
 
                     // console.log("FechaBComp",fechaB.split("-"))0
+                               
 
-                                if (fechaB != "" && fechaB < fffBaja && fechaI != "" && fechaI < fffBaja){
+                                if (fechaB != "" && fechaB < fffBaja ){
                                     fechaB = null
                                 }
 
-                                
-
-                                if (fechaB != null && fechaB != "" && fechaB <= fffTwo && fechaI != "" && fechaI != null && fechaI <= fffTwo){ 
-                                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),week:dias})
+                                if (fechaI != "" && fechaI < fffBaja){
+                                    fechaI = null
                                 }
-         
+
+                                if (fechaI != null && fechaI != "" && fechaI <= fffTwo) {
+                                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Puesto:puest})
+                                    
+                                }
+                               
+                                if (fechaB != null && fechaB != "" && fechaB <= fffTwo ){ 
+                                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Puesto:puest})
+                                }
+
                                 
                             
                               
@@ -268,7 +272,7 @@ console.log("Datossd asda",datos)
                                 var key = jchildSnapshot.key;
             
                        
-                                console.log("KEY$$Fecha::",key)
+                          
             
                         
                 
@@ -346,8 +350,11 @@ console.log("Datossd asda",datos)
 
         setTimeout(()=>{
             mostrarReporte();
+            console.log("Concat",dataI.concat(dataB))
          
-        },300)
+        },1000)
+
+        
 
 
     }
@@ -364,7 +371,7 @@ console.log("Datossd asda",datos)
         //     days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString()]:"/"})
         // }
 
-        console.log("Days",days)
+ 
 
         return days;
 
