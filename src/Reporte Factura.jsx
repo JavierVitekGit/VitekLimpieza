@@ -15,7 +15,7 @@ import { formatRelative, subDays} from 'date-fns'
 import {es} from 'date-fns/locale'
 import './Firebase init'
 import './Quincena.css'
-
+import Loading from "./Loading";
 
 import { CSVLink, CSVDownload } from "react-csv";
 import Reasignacion from "./Reasignacion.jsx";
@@ -27,6 +27,8 @@ const Factura = (factura) => {
 
 
     const [fechaC,setFechaC] = useState([]);
+
+    const [loading,setLoading] = useState(false)
 
     console.log("#FECHACC$&%:",fechaC)
 
@@ -109,7 +111,7 @@ console.log("Datossd asda",datos)
   
     function obtener () {
 
-
+        setLoading(true)
        
         for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
             arrayD.push(index);
@@ -478,12 +480,18 @@ console.log("Datossd asda",datos)
           
 
         setTimeout(()=>{
+
+            setLoading(false)
             mostrarReporte();
          
             
         },1000)
 
 
+    }
+
+    if(loading){
+        return(<Loading/>)
     }
 
     

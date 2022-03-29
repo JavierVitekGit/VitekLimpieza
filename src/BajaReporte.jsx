@@ -14,8 +14,13 @@ import { formatRelative, subDays} from 'date-fns'
 import {es} from 'date-fns/locale'
 import './Firebase init'
 import './Quincena.css'
+import Loading from "./Loading";
+import { Spinner } from "reactstrap";
 
 import SideBar from "./Sidebar";
+import { render } from "@testing-library/react";
+
+
 
 
 const BajaReporte = (quincena) => {
@@ -23,12 +28,14 @@ const BajaReporte = (quincena) => {
 
     const [fechaC,setFechaC] = useState([]);
 
+    const [loading,setLoading] = useState(false)
+
 
 
     const [dateOne,setDateOne] = useState(new Date().toISOString())
     const [dateTwo,setDateTwo] = useState(new Date().toISOString())
 
-
+    
    
 
     const today = new Date()
@@ -97,10 +104,17 @@ const BajaReporte = (quincena) => {
 
     
     const [diaSemanaArray,setDiaSemanaArray] = useState([]);
+
+   
+
+    
+
+
   
     function obtener () {
 
-
+        
+     setLoading(true)
        
         for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
             arrayD.push(index);
@@ -346,18 +360,36 @@ const BajaReporte = (quincena) => {
             return 0;
           })
 
-
+        
+         
+ 
+          
+ 
+          
 
         setTimeout(()=>{
-            mostrarReporte();
-            console.log("Concat",dataI.concat(dataB))
+            
+            setLoading(false)
          
+        //   setLoading(false)
+           
+            mostrarReporte()
+        
+      
+               
+
         },1000)
 
-        
-
+    
 
     }
+
+    if(loading){
+        return(<Loading/>)
+    }
+     else {
+
+     }
 
     
     function getDays(){
@@ -380,6 +412,8 @@ const BajaReporte = (quincena) => {
 
     }
 
+
+ 
 
     // F U N C I O N   P E R R O N A
     
@@ -476,6 +510,7 @@ return (
         <div className="cgHeader">    <h1>Reporte de Bajas</h1> </div>
 
         <br/>
+       
         <br/>
 
         <input type="date" value={dateOne} onChange={v=>setDateOne(v.target.value)} min={minInput}></input>
@@ -488,6 +523,14 @@ return (
        
         <input type="button" class="btn btn-success" value="Ver reporte" onClick={obtener} />
 
+            <br/>
+            <br/>
+
+       
+          
+    
+            
+      
 
 
         </div>
