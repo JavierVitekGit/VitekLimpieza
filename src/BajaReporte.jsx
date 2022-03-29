@@ -328,17 +328,7 @@ const BajaReporte = (quincena) => {
 //      !item.includes(iter.Ingreso)
 
                 
-                        datos.forEach((iter)=>{
-                            if (iter.Ingreso != null && iter.Ingreso != "" && iter.Ingreso <= fffBaja  ) {
-                                    iter.Ingreso = ""
-                            }
-                        })
-                
-                        datos.forEach((x)=>{
-                            if (x.Baja != null && x.Baja != "" && x.Baja < fffBaja){
-                                x.Baja = ""
-                            }
-                        })
+
 
                     // diaSemanaArray.forEach((item)=>{
                     //     datos.forEach((iter)=>{

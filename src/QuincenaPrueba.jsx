@@ -256,9 +256,9 @@ const QuincenaTest = (quincena) => {
 
                     // console.log("FechaBComp",fechaB.split("-"))0
 
-                            if ( fechaB != "" && fechaB <= fffBaja){
+                            if ( fechaB != "" && fechaB < fffBaja){
                                 fechaB = null
-                            } else if (fechaI != "" && fechaI >= fffTwo) {
+                            } else if (fechaI != "" && fechaI > fffTwo) {
                                 fechaI = null
                             }   
                                 if (fechaB != null && fechaI != null && dias != null){
@@ -541,7 +541,7 @@ const QuincenaTest = (quincena) => {
 
                 
                         datos.forEach((iter)=>{
-                            if (iter.Ingreso != null && iter.Ingreso != "" && iter.Ingreso <= fffBaja  ) {
+                            if (iter.Ingreso != null && iter.Ingreso != "" && iter.Ingreso < fffBaja  ) {
                                     iter.Ingreso = ""
                             }
                         })
