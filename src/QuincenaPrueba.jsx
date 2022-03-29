@@ -20,12 +20,15 @@ import SideBar from "./Sidebar";
 import { CSVLink, CSVDownload } from "react-csv";
 import Reasignacion from "./Reasignacion.jsx";
 
+import Loading from "./Loading";
 
 
 const QuincenaTest = (quincena) => {
 
  
     const [fechaC,setFechaC] = useState([]);
+
+    const [loading,setLoading] = useState(false)
 
     // console.log("#FECHACC$&%:",fechaC)
 
@@ -117,7 +120,7 @@ const QuincenaTest = (quincena) => {
   
     function obtener () {
 
-
+        setLoading(true)
         
 
        
@@ -569,7 +572,7 @@ const QuincenaTest = (quincena) => {
 
 
         setTimeout(()=>{
-
+            setLoading(false)
             mostrarReporte();
          
         },1000)
@@ -577,6 +580,9 @@ const QuincenaTest = (quincena) => {
 
     }
     
+    if(loading){
+        return(<Loading/>)
+    }
 
     
     function getDays(){
