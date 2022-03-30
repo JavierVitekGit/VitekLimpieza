@@ -485,8 +485,10 @@ function back () {
   setPuestSelect('');
   setUbicSelect('');
   setTurnSelect('');
+  setFecha('')
   arrayc = [];
   mostrarClientes();
+  
 }
 
 
