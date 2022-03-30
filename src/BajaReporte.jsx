@@ -324,21 +324,6 @@ const BajaReporte = (quincena) => {
 
                    
 
-
-//      !item.includes(iter.Ingreso)
-
-                
-
-
-                    // diaSemanaArray.forEach((item)=>{
-                    //     datos.forEach((iter)=>{
-                    //         if (iter.week != null & iter.week != "" && iter.week.substring(0,1) != item.substring(0,1)){
-                                
-                    //         }
-                    //     })
-                    // })
-
-
             }
         })
 
