@@ -146,7 +146,7 @@ const App = (app) => {
 
       <Route path ="/ReporteM" element={<Factura/>} />
 
-      <Route path ="/ReporteBaja" element={<SidebarPro/>} />
+      <Route path ="/Reporte%20Bajas" element={<BajaReporte/>} />
 
 
       </Routes>

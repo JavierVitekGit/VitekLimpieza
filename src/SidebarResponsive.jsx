@@ -13,7 +13,7 @@ import { NavLink } from 'react-router-dom';
 const SidebarPro = () => {
   return (
     <div
-      style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}
+      style={{ position: 'absolute', height: '100vh', overflow: 'scroll initial' }}
     >
       <CDBSidebar textColor="#fff" backgroundColor="black">
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
@@ -33,41 +33,44 @@ const SidebarPro = () => {
             </NavLink>
             <CDBSidebarMenu
               icon="book"
-              suffix={
-                <CDBBadge color="danger" size="small" borderType="pill">
-                  new
-                </CDBBadge>
-              }
+              
             > 
+            <NavLink exact to="/Baja del Cliente">
               <CDBSidebarMenuItem>Baja del Cliente</CDBSidebarMenuItem>
+              </NavLink>
+
+              <NavLink exact to="/Añadir Turno">
               <CDBSidebarMenuItem>Añadir Turno</CDBSidebarMenuItem>
+              </NavLink>
 
             </CDBSidebarMenu>
-            <NavLink exact to="/tables" activeClassName="activeClicked">
+            <NavLink exact to="/Alta del Operador" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="bi bi-phone-fill">Alta del Operador</CDBSidebarMenuItem>
             </NavLink>
 
             <CDBSidebarMenu
               icon="book"
-              suffix={
-                <CDBBadge color="danger" size="small" borderType="pill">
-                  new
-                </CDBBadge>
-              }
             > 
-
+                <NavLink exact to="/Baja del Operador">
               <CDBSidebarMenuItem>Baja del Operador</CDBSidebarMenuItem>
-              <CDBSidebarMenuItem>Reasignacion</CDBSidebarMenuItem>
+                </NavLink>
+
+                <NavLink exact to="/Reasignacion">
+              <CDBSidebarMenuItem>Reasignación</CDBSidebarMenuItem>
+                </NavLink>
+
+                <NavLink exact to="/Cambio de Numero">
               <CDBSidebarMenuItem>Cambio de Número</CDBSidebarMenuItem>
+                </NavLink>
 
             </CDBSidebarMenu>
 
-            <NavLink exact to="/profile" activeClassName="activeClicked">
+            <NavLink exact to="/Calendario" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="table">Justificaciones</CDBSidebarMenuItem>
             </NavLink>
 
             
-            <NavLink exact to="/analytics" activeClassName="activeClicked">
+            <NavLink exact to="/Reporte Quincenal" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="chart-line">
                 Reporte Quincenal
               </CDBSidebarMenuItem>
@@ -75,14 +78,15 @@ const SidebarPro = () => {
 
             <CDBSidebarMenu
               icon="book"
-              suffix={
-                <CDBBadge color="danger" size="small" borderType="pill">
-                  new
-                </CDBBadge>
-              }
             > 
+
+                <NavLink exact to="/ReporteM">
               <CDBSidebarMenuItem>Reporte Mensual</CDBSidebarMenuItem>
+                </NavLink>
+
+                <NavLink exact to="/Reporte Bajas">
               <CDBSidebarMenuItem>Reporte de Bajas e Ingresos</CDBSidebarMenuItem>
+                </NavLink>
 
             </CDBSidebarMenu>
 
@@ -96,7 +100,7 @@ const SidebarPro = () => {
               padding: '20px 5px',
             }}
           >
-            Nhyix
+            {/* Nhyix */}
           </div>
         </CDBSidebarFooter>
       </CDBSidebar>
