@@ -19,6 +19,7 @@ import { Spinner } from "reactstrap";
 
 import SideBar from "./Sidebar";
 import { render } from "@testing-library/react";
+import SidebarPro from "./SidebarResponsive";
 
 
 
@@ -458,7 +459,7 @@ return (
             
 
             <div className="adminSide">
-            <SideBar></SideBar>
+            <SidebarPro></SidebarPro>
             
             </div>
 
