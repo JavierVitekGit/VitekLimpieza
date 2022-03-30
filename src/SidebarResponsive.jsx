@@ -6,6 +6,7 @@ import {
   CDBSidebarHeader,
   CDBSidebarMenu,
   CDBSidebarMenuItem,
+  CDBBadge
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
 
@@ -21,43 +22,71 @@ const SidebarPro = () => {
             className="text-decoration-none"
             style={{ color: 'inherit' }}
           >
-            Sidebar
+            ABC
           </a>
         </CDBSidebarHeader>
 
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
             <NavLink exact to="/Alta del Cliente" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="columns">Dashboard</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="bi bi-newspaper">Alta del Cliente</CDBSidebarMenuItem>
             </NavLink>
+            <CDBSidebarMenu
+              icon="book"
+              suffix={
+                <CDBBadge color="danger" size="small" borderType="pill">
+                  new
+                </CDBBadge>
+              }
+            > 
+              <CDBSidebarMenuItem>Baja del Cliente</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem>Añadir Turno</CDBSidebarMenuItem>
+
+            </CDBSidebarMenu>
             <NavLink exact to="/tables" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="table">Tables</CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink exact to="/profile" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="user">Profile page</CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink exact to="/analytics" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="chart-line">
-                Analytics
-              </CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink exact to="/tables" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="table">Test1</CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink exact to="/tables" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="table">Test2</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="bi bi-phone-fill">Alta del Operador</CDBSidebarMenuItem>
             </NavLink>
 
-            <NavLink
-              exact
-              to="/hero404"
-              target="_blank"
-              activeClassName="activeClicked"
-            >
-              <CDBSidebarMenuItem icon="exclamation-circle">
-                404 page
+            <CDBSidebarMenu
+              icon="book"
+              suffix={
+                <CDBBadge color="danger" size="small" borderType="pill">
+                  new
+                </CDBBadge>
+              }
+            > 
+
+              <CDBSidebarMenuItem>Baja del Operador</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem>Reasignacion</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem>Cambio de Número</CDBSidebarMenuItem>
+
+            </CDBSidebarMenu>
+
+            <NavLink exact to="/profile" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="table">Justificaciones</CDBSidebarMenuItem>
+            </NavLink>
+
+            
+            <NavLink exact to="/analytics" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="chart-line">
+                Reporte Quincenal
               </CDBSidebarMenuItem>
             </NavLink>
+
+            <CDBSidebarMenu
+              icon="book"
+              suffix={
+                <CDBBadge color="danger" size="small" borderType="pill">
+                  new
+                </CDBBadge>
+              }
+            > 
+              <CDBSidebarMenuItem>Reporte Mensual</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem>Reporte de Bajas e Ingresos</CDBSidebarMenuItem>
+
+            </CDBSidebarMenu>
+
+      
           </CDBSidebarMenu>
         </CDBSidebarContent>
 
@@ -67,7 +96,7 @@ const SidebarPro = () => {
               padding: '20px 5px',
             }}
           >
-            Sidebar Footer
+            Nhyix
           </div>
         </CDBSidebarFooter>
       </CDBSidebar>
