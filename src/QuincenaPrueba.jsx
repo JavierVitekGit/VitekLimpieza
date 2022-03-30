@@ -527,7 +527,7 @@ const QuincenaTest = (quincena) => {
                         fechaC.forEach((efe)=>{
 
                         
-                            if (item.Nombre == iter.Nombre && efe == item.Fecha){
+                            if (item.Nombre == iter.Nombre && efe == item.Fecha.substring(0.10)){
                                     iter.Reasignacion = item.Fecha.substring(0,2) + "/" + item.Cliente
                             } else {
                                 iter.Reasignacion = ""
