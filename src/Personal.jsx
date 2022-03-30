@@ -459,7 +459,7 @@ opUbic.forEach((item)=>{
 }
 
 
-// function back () {
+// function backs() {
 //   ID = (''),
 //   nombre = (''),
 //   apellidoP = (''),
@@ -473,6 +473,21 @@ opUbic.forEach((item)=>{
 //   arrayc = [],
 //   mostrarClientes();
 // }
+
+function back () {
+  onChange1('');
+  onChange2('');
+  setApellidoP('');
+  setApellidoM('');
+  onChange3('');
+  onChange4('');
+  setClientSelect('')
+  setPuestSelect('');
+  setUbicSelect('');
+  setTurnSelect('');
+  arrayc = [];
+  mostrarClientes();
+}
 
 
 /*
@@ -729,7 +744,7 @@ return(
 
           <input id="guardarP" class="btn btn-success" type="submit" value="Guardar" onClick={comprobar}></input>
         
-          <input type="submit" class="btn btn-primary" id="idk" value="Regresar" onClick={mostrarClientes} />
+          <input type="submit" class="btn btn-primary" id="idk" value="Regresar" onClick={back} />
           
           </div>
 
