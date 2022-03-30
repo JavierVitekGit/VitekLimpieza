@@ -305,13 +305,6 @@ const BajaReporte = (quincena) => {
             
                                     cSnapshot.forEach((ccSnapshot)=>{
             
-            
-                
-                                            
-
-
-                                         
-
                                         var state = ccSnapshot.child("estado").val()
                 
                                     })
