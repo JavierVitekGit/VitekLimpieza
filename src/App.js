@@ -59,6 +59,7 @@ import ReporteG from './Reporte General';
 import Factura from './Reporte Factura';
 import CalendarioFel from './Calendario Felipe';
 import BajaReporte from './BajaReporte'
+import SidebarPro from './SidebarResponsive';
 
 const App = (app) => {
 
@@ -145,7 +146,7 @@ const App = (app) => {
 
       <Route path ="/ReporteM" element={<Factura/>} />
 
-      <Route path ="/ReporteBaja" element={<BajaReporte/>} />
+      <Route path ="/ReporteBaja" element={<SidebarPro/>} />
 
 
       </Routes>
