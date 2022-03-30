@@ -248,24 +248,11 @@ const BajaReporte = (quincena) => {
                                     datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Puesto:puest})
                                 }
 
-                                
-                            
-                              
-                    
-                       
-                 
 
 
                         //  if (Date(fechaB) <= Date(fBaja[0]).getTime()){
                         //     datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),week:dias})
-                        //  }
-
-                    
-                        
-                   
-           
-     
-                   
+                        //  }----
              
                     datos.sort((a,b) => {
                         if (a.Cliente < b.Cliente) return -1;
