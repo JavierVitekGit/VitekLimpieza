@@ -209,12 +209,12 @@ console.log("Datossd asda",datos)
 
 
 
-                            if (fechaB != "" && fechaB <= fffBaja){
+                            if (fechaB != "" && fechaB < fffBaja){
                                 fechaB = null
-                            } else if (fechaI != "" && fechaI >= fffTwo) {
+                            } else if (fechaI != "" && fechaI > fffTwo) {
                                 fechaI = null
                             }
-                                if (fechaB != null && fechaI != null){
+                                if (fechaB != null && fechaI != null && dias != null){
                                     datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),descanso:dias})
                                 }
          
@@ -451,7 +451,7 @@ console.log("Datossd asda",datos)
 
                 
                         datos.forEach((iter)=>{
-                            if (iter.Ingreso != null && iter.Ingreso != "" && iter.Ingreso <= fffBaja  ) {
+                            if (iter.Ingreso != null && iter.Ingreso != "" && iter.Ingreso < fffBaja  ) {
                                     iter.Ingreso = ""
                             }
                         })

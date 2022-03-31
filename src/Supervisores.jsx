@@ -1,13 +1,81 @@
 import SidebarPro from './SidebarResponsive';
 
-export {React,useState} from 'react';
+import {React,useState,useLayoutEffect,useCallback} from "react";
+import { child, get, getDatabase, ref } from 'firebase/database';
+import Autocomplete from '@mui/material/Autocomplete';
+import TextField from '@mui/material/TextField';
+
+
 
 const Supervisores = (supervisores) => {
 
 
 
+const dbRef = ref(getDatabase())
+
+
+const [, updateState] = useState();
+const forceUpdate = useCallback(() => updateState({}), []);  
+
+const [datos,setDatos] = useState([])
+
+const [client,setClient] = useState([])
+
+
+const [selClient,setSelClient] = useState('')
+
+
+
+
+
+
+const [supA,setSupA] = useState([])
+
+datos.forEach((item)=>{
+    if(!client.includes(item.Cliente)){
+        client.push(item.Cliente)
+    }
+})
+
+const ubicA = []
+
+datos.forEach((item)=>{
+    if(item.Cliente == selClient){
+        ubicA.push(item.Ubicacion)
+    }
+})
+
+
+
+
+
+
+useLayoutEffect(()=>{
+
+
+
+get(child(dbRef,'ClienteUbicacion')).then((snapshot)=>{
+    if(snapshot.exists()){
+        snapshot.forEach((childSnapshot)=>{
+            var cl = childSnapshot.child("Nombre").val()
+            var ubic = childSnapshot.child("Ubicacion").val()
+            var sup = childSnapshot.child("Supervisor").val()
+
+            
+
+            datos.push({Cliente:cl,Ubicacion:ubic,Supervisor:sup})
+
+
+
+        })
+    }
+})
+
+
+},[])
 
     
+
 
 return(
 
@@ -32,19 +100,33 @@ return(
     <div className="container">
 
 
-        <label id="rfcL" class="form-outline-label">Nombre del Cliente</label>
+        <label id="rfcL" class="form-outline-label">Cliente</label>
 
         <br />
 
-        <select >
+        {/* <Autocomplete
+          onClick={forceUpdate}
+          options={unicClient}
+          sx={{width:300}} 
+          renderInput={(params) => <TextField {...params} label="Clientes" />}
+          value={selClient}
+          onChange={(_event,value)=>{setSelClient(value)}}
+          // onChange={v=>item.suplencia = v.target.value}
+          autoSelect={true}
+          id="autocompleteCl"
+          noOptionsText="Sin coincidencias"
+          /> */}
 
-        </select>
+          <select onClick={forceUpdate} onChange={v=>setSelClient(v.target.value)}>
+              {client.map((item)=> <option>{item}</option>)}
+          </select>
+
           <br/>
      
-          <label class="form-otline-label">Ubicación a reasignar</label>
+          <label class="form-otline-label">Ubicación</label>
         <br/>
-        <select  >
-         
+        <select onClick={forceUpdate} >
+         {ubicA.map((item)=>{<option>{item}</option>})}
         </select>
 
         <br/>
