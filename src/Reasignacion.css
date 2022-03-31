@@ -7,9 +7,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
     color: black;
-    font-style: oblique;
     position: fixed;
     width: 100%;
     height: 100%;
@@ -39,6 +37,7 @@
   border-radius: 5px;
   width: 70%;
   height: 80%;
+  font-size: calc(10px + 2vmin);
 }
 
 #number{
@@ -49,7 +48,6 @@
 
   background-color: black;
   width: 100%;
-  margin-left: 78px;
   color: white;
   text-align: center;
 }
