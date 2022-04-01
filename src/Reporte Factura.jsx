@@ -30,22 +30,20 @@ const Factura = (factura) => {
 
     const [loading,setLoading] = useState(false)
 
-    console.log("#FECHACC$&%:",fechaC)
+ 
 
     const [dateOne,setDateOne] = useState(new Date().toISOString())
     const [dateTwo,setDateTwo] = useState(new Date().toISOString())
 
-    console.log("Date One", dateOne)
-    console.log("Date Two", dateTwo)
 
-    console.log("Dif String:::", dateTwo.substring(8,10) - dateOne.substring(8,10))
+
 
     const today = new Date()
 
     const min = new Date(2022, 1,15);
     const minInput = min.toISOString().split('T')[0]
 
-    console.log("Today",today)
+    
 
     var diaOne = dateOne.substring(8,10)
     var mesOne = dateOne.substring(5,7)
@@ -64,7 +62,7 @@ const Factura = (factura) => {
     const fffBaja = anioOne + "-" + mesOne + "-" + diaOne
     const fffTwo= anioTwo + "-" + mesTwo + "-" + diaTwo
 
-    console.log("FechaUno::",fechaUno)
+
 
     const [arrayD,setArrayD] = useState([])
     
@@ -79,12 +77,12 @@ const Factura = (factura) => {
     const [reasig,setReasig] = useState([]);
     
 
-    console.log(arrayD)
+   
 
 
     const [fechaD,setFechaD] = useState([]);
 
-    console.log("FECHA D%&$#,", fechaD)
+
 
     const [show,setShow] = useState([]);
 
@@ -99,7 +97,7 @@ const Factura = (factura) => {
 
     const [datos,setDatos] = useState([]);
 
-console.log("Datossd asda",datos)
+
 
     const [personal,setPersonal] = useState([]);
 
@@ -135,11 +133,11 @@ console.log("Datossd asda",datos)
             fechaC.push( ((i<10)? "0"+i : i) + "-" + mesOne + "-" + anioOne)
         }
 
-        console.log("FECHABB::",fBaja)
+     
 
         // fechaD.push(index + "-" + mesOne + "-" + anioOne +"11:00:00")
 
-        console.log("FECHA222$#,", fechaD)
+     
 
         const diasSemana = fecha => [
             "D",
@@ -353,16 +351,13 @@ console.log("Datossd asda",datos)
                                                       
                                                        
                                                          
-                                                         if (item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
+                                                         if (item.Nombre == iter.Nombre && item.Horario == iter.Turno && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Suplencia}
                                                             
                                                         }
         
-                                                            else if (iter.Nombre == item.Nombre == "Vacante" && iter.Estado == ""){
-
-                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]: ""}
-                                                            } 
+                                                            
 
                                                             else if (item.Baja != null && item.Baja != "" && item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]){
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
@@ -376,9 +371,7 @@ console.log("Datossd asda",datos)
                                                                 item.dias[index]= {[Object.keys(dialokobydiego)[0]]:""}
                                                             } 
 
-                                                            else if (item.dias[index] == "Vacante"){
-                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
-                                                            }
+                                                            
 
                                                             
                                                             
