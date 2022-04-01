@@ -353,13 +353,13 @@ console.log("Datossd asda",datos)
                                                       
                                                        
                                                          
-                                                         if (item.Nombre == iter.Nombre && item.Horario == iter.Turno  && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
+                                                         if (item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Suplencia}
                                                             
                                                         }
         
-                                                            else if (item.Nombre == "Vacante"){
+                                                            else if (iter.Nombre == item.Nombre == "Vacante" && iter.Estado == ""){
 
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]: ""}
                                                             } 
@@ -375,6 +375,10 @@ console.log("Datossd asda",datos)
                                                             else if (!item.descanso.includes(diass[tangamandapio])){
                                                                 item.dias[index]= {[Object.keys(dialokobydiego)[0]]:""}
                                                             } 
+
+                                                            else if (item.dias[index] == "Vacante"){
+                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
+                                                            }
 
                                                             
                                                             

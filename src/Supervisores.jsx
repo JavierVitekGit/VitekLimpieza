@@ -117,7 +117,7 @@ return(
           noOptionsText="Sin coincidencias"
           /> */}
 
-          <select onClick={forceUpdate} onChange={v=>setSelClient(v.target.value)}>
+          <select onClick={forceUpdate} value={selClient} onChange={v=>setSelClient(v.target.value)}>
               {client.map((item)=> <option>{item}</option>)}
           </select>
 
@@ -126,7 +126,7 @@ return(
           <label class="form-otline-label">Ubicación</label>
         <br/>
         <select onClick={forceUpdate} >
-         {ubicA.map((item)=>{<option>{item}</option>})}
+         {ubicA.map((item)=><option>{item}</option>)}
         </select>
 
         <br/>
