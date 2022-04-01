@@ -682,26 +682,6 @@ return (
                                     <td>
                                         {item.Nombre}
                                     </td>
-
-                                    <td>
-                                        {item.Horario}
-                                    </td>
-
-                                    <td>
-                                        {item.Puesto}
-                                    </td>
-
-                                    <td>
-                                        {item.Ingreso}
-                                    </td>
-
-                                    <td>
-                                        {item.Baja}
-                                    </td>
-
-                                    <td>
-                                        {item.Reasignacion}
-                                    </td>
                                     
                                     {
                                         item.dias.map((d, inx)=>{
