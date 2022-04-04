@@ -6,6 +6,7 @@ import 'react-infinite-calendar/styles.css';
 import './Firebase init'
 import './Quincena.css'
 import Loading from "./Loading";
+import SidebarPro from "./SidebarResponsive";
 
 
 
@@ -58,7 +59,6 @@ const Pruebas = (pruebas) => {
 
     const [justificaciones,setJustificaciones] = useState([]);
 
-    console.log("Justificaciones", justificaciones)
 
 
     const [reasig,setReasig] = useState([]);
@@ -176,33 +176,22 @@ const Pruebas = (pruebas) => {
             }
         })
 
-        get(child(dbRef,'Operador/')).then((snapshot)=>{
+        get(child(dbRef,'Posiciones/')).then((snapshot)=>{
             if (snapshot.exists()){
                 snapshot.forEach((childSnapshot)=>{
 
+                   childSnapshot.forEach((n)=>{
+                       var dias = n.child("Dias").val()
+                       var cl = n.child("Cliente").val()
+                       var hr = n.child("Horario").val()
+                       var puesto = n.child("Puesto").val()
+                       var ubic = n.child("Ubicacion").val()
 
-                    var nm = childSnapshot.child("Nombre").val()
-                    var cl = childSnapshot.child("Cliente").val()
-                    var fechaI = childSnapshot.child("Fecha_Ingreso").val()
-                    var fechaB = childSnapshot.child("Fecha_Baja").val()
-                    var ubic = childSnapshot.child("Ubicacion").val()
-                    var hr = childSnapshot.child("Horario").val()
-                    var puest = childSnapshot.child("Puesto").val()
-                    var reasig = childSnapshot.child("Reasignacion").val()
-                    var est = childSnapshot.child("Estatus").val()
-                    var dias = childSnapshot.child("Dias").val()
+                       datos.push({Nombre:"a",Cliente:cl,Ubicacion:ubic,Horario:hr,Puesto:puesto,Descanso:dias,days:getDays()})
 
+                   })
 
-
-                            if (fechaB != "" && fechaB < fffBaja){
-                                fechaB = null
-                            } else if (fechaI != "" && fechaI > fffTwo) {
-                                fechaI = null
-                            }
-                                if (fechaB != null && fechaI != null && dias != null){
-                                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),descanso:dias})
-                                }
-         
+                   
 
                     datos.sort((a,b) => {
                         if (a.Cliente < b.Cliente) return -1;
@@ -264,7 +253,7 @@ const Pruebas = (pruebas) => {
                                                 var just = cccSnapshot.child("justi").val()
                                                 var sup = cccSnapshot.child("suplencia").val()
                                                 var obser = cccSnapshot.child("observaciones").val()
-                
+                                                var ubic = cccSnapshot.child("Ubicacion").val()
                                                 var state = cccSnapshot.child("estado").val()
                 
                                                 if (obser == null) {
@@ -305,83 +294,90 @@ const Pruebas = (pruebas) => {
                                                         Estado:incidenci,
                                                         Justificacion:just,
                                                         Suplencia:sup,
-                                                        Observaciones:obser})
+                                                        Observaciones:obser,
+                                                        Ubicacion:ubic})
                                                 }
                                             })
                 
                                             })
 
-
-                                            datos.forEach((item)=>{
+                                            datos.forEach((iter)=>{
+                                                justificaciones.forEach((item)=>{
+                                                    if(iter.Cliente == item.Cliente && iter.Ubicacion == item.Ubicacion && iter.Horario == item.Turno){
+                                                        iter.Nombre = item.Nombre
+                                                    }
+                                                })
+                                            })
+                                            // datos.forEach((item)=>{
                                                 
 
-                                                   item.dias.forEach((dialokobydiego, index)=>{
-                                                    item.dias[index] = {[Object.keys(dialokobydiego)[0]]:item.Nombre}
+                                            //        item.dias.forEach((dialokobydiego, index)=>{
+                                            //         item.dias[index] = {[Object.keys(dialokobydiego)[0]]:item.Nombre}
                                                     
-                                                    justificaciones.forEach((iter)=>{
+                                            //         justificaciones.forEach((iter)=>{
                                                      
                                                  
 
-                                                    // console.log(""+iter.Fecha.substring(0,2) +"=="+ Object.keys(dialokobydiego)[0]  );
-                                                    // console.log(dialokobydiego)
-                                                    // console.log(item.Nombre+"=="+iter.Nombre);
+                                            //         // console.log(""+iter.Fecha.substring(0,2) +"=="+ Object.keys(dialokobydiego)[0]  );
+                                            //         // console.log(dialokobydiego)
+                                            //         // console.log(item.Nombre+"=="+iter.Nombre);
 
-                                                        // console.log("dialokobyDiego",item.Baja.substring(8,10))
+                                            //             // console.log("dialokobyDiego",item.Baja.substring(8,10))
 
-                                                        // if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] )
+                                            //             // if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] )
                                                         
 
-                                                        tangamandapio=(new Date(fechaD[index])).getDay()
+                                            //             tangamandapio=(new Date(fechaD[index])).getDay()
 
                                                         
                                                        
                                                       
                                                        
                                                          
-                                                         if (item.Nombre == iter.Nombre && item.Horario == iter.Turno && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
-                                                            // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
-                                                            item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Suplencia}
+                                            //              if (item.Nombre == iter.Nombre && item.Horario == iter.Turno && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
+                                            //                 // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
+                                            //                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Suplencia}
                                                             
-                                                        }
+                                            //             }
         
                                                             
 
-                                                            else if (item.Baja != null && item.Baja != "" && item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]){
-                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
-                                                            }
+                                            //                 else if (item.Baja != null && item.Baja != "" && item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]){
+                                            //                     item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
+                                            //                 }
 
-                                                            else if(item.Ingreso != null && item.Ingreso != "" && item.Ingreso.substring(8,10) > +Object.keys(dialokobydiego)[0]) {
-                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
-                                                            } 
+                                            //                 else if(item.Ingreso != null && item.Ingreso != "" && item.Ingreso.substring(8,10) > +Object.keys(dialokobydiego)[0]) {
+                                            //                     item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
+                                            //                 } 
                                                             
-                                                            else if (!item.descanso.includes(diass[tangamandapio])){
-                                                                item.dias[index]= {[Object.keys(dialokobydiego)[0]]:""}
-                                                            } 
-
-                                                            
+                                            //                 else if (!item.descanso.includes(diass[tangamandapio])){
+                                            //                     item.dias[index]= {[Object.keys(dialokobydiego)[0]]:""}
+                                            //                 } 
 
                                                             
+
+                                                            
                                                             
 
-                                                            // else if (iter.Suplencia == "no se cubrio"){
-                                                            //     iter.Suplencia = "F"
-                                                            // }
+                                            //                 // else if (iter.Suplencia == "no se cubrio"){
+                                            //                 //     iter.Suplencia = "F"
+                                            //                 // }
 
-                                                            // else if (iter.Suplencia == "F" & iter.Estado == "Vacaciones") {
-                                                            //     iter.Suplencia = "V"
-                                                            // }
+                                            //                 // else if (iter.Suplencia == "F" & iter.Estado == "Vacaciones") {
+                                            //                 //     iter.Suplencia = "V"
+                                            //                 // }
 
-                                                            // else if(item.Nombre == iter.Nombre) {
-                                                            //     item.dias[index] = {[Object.keys(dialokobydiego)[0]]:item.Nombre}    
-                                                            // }
+                                            //                 // else if(item.Nombre == iter.Nombre) {
+                                            //                 //     item.dias[index] = {[Object.keys(dialokobydiego)[0]]:item.Nombre}    
+                                            //                 // }
 
-                                                            // else if (item.Nombre == iter.Nombre 
-                                                            //             && item.Horario == iter.Turno  
-                                                            //             && item.Cliente == iter.Cliente 
-                                                            //             && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]
-                                                            //             ){
-                                                            //                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:item.Nombre}
-                                                            //             }
+                                            //                 // else if (item.Nombre == iter.Nombre 
+                                            //                 //             && item.Horario == iter.Turno  
+                                            //                 //             && item.Cliente == iter.Cliente 
+                                            //                 //             && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]
+                                            //                 //             ){
+                                            //                 //                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:item.Nombre}
+                                            //                 //             }
 
                                                             
 
@@ -390,20 +386,20 @@ const Pruebas = (pruebas) => {
                                                             
                                                             
 
-                                                            // else if(item.week != null && item.week != "" && item.week.substring(0,1) !=  nyx.substring(0,1)){
-                                                            //     item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
-                                                            // }
+                                            //                 // else if(item.week != null && item.week != "" && item.week.substring(0,1) !=  nyx.substring(0,1)){
+                                            //                 //     item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
+                                            //                 // }
 
                                   
 
-                                                    })
+                                            //         })
                                                    
 
-                                                })
+                                            //     })
                                             
 
 
-                                            })
+                                            // })
 
                                         var state = ccSnapshot.child("estado").val()
                                        
@@ -440,6 +436,7 @@ const Pruebas = (pruebas) => {
                             }
                         })
                 
+                  
 
                     // diaSemanaArray.forEach((item)=>{
                     //     datos.forEach((iter)=>{
@@ -587,7 +584,7 @@ return (
         <div className="reportGB">
 
             <div className="adminSide">
-            <SideBar></SideBar>
+            <SidebarPro></SidebarPro>
             
             </div>
 
@@ -665,12 +662,12 @@ return (
                                     <td>
                                         {item.Ubicacion}
                                     </td>
-
+                                        
                                     <td>
                                         {item.Nombre}
                                     </td>
                                     
-                                    {
+                                    {/* {
                                         item.dias.map((d, inx)=>{
                                             
                                        
@@ -678,7 +675,7 @@ return (
                                             // return(<td>{d[arrayD[inx.toString()]]}</td>)
                                             return (<td id="testColor">{d[arrayD[inx.toString()]]}</td>)
                                         })
-                                    }
+                                    } */}
 
                                 </tr>
                             )

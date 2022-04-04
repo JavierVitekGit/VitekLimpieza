@@ -647,11 +647,7 @@ return (
                         <th scope="col">Cliente</th>
                         <th scope="col">Ubicación</th>
                         <th scope="col">Nombre del Operador</th>
-                        <th scope="col">Turno</th>
-                        <th scope="col">Puesto</th>
-                        <th scope="col">Ingreso</th>
-                        <th scope="col">Baja</th>
-                        <th scope="col">Reasignación</th>
+          
                        {diaSemanaArray.map((item)=>{ return (<th scope="col">{item}</th>)})} 
 
                     </tr>
