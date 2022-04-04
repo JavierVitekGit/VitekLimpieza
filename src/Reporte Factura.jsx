@@ -646,7 +646,7 @@ return (
                     <tr>
                         <th scope="col">Cliente</th>
                         <th scope="col">Ubicación</th>
-                        <th scope="col">Nombre del Operador</th>
+                       
           
                        {diaSemanaArray.map((item)=>{ return (<th scope="col">{item}</th>)})} 
 
@@ -675,9 +675,7 @@ return (
                                         {item.Ubicacion}
                                     </td>
 
-                                    <td>
-                                        {item.Nombre}
-                                    </td>
+                                   
                                     
                                     {
                                         item.dias.map((d, inx)=>{

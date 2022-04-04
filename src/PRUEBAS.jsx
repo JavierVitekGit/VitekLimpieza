@@ -145,7 +145,16 @@ const Pruebas = (pruebas) => {
         })
 
 
-
+        get(child(dbRef,'Operador/')).then((snapshot)=>{
+            if(snapshot.exists()){
+                snapshot.forEach((childSnapshot)=>{
+                    var nombre = childSnapshot.child("Nombre").val()
+                    var cl = childSnapshot.child("Cliente").val()
+                    var ubic = childSnapshot.child("Ubicacion").val()
+                
+                })
+            }
+        })
 
         get(child(dbRef,'ClienteUbicacion/')).then((snapshot)=>{
             if (snapshot.exists()){
