@@ -40,8 +40,8 @@ const[modalLogin,setModalLogin] =useState(false)
 
 function comprobar() {
 
-    if (usuario=="nyx" && password == "1234") {
-      history("/Quincena")
+    if (usuario=="nyx" && password == "7620859") {
+      history("/Test")
     } else {
       showLogin()
     }
