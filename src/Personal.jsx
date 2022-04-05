@@ -145,7 +145,7 @@ const Personal = ({personal}) => {
   // const [supervisor,setSupervisor] = useState('')
 
 
-  const [genero,setGenero] = useState()
+  const [genero,setGenero] = useState('')
 
 
   const [horarioOne,setHorarioOne] = useState('')
@@ -488,7 +488,7 @@ function back () {
   setFecha('')
   arrayc = [];
   mostrarClientes();
-  
+  setGenero('')
 }
 
 
