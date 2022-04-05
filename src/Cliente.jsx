@@ -186,10 +186,13 @@ const Cliente = (clientes) => {
         update(ref(getDatabase(),'Operador/' + "Vacante" + nombre + ubicacion + "Encargado" + i ),{
           Nombre:"Vacante",
           Cliente:nombre,
+          Fecha_Ingreso:"",
+          Fecha_Baja:"",
           Ubicacion:ubicacion,
           Horario:hEncargado,
           Puesto: "Encargado",
-          Estatus:1
+          Estatus:1,
+          Dias:[ "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado","Domingo" ]
         })
     }
 
@@ -207,7 +210,8 @@ const Cliente = (clientes) => {
         Ubicacion:ubicacion,
         Horario:hSupervisor,
         Puesto:"Supervisor",
-        Estatus:1
+        Estatus:1,
+        Dias:[ "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado","Domingo" ]
       })
 
     }
@@ -226,7 +230,8 @@ const Cliente = (clientes) => {
         Ubicacion:ubicacion,
         Horario:hOperador,
         Puesto:"Operador",
-        Estatus:1
+        Estatus:1,
+        Dias:[ "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado","Domingo" ]
       })
 
     }
@@ -245,7 +250,8 @@ const Cliente = (clientes) => {
         Ubicacion:ubicacion,
         Horario:hSuplencia,
         Puesto:"Suplencia",
-        Estatus:1
+        Estatus:1,
+        Dias:[ "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado","Domingo" ]
       })
 
     }
