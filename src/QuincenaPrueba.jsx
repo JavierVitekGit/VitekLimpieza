@@ -82,7 +82,7 @@ const QuincenaTest = (quincena) => {
 
     const [justificaciones,setJustificaciones] = useState([]);
 
-    // console.log("Justificaciones", justificaciones)
+    console.log("Justificaciones", justificaciones)
 
 
     const [reasig,setReasig] = useState([]);
