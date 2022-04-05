@@ -545,6 +545,10 @@ function writeJustiData(event) {
   arrayJusti.forEach(a =>{
     console.log(a.suplencia)
     a.suplencia = (a.suplencia== undefined || a.suplencia==null || a.suplencia == "")? "no se cubrio":a.suplencia
+
+    if(a.name == "Vacante" && a.observaciones != null && a.observaciones != ""){
+      a.estado = (a.estado == undefined || a.estado == null || a.estado =="")? "suplencia":a.estado
+    }
   })
 
 

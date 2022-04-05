@@ -59,13 +59,14 @@ const Pruebas = (pruebas) => {
 
     const [justificaciones,setJustificaciones] = useState([]);
 
-
+    console.log("Justi////",justificaciones)
 
     const [reasig,setReasig] = useState([]);
     
 
-   
+   const [operadores,setOperadores] = useState([])
 
+   console.log("Operadores",operadores)
 
     const [fechaD,setFechaD] = useState([]);
 
@@ -151,7 +152,12 @@ const Pruebas = (pruebas) => {
                     var nombre = childSnapshot.child("Nombre").val()
                     var cl = childSnapshot.child("Cliente").val()
                     var ubic = childSnapshot.child("Ubicacion").val()
+                    var pos = childSnapshot.child("Posicion").val()
                 
+                    if (pos != null && pos!= ""){
+                        operadores.push({Nombre:nombre,Cliente:cl,Ubicacion:ubic,Posicion:pos})
+                    }
+
                 })
             }
         })
@@ -195,8 +201,10 @@ const Pruebas = (pruebas) => {
                        var hr = n.child("Horario").val()
                        var puesto = n.child("Puesto").val()
                        var ubic = n.child("Ubicacion").val()
+                       var pos = n.key
+                       datos.push({Nombre:"a",Cliente:cl,Ubicacion:ubic,Horario:hr,Puesto:puesto,Descanso:dias,days:getDays(),Posicion:pos})
 
-                       datos.push({Nombre:"a",Cliente:cl,Ubicacion:ubic,Horario:hr,Puesto:puesto,Descanso:dias,days:getDays()})
+                       
 
                    })
 
@@ -311,10 +319,47 @@ const Pruebas = (pruebas) => {
                                             })
 
                                             datos.forEach((iter)=>{
+
+
+                                                iter.days.forEach((dialokobydiego,index)=>{
+
+
+                                                    iter.days[index] = {[Object.keys(dialokobydiego)[0]]:iter.Nombre}
+                                                
                                                 justificaciones.forEach((item)=>{
-                                                    if(iter.Cliente == item.Cliente && iter.Ubicacion == item.Ubicacion && iter.Horario == item.Turno){
-                                                        iter.Nombre = item.Nombre
-                                                    }
+
+
+                                                    tangamandapio=(new Date(fechaD[index])).getDay()
+
+
+                                                    operadores.forEach((nyx)=>{
+
+                                                        if (item.Nombre == nyx.Nombre && iter.Horario == item.Turno && item.Cliente == iter.Cliente && +item.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
+                                                                            // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
+                                                                            iter.days[index] = {[Object.keys(dialokobydiego)[0]]:item.Suplencia}
+                                                                            
+                                                                        }
+                                                    
+                                                    else if (iter.Cliente == nyx.Cliente && iter.Posicion == nyx.Posicion ){
+                                                        iter.Nombre = nyx.Nombre
+                                                    } 
+                                                    
+                                                    // else if (){
+                                                        
+                                                    // }
+
+                                                    else if (!iter.Descanso.includes(diass[tangamandapio])){
+                                                            iter.days[index]= {[Object.keys(dialokobydiego)[0]]:""}
+                                                            }
+
+                                                    
+
+
+
+
+
+                                                        })
+                                                    })
                                                 })
                                             })
                                             // datos.forEach((item)=>{
@@ -436,7 +481,6 @@ const Pruebas = (pruebas) => {
                     })
 
 
-//      !item.includes(iter.Ingreso)
 
                 
                         datos.forEach((iter)=>{
@@ -447,13 +491,6 @@ const Pruebas = (pruebas) => {
                 
                   
 
-                    // diaSemanaArray.forEach((item)=>{
-                    //     datos.forEach((iter)=>{
-                    //         if (iter.week != null & iter.week != "" && iter.week.substring(0,1) != item.substring(0,1)){
-                                
-                    //         }
-                    //     })
-                    // })
 
 
             }
@@ -492,11 +529,6 @@ const Pruebas = (pruebas) => {
 
         }
 
-        // for (let i = diaOne; i <= diaTwo; i++ ){
-        //     days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString()]:"/"})
-        // }
-
-        // console.log("Days",days)
 
         return days;
 
@@ -639,12 +671,7 @@ return (
                     <tr>
                         <th scope="col">Cliente</th>
                         <th scope="col">Ubicación</th>
-                        <th scope="col">Nombre del Operador</th>
-                        <th scope="col">Turno</th>
-                        <th scope="col">Puesto</th>
-                        <th scope="col">Ingreso</th>
-                        <th scope="col">Baja</th>
-                        <th scope="col">Reasignación</th>
+                        
                        {diaSemanaArray.map((item)=>{ return (<th scope="col">{item}</th>)})} 
 
                     </tr>
@@ -672,19 +699,17 @@ return (
                                         {item.Ubicacion}
                                     </td>
                                         
-                                    <td>
-                                        {item.Nombre}
-                                    </td>
+                                   
                                     
-                                    {/* {
-                                        item.dias.map((d, inx)=>{
+                                    {
+                                        item.days.map((d, inx)=>{
                                             
                                        
 
                                             // return(<td>{d[arrayD[inx.toString()]]}</td>)
                                             return (<td id="testColor">{d[arrayD[inx.toString()]]}</td>)
                                         })
-                                    } */}
+                                    }
 
                                 </tr>
                             )
