@@ -305,6 +305,8 @@ const Pruebas = (pruebas) => {
                                                 fechaC.forEach((c)=>{
 
                 
+                                                                  // SI QUITAS EL STATE APARECEN LAS JUSTIFICACIONES FALTANTES
+
                                                 if (validateOne == validateTwo && state != null && key == c) {
                                                     // date.push(key)
                                                     justificaciones.push({
