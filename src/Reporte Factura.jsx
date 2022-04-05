@@ -346,19 +346,18 @@ const Factura = (factura) => {
 
                                                         tangamandapio=(new Date(fechaD[index])).getDay()
 
-                                                        
-                                                       
+                                                                                                               
                                                       
                                                        
                                                          
                                                          if (item.Nombre == iter.Nombre && item.Horario == iter.Turno && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Suplencia}
-                                                            
-                                                        }
-        
-                                                            
 
+                                                        }
+
+
+                                                        
                                                             else if (item.Baja != null && item.Baja != "" && item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]){
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                                             }

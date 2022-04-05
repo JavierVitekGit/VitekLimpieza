@@ -431,7 +431,7 @@ const QuincenaTest = (quincena) => {
                                                    
                                                     
 
-                                               
+                                                    
 
                                                    
                                                        
@@ -589,8 +589,14 @@ const QuincenaTest = (quincena) => {
         var days = [];
         for (let index = +dateOne.substring(8,10); index <= +dateTwo.substring(8,10); index++) {
             days.push({[index.toString()]:"/"});
+            // days.push({[(index<10)? "0"+index:index.toString()]:"/"});
 
         }
+
+
+        // for (let i = +diaOne; i <= diaTwo; i++){
+        //     fechaC.push( ((i<10)? "0"+i : i) + "-" + mesOne + "-" + anioOne)
+        // }
 
         // for (let i = diaOne; i <= diaTwo; i++ ){
         //     days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString()]:"/"})
