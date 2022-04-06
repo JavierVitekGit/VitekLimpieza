@@ -343,20 +343,21 @@ const Pruebas = (pruebas) => {
                                                         if (item.Nombre == nyx.Nombre 
                                                             && iter.Horario == item.Turno 
                                                             && item.Cliente == iter.Cliente 
-                                                            && item.Justificacion != null 
+                                                            
                                                             && +item.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
                                                           // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                            iter.days[index] = {[Object.keys(dialokobydiego)[0]]:item.Suplencia}
                                                                             
-                                                            }                
-                                                    
+                                                            }       
+
                                                             else if (iter.Cliente == nyx.Cliente && iter.Posicion == nyx.Posicion ){
                                                                 iter.Nombre = nyx.Nombre
                                                             } 
 
                                                             else if (!iter.Descanso.includes(diass[tangamandapio])){
                                                                     iter.days[index]= {[Object.keys(dialokobydiego)[0]]:""}
-                                                                    }                                                
+                                                                    }  
+                                                                            
                                                         })
                                                     })
                                                 })

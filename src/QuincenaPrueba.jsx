@@ -82,7 +82,7 @@ const QuincenaTest = (quincena) => {
 
     const [justificaciones,setJustificaciones] = useState([]);
 
-    console.log("Justificaciones", justificaciones)
+    // console.log("Justificaciones", justificaciones)
 
 
     const [reasig,setReasig] = useState([]);
@@ -405,7 +405,7 @@ const QuincenaTest = (quincena) => {
                                                 fechaC.forEach((c)=>{
 
                 
-                                                if (validateOne == validateTwo   && key == c) {
+                                                if ((validateOne.split("%")[0]) == validateTwo   && key == c) {
                                                     // date.push(key)
                                                     justificaciones.push({
                                                         Fecha:key,
