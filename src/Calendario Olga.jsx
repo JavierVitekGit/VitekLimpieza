@@ -555,7 +555,7 @@ function writeJustiData(event) {
 
 
 console.log('Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient)
-  update(ref(getDatabase(),'Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient),{
+  update(ref(getDatabase(),'Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient + "%" + selUbic),{
     Datos:arrayJusti
   });
 
