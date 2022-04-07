@@ -82,7 +82,7 @@ const QuincenaTest = (quincena) => {
 
     const [justificaciones,setJustificaciones] = useState([]);
 
-    // console.log("Justificaciones", justificaciones)
+    console.log("Justificaciones", justificaciones)
 
 
     const [reasig,setReasig] = useState([]);
@@ -385,6 +385,9 @@ const QuincenaTest = (quincena) => {
                                                 if (incidenci == null) {
                                                     incidenci = "/"
                                                 }
+
+
+                                                
                                                 // if (cl == validateTwo && nm == nombr && state != null) {
                                                 //     // date.push(key)
                                                 //     datos.push({
@@ -405,7 +408,7 @@ const QuincenaTest = (quincena) => {
                                                 fechaC.forEach((c)=>{
 
                 
-                                                if ((validateOne.split("%")[0]) == validateTwo   && key == c) {
+                                                if ((validateOne.split("%")[0]) == validateTwo && key == c) {
                                                     // date.push(key)
                                                     justificaciones.push({
                                                         Fecha:key,
@@ -454,10 +457,15 @@ const QuincenaTest = (quincena) => {
                                                         // if(!item.descanso.includes(diass[tangamandapio])){
                                                         //     item.dias[index]= {[Object.keys(dialokobydiego)[0]]:"descansa este sujete "}
                                                         // }  
+
+
+                                                    
+
                                                 
                                                         if(item.dias[index] == null) {
                                                             item.dias[index] = "/"
-                                                        }
+                                                        }                                                   
+
                                                         else if (item.Horario == iter.Turno && item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && item.Ubicacion == iter.Ubicacion && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
                                                             // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion}
@@ -479,10 +487,15 @@ const QuincenaTest = (quincena) => {
                                                             else if (item.Nombre == iter.Suplencia && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]){
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Observaciones}
                                                             }
-                                                            
-                                                            else if (!item.descanso.includes(diass[tangamandapio])){
-                                                                item.dias[index]= {[Object.keys(dialokobydiego)[0]]:""}
+
+                                                            else if ( !item.descanso.includes(diass[tangamandapio]) && iter.Suplencia == "no se cubrio" && iter.Justificacion == ""){
+                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                                             }
+                                                            
+
+                                                            // else if (!item.descanso.includes(diass[tangamandapio]) && iter.Observaciones == "" ){
+                                                            //     item.dias[index]= {[Object.keys(dialokobydiego)[0]]:""}
+                                                            // }
 
                                                             
 
