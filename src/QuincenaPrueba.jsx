@@ -484,12 +484,14 @@ const QuincenaTest = (quincena) => {
                                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                                             }
 
-                                                            else if (item.Nombre == iter.Suplencia && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]){
-                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Observaciones}
+                                                            
+
+                                                            if ( !item.descanso.includes(diass[tangamandapio]) && item.dias[index][Object.keys(dialokobydiego)[0]]=="/"){
+                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                                             }
 
-                                                            else if ( !item.descanso.includes(diass[tangamandapio]) && iter.Suplencia == "no se cubrio" && iter.Justificacion == ""){
-                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
+                                                            if (item.Nombre == iter.Suplencia && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]){
+                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Observaciones}
                                                             }
                                                             
 

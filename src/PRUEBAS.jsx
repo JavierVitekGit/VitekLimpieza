@@ -339,19 +339,23 @@ const Pruebas = (pruebas) => {
 
 
                                                     operadores.forEach((nyx)=>{
-
+                                                         if (iter.Cliente == nyx.Cliente && iter.Posicion == nyx.Posicion && iter.Ubicacion == nyx.Ubicacion){
+                                                            iter.Nombre = nyx.Nombre
+                                                        } 
                                                         if (item.Nombre == nyx.Nombre 
                                                             && iter.Horario == item.Turno 
                                                             && item.Cliente == iter.Cliente 
                                                             && item.Ubicacion == nyx.Ubicacion
+                                                            && iter.Posicion == nyx.Posicion 
                                                             && +item.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
                                                           // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
                                                            iter.days[index] = {[Object.keys(dialokobydiego)[0]]:item.Suplencia}           
                                                             }
-                                                            
-                                                            else if (iter.Cliente == nyx.Cliente && iter.Posicion == nyx.Posicion && iter.Ubicacion == nyx.Ubicacion){
-                                                                iter.Nombre = nyx.Nombre
-                                                            } 
+                                                           
+
+                                                            else if (nyx.Baja != null && nyx.Baja != "" && nyx.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]){
+                                                                iter.days[index] = {[Object.keys(dialokobydiego)[0]]:""}
+                                                            }
 
                                                             else if (iter.Nombre == "a") {
                                                                 iter.Nombre = ""
