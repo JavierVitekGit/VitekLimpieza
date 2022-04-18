@@ -316,14 +316,10 @@ const modClose = () => setModClient(false)
     //   }
     // })
 
-      arrayJusti.forEach((item)=>{
-        if (item.estado != "" && item.justi == null ){
-          handleShow(event);
-        } else {
+      
           show(event)
           writeJustiData(event)
-        }
-      })
+   
 
   }
 
