@@ -115,7 +115,7 @@ function comprobar() {
      showLogin()
    }
 
-   if (usuario=="felipeazpeitia18@gmail.com" && password == "ultraverde"){
+   if (usuario=="felipe" && password == "ultraverde"){
      history("/Calendario Fe")
    } else {
      showLogin()
