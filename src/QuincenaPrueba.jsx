@@ -82,7 +82,7 @@ const QuincenaTest = (quincena) => {
 
     const [justificaciones,setJustificaciones] = useState([]);
 
-        // console.log("Justificaciones",justificaciones)
+
 
 
     const [reasig,setReasig] = useState([]);
@@ -423,6 +423,9 @@ const QuincenaTest = (quincena) => {
 
                                             
                                             
+                                            
+
+
 
                                         var state = ccSnapshot.child("estado").val()
                 
@@ -435,15 +438,6 @@ const QuincenaTest = (quincena) => {
                             datos.forEach((item)=>{
                                 item.dias.forEach((dialokobydiego,index)=>{
                                 justificaciones.forEach((iter)=>{
-                           
-
-                                   
-                                    
-
-                                    
-
-                                   
-                                       
 
                                     // console.log(""+iter.Fecha.substring(0,2) +"=="+ Object.keys(dialokobydiego)[0]  );
                                     // console.log(dialokobydiego)
