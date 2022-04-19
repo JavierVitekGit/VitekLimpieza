@@ -205,11 +205,13 @@ const QuincenaTest = (quincena) => {
         get(child(dbRef,'Reasignacion/')).then((snapshot)=>{
             if (snapshot.exists()){
                 snapshot.forEach((childSnapshot)=>{
-                    var cliente = childSnapshot.child("Cliente").val()
+                    var cliente = childSnapshot.child("ClienteA").val()
                     var nombre = childSnapshot.child("Nombre").val()
+                    var ubicacion = childSnapshot.child("UbicacionA").val()
                     var fecha = childSnapshot.key
                     
-                    reasig.push({Cliente:cliente,Nombre:nombre,Fecha:fecha})
+                    reasig.push({Cliente:cliente,Nombre:nombre,Fecha:fecha,Ubicacion:ubicacion})
+
 
                     // console.log("Reasginaciones&/&%$%",reasig)
 
@@ -242,19 +244,10 @@ const QuincenaTest = (quincena) => {
                     var ubic = childSnapshot.child("Ubicacion").val()
                     var hr = childSnapshot.child("Horario").val()
                     var puest = childSnapshot.child("Puesto").val()
-                    var reasig = childSnapshot.child("Reasignacion").val()
+                    
                     var est = childSnapshot.child("Estatus").val()
                     var dias = childSnapshot.child("Dias").val()
 
-                    // const trya = [];
-
-                    // if (dias != null && dias != "" && diass != dias ){
-                    //     trya.push(dias)
-                    // }
-
-                    // console.log("kmno::",trya)
-
-                    // console.log("FechaBComp",fechaB.split("-"))0
 
                             if ( fechaB != "" && fechaB < fffBaja){
                                 fechaB = null
@@ -262,7 +255,7 @@ const QuincenaTest = (quincena) => {
                                 fechaI = null
                             }   
                                 if (fechaB != null && fechaI != null && dias != null){
-                                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:reasig,Puesto:puest, dias:getDays(),descanso:dias})
+                                    datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:"a",Puesto:puest, dias:getDays(),descanso:dias})
                                 }
          
                                 
@@ -429,108 +422,89 @@ const QuincenaTest = (quincena) => {
                                             })
 
                                             
-                                            datos.forEach((item)=>{
-                                                item.dias.forEach((dialokobydiego,index)=>{
-                                                justificaciones.forEach((iter)=>{
-                                           
-
-                                                   
-                                                    
-
-                                                    
-
-                                                   
-                                                       
-
-                                                    // console.log(""+iter.Fecha.substring(0,2) +"=="+ Object.keys(dialokobydiego)[0]  );
-                                                    // console.log(dialokobydiego)
-                                                    // console.log(item.Nombre+"=="+iter.Nombre);
-
-                                                        // console.log("dialokobyDiego",item.Baja.substring(8,10))
-
-                                                        // if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] )
-
-                                                    //if(index==0){
-
-                                                    //    console.log(diass[(new Date(fechaD[index])).getDay()] +"  ===   ",item.descanso)
-                                                   //}
-    
-                                                        tangamandapio=(new Date(fechaD[index])).getDay()
-
-                                                        // if(!item.descanso.includes(diass[tangamandapio])){
-                                                        //     item.dias[index]= {[Object.keys(dialokobydiego)[0]]:"descansa este sujete "}
-                                                        // }  
-
-
-                                                    
-
-                                                
-                                                        if(item.dias[index] == null) {
-                                                            item.dias[index] = "/"
-                                                        }                                                   
-
-                                                        else if (item.Horario == iter.Turno && item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && item.Ubicacion == iter.Ubicacion && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
-                                                            // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
-                                                            item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion}
-                                                        }
-//                                                                item.Nombre == "Vacante" && +iter.Fecha.substring(0,2) != +Object.keys(dialokobydiego)[0]
-                                                        else if (item.Nombre == "Vacante"){
-
-                                                             item.dias[index] = {[Object.keys(dialokobydiego)[0]]: ""}
-                                                        } 
-
-                                                            else if (item.Baja != null && item.Baja != "" && item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]){
-                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
-                                                            }
-
-                                                            else if(item.Ingreso != null && item.Ingreso != "" && item.Ingreso.substring(8,10) > +Object.keys(dialokobydiego)[0]) {
-                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
-                                                            }
-
-                                                            if ( !item.descanso.includes(diass[tangamandapio]) && item.dias[index][Object.keys(dialokobydiego)[0]]=="/"){
-                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
-                                                            }
-
-                                                            if (item.Nombre == iter.Suplencia && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]){
-                                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Observaciones}
-                                                            }
-
-                                                           
-
-                                                            
-
-                                                            
-                                                            
-                                                            
-
-                                                            
-
-                                                            
-                                                            
-                                                            
-                                                            
-
-                                                            // else if(item.week != null && item.week != "" && item.week.substring(0,1) !=  nyx.substring(0,1)){
-                                                            //     item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
-                                                            // }
-
-                                  
-                                                        
-
-                                              
-
-                                                    })
-                                               
-
-                                                })
-                                            })
+                                            
 
                                         var state = ccSnapshot.child("estado").val()
                 
                                     })
                 
                                 })
+                                
                 
+                            })
+                            datos.forEach((item)=>{
+                                item.dias.forEach((dialokobydiego,index)=>{
+                                justificaciones.forEach((iter)=>{
+                           
+
+                                   
+                                    
+
+                                    
+
+                                   
+                                       
+
+                                    // console.log(""+iter.Fecha.substring(0,2) +"=="+ Object.keys(dialokobydiego)[0]  );
+                                    // console.log(dialokobydiego)
+                                    // console.log(item.Nombre+"=="+iter.Nombre);
+
+                                        // console.log("dialokobyDiego",item.Baja.substring(8,10))
+
+                                        // if (item.Nombre == iter.Nombre && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] )
+
+                                    //if(index==0){
+
+                                    //    console.log(diass[(new Date(fechaD[index])).getDay()] +"  ===   ",item.descanso)
+                                   //}
+
+                                        tangamandapio=(new Date(fechaD[index])).getDay()
+
+                                        // if(!item.descanso.includes(diass[tangamandapio])){
+                                        //     item.dias[index]= {[Object.keys(dialokobydiego)[0]]:"descansa este sujete "}
+                                        // }  
+
+
+                                    
+
+                                
+                                            if(item.dias[index] == null) {
+                                                item.dias[index] = "/"
+                                            }                                                   
+
+                                            else if (item.Horario == iter.Turno && item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && item.Ubicacion == iter.Ubicacion && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
+                                                // console.log("Aqui se encontro algo :",{[Object.keys(dialokobydiego)[0]]:iter.Estado},"En el index:: ", index)
+                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Estado+" "+iter.Justificacion}
+                                            }
+//                                                                item.Nombre == "Vacante" && +iter.Fecha.substring(0,2) != +Object.keys(dialokobydiego)[0]
+                                            else if (item.Nombre == "Vacante"){
+
+                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]: ""}
+                                            } 
+
+                                            else if (item.Baja != null && item.Baja != "" && item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]){
+                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
+                                            }
+
+                                            else if(item.Ingreso != null && item.Ingreso != "" && item.Ingreso.substring(8,10) > +Object.keys(dialokobydiego)[0]) {
+                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
+                                            }
+
+                                            if ( !item.descanso.includes(diass[tangamandapio]) && item.dias[index][Object.keys(dialokobydiego)[0]]=="/"){
+                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
+                                            }
+
+                                            if (item.Nombre == iter.Suplencia && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]){
+                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Observaciones}
+                                            }
+
+
+                              
+
+                                    })
+                               
+
+                                })
                             })
                         }
                     })
@@ -540,9 +514,9 @@ const QuincenaTest = (quincena) => {
                         fechaC.forEach((efe)=>{
 
                         
-                            if (item.Nombre == iter.Nombre && efe == item.Fecha.substring(0.10)){
-                                    iter.Reasignacion = item.Fecha.substring(0,2) + "/" + item.Cliente
-                            } else {
+                            if (item.Nombre == iter.Nombre && efe == item.Fecha.substring(0,10)){
+                                    iter.Reasignacion = item.Fecha.substring(0,2) + "/" + item.Cliente + "-" + item.Ubicacion
+                            } else if (iter.Reasignacion == "a") {
                                 iter.Reasignacion = ""
                             }
                             })
@@ -550,23 +524,12 @@ const QuincenaTest = (quincena) => {
                     })
 
 
-//      !item.includes(iter.Ingreso)
-
                 
                         datos.forEach((iter)=>{
                             if (iter.Ingreso != null && iter.Ingreso != "" && iter.Ingreso < fffBaja  ) {
                                     iter.Ingreso = ""
                             }
                         })
-                
-
-                    // diaSemanaArray.forEach((item)=>{
-                    //     datos.forEach((iter)=>{
-                    //         if (iter.week != null & iter.week != "" && iter.week.substring(0,1) != item.substring(0,1)){
-                                
-                    //         }
-                    //     })
-                    // })
 
 
             }
@@ -605,17 +568,6 @@ const QuincenaTest = (quincena) => {
             // days.push({[(index<10)? "0"+index:index.toString()]:"/"});
 
         }
-
-
-        // for (let i = +diaOne; i <= diaTwo; i++){
-        //     fechaC.push( ((i<10)? "0"+i : i) + "-" + mesOne + "-" + anioOne)
-        // }
-
-        // for (let i = diaOne; i <= diaTwo; i++ ){
-        //     days.push({[i.toString() + "-" + mesOne.toString() + "-" + anioOne.toString()]:"/"})
-        // }
-
-        // console.log("Days",days)
 
         return days;
 

@@ -59,14 +59,14 @@ const Pruebas = (pruebas) => {
 
     const [justificaciones,setJustificaciones] = useState([]);
 
-    console.log("Justi////",justificaciones)
+
 
     const [reasig,setReasig] = useState([]);
     
 
    const [operadores,setOperadores] = useState([])
 
-   console.log("Operadores",operadores)
+
 
     const [fechaD,setFechaD] = useState([]);
 
@@ -85,7 +85,7 @@ const Pruebas = (pruebas) => {
 
     const [datos,setDatos] = useState([]);
 
-
+    // console.log("Datos",datos)
 
     const [personal,setPersonal] = useState([]);
 
@@ -205,9 +205,10 @@ const Pruebas = (pruebas) => {
                        var ubic = n.child("Ubicacion").val()
                        var pos = n.key
                        datos.push({Nombre:"a",Cliente:cl,Ubicacion:ubic,Horario:hr,Puesto:puesto,Descanso:dias,days:getDays(),Posicion:pos})
-
+                    //    datos.push({Nombre:["a"],Cliente:[cl],Ubicacion:[ubic],Horario:[hr],Puesto:[puesto],Descanso:[dias],days:getDays(),Posicion:[pos]})
+                    //    datos.push({["Nombre"]:"a"},{["Cliente"]:cl},{["Ubicacion"]:ubic},{["Horario"]:hr},{["Puesto"]:puesto},{["Descanso"]:dias,days:getDays(),["Posicion"]:pos})
                        
-
+                    //    days.push({[index.toString()]:"/"});
                    })
 
                    
@@ -305,64 +306,7 @@ const Pruebas = (pruebas) => {
                 
                                             })
 
-                                            datos.forEach((item)=>{
-
-
-                                                item.days.forEach((dialokobydiego,index)=>{
-
-                                                    item.days[index] = {[Object.keys(dialokobydiego)[0]]:item.Nombre}
-                                                    tangamandapio=(new Date(fechaD[index])).getDay()
-                                                    justificaciones.forEach((iter)=>{
-
-                                                        
-
-                                                        operadores.forEach((nyx)=>{
-
-                                                            // datos.push({Nombre:"a",Cliente:cl,Ubicacion:ubic,Horario:hr,Puesto:puesto,Descanso:dias,days:getDays(),Posicion:pos})
-                                                            // operadores.push({Nombre:nombre,Cliente:cl,Ubicacion:ubic,Posicion:pos})
-
-                                                        //     justificaciones.push({
-                                                        //         Fecha:key,
-                                                        //         Cliente:validateTwo,
-                                                        //         Nombre:nombr,
-                                                        //         Turno:turn,
-                                                        //         Estado:incidenci,
-                                                        //         Justificacion:just,
-                                                        //         Suplencia:sup,
-                                                        //         Observaciones:obser,
-                                                        //         Ubicacion:ubic})
-                                                        // }
-
-                                                            if (item.Cliente == nyx.Cliente && item.Ubicacion == nyx.Ubicacion && item.Posicion == nyx.Posicion) {
-                                                                item.Nombre = nyx.Nombre
-                                                            }
-
-                                                            else if (iter.Nombre == item.Nombre 
-                                                                && iter.Cliente == item.Cliente 
-                                                                && iter.Ubicacion == item.Ubicacion
-                                                                && iter.Turno == item.Horario
-                                                                && item.Posicion == nyx.Posicion
-                                                                && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]) {
-                                                                item.days[index] = {[Object.keys(dialokobydiego)[0]]:iter.Suplencia}
-                                                            }
-
-                                                             if (iter.Cliente == item.Cliente 
-                                                                && iter.Ubicacion == item.Ubicacion
-                                                                && iter.Turno == item.Horario
-                                                                
-                                                                && item.Posicion == nyx.Posicion && nyx.Baja != null && nyx.Baja != "" && nyx.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]){
-                                                                                    item.days[index] = {[Object.keys(dialokobydiego)[0]]:""}
-                                                                                }
-
-                                                            // else if (!item.Descanso.includes(diass[tangamandapio])){
-                                                            //             item.days[index]= {[Object.keys(dialokobydiego)[0]]:""}
-                                                            //             }
-
-                                                        })
-
-                                                    })
-                                                })
-                                            })
+                                            
 
                                             
                                             // datos.forEach((item)=>{
@@ -464,9 +408,80 @@ const Pruebas = (pruebas) => {
                                     })
                 
                                 })
-                
+                                
+                                datos.forEach((item)=>{
+
+
+                                    item.days.forEach((dialokobydiego,index)=>{
+    
+                                        item.days[index] = {[Object.keys(dialokobydiego)[0]]:item.Nombre}
+                                        tangamandapio=(new Date(fechaD[index])).getDay()
+                                        justificaciones.forEach((iter)=>{
+    
+                                            
+    
+                                            operadores.forEach((nyx)=>{
+    
+                                                // datos.push({Nombre:"a",Cliente:cl,Ubicacion:ubic,Horario:hr,Puesto:puesto,Descanso:dias,days:getDays(),Posicion:pos})
+                                                // operadores.push({Nombre:nombre,Cliente:cl,Ubicacion:ubic,Posicion:pos})
+    
+                                            //     justificaciones.push({
+                                            //         Fecha:key,
+                                            //         Cliente:validateTwo,
+                                            //         Nombre:nombr,
+                                            //         Turno:turn,
+                                            //         Estado:incidenci,
+                                            //         Justificacion:just,
+                                            //         Suplencia:sup,
+                                            //         Observaciones:obser,
+                                            //         Ubicacion:ubic})
+                                            // }
+    
+                                                if (item.Cliente == nyx.Cliente && item.Ubicacion == nyx.Ubicacion && item.Posicion == nyx.Posicion) {
+                                                    item.Nombre = nyx.Nombre
+                                                }
+    
+                                                else if (iter.Nombre == item.Nombre 
+                                                    && iter.Cliente == item.Cliente 
+                                                    && iter.Ubicacion == item.Ubicacion
+                                                    && iter.Turno == item.Horario
+                                                    && item.Posicion == nyx.Posicion
+                                                    && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]) {
+                                                    item.days[index] = {[Object.keys(dialokobydiego)[0]]:iter.Suplencia}
+                                                }
+    
+                                                //  if (iter.Cliente == item.Cliente 
+                                                //     && iter.Ubicacion == item.Ubicacion
+                                                //     && iter.Turno == item.Horario   
+                                                //     && item.Posicion == nyx.Posicion 
+                                                //     && nyx.Nombre == item.Nombre
+                                                //     && nyx.Baja != null 
+                                                //     && nyx.Baja != "" 
+                                                //     && nyx.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]){
+                                                //                         item.days[index] = {[Object.keys(dialokobydiego)[0]]:""}
+                                                //                     }
+    
+                                                //  if (iter.Cliente == item.Cliente
+                                                //     && iter.Ubicacion == item.Ubicacion
+                                                //     && iter.Turno == item.Horario
+                                                //     && item.Posicion == nyx.Posicion
+                                                //     && nyx.Nombre == item.Nombre
+                                                //     && nyx.Ingreso != null
+                                                //     && nyx.Ingreso != "")                   
+    
+                                                else if (!item.Descanso.includes(diass[tangamandapio])){
+                                                            item.days[index]= {[Object.keys(dialokobydiego)[0]]:""}
+                                                            }
+    
+                                            })
+    
+                                        })
+                                    })
+                                })
                             })
+                            
                         }
+                        
                     })
 
                     reasig.forEach((item)=>{

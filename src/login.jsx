@@ -122,7 +122,7 @@ function comprobar() {
    }
 
    if (usuario == "rb" && password == "123") {
-     history('/Reporte Bajas')
+     history('/Test')
    } else {
      showLogin()
    }
