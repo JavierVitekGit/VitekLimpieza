@@ -222,7 +222,7 @@ console.log("UBC::",ubc)
 
 
  opUbic.forEach((item)=>{
-   if (item.Cliente == clientSelect && item.Ubicacion == ubicSelect && item.Puesto == puestSelect){
+   if (item.Cliente == clientSelect && item.Ubicacion == ubicSelect && item.Puesto == puestSelect && item.Horario == turnSelect){
       keId.push(item.Key)
    }
  })
