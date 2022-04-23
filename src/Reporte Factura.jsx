@@ -347,7 +347,7 @@ const Factura = (factura) => {
                                                         tangamandapio=(new Date(fechaD[index])).getDay()
 
                                                                                                                
-                                                      
+
                                                        
                                                          
                                                          if (item.Nombre == iter.Nombre && item.Horario == iter.Turno && item.Cliente == iter.Cliente && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
