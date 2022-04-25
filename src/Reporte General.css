@@ -38,3 +38,8 @@
     color: white;
     text-align: center;
 }
+
+.bodyReportGB table thead{
+    position: sticky;
+    top: 0;
+}

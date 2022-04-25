@@ -700,7 +700,7 @@ return (
         <input type="button" id="quincenaBtn" class="btn btn-success" value="Generar Reporte" onClick={fnExcelReport} />
 
             <table class="table table-striped" id="generate">
-                <thead>
+                <thead class="table-dark">
                     
                     <tr>
                         <th scope="col">Cliente</th>

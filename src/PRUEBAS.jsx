@@ -360,14 +360,7 @@ const Pruebas = (pruebas) => {
 
                                         
 
-                                             if  (iter.Nombre == item.Nombre 
-                                                && iter.Cliente == item.Cliente 
-                                                && iter.Ubicacion == item.Ubicacion
-                                                && iter.Turno == item.Horario
-                                                && item.Posicion == nyx.Posicion
-                                                && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]) {
-                                                item.days[index] = {[Object.keys(dialokobydiego)[0]]:"[suplencia]  "+iter.Suplencia}
-                                            }
+                                             
 
 
 
@@ -378,9 +371,12 @@ const Pruebas = (pruebas) => {
                                                 && nyx.Nombre == item.Nombre
                                                 && nyx.Baja != null 
                                                 && nyx.Baja != "" 
+                                                && nyx.Baja.substring(5,7) >= dateOne.substring(5,7)
                                                 && nyx.Baja.substring(8,10) >= +Object.keys(dialokobydiego)[0]){
-                                                item.days[index] = {[Object.keys(dialokobydiego)[0]]:"{primero} "+nyx.Nombre}
+                                                item.days[index] = {[Object.keys(dialokobydiego)[0]]:nyx.Nombre}
                                                                 }
+
+                                            
                                                                 
                                             else if (nyx.Cliente == item.Cliente 
                                                 && nyx.Ubicacion == item.Ubicacion
@@ -390,18 +386,41 @@ const Pruebas = (pruebas) => {
                                                 && nyx.Ingreso != null 
                                                 && nyx.Ingreso != "" 
                                                 && nyx.Estado == 1
+                                                && nyx.Ingreso.substring(5,7) <= dateOne.substring(5,7)
                                                 && nyx.Ingreso.substring(8,10) <= +Object.keys(dialokobydiego)[0]){
-                                                                    item.days[index] = {[Object.keys(dialokobydiego)[0]]:"{segundo} "+nyx.Nombre}
+                                                                    item.days[index] = {[Object.keys(dialokobydiego)[0]]:nyx.Nombre}
                                                                 } 
                                                                 
                                           
-
+                                            else if (nyx.Cliente == item.Cliente 
+                                                && nyx.Ubicacion == item.Ubicacion
+                                                && iter.Turno == item.Horario   
+                                                && item.Posicion == nyx.Posicion 
+                                                && nyx.Nombre == item.Nombre
+                                                && nyx.Ingreso != null 
+                                                && nyx.Ingreso != "" 
+                                                && nyx.Ingreso.substring(5,7) < dateOne.substring(5,7)
+                                                && nyx.Ingreso.substring(8,10) >= +Object.keys(dialokobydiego)[0]){
+                                                    item.days[index] = {[Object.keys(dialokobydiego)[0]]:nyx.Nombre}
+                                                }
 
                                             if(item.days[index][Object.keys(dialokobydiego)[0]]=="a" ){
                                                 item.days[index]= {[Object.keys(dialokobydiego)[0]]:""}
                                             }                    
                                                                 
-                                                                
+                                                           
+                                            else if (!item.Descanso.includes(diass[tangamandapio])){
+                                                            item.days[index]= {[Object.keys(dialokobydiego)[0]]:""}
+                                                            }
+
+                                            if  (iter.Nombre == item.Nombre 
+                                                    && iter.Cliente == item.Cliente 
+                                                    && iter.Ubicacion == item.Ubicacion
+                                                    && iter.Turno == item.Horario
+                                                    && item.Posicion == nyx.Posicion
+                                                    && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]) {
+                                                    item.days[index] = {[Object.keys(dialokobydiego)[0]]:iter.Suplencia}
+                                                }                   
                                             // TODO agregar la validacion para eliminar los que no tienen                         
                                             
                                             
@@ -617,7 +636,7 @@ return (
         <input type="button" id="quincenaBtn" class="btn btn-success" value="Generar Reporte" onClick={fnExcelReport} />
 
             <table class="table table-striped" id="generate">
-                <thead>
+                <thead class="table-dark">
                     
                     <tr>
                         <th scope="col">Cliente</th>
