@@ -387,7 +387,7 @@ const Pruebas = (pruebas) => {
                                             && nyx.Baja != "" 
                                             && nyx.Baja.substring(5,7) >= dateOne.substring(5,7)
                                             && nyx.Baja.substring(8,10) >= +Object.keys(dialokobydiego)[0]){
-                                            item.days[index] = {[Object.keys(dialokobydiego)[0]]:"Primero"+nyx.Nombre}
+                                            item.days[index] = {[Object.keys(dialokobydiego)[0]]:nyx.Nombre}
                                                             }
 
                                         else if (nyx.Cliente == item.Cliente 
@@ -399,7 +399,7 @@ const Pruebas = (pruebas) => {
                                             && nyx.Baja != "" 
                                             && nyx.Baja.substring(5,7) > dateOne.substring(5,7)
                                             && nyx.Baja.substring(8,10) <= +Object.keys(dialokobydiego)[0]){
-                                                item.days[index] = {[Object.keys(dialokobydiego)[0]]:"BAJA,MES"+nyx.Nombre}
+                                                item.days[index] = {[Object.keys(dialokobydiego)[0]]:nyx.Nombre}
                                             }
                                                             
                                         else if (nyx.Cliente == item.Cliente 
@@ -412,7 +412,7 @@ const Pruebas = (pruebas) => {
                                             && nyx.Estado == 1
                                             && nyx.Ingreso.substring(5,7) <= dateOne.substring(5,7)
                                             && nyx.Ingreso.substring(8,10) <= +Object.keys(dialokobydiego)[0]){
-                                                                item.days[index] = {[Object.keys(dialokobydiego)[0]]:"Segundo"+nyx.Nombre}
+                                                                item.days[index] = {[Object.keys(dialokobydiego)[0]]:nyx.Nombre}
                                                             } 
                                                             
                                       
@@ -426,7 +426,7 @@ const Pruebas = (pruebas) => {
                                             && nyx.Estado == 1 
                                             && nyx.Ingreso.substring(5,7) < dateOne.substring(5,7)
                                             && nyx.Ingreso.substring(8,10) >= +Object.keys(dialokobydiego)[0]){
-                                                item.days[index] = {[Object.keys(dialokobydiego)[0]]:"Ingreso,MES"+nyx.Nombre}
+                                                item.days[index] = {[Object.keys(dialokobydiego)[0]]:nyx.Nombre}
                                             }
 
                                         if(item.days[index][Object.keys(dialokobydiego)[0]]=="a" ){
