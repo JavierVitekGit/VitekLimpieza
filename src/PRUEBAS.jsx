@@ -228,6 +228,18 @@ const Pruebas = (pruebas) => {
                     })
 
                       get(child(dbRef,'Justificaciones/')).then((jsnapshot)=>{
+
+                        const diass = [
+                            "Domingo",
+                            "Lunes",
+                            "Martes",
+                            "Miércoles",
+                            "Jueves",
+                            "Viernes",
+                            "Sábado"
+                            
+                        ]
+
                         if (jsnapshot.exists()) {
 
                             const diass = [
@@ -321,119 +333,130 @@ const Pruebas = (pruebas) => {
                                 
                             })
 
-                            datos.forEach((item)=>{
+                            
+                        }
+                        datos.forEach((item)=>{
                            
 
-                                item.days.forEach((dialokobydiego,index)=>{
+                            item.days.forEach((dialokobydiego,index)=>{
+
+                                
+
+                                
+
+                                item.days[index] = {[Object.keys(dialokobydiego)[0]]:"a"}
+                                tangamandapio=(new Date(fechaD[index])).getDay()
+                                justificaciones.forEach((iter)=>{
 
                                     
 
+                                    operadores.forEach((nyx)=>{
+
+                                        // datos.push({Nombre:"a",Cliente:cl,Ubicacion:ubic,Horario:hr,Puesto:puesto,Descanso:dias,days:getDays(),Posicion:pos})
+                                        // operadores.push({Nombre:nombre,Cliente:cl,Ubicacion:ubic,Posicion:pos})
+
+                                    //     justificaciones.push({
+                                    //         Fecha:key,
+                                    //         Cliente:validateTwo,
+                                    //         Nombre:nombr,
+                                    //         Turno:turn,
+                                    //         Estado:incidenci,
+                                    //         Justificacion:just,
+                                    //         Suplencia:sup,
+                                    //         Observaciones:obser,
+                                    //         Ubicacion:ubic})
+                                    // }
                                     
 
-                                    item.days[index] = {[Object.keys(dialokobydiego)[0]]:"a"}
-                                    tangamandapio=(new Date(fechaD[index])).getDay()
-                                    justificaciones.forEach((iter)=>{
+                                        if (item.Cliente == nyx.Cliente && item.Ubicacion == nyx.Ubicacion && item.Posicion == nyx.Posicion) {
+                                            item.Nombre = nyx.Nombre
+                                        }
 
-                                        
+                                    
 
-                                        operadores.forEach((nyx)=>{
-
-                                            // datos.push({Nombre:"a",Cliente:cl,Ubicacion:ubic,Horario:hr,Puesto:puesto,Descanso:dias,days:getDays(),Posicion:pos})
-                                            // operadores.push({Nombre:nombre,Cliente:cl,Ubicacion:ubic,Posicion:pos})
-
-                                        //     justificaciones.push({
-                                        //         Fecha:key,
-                                        //         Cliente:validateTwo,
-                                        //         Nombre:nombr,
-                                        //         Turno:turn,
-                                        //         Estado:incidenci,
-                                        //         Justificacion:just,
-                                        //         Suplencia:sup,
-                                        //         Observaciones:obser,
-                                        //         Ubicacion:ubic})
-                                        // }
-                                        
-
-                                            if (item.Cliente == nyx.Cliente && item.Ubicacion == nyx.Ubicacion && item.Posicion == nyx.Posicion) {
-                                                item.Nombre = nyx.Nombre
-                                            }
-
-                                        
-
-                                             
+                                         
 
 
 
-                                             if (nyx.Cliente == item.Cliente 
-                                                && nyx.Ubicacion == item.Ubicacion
-                                                && iter.Turno == item.Horario   
-                                                && item.Posicion == nyx.Posicion 
-                                                && nyx.Nombre == item.Nombre
-                                                && nyx.Baja != null 
-                                                && nyx.Baja != "" 
-                                                && nyx.Baja.substring(5,7) >= dateOne.substring(5,7)
-                                                && nyx.Baja.substring(8,10) >= +Object.keys(dialokobydiego)[0]){
-                                                item.days[index] = {[Object.keys(dialokobydiego)[0]]:nyx.Nombre}
-                                                                }
-
-                                            
-                                                                
-                                            else if (nyx.Cliente == item.Cliente 
-                                                && nyx.Ubicacion == item.Ubicacion
-                                                && iter.Turno == item.Horario   
-                                                && item.Posicion == nyx.Posicion 
-                                                && nyx.Nombre == item.Nombre
-                                                && nyx.Ingreso != null 
-                                                && nyx.Ingreso != "" 
-                                                && nyx.Estado == 1
-                                                && nyx.Ingreso.substring(5,7) <= dateOne.substring(5,7)
-                                                && nyx.Ingreso.substring(8,10) <= +Object.keys(dialokobydiego)[0]){
-                                                                    item.days[index] = {[Object.keys(dialokobydiego)[0]]:nyx.Nombre}
-                                                                } 
-                                                                
-                                          
-                                            else if (nyx.Cliente == item.Cliente 
-                                                && nyx.Ubicacion == item.Ubicacion
-                                                && iter.Turno == item.Horario   
-                                                && item.Posicion == nyx.Posicion 
-                                                && nyx.Nombre == item.Nombre
-                                                && nyx.Ingreso != null 
-                                                && nyx.Ingreso != "" 
-                                                && nyx.Ingreso.substring(5,7) < dateOne.substring(5,7)
-                                                && nyx.Ingreso.substring(8,10) >= +Object.keys(dialokobydiego)[0]){
-                                                    item.days[index] = {[Object.keys(dialokobydiego)[0]]:nyx.Nombre}
-                                                }
-
-                                            if(item.days[index][Object.keys(dialokobydiego)[0]]=="a" ){
-                                                item.days[index]= {[Object.keys(dialokobydiego)[0]]:""}
-                                            }                    
-                                                                
-                                                           
-                                            else if (!item.Descanso.includes(diass[tangamandapio])){
-                                                            item.days[index]= {[Object.keys(dialokobydiego)[0]]:""}
+                                         if (nyx.Cliente == item.Cliente 
+                                            && nyx.Ubicacion == item.Ubicacion
+                                            && iter.Turno == item.Horario   
+                                            && item.Posicion == nyx.Posicion 
+                                            && nyx.Nombre == item.Nombre
+                                            && nyx.Baja != null 
+                                            && nyx.Baja != "" 
+                                            && nyx.Baja.substring(5,7) >= dateOne.substring(5,7)
+                                            && nyx.Baja.substring(8,10) >= +Object.keys(dialokobydiego)[0]){
+                                            item.days[index] = {[Object.keys(dialokobydiego)[0]]:"Primero"+nyx.Nombre}
                                                             }
 
-                                            if  (iter.Nombre == item.Nombre 
-                                                    && iter.Cliente == item.Cliente 
-                                                    && iter.Ubicacion == item.Ubicacion
-                                                    && iter.Turno == item.Horario
-                                                    && item.Posicion == nyx.Posicion
-                                                    && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]) {
-                                                    item.days[index] = {[Object.keys(dialokobydiego)[0]]:iter.Suplencia}
-                                                }                   
-                                            // TODO agregar la validacion para eliminar los que no tienen                         
-                                            
-                                            
+                                        else if (nyx.Cliente == item.Cliente 
+                                            && nyx.Ubicacion == item.Ubicacion
+                                            && iter.Turno == item.Horario   
+                                            && item.Posicion == nyx.Posicion 
+                                            && nyx.Nombre == item.Nombre
+                                            && nyx.Baja != null 
+                                            && nyx.Baja != "" 
+                                            && nyx.Baja.substring(5,7) > dateOne.substring(5,7)
+                                            && nyx.Baja.substring(8,10) <= +Object.keys(dialokobydiego)[0]){
+                                                item.days[index] = {[Object.keys(dialokobydiego)[0]]:"BAJA,MES"+nyx.Nombre}
+                                            }
+                                                            
+                                        else if (nyx.Cliente == item.Cliente 
+                                            && nyx.Ubicacion == item.Ubicacion
+                                            && iter.Turno == item.Horario   
+                                            && item.Posicion == nyx.Posicion 
+                                            && nyx.Nombre == item.Nombre
+                                            && nyx.Ingreso != null 
+                                            && nyx.Ingreso != "" 
+                                            && nyx.Estado == 1
+                                            && nyx.Ingreso.substring(5,7) <= dateOne.substring(5,7)
+                                            && nyx.Ingreso.substring(8,10) <= +Object.keys(dialokobydiego)[0]){
+                                                                item.days[index] = {[Object.keys(dialokobydiego)[0]]:"Segundo"+nyx.Nombre}
+                                                            } 
+                                                            
+                                      
+                                        else if (nyx.Cliente == item.Cliente 
+                                            && nyx.Ubicacion == item.Ubicacion
+                                            && iter.Turno == item.Horario   
+                                            && item.Posicion == nyx.Posicion 
+                                            && nyx.Nombre == item.Nombre
+                                            && nyx.Ingreso != null 
+                                            && nyx.Ingreso != ""
+                                            && nyx.Estado == 1 
+                                            && nyx.Ingreso.substring(5,7) < dateOne.substring(5,7)
+                                            && nyx.Ingreso.substring(8,10) >= +Object.keys(dialokobydiego)[0]){
+                                                item.days[index] = {[Object.keys(dialokobydiego)[0]]:"Ingreso,MES"+nyx.Nombre}
+                                            }
 
-                                            
-                                             
-                                        })
+                                        if(item.days[index][Object.keys(dialokobydiego)[0]]=="a" ){
+                                            item.days[index]= {[Object.keys(dialokobydiego)[0]]:""}
+                                        }                    
+                                                            
+                                                       
+                                        else if (!item.Descanso.includes(diass[tangamandapio])){
+                                                        item.days[index]= {[Object.keys(dialokobydiego)[0]]:""}
+                                                        }
 
+                                        if  (iter.Nombre == item.Nombre 
+                                                && iter.Cliente == item.Cliente 
+                                                && iter.Ubicacion == item.Ubicacion
+                                                && iter.Turno == item.Horario
+                                                && item.Posicion == nyx.Posicion
+                                                && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]) {
+                                                item.days[index] = {[Object.keys(dialokobydiego)[0]]:iter.Suplencia}
+                                            }                   
+                                        // TODO agregar la validacion para eliminar los que no tienen                         
+                                        
+                                        
+
+                                        
+                                         
                                     })
+
                                 })
                             })
-                        }
-                        
+                        })
                     })
 
                     reasig.forEach((item)=>{
