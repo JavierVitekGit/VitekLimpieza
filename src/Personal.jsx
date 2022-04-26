@@ -1,4 +1,4 @@
-import { React,useState,useLayoutEffect,useCallback} from "react";
+import { React,useState,useLayoutEffect,useCallback,location} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import './Personal.css'
 import 'react-infinite-calendar/styles.css';
@@ -126,7 +126,7 @@ const Personal = ({personal}) => {
 
 
   var today = new Date();
-  var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 30);
+  var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
   var minInp = lastWeek.toISOString().split('T')[0]
   
     console.log(lastWeek.toISOString().split('T'[0]))
@@ -191,6 +191,18 @@ const Personal = ({personal}) => {
     ubc.push(item.Ubicacion)
    }
  })
+
+
+const ubcUnic = []
+
+ubcUnic.push('')
+
+ubc.forEach((x)=>{
+  if (!ubcUnic.includes(x)){
+    ubcUnic.push(x)
+  }
+})
+ 
 
 console.log("SELECTCLIENTE:",clientSelect)
 console.log("UBC::",ubc)
@@ -342,33 +354,37 @@ opUbic.forEach((item)=>{
             opUbic.push({Cliente:client,Ubicacion:ubic,Puesto:pt,Horario:hr,Key:id})
           }
 
+          if (nm == "Vacante") {
+            clientUbic.push({Nombre:client,Ubicacion:ubic})
+          }
+
         })
       }
     })
 
 
 
-    get(child(dbRef,'ClienteUbicacion')).then((snapshot)=>{
-      if (snapshot.exists()){
-        snapshot.forEach((childSnapshot)=>{
-          var nombre = childSnapshot.child("Nombre").val()
-          var ubic = childSnapshot.child("Ubicacion").val()
-          var sup = childSnapshot.child("Supervisor").val()
-          var estate = childSnapshot.child("Estatus").val()
+    // get(child(dbRef,'ClienteUbicacion')).then((snapshot)=>{
+    //   if (snapshot.exists()){
+    //     snapshot.forEach((childSnapshot)=>{
+    //       var nombre = childSnapshot.child("Nombre").val()
+    //       var ubic = childSnapshot.child("Ubicacion").val()
+    //       var sup = childSnapshot.child("Supervisor").val()
+    //       var estate = childSnapshot.child("Estatus").val()
 
 
-          if (ubic != null && estate != 0 ){
-            clientUbic.push({Nombre:nombre,Ubicacion:ubic})
-          }
+    //       if (ubic != null && estate != 0 ){
+    //         clientUbic.push({Nombre:nombre,Ubicacion:ubic})
+    //       }
           
 
-          clientCl.push(nombre)
+    //       clientCl.push(nombre)
 
 
 
-        })
-      }
-    })
+    //     })
+    //   }
+    // })
 
 
 
@@ -427,6 +443,11 @@ opUbic.forEach((item)=>{
   const [modP,setModP] = useState(false)
   const showPersonal = () => setModP(true)
   const closePersonal = () => setModP(false)
+
+
+  const [confir,setConfir] = useState(false)
+  const showConfir = () => setConfir(true)
+  const closeConfir = () => setConfir(false)
   
   function comprobarTwo () {
     if (clientSelect == ""  && ubicSelect == "" || puestSelect == "" || turnSelect == ""){
@@ -442,22 +463,35 @@ opUbic.forEach((item)=>{
   
 
 
-  if ( nombre == "" && fechaN =="" && fechaI == "") {
+  if ( nombre == "" || fechaN =="" || fechaI == "") {
     handleShow(event);
     
   } else{
     show(event)
-    removeOperadorData(event);
-    writeOperadorData(event);
 
 
-
-
-  
   }
 
 }
 
+function refreshPage() {
+  window.location.reload(false);
+}
+
+function modalWrite(event) {
+  event.preventDefault()
+
+  showConfir(event)
+  removeOperadorData(event);
+  writeOperadorData(event);
+
+
+}
+
+function finish () {
+  closeConfir()
+  refreshPage()
+}
 
 // function backs() {
 //   ID = (''),
@@ -531,7 +565,7 @@ function back () {
             <label class="form-outline-label">Cliente</label>
 
 <br/>
-<select onClick={forceUpdate} onChange={v=>{setClientSelect(v.target.value)}} >
+<select onClick={forceUpdate} value={clientSelect} onChange={v=>{setClientSelect(v.target.value)}} >
 
 
 {clientesUnicos.map((item)=>{ 
@@ -549,8 +583,8 @@ return(
 <br/>
 
 
-<select onClick={forceUpdate} onChange={v=>{setUbicSelect(v.target.value)}} >
-{ubc.map((item)=>{ 
+<select onClick={forceUpdate} value={ubicSelect} onChange={v=>{setUbicSelect(v.target.value)}} >
+{ubcUnic.map((item)=>{ 
 
 return(
 
@@ -570,7 +604,7 @@ return(
 
 <br/>
 
-<select onClick={forceUpdate} onChange={v=>{setPuestSelect(v.target.value)}}>
+<select onClick={forceUpdate} value={puestSelect} onChange={v=>{setPuestSelect(v.target.value)}}>
 {pvUnic.map((item)=>{
   return(
     <option>{item}</option>
@@ -708,32 +742,34 @@ return(
 
               <div className="diasPersonal">
 
+                <table>
+
+                  <tr>
+                  <th><input type="checkbox" id="LTC" onClick={checkboxval}  onChange={v=> setLun(v.target.value)} /></th>
+                  <th><input type="checkbox" id="MTC" onClick={checkboxval} onChange={v=>setMar(v.target.value)} /></th>
+                  <th><input type="checkbox" id="MITC" onClick={checkboxval} onChange={v=>setMier(v.target.value)} /></th>
+                  <th><input type="checkbox" id="JTC" onClick={checkboxval} onChange={v=>setJuev(v.target.value)} /></th>
+                  <th><input type="checkbox" id="VTC" onClick={checkboxval} onChange={v=>setVier(v.target.value)} /></th>
+                  <th><input type="checkbox" id="STC" onClick={checkboxval} onChange={v=>setSab(v.target.value)} /></th>
+                  <th><input type="checkbox" id="DTC" onClick={checkboxval} onChange={v=>setDom(v.target.value)} /></th>  
+                  </tr>
+
+                  <tr>
+                    <td>L</td>
+                    <td>M</td>
+                    <td>Mi</td>
+                    <td>J</td>
+                    <td>V</td>
+                    <td>S</td>
+                    <td>D</td>
+                  </tr>
+
+
+                </table>
+
         
-              <input type="checkbox" id="LTC" onClick={checkboxval}  onChange={v=> setLun(v.target.value)} /> <h1 id="luntcheck">Lunes</h1> 
-
-              <div className="marttP">
-              <input type="checkbox" id="MTC" onClick={checkboxval} onChange={v=>setMar(v.target.value)} /> <h1 id="martcheck">Martes</h1> 
-              </div>
-
-              <div className="mierctP">
-              <input type="checkbox" id="MITC" onClick={checkboxval} onChange={v=>setMier(v.target.value)} /> <h1 id="miertcheck">Miércoles</h1> 
-              </div>
-
-              <div className="juevtP">
-              <input type="checkbox" id="JTC" onClick={checkboxval} onChange={v=>setJuev(v.target.value)} /> <h1 id="juevtcheck">Jueves</h1> 
-              </div>
-
-              <div className="viertP">
-              <input type="checkbox" id="VTC" onClick={checkboxval} onChange={v=>setVier(v.target.value)} /> <h1 id="viertcheck">Viernes</h1>
-              </div>
-
-              <div className="sabtP">
-              <input type="checkbox" id="STC" onClick={checkboxval} onChange={v=>setSab(v.target.value)} /> <h1 id="sabtcheck">Sábado</h1>
-              </div>
-
-              <div className="domtP">
-              <input type="checkbox" id="DTC" onClick={checkboxval} onChange={v=>setDom(v.target.value)} /> <h1 id="domtcheck">Domingo</h1>
-              </div>
+              
+           
 
               </div>
 
@@ -822,6 +858,59 @@ Ok
 <Modal.Header>
 
 
+<Modal.Title>¿Está Seguro?</Modal.Title>
+
+
+</Modal.Header>
+
+
+<Modal.Body>
+
+
+<p>Está seguro que desea continuar con la alta del operador {nombre + ' ' +apellidoP + " " +apellidoM} con el cliente {clientSelect+"-"+ubicSelect}</p>
+
+
+</Modal.Body>
+
+
+<Modal.Footer>
+
+
+  <Button variant="success" onClick={modalWrite}>
+
+
+Si
+
+
+  </Button>
+
+  <Button variant="danger" onClick={close}>
+    No
+  </Button>
+
+
+</Modal.Footer>
+
+
+</Modal>
+
+
+
+<Modal className="modal-confir" 
+      show={confir}  
+      onHide={closeConfir} 
+      animation={true} 
+      backdrop="static" 
+      keyboard={false}   
+      {...personal}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered>
+
+
+<Modal.Header>
+
+
 <Modal.Title>Registro Exitoso</Modal.Title>
 
 
@@ -831,7 +920,7 @@ Ok
 <Modal.Body>
 
 
-<p>Los datos del operador han sido guardados correctamente</p>
+<p>El registro se ha realizado de manera exitosa</p>
 
 
 </Modal.Body>
@@ -840,7 +929,7 @@ Ok
 <Modal.Footer>
 
 
-  <Button variant="success" onClick={close}>
+  <Button variant="success" onClick={finish}>
 
 
 Ok
@@ -853,6 +942,8 @@ Ok
 
 
 </Modal>
+
+
 
 <Modal className="registroP" 
       show={modP}  

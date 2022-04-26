@@ -170,12 +170,18 @@ margin-left: 5vh;
 }
 
 .diasPersonal{
-  display: inline-block;
-    margin-top: 24vh;
-    margin-left: -111vh;
+padding-top: 30vh;
 }
 
-.marttP{
+
+
+.diasPersonal input{
+  height: 40px;
+  width: 40px;
+}
+
+
+/* .marttP{
   margin-top: -100px;
   margin-left: 30vh;
 }
@@ -202,7 +208,7 @@ margin-left: 5vh;
 .domtP {
   margin-left: 110vh;
   margin-top: -100px;
-}
+} */
 
 #idk{
   margin-left: 10vh;

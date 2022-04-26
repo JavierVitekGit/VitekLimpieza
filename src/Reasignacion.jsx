@@ -100,8 +100,8 @@ const Reasignacion = (reasignacion) => {
     unicos.push('')
   
     shift.forEach((item)=>{
-      if (!unicos.includes(item)){
-        unicos.push(item)
+      if (!unicos.includes(item.Cliente)){
+        unicos.push(item.Cliente)
       }
     });
 
@@ -226,7 +226,7 @@ const Reasignacion = (reasignacion) => {
       };
 
   
-      
+      nombrecitos.push('')
 
       useLayoutEffect(()=>{
         datos.push({tel:"Seleccionar Teléfono"  })
@@ -244,8 +244,13 @@ const Reasignacion = (reasignacion) => {
               var id = childSnapshot.key;
               
               
+
               if (nombre != "Vacante"){
                 nombrecitos.push(nombre)
+              }
+
+              if (nombre == "Vacante") {
+                shift.push({Cliente:cliente,Ubicacion:ubic})
               }
               
 
@@ -264,24 +269,24 @@ const Reasignacion = (reasignacion) => {
         })
 
 
-        get(child(dbRef,'ClienteUbicacion')).then((snapshot)=>{
-          if(snapshot.exists()){
-            snapshot.forEach((childSnapshot)=>{
-             var name = childSnapshot.child("Nombre").val()
-             var ubic = childSnapshot.child("Ubicacion").val()
+        // get(child(dbRef,'ClienteUbicacion')).then((snapshot)=>{
+        //   if(snapshot.exists()){
+        //     snapshot.forEach((childSnapshot)=>{
+        //      var name = childSnapshot.child("Nombre").val()
+        //      var ubic = childSnapshot.child("Ubicacion").val()
 
 
-             shift.push(name)
+        //      shift.push(name)
 
 
           
-              ubicArray.push({Ubicacion:ubic,Nombre:name})
+        //       ubicArray.push({Ubicacion:ubic,Nombre:name})
          
              
-            })
+        //     })
 
-          }
-        })
+        //   }
+        // })
 
       
 
@@ -295,12 +300,26 @@ const Reasignacion = (reasignacion) => {
 
       ubicA.push('')
 
-      ubicArray.forEach((item)=>{
-        if (item.Nombre == cliente){
+      shift.forEach((item)=>{
+        if (item.Cliente == cliente){
             ubicA.push(item.Ubicacion)
         }
       })
 
+      const ubicUnic = []
+
+      ubicA.forEach((x)=>{
+        if (!ubicUnic.includes(x)){
+            ubicUnic.push(x)
+        }
+      })
+
+
+      // shift.forEach((item)=>{
+      //   if (!unicos.includes(item.Cliente)){
+      //     unicos.push(item.Cliente)
+      //   }
+      // });
 
 return(
 
@@ -353,7 +372,7 @@ return(
         <label class="form-otline-label">Ubicación a reasignar</label>
         <br/>
         <select onClick={forceUpdate} value={ubic} onChange={v=>{setUbic(v.target.value)}} >
-            {ubicA.map((item)=><option>{item}</option>)}
+            {ubicUnic.map((item)=><option>{item}</option>)}
         </select>
 
         <br/>
