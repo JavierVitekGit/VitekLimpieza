@@ -146,7 +146,7 @@ const App = (app) => {
 
       <Route path ="/ReporteG" element={<ReporteG/>} />
 
-      <Route path ="/ReporteM" element={<Factura/>} />
+      <Route path ="/ReporteM" element={<Pruebas/>} />
 
       <Route path ="/Reporte%20Bajas" element={<Supervisores/>} />
       <Route path ="/Test" element={<Pruebas/>} />
