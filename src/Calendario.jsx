@@ -462,12 +462,12 @@ const firebaseConfig = {
                   var hora = childSnapshot.child("Horario").val()
                   var est = childSnapshot.child("Estatus").val()
                   var ubic = childSnapshot.child("Ubicacion").val()
-
+                  var posicion = childSnapshot.child("Posicion").val()
 
                   console.log("NombreOperador",nombreOp)
 
                   if( est == 1 ) 
-                  comp.push({clienteC:clienteOp,name:nombreOp,hr:hora,estat:est,Ubicacion:ubic})
+                  comp.push({clienteC:clienteOp,name:nombreOp,hr:hora,estat:est,Ubicacion:ubic,Posicion:posicion})
 
                 
 
@@ -475,10 +475,10 @@ const firebaseConfig = {
 
             comp.forEach((iter)=> {
               if (iter.clienteC == selClient && iter.Ubicacion == selUbic) {
-                arrayJusti.push({clienteC:iter.clienteC,name:iter.name,hr:iter.hr,estatus:iter.estat,Ubicacion:iter.Ubicacion})
+                arrayJusti.push({clienteC:iter.clienteC,name:iter.name,hr:iter.hr,estatus:iter.estat,Ubicacion:iter.Ubicacion,Posicion:iter.Posicion})
                 arrayJusti.sort();
 
-                console.log("Justi",arrayJusti.length)
+               
 
               }
             })
@@ -499,15 +499,7 @@ const firebaseConfig = {
 
       setTimeout(() => {
 
-        console.log("Personal::: "+arrayPersonal[0])
-        for(var i=0; i<arrayPersonal[0]; i++){
-          if (arrayJusti[i] == undefined){
-            arrayJusti.push({clienteC:selClient,name:"Vacante",hr:"08:00"})
-          }else{
-
-          }
-
-        }
+    
 
         mostrarRegistro();
       }, 500);
@@ -912,6 +904,7 @@ Ok
   
 <thead class="table-dark">
 <tr id="headertab">
+  <th scope="col">°P</th>
   <th scope="col">Cliente</th>
   <th scope="col">Ubicación</th>
   <th scope="col">Nombre Operador</th>
@@ -938,6 +931,9 @@ Ok
     return (
 
     <tr>
+    <td>
+      {item.Posicion}
+    </td>
 
     <td id="testSelect" onChange={v=>{setClient(v.target.value)}}>
        {item.clienteC}
