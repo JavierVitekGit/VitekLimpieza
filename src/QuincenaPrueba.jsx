@@ -40,6 +40,8 @@ const QuincenaTest = (quincena) => {
 
     // console.log("Dif String:::", dateTwo.substring(8,10) - dateOne.substring(8,10))
 
+    console.log("DateOne",dateOne.substring(5,7))
+
     const today = new Date()
 
     const min = new Date(2022, 1,15);
@@ -82,7 +84,7 @@ const QuincenaTest = (quincena) => {
 
     const [justificaciones,setJustificaciones] = useState([]);
 
-
+    // console.log("Justi",justificaciones)
 
 
     const [reasig,setReasig] = useState([]);
@@ -108,7 +110,7 @@ const QuincenaTest = (quincena) => {
 
     const [datos,setDatos] = useState([]);
 
-// console.log("Datossd asda",datos)
+console.log("Datossd asda",datos)
 
     const [personal,setPersonal] = useState([]);
 
@@ -330,7 +332,7 @@ const QuincenaTest = (quincena) => {
                                 var key = jchildSnapshot.key;
             
                        
-                                // console.log("KEY$$Fecha::",key)
+                                // console.log("KEY$$Fecha::",key.substring(3,5))
             
                         
                 
@@ -379,9 +381,9 @@ const QuincenaTest = (quincena) => {
                                                     incidenci = "/"
                                                 }
 
-                                                if (nombr == sup || incidenci == "suplencia") {
-                                                    incidenci = obser
-                                                }
+                                                // if (nombr == sup || incidenci == "suplencia") {
+                                                //     incidenci = obser
+                                                // }
 
                                                 
                                                 // if (cl == validateTwo && nm == nombr && state != null) {
@@ -423,7 +425,7 @@ const QuincenaTest = (quincena) => {
 
                                             
                                             
-                                            
+                                          
 
 
 
@@ -435,6 +437,7 @@ const QuincenaTest = (quincena) => {
                                 
                 
                             })
+
                             datos.forEach((item)=>{
                                 item.dias.forEach((dialokobydiego,index)=>{
                                 justificaciones.forEach((iter)=>{
@@ -459,11 +462,13 @@ const QuincenaTest = (quincena) => {
                                         // }  
 
 
-                                    
+                                        //    if(iter.Suplencia == "Sofia Guadalupe Ortíz García"){
+                                        //         console.log("SI ESTA SOFIA")
+                                        //    }
 
                                 
                                             if(item.dias[index] == null) {
-                                                item.dias[index] = "/"
+                                                item.dias[index] = "/" 
                                             }                                                   
 
                                             else if (item.Horario == iter.Turno && item.Nombre == iter.Nombre && item.Cliente == iter.Cliente && item.Ubicacion == iter.Ubicacion && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0] ) {
@@ -473,7 +478,7 @@ const QuincenaTest = (quincena) => {
 //                                                                item.Nombre == "Vacante" && +iter.Fecha.substring(0,2) != +Object.keys(dialokobydiego)[0]
                                             else if (item.Nombre == "Vacante"){
 
-                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]: ""}
+                                                item.dias[index] = {[Object.keys(dialokobydiego)[0]]: "" }
                                             } 
 
                                             else if (item.Baja != null && item.Baja != "" && item.Baja.substring(8,10) < +Object.keys(dialokobydiego)[0]){
@@ -488,13 +493,15 @@ const QuincenaTest = (quincena) => {
                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:""}
                                             }
 
-                                            if (item.Nombre == iter.Suplencia && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]){
+                                            if (item.Nombre == iter.Suplencia && +iter.Fecha.substring(3,5) == dateOne.substring(5,7) && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]){
                                                 item.dias[index] = {[Object.keys(dialokobydiego)[0]]:iter.Observaciones}
                                             }
 
+                                          
+
 
                               
-
+                                           
                                     })
                                
 

@@ -35,7 +35,6 @@ const Calendario = (calendario) => {
 
   const [porfa,setPorfa] = useState(null)
 
-  console.log("Ya Jala???",porfa)
 
   const [selUbic,setSelUbic] = useState([])
 
@@ -557,6 +556,24 @@ console.log('Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient)
 
 // },[])
 
+  arrayJusti.sort(function (a,b){
+    if (a.Posicion > b.Posicion.toString()){
+      return 1;
+    }
+
+    if (a.Posicion < b.Posicion.toString()){
+      return -1;
+    }
+
+    return 0
+
+  })
+
+
+
+  // arrayJusti.sort(function (a,b){
+  //   return a.Posicion - b.Posicion
+  // })
 
 
     return(
