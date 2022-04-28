@@ -229,7 +229,7 @@ const Reasignacion = (reasignacion) => {
     function removeData(event){
       event.preventDefault()
 
-      remove(ref(db,'Operador' + vacanteName[0].toString()))
+      remove(ref(db,'Operador/' + vacanteName[0].toString()))
     }
 
     function writeReasignacionData(event) {
