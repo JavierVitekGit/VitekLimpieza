@@ -95,7 +95,8 @@ const BajaOperador = (baja) => {
             Puesto:item.Puesto,
             Estatus:1,
             Fecha_Baja:"",
-            Fecha_Ingreso:""
+            Fecha_Ingreso:"",
+            Posicion: item.Posicion
           })
         })
      
@@ -124,8 +125,8 @@ const BajaOperador = (baja) => {
 
       datos.forEach((item)=>{
         if (item.key == nombre) {
-        if(!nvalidate.includes({Cliente:item.cl,Horario:item.horario,Puesto:item.puesto,Ubicacion:item.ubicacion})){
-          nvalidate.push({Cliente:item.cl,Estatus:1,Fecha_Baja:"",Fecha_Ingreso:"",Horario:item.horario,Puesto:item.puesto,Ubicacion:item.ubicacion})       
+        if(!nvalidate.includes({Cliente:item.cl,Horario:item.horario,Puesto:item.puesto,Ubicacion:item.ubicacion,Posicion:item.Posicion})){
+          nvalidate.push({Cliente:item.cl,Estatus:1,Fecha_Baja:"",Fecha_Ingreso:"",Horario:item.horario,Puesto:item.puesto,Ubicacion:item.ubicacion,Posicion:item.Posicion})       
         }  
         }
       })
@@ -151,9 +152,10 @@ const BajaOperador = (baja) => {
               var hor = childSnapshot.child("Horario").val()
               var id = childSnapshot.key;
               var est = childSnapshot.child("Estatus").val()
+              var pos = childSnapshot.child("Posicion").val()
 
               if (est == 1) {
-                datos.push({tel:telefono,name:nombre,fi:fechaIngreso,key:id,cl:cliente,puesto:puest,ubicacion:ubic,horario:hor}) 
+                datos.push({tel:telefono,name:nombre,fi:fechaIngreso,key:id,cl:cliente,puesto:puest,ubicacion:ubic,horario:hor,Posicion:pos}) 
               
                 datos.sort()
    
