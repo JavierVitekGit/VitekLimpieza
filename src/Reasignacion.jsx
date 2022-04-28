@@ -1,6 +1,6 @@
 import {React,useState,useLayoutEffect,useCallback} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
-import {get, getDatabase,ref,child,update} from "firebase/database";
+import {get, getDatabase,ref,child,update,remove} from "firebase/database";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import SideBar from "./Sidebar";
@@ -19,7 +19,7 @@ const Reasignacion = (reasignacion) => {
 
     const [ubic,setUbic] = useState('')
 
-      console.log("UbicSelect",ubic)
+
 
     const [shift,setShift] = useState([])
 
@@ -37,11 +37,11 @@ const Reasignacion = (reasignacion) => {
 
     var fecha = today.substring(8,10) + "-" +  today.substring(5,7) + "-" + today.substring(0,4)
 
-    console.log("today",today)
+    // console.log("today",today)
 
-    console.log("Fecha",fecha)
+    // console.log("Fecha",fecha)
 
-    console.log(filt)
+    // console.log(filt)
 
     // const arrayC = filt.filter(w => w.length <= 13 );
      
@@ -54,10 +54,14 @@ const Reasignacion = (reasignacion) => {
     const [cliente,setCliente] = useState ('')
     const [nombre,setNombre] = useState('')
     const [datos,setDatos] = useState([])
+    const [horario,setHorario] = useState('')
+    const [posicion,setPosicion] = useState('')
+
+
 
     const oldClient = [];
 
-    console.log("oldClient",oldClient)
+    // console.log("oldClient",oldClient)
 
     datos.forEach((item)=>{
       if (item.id == nombre){
@@ -88,11 +92,51 @@ const Reasignacion = (reasignacion) => {
       }
     })
 
+    const oldPosicion = []
+    datos.forEach((x)=>{
+      if(x.id == nombre){
+        oldPosicion.push(x.Posicion)
+      }
+    })
+
+    console.log("oldPosicion",oldPosicion)
+
+    const horarioV = []
+
+    horarioV.push('')
+
+    shift.forEach((x)=>{
+      if(x.Cliente == cliente && x.Ubicacion == ubic){
+        if(!horarioV.includes(x.Horario)){
+          horarioV.push(x.Horario)
+        }
+      }
+    })
+
+    const posicionV = []
+
+    posicionV.push('')
+
+    shift.forEach((x)=>{
+      if(x.Cliente == cliente && x.Ubicacion == ubic && x.Horario == horario){
+        if(!posicionV.includes(x.Posicion)){
+          posicionV.push(x.Posicion)
+        }
+      }
+    })
+
 
     const [nombrecitos,setNombrecitos] = useState([]);
+    
+   
+      if (!nombrecitos.includes("")){
+        nombrecitos.push("")
+      }
+  
 
-    const [horario,setHorario] = useState('')
-    const [horario2,setHorario2] = useState('')
+
+   
+
 
 
     const unicos = [];
@@ -105,20 +149,30 @@ const Reasignacion = (reasignacion) => {
       }
     });
 
-    console.log(unicos.sort())
+    const vacanteName = []
+
+    shift.forEach((x)=>{
+      if(x.Cliente == cliente && x.Ubicacion == ubic && x.Horario == horario && x.Posicion == posicion){
+        vacanteName.push(x.key)
+      }
+    })
+
+    console.log("VacanteName",vacanteName)
+
+    // console.log(unicos.sort())
 
 
     const handlerNombres = function (e) {
       const opcion = e.target.value
       setTel(e.target.value)
-      console.log("### "+ tel)
-      console.log("$$$" + opcion)
+      // console.log("### "+ tel)
+      // console.log("$$$" + opcion)
 
       
 
        datos.forEach (v=>{
          if (v.nm == opcion) {
-           console.log(v.id,opcion)
+          //  console.log(v.id,opcion)
            setNombre(v.id)
          }
        })
@@ -167,11 +221,16 @@ const Reasignacion = (reasignacion) => {
       writeReasignacionData(event);
       writeReasignacionOpData(event);
       newVacant(event)
+      removeData(event)
       Close();
     }
 
 
+    function removeData(event){
+      event.preventDefault()
 
+      remove(ref(db,'Operador' + vacanteName[0].toString()))
+    }
 
     function writeReasignacionData(event) {
         event.preventDefault()
@@ -179,9 +238,10 @@ const Reasignacion = (reasignacion) => {
         update(ref(db,'Reasignacion/' + fecha + tel.substring(0,2) + cliente.substring(0,2)),{
             Nombre: tel,
             Cliente:cliente,
-            Horario:horario + ":" + horario2,
+            Horario:horario, 
             ClienteA:oldClient[0],
-            UbicacionA:oldUbic[0]
+            UbicacionA:oldUbic[0],
+            PosicionA:oldPosicion[0]
         })
 
         Close();
@@ -192,8 +252,9 @@ const Reasignacion = (reasignacion) => {
 
         update(ref(db,'Operador/' + nombre),{
           Cliente:cliente,
-          Horario:horario + ":" + horario2,
-          Ubicacion:ubic
+          Horario:horario,
+          Ubicacion:ubic,
+          Posicion:posicion
         })
     }
 
@@ -208,7 +269,8 @@ const Reasignacion = (reasignacion) => {
         Horario:oldHr[0],
         Nombre: "Vacante",
         Puesto: oldP[0],
-        Ubicacion: oldUbic[0]
+        Ubicacion: oldUbic[0],
+        Posicion: oldPosicion[0]
       })
     }
 
@@ -226,7 +288,7 @@ const Reasignacion = (reasignacion) => {
       };
 
   
-      nombrecitos.push('')
+      
 
       useLayoutEffect(()=>{
         datos.push({tel:"Seleccionar Teléfono"  })
@@ -241,16 +303,20 @@ const Reasignacion = (reasignacion) => {
               var ubic = childSnapshot.child("Ubicacion").val()
               var hr = childSnapshot.child("Horario").val()
               var puest = childSnapshot.child("Puesto").val()
+              var posicion = childSnapshot.child("Posicion").val()
               var id = childSnapshot.key;
               
               
 
               if (nombre != "Vacante"){
-                nombrecitos.push(nombre)
+               
+                  nombrecitos.push(nombre)
+              
+                
               }
 
               if (nombre == "Vacante") {
-                shift.push({Cliente:cliente,Ubicacion:ubic})
+                shift.push({Cliente:cliente,Ubicacion:ubic,Horario:hr,key:id,Posicion:posicion})
               }
               
 
@@ -259,7 +325,7 @@ const Reasignacion = (reasignacion) => {
               clean.push({id:id})
               
 
-             datos.push({tel:telefono,cl:cliente,nm:nombre,id:id,Ubicacion:ubic,Horario:hr,Puesto:puest}) 
+             datos.push({tel:telefono,cl:cliente,nm:nombre,id:id,Ubicacion:ubic,Horario:hr,Puesto:puest,Posicion:posicion}) 
               
              datos.sort()
              
@@ -377,15 +443,30 @@ return(
 
         <br/>
 
-        <label class="form-outline-label" >Nuevo horario</label>
+        <label class="form-outline-label" >Horario</label>
         <br/>
 
         <div className="horInputTurn">
-        <input type="number" id="select" onChange={v=>{setHorario(v.target.value)}}>
+        {/* <input type="number" id="select" onChange={v=>{setHorario(v.target.value)}}>
         </input>
             :
 
-        <input type="number" onChange={v=>{setHorario2(v.target.value)}}></input>
+        <input type="number" onChange={v=>{setHorario2(v.target.value)}}></input> */}
+
+        <select onClick={forceUpdate} value={horario} onChange={v=>{setHorario(v.target.value)}}>
+        {horarioV.map((x)=><option>{x}</option>)}
+        </select>
+
+        <br/>
+
+        <label class="form-outline-label">Posicion</label>
+
+        <br/>
+
+        <select onClick={forceUpdate} value={posicion} onChange={v=>{setPosicion(v.target.value)}}>
+        {posicionV.map((x)=><option>{x}</option>)}
+        </select>
+
 
         </div>
             <br></br>
