@@ -1,4 +1,4 @@
-import { React,useState,useLayoutEffect,useCallback,location} from "react";
+import { React,useState,useLayoutEffect,useCallback} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import './Personal.css'
 import 'react-infinite-calendar/styles.css';
@@ -116,7 +116,7 @@ const Personal = ({personal}) => {
 
     const [turnSelect,setTurnSelect] = useState('')
 
-
+    const [posSelect,setPosSelect] = useState('')
     
 
 
@@ -216,19 +216,32 @@ console.log("UBC::",ubc)
 
  opUbic.forEach((item)=>{
    if (item.Cliente == clientSelect && item.Ubicacion == ubicSelect){
-      pv.push(item.Puesto)
+      if(!pv.includes(item.Puesto)){
+        pv.push(item.Puesto)
+      }
    }
  })
 
- const [pvUnic,setPvUnic] = useState([]);
+ const ps = []
 
- pv.forEach((item)=>{
-   if (!pvUnic.includes(item)) {
-      pvUnic.push(item);
+ ps.push('')
 
-      pvUnic.sort()
-   }
- })
+clientUbic.forEach((x)=>{
+  if(x.Nombre == clientSelect && x.Ubicacion == ubicSelect && x.Puesto == puestSelect && x.Horario == turnSelect){
+    if(!ps.includes(x.Posicion)){
+      ps.push(x.Posicion)
+    }
+  }
+})
+//  const [pvUnic,setPvUnic] = useState([]);
+
+//  pv.forEach((item)=>{
+//    if (!pvUnic.includes(item)) {
+//       pvUnic.push(item);
+
+//       pvUnic.sort()
+//    }
+//  })
 
  // K  E  Y
 
@@ -320,7 +333,8 @@ opUbic.forEach((item)=>{
       Ubicacion:ubicSelect,
       Estatus: 1,
       Horario: turnSelect,
-      Dias: arrayc
+      Dias: arrayc,
+      Posicion: posSelect
     });
   
   }
@@ -349,13 +363,14 @@ opUbic.forEach((item)=>{
           var nm = childSnapshot.child("Nombre").val()
           var hr = childSnapshot.child("Horario").val()
           var id = childSnapshot.key
+          var pos = childSnapshot.child("Posicion").val()
 
           if (ubic != null && nm == "Vacante") {
             opUbic.push({Cliente:client,Ubicacion:ubic,Puesto:pt,Horario:hr,Key:id})
           }
 
           if (nm == "Vacante") {
-            clientUbic.push({Nombre:client,Ubicacion:ubic})
+            clientUbic.push({Nombre:client,Ubicacion:ubic,Horario:hr,Posicion:pos,Puesto:pt})
           }
 
         })
@@ -605,11 +620,13 @@ return(
 <br/>
 
 <select onClick={forceUpdate} value={puestSelect} onChange={v=>{setPuestSelect(v.target.value)}}>
-{pvUnic.map((item)=>{
+{pv.map((item)=>{
   return(
     <option>{item}</option>
   )
 })}
+
+
 </select>
 
 <br/>
@@ -627,6 +644,19 @@ return(
 </select>
 
 <br/>
+
+
+<label class="form-outline-label">Posición</label>
+
+<br/>
+
+<select onClick={forceUpdate} value={posSelect} onChange={v=>{setPosSelect(v.target.value)}}>
+  {ps.map((x)=>{return(<option>{x}</option>)})}
+</select>
+
+<br/>
+
+
 
 <input class="btn btn-primary" type="submit" onClick={comprobarTwo} value="Siguiente" ></input>
 
