@@ -200,13 +200,20 @@ const Reasignacion = (reasignacion) => {
   
     const Close = () => setMod(false)
 
+
+    const[confirm,setConfirm] =useState(false)
+
+    const showConfirm = () => setConfirm(true)
+  
+    const closeConfirm = () => setConfirm(false)
+
     
 
     function comprobar(event){
         event.preventDefault()
 
 
-        if (tel == "" || cliente==""){
+        if (tel == "" || cliente=="" || ubic == "" || posicion == "" || horario == ""){
             handleShow(event);
         } else{
             Show(event);
@@ -214,6 +221,18 @@ const Reasignacion = (reasignacion) => {
         }
 
     }
+
+    function refreshPage() {
+      window.location.reload(false);
+    }
+
+    function last(event){
+      event.preventDefault()
+
+      closeConfirm(event)
+      refreshPage(event)
+    }
+    
 
     function finish (event){
       event.preventDefault()
@@ -223,6 +242,7 @@ const Reasignacion = (reasignacion) => {
       newVacant(event)
       removeData(event)
       Close();
+      showConfirm(event)
     }
 
 
@@ -592,7 +612,50 @@ No
 
 
 
+<Modal className="modal-container" 
+      show={confirm}  
+      onHide={closeConfirm } 
+      animation={true} 
+      backdrop="static" 
+      keyboard={false}   
+      {...reasignacion}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered>
 
+
+<Modal.Header>
+
+
+<Modal.Title>Reasignación Exitosa</Modal.Title>
+
+
+</Modal.Header>
+
+
+<Modal.Body>
+
+
+<p>Se ha reasignado al operador de forma exitosa</p>
+
+
+</Modal.Body>
+
+
+<Modal.Footer>
+
+<Button variant="success" onClick={last}>
+Ok
+  </Button>
+
+
+
+
+
+</Modal.Footer>
+
+
+</Modal>
 
 
 
