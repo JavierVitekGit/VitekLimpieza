@@ -106,7 +106,7 @@ const BajaOperador = (baja) => {
           Fecha_Baja:bajaOp
         })
 
-        close();
+        showConfirm()
       }
 
       const firebaseConfig = {
@@ -185,6 +185,13 @@ const BajaOperador = (baja) => {
     const [mod,setMod] = useState(false)
     const show = () => setMod(true)
     const close = () => setMod(false)
+
+
+
+    const [confirm,setConfirm] = useState(false)
+    const showConfirm = () => setConfirm(true)
+    const closeConfirm = () => setConfirm(false)
+    
     
 
     function comprobar (event) {
@@ -203,6 +210,10 @@ const BajaOperador = (baja) => {
 
   }
 
+  function finish() {
+    closeConfirm()
+    window.location.reload(false)
+  }
 
 
 
@@ -252,6 +263,11 @@ return(
   <br/>
 <input type="text"  class="form-control" value={nombre} ></input>
 
+<br/>
+
+<label class="form-outline-label" for="form1">Cliente</label>
+<br/>
+<input type="text" class="form-control" value={cliente} />
 
 <div className="fechaIngresoOp">
 
@@ -276,9 +292,7 @@ return(
 
 
 
-<label class="form-outline-label" for="form1">Cliente</label>
-<br/>
-<input type="text" class="form-control" value={cliente} />
+
 
 <br></br>
 
@@ -389,6 +403,51 @@ No
 
 
   </Button>
+
+
+</Modal.Footer>
+
+
+</Modal>
+
+
+
+<Modal className="modal-c" 
+      show={confirm}  
+      onHide={closeConfirm } 
+      animation={true} 
+      backdrop="static" 
+      keyboard={false}   z
+      {...baja}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered>
+
+
+<Modal.Header>
+
+
+<Modal.Title>Baja Exitosa</Modal.Title>
+
+
+</Modal.Header>
+
+
+<Modal.Body>
+
+
+<p>Se ha realizado con exito la baja del operador</p>
+
+
+</Modal.Body>
+
+
+<Modal.Footer>
+
+<Button variant="success" onClick={finish}>
+Ok
+  </Button> 
+
 
 
 </Modal.Footer>
