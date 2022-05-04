@@ -98,6 +98,7 @@ const BajaCliente = (baja) => {
         Estatus:0
       })
         close();
+        window.location.reload(false)
     }
     
 
