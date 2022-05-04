@@ -286,6 +286,11 @@ const Cliente = (clientes) => {
     const [mod,setMod] = useState(false)
     const show = () => setMod(true)
     const close = () => setMod(false)
+
+
+    const [confirm,setConfirm] = useState(false)
+    const showConfirm = () => setConfirm(true)
+    const closeConfirm = () => setConfirm(false)
     
 
     function comprobar (event) {
@@ -298,21 +303,61 @@ const Cliente = (clientes) => {
       
       
     } else{
-      show(event);
-      writeClienteData(event);
-      writeShiftData(event);
-      writeEncargadolData(event);
-      writeSupervisorData(event);
-      writeOperadorData(event);
-      writeSuplenciaData(event);
+      showConfirm()
+      
     }
 
   }
 
 
 
+  function finish(event) {
+    event.preventDefault()
 
-    
+    writeClienteData(event);
+    writeShiftData(event);
+    writeEncargadolData(event);
+    writeSupervisorData(event);
+    writeOperadorData(event);
+    writeSuplenciaData(event);
+    show()
+  }
+
+  function closeModal() {
+    window.location.reload(false)
+    close()
+  }
+
+var txtEncargado = ""
+var txtSupervisor =""
+var txtOperador = ""
+var txtSuplencia =""
+
+
+  if (pEncargado < 1) {
+    txtEncargado = "0"
+  } else {
+    txtEncargado = pEncargado.toString()
+  }
+
+  if (pSupervisor < 1) {
+    txtSupervisor = "0"
+  } else {
+    txtSupervisor = pSupervisor.toString()
+  }
+
+  if (pOperador < 1) {
+    txtOperador = "0"
+  } else {
+    txtOperador = pOperador.toString()
+  }
+
+  if(pSuplencia < 1){
+    txtSuplencia = "0"
+  } else {
+    txtSuplencia = pSuplencia.toString()
+  }
+
         return(
 
 
@@ -592,6 +637,66 @@ Ok
 
 
 
+<Modal className="modal-c" 
+      show={confirm}  
+      onHide={closeConfirm} 
+      animation={true} 
+      backdrop="static" 
+      keyboard={false}   
+      {...clientes}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered>
+
+
+<Modal.Header>
+
+
+<Modal.Title>¿Está seguro?
+
+</Modal.Title>
+
+
+</Modal.Header>
+
+
+<Modal.Body>
+
+
+<p>¿Está seguro  que desea continuar con la alta del cliente {nombre + " " + ubicacion},
+ con una asignacion de {txtEncargado + " " + "Encargados"}, {" "}
+ {txtSupervisor + " " + "Supervisores"}, {" "}
+ {txtOperador + " " + "Operadores"} y {" "}
+ {txtSuplencia + " " + "Suplencias"}</p>
+
+
+</Modal.Body>
+
+
+<Modal.Footer>
+
+
+  <Button variant="success" onClick={finish}>
+
+
+  Si  
+
+
+  </Button>
+
+  <Button variant="danger" onClick={closeConfirm}> 
+
+  No
+
+  </Button>
+
+
+</Modal.Footer>
+
+
+</Modal>
+
+
 
 
 <Modal className="modal-c" 
@@ -627,7 +732,7 @@ Ok
 <Modal.Footer>
 
 
-  <Button variant="success" onClick={close}>
+  <Button variant="success" onClick={closeModal}>
 
 
   Ok
@@ -640,6 +745,11 @@ Ok
 
 
 </Modal>
+
+
+
+
+
   
     </div>
 
