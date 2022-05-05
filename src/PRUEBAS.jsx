@@ -158,10 +158,11 @@ const Pruebas = (pruebas) => {
                     var baja = childSnapshot.child("Fecha_Baja").val()
                     var ingreso = childSnapshot.child("Fecha_Ingreso").val()
                     var state = childSnapshot.child("Estatus").val()
+                    var hr = childSnapshot.child("Horario").val()
 
 
                     if (pos != null && pos!= ""){
-                        operadores.push({Nombre:nombre,Cliente:cl,Ubicacion:ubic,Posicion:pos,Baja:baja,Ingreso:ingreso,Estado:state})
+                        operadores.push({Nombre:nombre,Cliente:cl,Ubicacion:ubic,Posicion:pos,Baja:baja,Ingreso:ingreso,Estado:state,Horario:hr})
                     }
 
                 })
@@ -213,6 +214,25 @@ const Pruebas = (pruebas) => {
                     //    datos.push({["Nombre"]:"a"},{["Cliente"]:cl},{["Ubicacion"]:ubic},{["Horario"]:hr},{["Puesto"]:puesto},{["Descanso"]:dias,days:getDays(),["Posicion"]:pos})
                        
                     //    days.push({[index.toString()]:"/"});
+
+                    datos.sort((a,b) => {
+                        if (a.Cliente < b.Cliente) return -1;
+                        if (a.Cliente > b.Cliente) return 1
+            
+                        return 0;
+                      })
+            
+                    //  datos.sort((a,b)=>{
+                    //     if(a.Ubicacion < b.Ubicacion) return -1;
+                    //     if(a.Ubicacion > b.Ubicacion) return 1
+            
+                    //     return 0;
+            
+                    // })  
+            
+                    
+
+
                    })
 
                    
@@ -343,6 +363,9 @@ const Pruebas = (pruebas) => {
 
                             
                         }
+
+                        
+
                         datos.some((item)=>{
                            
 
@@ -474,25 +497,24 @@ const Pruebas = (pruebas) => {
                                             
                                             if (nyx.Cliente == item.Cliente 
                                                 && nyx.Ubicacion == item.Ubicacion
-                                                && iter.Turno == item.Horario   
+                                                && nyx.Horario == item.Horario   
                                                 && item.Posicion == nyx.Posicion 
                                                 && nyx.Nombre == item.Nombre
                                                 && nyx.Baja != null 
                                                 && nyx.Baja != "" 
-                                                
                                                 && nyx.Baja.substring(5,7) >= dateOne.substring(5,7)
                                                 && nyx.Baja.substring(8,10) >= +Object.keys(dialokobydiego)[0]){
                                                 item.days[index] = {[Object.keys(dialokobydiego)[0]]:nyx.Nombre}
                                                                 }
+
     
                                             else if (nyx.Cliente == item.Cliente 
                                                 && nyx.Ubicacion == item.Ubicacion
-                                                && iter.Turno == item.Horario   
+                                                && nyx.Horario == item.Horario   
                                                 && item.Posicion == nyx.Posicion 
                                                 && nyx.Nombre == item.Nombre
                                                 && nyx.Baja != null 
                                                 && nyx.Baja != "" 
-                                                
                                                 && nyx.Baja.substring(5,7) > dateOne.substring(5,7)
                                                 && nyx.Baja.substring(8,10) <= +Object.keys(dialokobydiego)[0]){
                                                     item.days[index] = {[Object.keys(dialokobydiego)[0]]:nyx.Nombre}
@@ -501,7 +523,7 @@ const Pruebas = (pruebas) => {
 
                                             if (nyx.Cliente == item.Cliente 
                                                 && nyx.Ubicacion == item.Ubicacion
-                                                && iter.Turno == item.Horario   
+                                                && nyx.Horario == item.Horario   
                                                 && item.Posicion == nyx.Posicion 
                                                 && nyx.Nombre == item.Nombre
                                                 && nyx.Ingreso != null 
@@ -516,7 +538,7 @@ const Pruebas = (pruebas) => {
 
                                         else if (nyx.Cliente == item.Cliente 
                                             && nyx.Ubicacion == item.Ubicacion
-                                            && iter.Turno == item.Horario   
+                                            && nyx.Horario == item.Horario   
                                             && item.Posicion == nyx.Posicion 
                                             && nyx.Nombre == item.Nombre
                                             && nyx.Ingreso != null 
@@ -583,12 +605,13 @@ const Pruebas = (pruebas) => {
         })
 
 
-        var alpha =  datos.sort((a,b) => {
-            if (a.Cliente < b.Cliente) return -1;
-            if (a.Cliente > b.Cliente) return 1
+        // datos.sort((a,b)=>{
+        //     if(a.Nombre < b.Nombre) return -1;
+        //     if(a.Nombre > b.Nombre) return 1
 
-            return 0;
-          })
+        //     return 0;
+
+        // })
 
           
 
