@@ -381,9 +381,9 @@ console.log("Datossd asda",datos)
                                                     incidenci = "/"
                                                 }
 
-                                                // if (nombr == sup || incidenci == "suplencia") {
-                                                //     incidenci = obser
-                                                // }
+                                                if (nombr == sup || incidenci == "suplencia") {
+                                                    incidenci = obser
+                                                }
 
                                                 
                                                 // if (cl == validateTwo && nm == nombr && state != null) {
