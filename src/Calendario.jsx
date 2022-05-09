@@ -82,7 +82,7 @@ const Calendario = (calendario) => {
       nameOne.push('supradio' + i)
   }
  
-  console.log("TryFor",nameOne)
+
 
 
 
@@ -92,7 +92,6 @@ const Calendario = (calendario) => {
     nameTwo.push('supradio' + i)
   }
 
-  console.log("NameTwo::",nameTwo)
 
   const [namae,setNamae] = useState([]);
 
@@ -129,7 +128,7 @@ const Calendario = (calendario) => {
 
   const ubicArray = [];
 
-  console.log("UBICARRAY",ubicArray)
+
 
   const unicUbicArray = [];
 
@@ -427,7 +426,7 @@ const firebaseConfig = {
 
      
 
-         console.log("Razi:",arrayPersonal)
+
         }
       })
 
@@ -506,7 +505,7 @@ const firebaseConfig = {
       setArrayPersonal([])
       
 
-      console.log("Select:", select)
+
 
 
       
@@ -528,24 +527,72 @@ const firebaseConfig = {
 //   }
 // })
 
+// clienteC:iter.clienteC,name:iter.name,hr:iter.hr,estatus:iter.estat,Ubicacion:iter.Ubicacion,Posicion:iter.Posicion
+
+
+// arrayJusti.forEach(a =>{
+
+//   a.suplencia = (a.suplencia== undefined || a.suplencia==null || a.suplencia == "")? "no se cubrio":a.suplencia
+
+//   if(a.name == "Vacante" && a.observaciones != null && a.observaciones != ""){
+//     a.estado = (a.estado == undefined || a.estado == null || a.estado =="")? "suplencia":a.estado
+//   }
+
+//   if(a.estado == undefined || a.estado == null || a.estado == ""  && (a.suplencia == undefined || a.suplencia == null || a.suplencia == "")){
+//     console.log("Esta madre esta vacia")
+//   }
+
+
+// })
+const aversijala = []
+
+
+
+const estodeberiateneralgo = []
+
+
+arrayJusti.forEach((a,i)=>{
+  a.suplencia = (a.suplencia== undefined || a.suplencia==null || a.suplencia == "")? "no se cubrio":a.suplencia
+
+  if(a.name == "Vacante" && a.observaciones != null && a.observaciones != ""){
+    a.estado = (a.estado == undefined || a.estado == null || a.estado =="")? "suplencia":a.estado
+  }
+
+  if(a.estado == undefined || a.estado == null || a.estado == ""){
+    a.estado = "suplencia"
+    
+  }
+
+  if(a.suplencia == undefined || a.suplencia == null || a.suplencia == ""){
+    a.suplencia = "no se cubrio"
+  }
+
+
+  if (a.estado == "suplencia" && a.suplencia == "no se cubrio"){
+
+
+    aversijala.push(i)
+
+
+  }
+
+  else {
+    estodeberiateneralgo.push(a)
+  }
+
+ 
+})
+
 
 function writeJustiData(event) {
   event.preventDefault()
 
-
-  arrayJusti.forEach(a =>{
-    console.log(a.suplencia)
-    a.suplencia = (a.suplencia== undefined || a.suplencia==null || a.suplencia == "")? "no se cubrio":a.suplencia
-
-    if(a.name == "Vacante" && a.observaciones != null && a.observaciones != ""){
-      a.estado = (a.estado == undefined || a.estado == null || a.estado =="")? "suplencia":a.estado
-    }
-  })
+ 
 
 
-console.log('Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient)
+
   update(ref(getDatabase(),'Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient + "%" + selUbic ),{
-    Datos:arrayJusti
+    Datos:estodeberiateneralgo
   });
 
 }
@@ -564,16 +611,29 @@ console.log('Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient)
     if (a.Posicion < b.Posicion.toString()){
       return -1;
     }
-
+    
     return 0
 
   })
 
 
 
-  // arrayJusti.sort(function (a,b){
-  //   return a.Posicion - b.Posicion
+
+
+  // arrayJusti.sort((a,b)=>{
+  //   if(+a.Posicion < +b.Posicion) return -1;
+  //   if(+a.Posicion > +b.Posicion) return 1
+
+  //   return 0;
+
   // })
+
+
+function closeModal(){
+  close()
+  window.location.reload(false)
+}
+
 
 
     return(
@@ -961,7 +1021,7 @@ Ok
     <td>{item.name}</td> 
     <td>{item.hr}
     <br/>
-    <select className="estados" onChange={v=>item.estado = v.target.value }  >
+    <select className="estados" onClick={forceUpdate} onChange={v=>item.estado = v.target.value }  >
       <option></option>
       <option>Descanso</option>
       <option>Incapacidad</option>
@@ -1163,7 +1223,7 @@ Ok
 <Modal.Footer>
 
 
-  <Button variant="success" onClick={close}>
+  <Button variant="success" onClick={closeModal}>
 
 
 Ok
