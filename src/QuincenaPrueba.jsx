@@ -259,6 +259,30 @@ console.log("Datossd asda",datos)
                                 if (fechaB != null && fechaI != null && dias != null){
                                     datos.push({Cliente:cl,Nombre:nm,Ingreso:fechaI,Baja:fechaB,Ubicacion:ubic,Horario:hr,Reasignacion:"a",Puesto:puest, dias:getDays(),descanso:dias})
                                 }
+
+
+                                datos.sort((a,b) => {
+                                    if (a.Cliente < b.Cliente) return -1;
+                                    if (a.Cliente > b.Cliente) return 1
+                        
+                                    if (a.Ubicacion < b.Ubicacion) return -1;
+                                    if (a.Ubicacion > b.Ubicacion) return 1
+
+                                    if (a.Nombre < b.Nombre) return -1;
+                                    if (a.Nombre > b.Nombre) return 1
+
+
+                                    return 0;
+                                  })
+                        
+                                    // datos.sort((a,b)=>{
+                                    //     if (a.Ubicacion < b.Ubicacion) return -1;
+                                    //     if (a.Ubicacion > b.Ubicacion) return 1
+                        
+                                    //     return 0
+                                    // })
+
+                                
          
                                 
                             fechaD.map((x)=>{
@@ -384,6 +408,7 @@ console.log("Datossd asda",datos)
                                                 if (nombr == sup || incidenci == "suplencia") {
                                                     incidenci = obser
                                                 }
+
 
                                                 
                                                 // if (cl == validateTwo && nm == nombr && state != null) {
@@ -537,12 +562,8 @@ console.log("Datossd asda",datos)
         })
 
 
-        var alpha =  datos.sort((a,b) => {
-            if (a.Cliente < b.Cliente) return -1;
-            if (a.Cliente > b.Cliente) return 1
+            
 
-            return 0;
-          })
         //   var audio = new Audio(cj);
         //   audio.loop = true;
         //   audio.play();
@@ -618,7 +639,7 @@ console.log("Datossd asda",datos)
     var tableSelect = document.getElementById('generate');
     // var tableHTML = encodeUtf8(tableSelect.outerHTML)
     // var tableHTML = utf8.encode(tableSelect.outerHTML)
-    // var tableHTML = tableSelect.innerHTML.toString()
+    var tableHTML = tableSelect.innerHTML.toString()
     // var tableHTML = btoa(tableSelect.outerHTML)
 
     var tableHTML =  tableSelect.outerHTML.replace(/ñ/g, '&ntilde;')
@@ -635,8 +656,12 @@ console.log("Datossd asda",datos)
                      .replace(/Ú/g, '&Uacute;')
                      .replace(/º/g, '&ordm;')
                      .replace(/null/g, '')
+            
                      
-
+    // var link = document.createElement('a')
+    // link.download = "Reporte Quincenal.xls";
+    // link.href = 'data:application/vnd.ms-excel,' + encodeURIComponent(tableHTML)
+    // link.click()
     
         window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tableHTML));
 
