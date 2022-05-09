@@ -99,7 +99,7 @@ function comprobar() {
 
     // M A R I O
 
-    if (usuario =="Mario" && password=="mario1234")
+    if (usuario =="suplimpieza4" && password=="versa")
      {
           history("/Calendario M")
     }  else {
