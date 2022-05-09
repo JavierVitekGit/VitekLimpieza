@@ -543,21 +543,55 @@ function validate(event){
 
 }
 
+const aversijala = []
+
+
+
+const estodeberiateneralgo = []
+
+
+arrayJusti.forEach((a,i)=>{
+  a.suplencia = (a.suplencia== undefined || a.suplencia==null || a.suplencia == "")? "no se cubrio":a.suplencia
+
+  if(a.name == "Vacante" && a.observaciones != null && a.observaciones != ""){
+    a.estado = (a.estado == undefined || a.estado == null || a.estado =="")? "suplencia":a.estado
+  }
+
+  if(a.estado == undefined || a.estado == null || a.estado == ""){
+    a.estado = "suplencia"
+    
+  }
+
+  if(a.suplencia == undefined || a.suplencia == null || a.suplencia == ""){
+    a.suplencia = "no se cubrio"
+  }
+
+
+  if (a.estado == "suplencia" && a.suplencia == "no se cubrio"){
+
+
+    aversijala.push(i)
+
+
+  }
+
+  else {
+    estodeberiateneralgo.push(a)
+  }
+
+ 
+})
 
 
 function writeJustiData(event) {
   event.preventDefault()
 
 
-  arrayJusti.forEach(a =>{
-    console.log(a.suplencia)
-    a.suplencia = (a.suplencia== undefined || a.suplencia==null || a.suplencia == "")? "no se cubrio":a.suplencia
-  })
 
 
-console.log('Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient)
+
   update(ref(getDatabase(),'Justificaciones/' + dia + "-" + mes + "-" + anio + "/" + selClient + "%" + selUbic),{
-    Datos:arrayJusti
+    Datos:estodeberiateneralgo
   });
 
 }
