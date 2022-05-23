@@ -224,11 +224,11 @@ const modClose = () => setModClient(false)
     var hora = today.getHours() 
 
 
-    var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 30);
+    var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 3);
     formatRelative(subDays(new Date(), 3), new Date(), { locale: es })
 
 
-    var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 15);
+    var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + today);
     formatRelative(subDays(new Date(), 3), new Date(), { locale: es })
   
     const cal = () => {
@@ -465,12 +465,12 @@ const firebaseConfig = {
                   var hora = childSnapshot.child("Horario").val()
                   var est = childSnapshot.child("Estatus").val()
                   var ubic = childSnapshot.child("Ubicacion").val()
-
+                  var pos = childSnapshot.child("Posicion").val()
 
                   console.log("NombreOperador",nombreOp)
 
                   if( est == 1 ) 
-                  comp.push({clienteC:clienteOp,name:nombreOp,hr:hora,estat:est,Ubicacion:ubic})
+                  comp.push({clienteC:clienteOp,name:nombreOp,hr:hora,estat:est,Ubicacion:ubic,Posicion:pos})
 
                 
 
@@ -478,7 +478,7 @@ const firebaseConfig = {
 
             comp.forEach((iter)=> {
               if (iter.clienteC == selClient && iter.Ubicacion == selUbic) {
-                arrayJusti.push({clienteC:iter.clienteC,name:iter.name,hr:iter.hr,estatus:iter.estat,Ubicacion:iter.Ubicacion})
+                arrayJusti.push({clienteC:iter.clienteC,name:iter.name,hr:iter.hr,estatus:iter.estat,Ubicacion:iter.Ubicacion,Posicion:iter.Posicion})
                 arrayJusti.sort();
 
                 console.log("Justi",arrayJusti.length)

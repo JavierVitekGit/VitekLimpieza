@@ -1,67 +1,67 @@
 .App {
-    text-align: center;
-  }
-  
-  .reasignacion {
-    background-color: rgb(212,212,212);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: black;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-  }
-  
- .reasignacion select{
-    min-width: 320px;
-    border-width: 3px;
-    text-align: center  ;
-    border-radius: 5px;
-    border-color: #ced4da;
-  }
+  text-align: center;
+}
+
+.reasignacion {
+  background-color: rgb(212,212,212);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.reasignacion select{
+  min-width: 320px;
+  border-width: 3px;
+  text-align: center  ;
+  border-radius: 5px;
+  border-color: #ced4da;
+}
 
 
 
 .reasignacion input{
-  text-align: center;
-  width: auto;
-  display: inline;
+text-align: center;
+width: auto;
+display: inline;
 }
- 
+
 .container{
-  margin-top: 15px;
-  text-align: center;
-  color: black;
-  background-color: white;
-  border-radius: 5px;
-  width: 70%;
-  height: 80%;
-  font-size: calc(10px + 2vmin);
+margin-top: 15px;
+text-align: center;
+color: black;
+background-color: white;
+border-radius: 5px;
+width: 70%;
+height: 80%;
+font-size: calc(10px + 2vmin);
 }
 
 #number{
-  width: auto;
+width: auto;
 }
 
 .roH{
 
-  background-color: black;
-  width: 100%;
-  color: white;
-  text-align: center;
+background-color: black;
+width: 100%;
+color: white;
+text-align: center;
 }
 
 
 
 #rfcL{
-  margin-top: 70px;
+margin-top: 70px;
 }
 
 #ri{
-  margin-right: 15px;
+margin-right: 15px;
 }
 
-.horInputTurn input{
-  width: 10vh;
-}
+/* .horInputTurn input{
+width: 10vh;
+} */

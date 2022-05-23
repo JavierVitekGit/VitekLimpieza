@@ -27,6 +27,11 @@ const viewMod = () => setMod(true)
 const closeMod = () => setMod(false)
 
 
+const [last,setLast] = useState(false)
+const viewLast = () => setLast(true)
+const closeLast = () => setLast(false)
+
+
 const [, updateState] = useState();
 const forceUpdate = useCallback(() => updateState({}), []);  
 
@@ -75,6 +80,13 @@ supA.forEach((item)=>{
     }
 })
 
+arraySup.sort()
+
+
+function refreshPage() {
+    window.location.reload(false);
+  }
+
 
 function finish (event) {
     event.preventDefault()
@@ -100,10 +112,16 @@ event.preventDefault()
 
 update(ref(db,'ClienteUbicacion/' + selClient + selUbic ),{
     Supervisor: selSup
+}).then(()=> {
+    viewLast()
 })
 
 }
 
+function exitWrite (event) {
+closeLast(event)
+refreshPage(event)
+}
 
 
 useLayoutEffect(()=>{
@@ -116,11 +134,18 @@ get(child(dbRef,'ClienteUbicacion')).then((snapshot)=>{
             var cl = childSnapshot.child("Nombre").val()
             var ubic = childSnapshot.child("Ubicacion").val()
             var sup = childSnapshot.child("Supervisor").val()
+            var state = childSnapshot.child("Estatus").val()
             var key = childSnapshot.key
             
+            if (state !=0) {
+                datos.push({Cliente:cl,Ubicacion:ubic})
+                
+            }
 
-            datos.push({Cliente:cl,Ubicacion:ubic})
-            supA.push(sup)
+            if(sup != "Liliana") {
+                supA.push(sup)
+            }
+            
 
 
         })
@@ -309,6 +334,53 @@ Si
 
 
 </Modal>
+
+
+
+<Modal className="modal-container" 
+      show={last}  
+      onHide={closeLast} 
+      animation={true} 
+      backdrop="static" 
+      keyboard={false}   
+      {...supervisores}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered>
+
+
+<Modal.Header>
+
+
+<Modal.Title>La reasignacion del supervisor se ha realizado con exito</Modal.Title>
+
+
+</Modal.Header>
+
+
+<Modal.Body>
+
+
+<p>La reasignacion del cliente {selClient + "-" + selUbic} se ha realizado con exito al supervisor {selSup}"</p>
+
+
+</Modal.Body>
+
+
+<Modal.Footer>
+
+
+  <Button variant="success" onClick={exitWrite}>
+Ok
+  </Button>
+
+
+
+</Modal.Footer>
+
+
+</Modal>
+
 
 
     

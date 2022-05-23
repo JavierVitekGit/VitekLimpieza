@@ -63,6 +63,9 @@ import SidebarPro from './SidebarResponsive';
 import Supervisores from './Supervisores';
 import Pruebas from './PRUEBAS';
 
+import Consulta from './Consulta';
+
+
 const App = (app) => {
 
   
@@ -150,6 +153,8 @@ const App = (app) => {
 
       <Route path ="/Reporte%20Bajas" element={<Supervisores/>} />
       <Route path ="/Test" element={<Pruebas/>} />
+
+      <Route path ="/Consulta" element={<Consulta/>} />
 
       </Routes>
 

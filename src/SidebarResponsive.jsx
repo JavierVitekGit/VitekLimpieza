@@ -20,7 +20,7 @@ const SidebarPro = () => {
           <a
             href="/"
             className="text-decoration-none"
-            style={{ color: 'inherit' }}
+            style={{ color: 'inherit'}}
           >
             ABC
           </a>
@@ -85,7 +85,11 @@ const SidebarPro = () => {
                 </NavLink>
 
                 <NavLink exact to="/Reporte Bajas">
-              <CDBSidebarMenuItem>Reporte de Bajas e Ingresos</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem>Reasignacion de Supervisor</CDBSidebarMenuItem>
+                </NavLink>
+
+                <NavLink exact to="/Consulta">
+              <CDBSidebarMenuItem>Consulta</CDBSidebarMenuItem>
                 </NavLink>
 
             </CDBSidebarMenu>

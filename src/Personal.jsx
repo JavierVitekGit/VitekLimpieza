@@ -128,9 +128,17 @@ const Personal = ({personal}) => {
   var today = new Date();
   var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
   var minInp = lastWeek.toISOString().split('T')[0]
-  
-    console.log(lastWeek.toISOString().split('T'[0]))
 
+  var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
+  var maxInp = nextWeek.toISOString().split('T')[0]
+  
+  var bornDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1 );
+  var bornInp = bornDate.toISOString().split('T')[0]
+
+  var minDate = new Date(today.getFullYear() - 70, today.getMonth(), today.getDate());
+  var minDateInp = minDate.toISOString().split('T')[0]
+
+  console.log("MinDateInp",minDateInp)
 
   const [ID,onChange1] = useState('')
   const [nombre,onChange2] = useState('')
@@ -146,6 +154,9 @@ const Personal = ({personal}) => {
 
 
   const [genero,setGenero] = useState('')
+
+  const [datosCl,setDatosCl] = useState([])
+
 
 
   const [horarioOne,setHorarioOne] = useState('')
@@ -171,11 +182,17 @@ const Personal = ({personal}) => {
   const clientesUnicos = [];
   clientesUnicos.push("")
   clientUbic.forEach((item)=>{
-    if (!clientesUnicos.includes(item.Nombre)){
-      clientesUnicos.push(item.Nombre)
-    }
+    datosCl.forEach((x)=>{
 
-   
+      if (item.Nombre == x.Cliente) {
+        if (!clientesUnicos.includes(item.Nombre)){
+          clientesUnicos.push(item.Nombre)
+        }
+      }
+
+      
+    })
+
   })
 
 
@@ -233,6 +250,9 @@ clientUbic.forEach((x)=>{
     }
   }
 })
+
+ps.sort()
+
 //  const [pvUnic,setPvUnic] = useState([]);
 
 //  pv.forEach((item)=>{
@@ -275,7 +295,7 @@ opUbic.forEach((item)=>{
   })
 
 
-  const [clientCl,setClientCl] = useState([]);
+
 
 
 
@@ -377,6 +397,19 @@ opUbic.forEach((item)=>{
       }
     })
 
+    get(child(dbRef,'ClienteUbicacion')).then((snapshot)=>{
+      if(snapshot.exists()) {
+        snapshot.forEach((x)=>{
+          var nameCl = x.child("Nombre").val()
+          var ubicacionCl = x.child("Ubicacion").val()
+          var stateCl = x.child("Estatus").val()
+
+          if (stateCl != 0) {
+            datosCl.push({Cliente:nameCl,Ubicacion:ubicacionCl,Estatus:stateCl})
+          }
+        })
+      }
+    })
 
 
     // get(child(dbRef,'ClienteUbicacion')).then((snapshot)=>{
@@ -707,7 +740,7 @@ return(
 
                 <label class="form-outline-label"  >Fecha de Nacimiento</label>
                 <br/>
-                <input type="Date" id="inputdis" class="form-control" value={fechaN} onChange={v=>setFecha(v.target.value)}  />
+                <input type="Date" id="inputdis" class="form-control" value={fechaN} onChange={v=>setFecha(v.target.value)} min={minDateInp} max={bornInp}  />
 
                 <br/>
 
@@ -735,7 +768,7 @@ return(
 
               <label class="form-outline-label"  id="dej">Fecha de Ingreso</label>
               <br/>
-                <input type="Date" id="inputdis" class="form-control" value={fechaI} onChange={v=>onChange3(v.target.value)} min={minInp} />
+                <input type="Date" id="inputdis" class="form-control" value={fechaI} onChange={v=>onChange3(v.target.value)} min={minInp} max={maxInp} />
 
 
 

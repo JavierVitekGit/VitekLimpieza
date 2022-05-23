@@ -16,6 +16,9 @@ const BajaOperador = (baja) => {
   
   console.log("NVALIDATE",nvalidate)
 
+  const [motivoBaja,setMotivoBaja] = useState('')
+
+  console.log("Motivo Baja",motivoBaja)
 
   const [vacanteB,setVacanteB] = useState([])
 
@@ -103,7 +106,8 @@ const BajaOperador = (baja) => {
 
         update(ref(db,'Operador/' + nombre),{
           Estatus:0,
-          Fecha_Baja:bajaOp
+          Fecha_Baja:bajaOp,
+          Motivo_Baja:motivoBaja
         })
 
         showConfirm()
@@ -154,7 +158,7 @@ const BajaOperador = (baja) => {
               var est = childSnapshot.child("Estatus").val()
               var pos = childSnapshot.child("Posicion").val()
 
-              if (est == 1) {
+              if (est == 1 && nombre != "Vacante") {
                 datos.push({tel:telefono,name:nombre,fi:fechaIngreso,key:id,cl:cliente,puesto:puest,ubicacion:ubic,horario:hor,Posicion:pos}) 
               
                 datos.sort()
@@ -250,11 +254,10 @@ return(
 
 
 
-<select  onClick={forceUpdate} value={nombres} onChange={handlerNombres} > 
+<select  onClick={forceUpdate} class="form-select" value={nombres} onChange={handlerNombres} > 
 {nombrecitos.map((item) => <option value={item}>{item}</option> )}
 </select> 
 
-<br></br>
 
 
 
@@ -284,10 +287,26 @@ return(
 <br/>
 <input type="Date" id="inputdis" class="form-control" value={bajaOp} onChange={v=>setBajaOp(v.target.value)} min={minInp} max={maxInp} />
 
+<br/>
+
+<br/>
+
+
+<textarea class="form-control" placeholder="Motivo de la baja" id="bajaTxtArea" onChange={v=>setMotivoBaja(v.target.value)}></textarea>
+
+<br/>
+
+<div class="btn-group">
+
+<input id="bajaOP" class="btn btn-danger" type="submit" value="Dar de Baja"  onClick={comprobar} ></input>
+
+
+</div>
+
 </div>
 
 
-<br/>
+
 
 
 
@@ -297,12 +316,7 @@ return(
 <br></br>
 
 
-        <div class="btn-group">
-
-        <input id="bajaOP" class="btn btn-danger" type="submit" value="Dar de Baja" onClick={comprobar} ></input>
-        
-
-        </div>
+       
 
         </div>
 

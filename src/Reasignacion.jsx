@@ -19,7 +19,7 @@ const Reasignacion = (reasignacion) => {
 
     const [ubic,setUbic] = useState('')
 
-
+    const [datosCl,setDatosCl] = useState([])
 
     const [shift,setShift] = useState([])
 
@@ -35,7 +35,25 @@ const Reasignacion = (reasignacion) => {
 
     var today = new Date().toISOString()
 
+    var todayI = new Date()
+
+      var lastWeek = new Date(todayI.getFullYear(), todayI.getMonth(), todayI.getDate() - 7);
+      var minInp = lastWeek.toISOString().split('T')[0]
+
+      var nextWeek = new Date(todayI.getFullYear(), todayI.getMonth(), todayI.getDate() + 7);
+      var maxInp = nextWeek.toISOString().split('T')[0]
+
+
     var fecha = today.substring(8,10) + "-" +  today.substring(5,7) + "-" + today.substring(0,4)
+
+
+    const [reasignacionF,setReasignacionF] = useState('')
+
+    var fechaReasignacion = reasignacionF.substring(8,10) + "-" + reasignacionF.substring(5 ,7) + "-" + reasignacionF.substring(0,4)
+ 
+    console.log("Fecha de Reasignacion", fechaReasignacion)
+    
+
 
     // console.log("today",today)
 
@@ -99,8 +117,7 @@ const Reasignacion = (reasignacion) => {
       }
     })
 
-    console.log("oldPosicion",oldPosicion)
-
+  
     const horarioV = []
 
     horarioV.push('')
@@ -125,6 +142,8 @@ const Reasignacion = (reasignacion) => {
       }
     })
 
+    posicionV.sort()
+
 
     const [nombrecitos,setNombrecitos] = useState([]);
     
@@ -143,10 +162,16 @@ const Reasignacion = (reasignacion) => {
 
     unicos.push('')
   
-    shift.forEach((item)=>{
-      if (!unicos.includes(item.Cliente)){
-        unicos.push(item.Cliente)
-      }
+    datosCl.forEach((item)=>{
+      shift.forEach((x)=>{
+        if (item.Cliente == x.Cliente) {
+          if (!unicos.includes(item.Cliente)){
+            unicos.push(item.Cliente)
+          }
+        }
+      })
+
+      
     });
 
     const vacanteName = []
@@ -157,7 +182,7 @@ const Reasignacion = (reasignacion) => {
       }
     })
 
-    console.log("VacanteName",vacanteName)
+
 
     // console.log(unicos.sort())
 
@@ -213,7 +238,7 @@ const Reasignacion = (reasignacion) => {
         event.preventDefault()
 
 
-        if (tel == "" || cliente=="" || ubic == "" || posicion == "" || horario == ""){
+        if (tel == "" || cliente=="" || ubic == "" || posicion == "" || horario == "" || reasignacionF == ""){
             handleShow(event);
         } else{
             Show(event);
@@ -242,7 +267,7 @@ const Reasignacion = (reasignacion) => {
       newVacant(event)
       removeData(event)
       Close();
-      showConfirm(event)
+   
     }
 
 
@@ -255,7 +280,7 @@ const Reasignacion = (reasignacion) => {
     function writeReasignacionData(event) {
         event.preventDefault()
 
-        update(ref(db,'Reasignacion/' + fecha + tel.substring(0,2) + cliente.substring(0,2)),{
+        update(ref(db,'Operador/' + nombre + "/" + "Reasignaciones/"+ fechaReasignacion + tel.substring(0,2) + cliente.substring(0,2)),{
             Nombre: tel,
             Cliente:cliente,
             Horario:horario, 
@@ -274,7 +299,13 @@ const Reasignacion = (reasignacion) => {
           Cliente:cliente,
           Horario:horario,
           Ubicacion:ubic,
-          Posicion:posicion
+          Posicion:posicion,
+         
+        }).then(()=>{
+          //Succesfully
+          showConfirm(event)
+        }).catch((error)=>{
+          console.log("No se pudo mijares")
         })
     }
 
@@ -283,6 +314,7 @@ const Reasignacion = (reasignacion) => {
 
       update(ref(db,'Operador/' + "Vacante" + nombre + oldClient[0]),{
         Cliente:oldClient[0],
+        Dias:["","","","","","",""],
         Estatus: 1,
         Fecha_Baja:"",
         Fecha_Ingreso:"",
@@ -354,6 +386,21 @@ const Reasignacion = (reasignacion) => {
           }
         })
 
+        get(child(dbRef,'ClienteUbicacion')).then((snapshot) => {
+          if (snapshot.exists()) {
+            snapshot.forEach((x)=>{
+              var nameCl = x.child("Nombre").val()
+              var ubicCl = x.child("Ubicacion").val()
+              var stateCl = x.child("Estatus").val()
+
+              if (stateCl != 0) {
+                datosCl.push({Cliente:nameCl,Ubicacion:ubicCl})
+              }
+
+            })
+          }
+        })
+
 
         // get(child(dbRef,'ClienteUbicacion')).then((snapshot)=>{
         //   if(snapshot.exists()){
@@ -386,11 +433,14 @@ const Reasignacion = (reasignacion) => {
 
       ubicA.push('')
 
-      shift.forEach((item)=>{
-        if (item.Cliente == cliente){
-            ubicA.push(item.Ubicacion)
-        }
+      shift.forEach((x)=>{
+
+          if (x.Cliente == cliente){
+              ubicA.push(x.Ubicacion)
+          }
+
       })
+      
 
       const ubicUnic = []
 
@@ -417,6 +467,7 @@ return(
             </div>    
 
       <div className="roH">
+
 
         <h1 id="roHT" >
         <i id="ri" class="bi bi-arrow-down-up"></i>
@@ -486,6 +537,14 @@ return(
         <select onClick={forceUpdate} value={posicion} onChange={v=>{setPosicion(v.target.value)}}>
         {posicionV.map((x)=><option>{x}</option>)}
         </select>
+
+        <br/>
+        
+        <label class="form-outline-label">Fecha de Resignación</label>
+
+        <br/>
+
+        <input type="date" value={reasignacionF} class="form-control" onChange={v=>{setReasignacionF(v.target.value)}} min={minInp} max={maxInp}></input>
 
 
         </div>

@@ -45,9 +45,6 @@
 
 
 
-  .Descanso{
-  }
-
   #hora{
       size: 100px;
       min-width: 150px;
@@ -55,7 +52,8 @@
 
   .Bodyy select{
     text-align: center;
-    min-width: 320px;
+    width: auto;
+    margin: auto;
   }
 
   .Bodyy input{
@@ -92,27 +90,16 @@
 margin-right: 30px;
 }
 
-.fechaIngresoOp{
-
-}
-
-.fechaIngresoOp input{
-
-}
-
-
-.fechaBajaOp input{
-
-}
-
-#fbO{
-
-}
-
 .SideOlgaB{
   align-self: start;
 }
 
 .SideOlgaBb{
   align-self: start;
+}
+
+#bajaTxtArea {
+  width: auto;
+  text-align: center;
+  display: inline-block;
 }

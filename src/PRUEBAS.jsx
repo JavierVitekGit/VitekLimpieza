@@ -54,8 +54,9 @@ const Pruebas = (pruebas) => {
 
     const [arrayD,setArrayD] = useState([])
     
-    const [generalData,setGeneralData] = useState([]);
+    const [clientData,setClientData] = useState([])
 
+   
 
     const [justificaciones,setJustificaciones] = useState([]);
 
@@ -66,7 +67,7 @@ const Pruebas = (pruebas) => {
 
    const [operadores,setOperadores] = useState([])
 
-
+    console.log("Operadores",operadores)
 
     const [fechaD,setFechaD] = useState([]);
 
@@ -147,6 +148,19 @@ const Pruebas = (pruebas) => {
 
         })
 
+        get(child(dbRef,'ClienteUbicacion/')).then((y)=>{
+            if(y.exists()){
+                y.forEach((x)=>{
+                    var nombre = x.child("Nombre").val()
+                    var est = x.child("Estatus").val()
+                    var ubic = x.child("Ubicacion").val()
+
+                    clientData.push({Cliente:nombre,Estado:est,Ubicacion:ubic})
+
+                })
+            }
+        })
+
 
         get(child(dbRef,'Operador/')).then((snapshot)=>{
             if(snapshot.exists()){
@@ -159,27 +173,35 @@ const Pruebas = (pruebas) => {
                     var ingreso = childSnapshot.child("Fecha_Ingreso").val()
                     var state = childSnapshot.child("Estatus").val()
                     var hr = childSnapshot.child("Horario").val()
+                    var reasign = childSnapshot.child("Reasignaciones/").val()
 
+                    childSnapshot.forEach((x)=>{
+                        var test = x.child("14-05-2022-MaAn").val()
 
-                    if (pos != null && pos!= ""){
-                        operadores.push({Nombre:nombre,Cliente:cl,Ubicacion:ubic,Posicion:pos,Baja:baja,Ingreso:ingreso,Estado:state,Horario:hr})
-                    }
+                        console.log("Test",test)
+                    })
+                        
+
+                        if (pos != null && pos!= "" ){
+                            operadores.push({Nombre:nombre,Cliente:cl,Ubicacion:ubic,Posicion:pos,Baja:baja,Ingreso:ingreso,Estado:state,Horario:hr,Reasignacion:reasign})
+                        }
+               
+                        
+                    
+
+                    operadores.sort((a,b)=>{
+                        if (a.Nombre < b.Nombre) return -1;
+                        if (a.Nombre > b.Nombre) return 1
+
+                        return 0
+
+                    })
 
                 })
             }
         })
 
-        get(child(dbRef,'ClienteUbicacion/')).then((snapshot)=>{
-            if (snapshot.exists()){
-                snapshot.forEach((childSnapshot)=>{
-                    var nombreC = childSnapshot.child("Nombre").val()
-                    var personalC = childSnapshot.child("Personal").val()
 
-                    personal.push({nombreC:nombreC,Personal:personalC})
-
-                })
-            }
-        })
         
     
         get(child(dbRef,'Reasignacion/')).then((snapshot)=>{
@@ -209,7 +231,13 @@ const Pruebas = (pruebas) => {
                        var puesto = n.child("Puesto").val()
                        var ubic = n.child("Ubicacion").val()
                        var pos = n.key
-                       datos.push({Nombre:"ab",Cliente:cl,Ubicacion:ubic,Horario:hr,Puesto:puesto,Descanso:dias,days:getDays(),Posicion:pos})
+
+                      
+                                datos.push({Nombre:"ab",Cliente:cl,Ubicacion:ubic,Horario:hr,Puesto:puesto,Descanso:dias,days:getDays(),Posicion:pos})
+                            
+
+
+                       
                     //    datos.push({Nombre:["a"],Cliente:[cl],Ubicacion:[ubic],Horario:[hr],Puesto:[puesto],Descanso:[dias],days:getDays(),Posicion:[pos]})
                     //    datos.push({["Nombre"]:"a"},{["Cliente"]:cl},{["Ubicacion"]:ubic},{["Horario"]:hr},{["Puesto"]:puesto},{["Descanso"]:dias,days:getDays(),["Posicion"]:pos})
                        
@@ -237,12 +265,7 @@ const Pruebas = (pruebas) => {
 
                    
 
-                    datos.sort((a,b) => {
-                        if (a.Cliente < b.Cliente) return -1;
-                        if (a.Cliente > b.Cliente) return 1
-            
-                        return 0;
-                      })
+                
 
 
                     })
@@ -311,6 +334,7 @@ const Pruebas = (pruebas) => {
                                                 var obser = cccSnapshot.child("observaciones").val()
                                                 var ubic = cccSnapshot.child("Ubicacion").val()
                                                 var state = cccSnapshot.child("estado").val()
+                                                var pos = cccSnapshot.child("Posicion").val()
                 
                                                 if (obser == null) {
                                                     obser = ""
@@ -324,9 +348,7 @@ const Pruebas = (pruebas) => {
                                                     incidenci = "/"
                                                 }
 
-                                                if (obser == "" && sup == "no se cubrio"){
-
-                                                }
+                                               
 
                                                 fechaC.forEach((c)=>{
 
@@ -344,7 +366,8 @@ const Pruebas = (pruebas) => {
                                                         Justificacion:just,
                                                         Suplencia:sup,
                                                         Observaciones:obser,
-                                                        Ubicacion:ubic})
+                                                        Ubicacion:ubic,
+                                                        Posicion:pos})
                                                 }
                                             })
                 
@@ -402,6 +425,8 @@ const Pruebas = (pruebas) => {
                                         if (item.Cliente == nyx.Cliente && item.Ubicacion == nyx.Ubicacion && item.Posicion == nyx.Posicion) {
                                             item.Nombre = nyx.Nombre
                                         }
+
+                                     
 
                                             // A N T E S
                          
@@ -480,19 +505,17 @@ const Pruebas = (pruebas) => {
                                         // if (iter.Justificacion == "Descanso" || iter.Observaciones == "") {
                                         //     iter.Observaciones = "f"
                                         // }
-                                        
 
                                         if  (iter.Nombre == nyx.Nombre 
                                                 && iter.Cliente == nyx.Cliente 
                                                 && iter.Ubicacion == item.Ubicacion
                                                 && iter.Turno == item.Horario
-                                                && item.Posicion == nyx.Posicion
-                                                && ( iter.Observaciones != "" || iter.Justificacion != "")
+                                                // && iter.Posicion == item.Posicion 
+                                                // && ( iter.Observaciones != "" || iter.Justificacion != "")
                                                 // && (iter.Justificacion == "Descanso" || iter.Observaciones == "")
                                                 && +iter.Fecha.substring(3,5) == dateOne.substring(5,7)
                                                 && +iter.Fecha.substring(0,2) == +Object.keys(dialokobydiego)[0]) {
                                                 item.days[index] = {[Object.keys(dialokobydiego)[0]]:iter.Suplencia}
-                                                    
                                             }
                                             
                                             if (nyx.Cliente == item.Cliente 
@@ -502,6 +525,8 @@ const Pruebas = (pruebas) => {
                                                 && nyx.Nombre == item.Nombre
                                                 && nyx.Baja != null 
                                                 && nyx.Baja != "" 
+                                                 && item.days[index][Object.keys(dialokobydiego)[0]] != iter.Suplencia
+                                                && item.days[index][Object.keys(dialokobydiego)[0]]=="a"
                                                 && nyx.Baja.substring(5,7) >= dateOne.substring(5,7)
                                                 && nyx.Baja.substring(8,10) >= +Object.keys(dialokobydiego)[0]){
                                                 item.days[index] = {[Object.keys(dialokobydiego)[0]]:nyx.Nombre}
@@ -515,6 +540,8 @@ const Pruebas = (pruebas) => {
                                                 && nyx.Nombre == item.Nombre
                                                 && nyx.Baja != null 
                                                 && nyx.Baja != "" 
+                                                && item.days[index][Object.keys(dialokobydiego)[0]] != iter.Suplencia
+                                                && item.days[index][Object.keys(dialokobydiego)[0]]=="a"
                                                 && nyx.Baja.substring(5,7) > dateOne.substring(5,7)
                                                 && nyx.Baja.substring(8,10) <= +Object.keys(dialokobydiego)[0]){
                                                     item.days[index] = {[Object.keys(dialokobydiego)[0]]:nyx.Nombre}
@@ -527,7 +554,8 @@ const Pruebas = (pruebas) => {
                                                 && item.Posicion == nyx.Posicion 
                                                 && nyx.Nombre == item.Nombre
                                                 && nyx.Ingreso != null 
-                                                && nyx.Ingreso != "" 
+                                                && nyx.Ingreso != ""    
+                                                && item.days[index][Object.keys(dialokobydiego)[0]] != iter.Suplencia
                                                 && nyx.Estado == 1
                                                 && item.days[index][Object.keys(dialokobydiego)[0]]=="a"
                                                 && nyx.Ingreso.substring(5,7) <= dateOne.substring(5,7)
@@ -543,10 +571,12 @@ const Pruebas = (pruebas) => {
                                             && nyx.Nombre == item.Nombre
                                             && nyx.Ingreso != null 
                                             && nyx.Ingreso != ""
+                                            && item.days[index][Object.keys(dialokobydiego)[0]] != iter.Suplencia
                                             && nyx.Estado == 1 
+                                            && item.days[index][Object.keys(dialokobydiego)[0]]=="a"
                                             && nyx.Ingreso.substring(5,7) < dateOne.substring(5,7)
                                             && nyx.Ingreso.substring(8,10) >= +Object.keys(dialokobydiego)[0]){
-                                                item.days[index] = {[Object.keys(dialokobydiego)[0]]:nyx.Nombre }
+                                                item.days[index] = {[Object.keys(dialokobydiego)[0]]:nyx.Nombre}
                                             }                        
 
 
@@ -598,7 +628,23 @@ const Pruebas = (pruebas) => {
                         })
                 
                   
+                        datos.sort((a,b)=>{
+                            if (a.Cliente < b.Cliente) return -1;
+                            if (a.Cliente > b.Cliente) return 1
 
+                            if (a.Ubicacion < b.Ubicacion) return -1;
+                            if (a.Ubicacion > b.Ubicacion) return 1
+
+                            a.days.sort((x,y)=>{
+                                if (x < y) return -1;
+                                if (x > y) return 1
+
+                                return 0;
+
+                            })
+
+                            return 0;
+                        })
 
 
             }

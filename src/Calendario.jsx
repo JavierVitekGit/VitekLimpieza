@@ -583,6 +583,7 @@ arrayJusti.forEach((a,i)=>{
  
 })
 
+console.log("Algo::",estodeberiateneralgo)
 
 function writeJustiData(event) {
   event.preventDefault()
